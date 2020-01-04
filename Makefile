@@ -1,6 +1,6 @@
 PDF = zeste_de_python.pdf
 ZIP = zeste_de_python.zip
-SRC = $(shell find src -name "*.md" | sort -n -t/ +1 +2)
+SRC = $(shell find src -name "*.md" | sort -V)
 
 FLAGS = --top-level-division=part --toc
 
