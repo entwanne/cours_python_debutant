@@ -1,2 +1,0 @@
-## Écrire dans un fichier
-

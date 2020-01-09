@@ -1,2 +1,0 @@
-## Retour sur les exceptions
-

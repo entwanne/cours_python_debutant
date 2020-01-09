@@ -1,2 +1,0 @@
-## La bibliothèque standard
-
