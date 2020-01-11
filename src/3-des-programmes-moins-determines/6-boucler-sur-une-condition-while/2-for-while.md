@@ -1,5 +1,5 @@
-## Boucler sur une condition (while)
+### Boucle for ou boucle while ?
 
-* Autre type de boucle, pour boucler sur une condition : `while`
 * Différence entre `for` et `while`, entre itérer et boucler
 * Usages de la boucle `while`, condition de fin : calculs, attentes
+* Pour le reste (itération de valeurs) : boucle for
