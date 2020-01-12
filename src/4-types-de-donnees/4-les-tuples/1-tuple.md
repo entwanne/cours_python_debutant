@@ -1,6 +1,7 @@
-## Les tuples
+### Les tuples
 
 * Équivalents aux listes mais non modifiables
 * Utiles pour des séquences de taille fixe
-    * Couples/n-uplets de valeurs
+    * Couples/n-uplets de valeurs (`dict.items()`)
+
 * Les *tuples* peuvent être des clés de dictionnaires
