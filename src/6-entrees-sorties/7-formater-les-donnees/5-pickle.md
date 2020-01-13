@@ -1,0 +1,3 @@
+### Sérialisation binaire
+
+* Module `pickle`

@@ -2,6 +2,6 @@
 
 * Concaténation, indexation, slicing
 * Opérateurs d'ordre
-* Principales méthodes : recherche, formattage, tests
 * `len`
+* Principales méthodes : recherche, tests (`isascii`, `isalpha`, etc.)
 * Méthodes plus avancée : `str.replace`, `str.split`, `str.join`
