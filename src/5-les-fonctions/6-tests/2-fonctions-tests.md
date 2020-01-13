@@ -1,4 +1,4 @@
-## Fonctions de tests
+### Fonctions de tests
 
 * Découpage, notion de fonctions unitaires
 * Assertions
