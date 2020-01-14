@@ -1,4 +1,4 @@
 ## La bibliothèque standard
 
-* Builtins
-* Modules importants de la bibliothèque standard : `os`, `sys`
+* Très fournie
+* Réflexe de regarder la stdlib
