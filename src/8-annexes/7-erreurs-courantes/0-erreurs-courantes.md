@@ -1,3 +1,4 @@
 ## Les erreurs courantes en Python
 
-* Répertoire des erreurs le splus courantes, et procédure pour les débuguer
+* Répertoire des erreurs les plus courantes
+* Procédure d'identification et de débogage
