@@ -1,0 +1,1 @@
+## Itérer sur un fichier
