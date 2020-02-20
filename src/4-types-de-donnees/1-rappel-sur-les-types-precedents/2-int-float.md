@@ -11,3 +11,4 @@
 * Nombres complexes
 
 * Précisions sur les flottants, représentation en base 2 et erreurs d'arrondis
+* Autres notations des float (`1e10`, `float('inf')`)
