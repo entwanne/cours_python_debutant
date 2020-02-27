@@ -9,3 +9,5 @@
 
 * Opérateurs bit-à-bit (`&`, `|`, `^`, `~`, `<<`, `>>`)
 * Nombres complexes
+
+* Précisions sur les flottants, représentation en base 2 et erreurs d'arrondis
