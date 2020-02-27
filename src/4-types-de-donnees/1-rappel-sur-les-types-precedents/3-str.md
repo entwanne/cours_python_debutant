@@ -1,6 +1,7 @@
 ### Chaînes de caractères
 
-* Concaténation, indexation, slicing
+* Concaténation, indexation
+* slicing
 * Opérateurs d'ordre
 * `len`
 * Principales méthodes : recherche, tests (`isascii`, `isalpha`, etc.)
