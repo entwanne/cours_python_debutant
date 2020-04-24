@@ -1,6 +1,5 @@
 ### Méthodes des chaînes de caractères
 
-* `capitalize`, `upper`, `lower`, `index`
 Les chaînes de caractères possèdent d'autres méthodes utiles dont voici un bref aperçu.
 
 #### `strip`
