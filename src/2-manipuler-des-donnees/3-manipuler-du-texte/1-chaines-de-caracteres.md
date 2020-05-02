@@ -79,3 +79,5 @@ Comme par exemple pour un chemin de fichier sous Windows :
 >>> print('C:\\Python\\projet\\example.py')
 C:\Python\projet\example.py
 ```
+
+* + triple quotes
