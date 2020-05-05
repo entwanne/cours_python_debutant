@@ -16,7 +16,7 @@ Cela peut justement permettre de récupérer l'équivalent modifiable d'une cha�
 
 #### Opérations
 
-On retrouve pour les listes les opérations d'indexation (`[]`), de concaténation (`+`, `*`) et de contenance (`in`).
+On retrouve pour les listes les opérations d'indexation (`[]`), de concaténation (`+`, `*`) et d'appartenance (`in`).
 
 L'indexation permet cependant de modifier une liste en assignant une valeur à une position et d'en supprimer avec `del`.
 

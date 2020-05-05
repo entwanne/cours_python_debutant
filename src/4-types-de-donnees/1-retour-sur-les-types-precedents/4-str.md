@@ -86,9 +86,9 @@ True
 False
 ```
 
-##### Contenance
+##### Appartenance
 
-L'opérateur `in` permet de tester si une chaîne contient un caractère ou une sous-chaîne.
+L'opérateur `in` permet de tester si une chaîne contient un caractère ou une sous-chaîne (ou vu autrement, si cette sous-chaîne appartient à la chaîne).
 L'opération renvoie un booléen.
 
 ```python
