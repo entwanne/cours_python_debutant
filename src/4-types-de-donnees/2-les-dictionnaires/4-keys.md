@@ -1,8 +1,5 @@
 ### Clés de dictionnaires
 
-* Les clés de dictionnaires ne se limitent pas aux chaînes de caractères
-* Il y a par contre des restrictions, les listes ou dictionnaires ne peuvent pas être des clés (car modifiables, donc impossible de retrouver la valeur)
-
 Jusqu'ici, je n'ai présenté que des chaînes de caractères comme clés de dictionnaire, par soucis de simplicité.
 
 Mais ce ne sont pas les seuls types de clés possibles, les booléens ou les nombres sont aussi des clés valides.
