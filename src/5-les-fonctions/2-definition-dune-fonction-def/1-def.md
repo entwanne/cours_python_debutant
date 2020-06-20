@@ -1,4 +1,17 @@
 ### Bloc def
 
-* Définir une fonction à l'aide de `def toto():`
-* Le code écrit à l'intérieur du bloc n'est pas exécuté tout de suite
+On définit une fonction à l'aide du mot-clé `def` qui introduit un bloc.
+On le fait suivre du nom de la fonction, d'une paire de parenthèses et d'un `:`.
+Toutes les lignes indentées qui suivent appartiendront à la fonction.
+
+```python
+def toto():
+    print('Hello')
+    print('World!')
+```
+
+Ainsi, les lignes ne sont pas directement exécutées.
+Le bloc de code précédent ne fait que créer une nouvelle fonction connue sous le nom de `toto`.
+Son contenu sera exécuté lors de l'appel de la fonction.
+
+Le nom d'une fonction est similaire à celui d'une variable, et doit donc se soumettre aux mêmes règles.
