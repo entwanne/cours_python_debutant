@@ -1,5 +1,5 @@
 ### Découpage en fonctions
 
-* Regrouper les commandes d'affichage en fonctions
+* Diviser et regrouper les commandes d'affichage en fonctions
 * Paramétrer selon les besoins
-* Fonction pour l'application des attaques
+* Fonction pour la recherche et l'application des attaques
