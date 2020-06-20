@@ -6,5 +6,5 @@
 
 * Calcul d'un maximum
 * Dessins ASCII
-* Tri d'une liste
-* N-reines
+* Tri d'une liste (bubble sort)
+* 8-reines
