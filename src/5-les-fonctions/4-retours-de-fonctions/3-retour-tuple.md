@@ -4,7 +4,7 @@ Comme on vient de le voir, la fonction s'arrête au premier `return` rencontré.
 Une fonction renvoie donc toujours une et une seule valeur, celle de l'expression située derrière ce premier `return`.
 
 Mais il existe une astuce pour faire comme si on renvoyait plusieurs valeurs en une fois : en utilisant un tuple contenant ces valeurs.
-C'est le cas de la fonction `divmod` de la bibliothèque standard, renvoyant à la fois la division et le modulo.
+C'est le cas de la fonction `divmod` de Python, renvoyant à la fois la division et le modulo.
 
 ```python
 >>> divmod(13, 4)
