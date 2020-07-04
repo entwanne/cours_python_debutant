@@ -12,10 +12,10 @@ On importe donc le module comme on le faisait précédemment.
 >>> import math
 ```
 
-Le module a beau ne pas se trouver dans le répertoire courant, Python arrive à le trouver car il se situe dans un des répertoires d'installation.
+Le module a beau ne pas se trouver dans le répertoire d'exécution, Python arrive à le trouver car il se situe dans un des répertoires d'installation.
 
 [[attention]]
-| Attention d'ailleurs à la priorité des répertoires lors de la recherche d'un module : si nous avions un fichier `math.py` dans le répertoire courant, c'est lui qui serait importé lors d'un `import math` plutôt que celui de la bibliothèque standard.
+| Attention d'ailleurs à la priorité des répertoires lors de la recherche d'un module : si nous avions un fichier `math.py` dans le répertoire d'exécution, c'est lui qui serait importé lors d'un `import math` plutôt que celui de la bibliothèque standard.
 | Veillez donc toujours à ne pas utiliser de nom existant pour vos propres modules.
 
 Comme annoncé, nous retrouvons dans ce module différentes constantes mathématiques.

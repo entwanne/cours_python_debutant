@@ -3,7 +3,7 @@
 Les modules forment un espace de noms et permettent ainsi de regrouper les définitions de fonctions et variables, en les liant à une même entité.
 
 Ils prennent la forme de fichiers Python (un nom et une extension `.py`) et doivent suivre une nomenclature particulière (la même que pour les noms de variables ou de fonction).  
-Ainsi, un fichier `foo.py` dans le répertoire courant correspondra à un module `foo`.
+Ainsi, un fichier `foo.py` correspondra à un module `foo`.
 
 ```python
 def addition(a, b):
