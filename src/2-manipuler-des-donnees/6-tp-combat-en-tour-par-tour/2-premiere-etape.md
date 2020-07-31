@@ -5,7 +5,7 @@ Nous allons y aller par étapes et la première consistera en un seul tour de je
 D'abord, nous utiliserons `input` pour initialiser le jeu en demandant aux joueurs les noms et points de vie de leurs monstres.
 Nous les conserverons dans des variables pour les afficher au cours du jeu.
 
-Nous ne sommes pour l'instant pas en mesure de traiter une liste d'attaques, nous demanderons alors simplement aux joueurs d'entrer le nombre de PV qu'ils souhaitent infliger à l'adversaire.
+Nous ne sommes pour l'instant pas en mesure de traiter une liste d'attaques, nous demanderons alors simplement aux joueurs d'entrer le nombre de dégâts qu'ils souhaitent infliger à l'adversaire.
 Chaque monstre aura un tour de jeu puis un récapitulatif des PV sera affiché.
 
 Nous utiliserons toutes les informations recueillies pour fournir le plus d'informations possibles aux joueurs.
@@ -22,14 +22,14 @@ Et son nombre de PV : 40
 + Pythachu (50 PV) affronte Pythard (40 PV) +
 +++++++++++++++++++++++++++++++++++++++++++++
 
-Pythachu, combien de PV infligez-vous à Pythard ? 30
+Pythachu, combien de dégâts infligez-vous à Pythard ? 30
 
 +++++++++++++++++++++++++++++++++++++++++++
 + Pythachu attaque Pythard qui perd 30 PV +
 + Pythard a maintenant 10 PV              +
 +++++++++++++++++++++++++++++++++++++++++++
 
-Pythard, combien de PV infligez-vous à Pythachu ? 15
+Pythard, combien de dégâts infligez-vous à Pythachu ? 15
 
 +++++++++++++++++++++++++++++++++++++++++++
 + Pythard attaque Pythachu qui perd 15 PV +
