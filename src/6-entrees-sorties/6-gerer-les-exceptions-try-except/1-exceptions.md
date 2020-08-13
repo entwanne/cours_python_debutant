@@ -1,5 +1,54 @@
 ### Tout ne se passe pas comme prévu
 
-* Un fichier que l'on tente d'ouvrir n'existe pas forcément
-* Cela provoque une exception, qui coupe l'exécution du programme
-* Comment faire pour gérer l'erreur ?
+On a déjà rencontré des exceptions, elles se produisent quand une opération échoue (conversion impossible, élément inexistant dans un dictionnaire, ouverture d'un fichier introuvable, etc.).
+L'erreur survient alors sous la forme d'une exception avec un type particulier (`ValueError`, `TypeError, `KeyError`, etc.).
+
+Le soucis c'est que cela coupe l'exécution da la fonction et du programme (hors interpréteur interactif).
+
+Imaginions que nous souhaitions au chargement de notre jeu regarder si une sauvegarde existe.
+On esseraierait alors d'ouvrir le fichier de sauvegarde, et s'il n'existe pas on obtiendrait une excpetion.
+
+```python
+with open('game.sav') as save:
+    state = load_game(save.read())
+
+print('Jeu en cours...')
+```
+
+```python
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: 'game.sav'
+```
+
+Ainsi, le programme s'arrête à l'exception, ce qui est plutôt embêtant.
+Notre jeu devrait être en mesure de démarrer sans sauvegarde existante, de traiter l'erreur et de continuer.
+
+Pour autant une exception peut être un comportement attendu, d'autant plus si elle provient d'une valeur entrée par l'utilisateur.
+Dans une calculatrice, on veut pas que le programme plante si l'utilisateur demande une division par zéro.
+De même dans un annuaire si un nom n'est pas trouvé.
+
+```python
+def calculatrice(a, op, b):
+    if op == '+':
+        return a + b
+    if op == '-':
+        return a - b
+    if op == '*':
+        return a * b
+    if op == '/':
+        return a / b
+    print('Calcul impossible')
+```
+
+```python
+>>> calculatrice(3, '+', 0)
+3
+>>> calculatrice(3, '/', 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 9, in calculatrice
+ZeroDivisionError: division by zero
+```
+
+Comment alors peut-on gérer ces erreurs pour éviter cela ?
