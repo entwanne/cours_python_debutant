@@ -1,7 +1,5 @@
 ### Des tableaux de valeurs
 
-* Définition multi-lignes
-
 Une liste en Python peut être vue comme un tableau de valeurs.
 Un tableau au sens basique du terme : imaginez une ligne avec des cases, chaque case contenant une valeur.
 

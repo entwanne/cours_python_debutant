@@ -255,3 +255,28 @@ True
 >>> other_values is not values
 True
 ```
+
+[[a]]
+| Attention cependant avec les listes multi-dimensionnelles : `copy` ne réalise une copie que du premier niveau de la liste.
+
+Ainsi, avec le code qui suit, nous aurons encore des références communes entre les deux listes.
+
+```python
+>>> values = [['a', 'b', 'c'], ['d', 'e', 'f']]
+>>> other_values = values.copy()
+>>> values[1].append('g')
+>>> other_values
+[['a', 'b', 'c'], ['d', 'e', 'f', 'g']]
+```
+
+Nous verrons par la suite comment réaliser une copie en profondeur et éviter ce problème.
+
+Mais cela ne concerne bien sûr que les dimensions imbriquées : `values` et `other_values` restent deux listes distinctes.
+
+```python
+>>> values.append(['h', 'i', 'j'])
+>>> values
+[['a', 'b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j']]
+>>> other_values
+[['a', 'b', 'c'], ['d', 'e', 'f', 'g']]
+```

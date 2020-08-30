@@ -11,7 +11,7 @@ Le contenu du bloc ne sera exécuté que si l'expression du `if` est évaluée v
 ```python
 if 2 == 2:
     print('> Nous sommes dans le bloc conditionnel')
-    pront('> Ici encore')
+    print('> Ici encore')
 print('Nous sommes en dehors du bloc')
 ```
 

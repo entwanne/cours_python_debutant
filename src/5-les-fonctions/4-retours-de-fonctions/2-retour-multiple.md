@@ -1,9 +1,5 @@
 ### Plusieurs return dans une fonction
 
-* Il est possible d'avoir plusieurs `return` dans une même fonction
-* L'exécution s'arrêtera au premier `return` rencontré
-* Si aucun `return` n'est rencontré pendant l'exécution, la fonction renvoie `None`
-
 Une fonction n'est pas limitée à un seul `return` et il est ainsi possible d'en avoir plusieurs pour contrôler le flux d'exécution.
 
 L'exécution de la fonction s'arrêtera au premier `return` rencontré, renvoyant la valeur associée à l'expression de ce `return`.
