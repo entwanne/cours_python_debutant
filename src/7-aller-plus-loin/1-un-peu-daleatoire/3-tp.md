@@ -1,3 +1,3 @@
 ### TP : Monstre sauvage
 
-* Simuler une IA dans notre jeu (choix aléatoires)
+* Simuler une IA simpliste dans notre jeu (choix d'attaques aléatoires)
