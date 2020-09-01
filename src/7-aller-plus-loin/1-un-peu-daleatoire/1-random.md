@@ -70,4 +70,52 @@ Ainsi, notre tirage de dé se ferait comme suit.
 
 #### Opérations aléatoires
 
-* Tirer un élément : `choice`, `sample` et `shuffle`
+Mais tirer un nombre aléatoire ce n'est pas tout, et le module propose d'autres opérations aléatoires intéressantes.
+
+Par exemple, la fonction `choice` permet de sélectionner aléatoirement un élément dans une liste.
+
+```python
+>>> actions = ['manger', 'dormir', 'aller au ciné']
+>>> random.choice(actions)
+'manger'
+>>> random.choice(actions)
+'aller au ciné'
+```
+
+Si vous souhaitez tirer plusieurs valeurs sans remise, `choice` ne sera pas adaptée, vous risqueriez de tirer plusieurs fois la même.
+
+```python
+>>> random.choice(actions)
+'manger'
+>>> random.choice(actions)
+'manger'
+```
+
+Dans ce cas orientez-vous vers `sample`, qui prend en argument le nombre de valeurs à tirer en plus de la liste.
+
+```python
+>>> random.sample(actions, 2)
+['dormir', 'manger']
+```
+
+Enfin, la fonction `shuffle` permet de simplement trier aléatoire la liste (elle modifie la liste reçue en paramètre).
+
+```python
+>>> random.shuffle(actions)
+>>> actions
+['aller au ciné', 'manger', 'dormir']
+>>> random.shuffle(actions)
+>>> actions
+['dormir', 'aller au ciné', 'manger']
+```
+
+C'est utile pour mélanger un paquet de cartes ou d'autres opérations du genre, et d'avoir ensuite un tirage sans remise.
+
+```python
+>>> cards = ['as de pique', '3 de trèfle', '7 de carreau', 'dame de cœur']
+>>> random.shuffle(cards)
+>>> cards.pop()
+'3 de trèfle'
+>>> cards.pop()
+'7 de carreau'
+```
