@@ -19,6 +19,8 @@ Certains langages vous demandent d'initialiser le générateur pseudo-aléatoire
 
 Le module propose de nombreuses fonctions mais nous n'allons nous intéresser qu'à certaines d'entre-elles.
 
+#### Nombres aléatoires
+
 Premièrement, le plus simple, les fonctions pour tirer un nombre entier aléatoire, tel un lancer de dé.
 Il y en a deux, `randrange` et `randint`.
 
@@ -45,6 +47,8 @@ Ce qui est d'ailleurs strictement équivalent à :
 2
 ```
 
+(bien sûr, vous n'obtiendrez pas nécessairement les mêmes résultats que les exemples)
+
 Si l'on ne souhaitait tirer que des valeurs de dé impaires, on pourrait ajouter un pas à notre appel.
 
 ```python
@@ -55,5 +59,15 @@ Si l'on ne souhaitait tirer que des valeurs de dé impaires, on pourrait ajouter
 >>> random.randrange(1, 7, 2)
 3
 ```
+
+La fonction `randint` est un peu similaire si ce n'est qu'elle prend deux arguments (ni plus ni moins) et qu'elle retourne un nombre de cet intervalle, bornes incluses.
+Ainsi, notre tirage de dé se ferait comme suit.
+
+```python
+>>> random.randint(1, 6)
+6
+```
+
+#### Opérations aléatoires
 
 * Tirer un élément : `choice`, `sample` et `shuffle`
