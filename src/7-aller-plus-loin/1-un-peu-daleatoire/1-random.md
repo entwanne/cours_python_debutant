@@ -82,6 +82,16 @@ Par exemple, la fonction `choice` permet de sélectionner aléatoirement un él�
 'aller au ciné'
 ```
 
+Je parle de liste, mais tout objet se comportant comme une liste[^list_like] est aussi accepté, les `range` par exemple.
+Ainsi, `random.choice(range(1, 7))` est équivalent à `random.randrange(1, 7)`.
+
+[^list_like]: C'est-à-dire ayant une taille et permettant d'accéder à n'importe quel élément à partir de son index.
+
+```python
+>>> random.choice(range(1, 7))
+3
+```
+
 Si vous souhaitez tirer plusieurs valeurs sans remise, `choice` ne sera pas adaptée, vous risqueriez de tirer plusieurs fois la même.
 
 ```python
