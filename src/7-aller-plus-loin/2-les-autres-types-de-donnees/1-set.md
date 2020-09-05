@@ -206,9 +206,23 @@ KeyError: 'pop from an empty set'
 ```
 
 On retrouve sinon différentes méthodes sur les ensembles équivalentes aux opérateurs décrits au-dessus : `union`, `intersection`, `difference` et `symmetric_difference` (disjonction).
+L'avantage par rapport aux opérateurs est que ces méthodes peuvent prendre plusieurs ensembles en paramètres, ou même des objets de tous types (itérables) et opérer dessus.
+
+```python
+>>> {1, 2}.union({2, 3}, [4], (5, 6))
+{1, 2, 3, 4, 5, 6}
+```
+
+Chacune de ces méthodes est doublée d'une version qui modifie en place l'ensemble courant, respectivement `update`, `intersection_update`, `difference_update` et `symmetric_difference_update`.
+
+```python
+>>> values = {1, 2, 3}
+>>> values.intersection_update([3, 4, 5])
+>>> values
+{3}
+```
 
 * Méthodes `is...`
-* Méthodes `...update`
 * `clear` & `copy`
 
 * `frozenset`
