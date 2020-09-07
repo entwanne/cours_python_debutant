@@ -222,7 +222,50 @@ Chacune de ces méthodes est doublée d'une version qui modifie en place l'ensem
 {3}
 ```
 
-* Méthodes `is...`
-* `clear` & `copy`
+Les ensembles disposent aussi de méthodes booléennes, notamment `issubset` et `issuperset` équivalentes aux opérateurs `<=` et `>=`, ainsi que `isdisjoint` pour tester si deux ensembles sont disjoints (dont l'intersection est vide).
 
-* `frozenset`
+```python
+>>> {1, 2, 3}.isdisjoint({4, 5, 6})
+True
+>>> {1, 2, 3}.isdisjoint({3, 4, 5})
+False
+```
+
+Enfin, on retrouve les méthodes `clear` et `copy`, comme sur les listes et les dictionnaires, respectivement pour vider l'ensensemble et pour en faire une copie.
+
+#### `frozenset`
+
+Un ensemble étant une collection de données mutable, il n'est pas hashable et ne peut donc pas être utilisé comme clé de dictionnaire.
+Ainsi, un autre type existe pour représenter un ensemble immutable de données : le `frozenset`.
+
+Un `frozenset` se définit en appelant explicitement le type avec n'importe quel itérable en argument.
+
+```python
+>>> frozenset({1, 2, 3})
+frozenset({1, 2, 3})
+```
+
+Il peut aussi s'appeler seul pour définir un ensemble vide.
+
+```python
+>>> frozenset()
+frozenset()
+```
+
+Le `frozenset` dispose des mêmes méthodes et opérateurs que les ensembles classiques, à l'exception de celles qui modifient l'objet.
+
+```python
+>>> frozenset({1, 2, 3}) | frozenset({3, 4, 5})
+frozenset({1, 2, 3, 4, 5})
+>>> frozenset({1, 2, 3}).isdisjoint(frozenset({3, 4, 5}))
+False
+```
+
+Les ensembles et les `frozenset` sont compatibles entre eux, mais attention au type de retour qui dépendra de l'objet sur lequel la méthode ou l'opérateur est appliqué.
+
+```python
+>>> frozenset({1, 2, 3}) & {3, 4, 5}
+frozenset({3})
+>>> {3, 4, 5} & frozenset({1, 2, 3})
+{3}
+```
