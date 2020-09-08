@@ -34,11 +34,108 @@ On peut donc facilement modifier les valeurs sans avoir à se demander si la cl�
 Counter({5: 2, 3: 1})
 ```
 
-Quand une valeur est redéfinie, elle est donc présente « pour de vrai » dans le dictionnaire.
+Quand une valeur est redéfinie, elle est donc présente « pour de vrai » dans le dictionnaire, même si elle nulle.
 
-* opérateurs (+, -, &, |), méthodes (elements, most_common, update/substract)
+```python
+>>> occurrences[4] = 0
+>>> occurrences
+Counter({5: 2, 3: 1, 4: 0})
+```
 
-* utiliser Counter pour compter des données existantes (lettres d'une chaîne)
+Un objet `Counter` peut être initialisé comme un dictionnaire : à partir d'un dictionnaire existant ou à l'aide d'arguments nommés.
+
+```python
+>>> Counter({'foo': 3, 'bar': 5})
+Counter({'bar': 5, 'foo': 3})
+>>> Counter(foo=3, bar=5)
+Counter({'bar': 5, 'foo': 3})
+```
+
+Mais il peut aussi être instancié avec un itérable quelconque, auquel cas il s'initialisera en comptant les différentes valeurs de cet itérable.
+
+```python
+>>> Counter([1, 2, 3, 4, 3, 1])
+Counter({1: 2, 3: 2, 2: 1, 4: 1})
+>>> Counter('tortue')
+Counter({'t': 2, 'o': 1, 'r': 1, 'u': 1, 'e': 1})
+```
+
+Très pratique donc pour compter directement ce qui nous intéresse.
+
+En plus des opérations communes aux dictionnaires, on trouve aussi des opérations arithmétiques.  
+Il est ainsi possible d'additionner deux compteurs, ce qui renvoie un nouveau compteur contenant les sommes des valeurs.
+
+```python
+>>> Counter(a=5, b=1) + Counter(a=3, c=2)
+Counter({'a': 8, 'c': 2, 'b': 1})
+```
+
+À l'inverse, la soustraction entre compteurs renvoie les différences.
+Les valeurs négatives sont ensuite retirées du résultat.
+
+```python
+>>> Counter(a=5, b=1) - Counter(a=3, c=2)
+Counter({'a': 2, 'b': 1})
+```
+
+Il est possible de calculer l'union et l'intersection entre deux objets `Counter`, l'union étant composée des maximums de chaque valeur et l'intersection des minimums.
+
+```python
+>>> Counter(a=5, b=1) | Counter(a=3, c=2)
+Counter({'a': 5, 'c': 2, 'b': 1})
+>>> Counter(a=5, b=1) & Counter(a=3, c=2)
+Counter({'a': 3})
+```
+
+Enfin, les compteurs ajoutent quelques méthodes par rapport aux dictionnaires.  
+`most_common` par exemple permet d'avoir la liste ordonnée des valeurs les plus communes, associées à leur nombre d'occurrences.
+La méthode prend un paramètre `n` pour spécifier le nombre de valeurs que l'on veut obtenir (par défaut toutes les valeurs seront présentes).
+
+```python
+>>> count = Counter('abcdabcaba')
+>>> count.most_common()
+[('a', 4), ('b', 3), ('c', 2), ('d', 1)]
+>>> count.most_common(2)
+[('a', 4), ('b', 3)]
+```
+
+La méthode `elements` permet d'itérer sur les valeurs comme si elles étaient représentées plusieurs fois selon leur nombre d'occurrences.
+
+```python
+>>> for item in count.elements():
+...     print(item)
+... 
+a
+a
+a
+a
+b
+b
+b
+c
+c
+d
+```
+
+* méthodes (elements, most_common, update/substract)
+
+`update` est une méthode déjà présente sur les dictionnaires, qui a pour effet d'affecter de nouvelles valeurs aux clés existantes.
+Sur les compteurs, la méthode se chargera de faire la somme des valeurs.  
+Elle peut prendre n'importe quel itérable en argument, qu'elle considérera comme un compteur.
+
+```python
+>>> count.update('bcde')
+>>> count
+Counter({'a': 4, 'b': 4, 'c': 3, 'd': 2, 'e': 1})
+```
+
+Il est aussi possible de faire la même chose en soustrayant les compteurs avec la méthode `substract`.
+
+```python
+>>> count.subtract('abcd')
+>>> count
+Counter({'a': 3, 'b': 3, 'c': 2, 'd': 1, 'e': 1})
+```
 
 #### `defaultdict`
 
