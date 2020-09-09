@@ -54,8 +54,8 @@ Counter({'bar': 5, 'foo': 3})
 Mais il peut aussi être instancié avec un itérable quelconque, auquel cas il s'initialisera en comptant les différentes valeurs de cet itérable.
 
 ```python
->>> Counter([1, 2, 3, 4, 3, 1])
-Counter({1: 2, 3: 2, 2: 1, 4: 1})
+>>> Counter([1, 2, 3, 4, 3, 1, 3])
+Counter({3: 3, 1: 2, 2: 1, 4: 1})
 >>> Counter('tortue')
 Counter({'t': 2, 'o': 1, 'r': 1, 'u': 1, 'e': 1})
 ```
@@ -117,8 +117,6 @@ c
 d
 ```
 
-* méthodes (elements, most_common, update/substract)
-
 `update` est une méthode déjà présente sur les dictionnaires, qui a pour effet d'affecter de nouvelles valeurs aux clés existantes.
 Sur les compteurs, la méthode se chargera de faire la somme des valeurs.  
 Elle peut prendre n'importe quel itérable en argument, qu'elle considérera comme un compteur.
@@ -141,6 +139,60 @@ Counter({'a': 3, 'b': 3, 'c': 2, 'd': 1, 'e': 1})
 
 * Dictionnaires avec valeur par défaut (`setdefault` partout)
 * `defaultdict(list)`, `d[key].append(...)`
+
+On a vu il y a quelques chapitres que les dictionnaires possédaient une méthode `setdefault`.
+Cette méthode permettait d'assurer qu'une valeur soit toujours présente pour une clé.
+
+Cela simplifie des problèmes où l'on veut associer des listes de valeurs à des clés, comme un annuaire où chaque personne pourrait avoir plusieurs numéros.
+
+```python
+>>> phonebook = {}
+>>> phonebook.setdefault('Bob', []).append('0663621029')
+>>> phonebook.setdefault('Bob', []).append('0714381809')
+>>> phonebook.setdefault('Alice', []).append('0633432380')
+>>> phonebook
+{'Bob': ['0663621029', '0714381809'], 'Alice': ['0633432380']}
+```
+
+Mais les `defaultdict` permettent cela encore plus facilement : les valeurs manquantes seront automatiquement instanciées, sans besoin d'appel explicite à `setdefault`.
+Pour cela, un `defaultdict` s'instancie avec une fonction (ou un type) qui sera appelée à chaque clé manquante pour obtenir la valeur.
+
+Ainsi, l'exemple précédent pourrait se réécrire comme suit.
+
+```python
+>>> from collections import defaultdict
+>>> phonebook = defaultdict(list)
+>>> phonebook['Bob'].append('0663621029')
+>>> phonebook['Bob'].append('0714381809')
+>>> phonebook['Alice'].append('0633432380')
+>>> phonebook
+defaultdict(<class 'list'>, {'Bob': ['0663621029', '0714381809'], 'Alice': ['0633432380']})
+```
+
+Chaque fois qu'une clé n'existe pas dans le dictionnaire, `defaultdict` fait appel à `list` qui renvoie une nouvelle liste vide.
+
+Il suffit d'ailleurs d'essayer d'accéder à la valeur associée à une telle clé pour provoquer sa création.
+
+```python
+>>> phonebook['Alex']
+[]
+>>> phonebook
+defaultdict(<class 'list'>, {'Bob': ['0663621029', '0714381809'], 'Alice': ['0633432380'], 'Alex': []})
+```
+
+Et bien sûr, toute fonction pourrait être utilisée comme argument à `defaultdict`.
+
+```python
+>>> def get_default():
+...     return 'default'
+... 
+>>> titles = defaultdict(get_default)
+>>> titles['Alice'] = 'foo'
+>>> titles['Alice']
+'foo'
+>>> titles['Bob']
+'default'
+```
 
 #### `OrderedDict`
 
