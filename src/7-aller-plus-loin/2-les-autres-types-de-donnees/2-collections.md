@@ -137,9 +137,6 @@ Counter({'a': 3, 'b': 3, 'c': 2, 'd': 1, 'e': 1})
 
 #### `defaultdict`
 
-* Dictionnaires avec valeur par défaut (`setdefault` partout)
-* `defaultdict(list)`, `d[key].append(...)`
-
 On a vu il y a quelques chapitres que les dictionnaires possédaient une méthode `setdefault`.
 Cette méthode permettait d'assurer qu'une valeur soit toujours présente pour une clé.
 
@@ -183,21 +180,62 @@ defaultdict(<class 'list'>, {'Bob': ['0663621029', '0714381809'], 'Alice': ['063
 Et bien sûr, toute fonction pourrait être utilisée comme argument à `defaultdict`.
 
 ```python
->>> def get_default():
-...     return 'default'
+>>> def get_default_color():
+...     return 'noir'
 ... 
->>> titles = defaultdict(get_default)
->>> titles['Alice'] = 'foo'
->>> titles['Alice']
-'foo'
->>> titles['Bob']
-'default'
+>>> colors = defaultdict(get_default_color)
+>>> colors['mur'] = 'bleu'
+>>> colors['mur']
+'bleu'
+>>> colors['sol']
+'noir'
 ```
 
 #### `OrderedDict`
 
 * Antérieur à Python 3.6
 * Mais toujours utile : égalité entre dictionnaires ordonnés
+
+Avant Python 3.6 les dictionnaires ne conservaient pas l'ordre d'insertion des clés.
+La seule manière d'avoir un dictionnaire ordonné était d'utiliser le type `OrderedDict` du module `collections`.
+Les choses ont évolué depuis et le type a un peu perdu de son intérêt.
+
+Comme les dictionnaires, un `OrderedDict` se construit à partir d'un dictionnaire existant et/ou d'arguments nommés.
+Sans argument, on construit simplement un dictionnaire vide.
+
+```python
+>>> from collections import OrderedDict
+>>> OrderedDict()
+OrderedDict()
+>>> OrderedDict({'foo': 0, 'bar': 1})
+OrderedDict([('foo', 0), ('bar', 1)])
+>>> OrderedDict(foo=0, bar=1)
+OrderedDict([('foo', 0), ('bar', 1)])
+```
+
+On le voit par sa représentation, le dictionnaire ordonné est en fait vu comme une liste de couples clé/valeur.
+
+Il reste néanmoins une différence importante entre les dictionnaires ordonnés et les dictionnaires standards : l'ordre des éléments fait partie de la sémantique du premier.
+
+Là où deux dictionnaires seront considérés comme égaux s'ils ont les mêmes couples clé/valeur, quel que soit leur ordre, ça ne sera pas le cas pour les `OrderedDict` qui ne seront égaux que si leurs clés sont dans le même ordre.
+
+```python
+>>> {'foo': 0, 'bar': 1} == {'bar': 1, 'foo': 0}
+True
+>>> OrderedDict(foo=0, bar=1) == OrderedDict(bar=1, foo=0)
+False
+>>> OrderedDict(foo=0, bar=1) == OrderedDict(foo=0, bar=1)
+True
+```
+
+Ce n'est bien sûr valable que pour l'égalité entre deux dictionnaires ordonnés. L'égalité entre un dictionnaire ordonné et un standard ne tiendra pas compte de l'ordre.
+
+```python
+>>> OrderedDict(foo=0, bar=1) == {'bar': 1, 'foo': 0}
+True
+```
+
+Faites donc appel à `OrderedDict` si vous avez besoin d'un tel comportement, sinon vous pouvez vous contenter d'un dictionnaire standard.
 
 #### `ChainMap`
 

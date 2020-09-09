@@ -132,3 +132,5 @@ La méthode renvoie la valeur associée à cette clé dans le dictionnaire, donc
 >>> phonebook
 {'Julie': '0619096810'}
 ```
+
+* Conversions: appel à `dict(...)`, args (mapping ou liste d'items) & kwargs
