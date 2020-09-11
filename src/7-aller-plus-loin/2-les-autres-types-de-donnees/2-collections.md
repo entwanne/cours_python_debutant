@@ -193,9 +193,6 @@ Et bien sûr, toute fonction pourrait être utilisée comme argument à `default
 
 #### `OrderedDict`
 
-* Antérieur à Python 3.6
-* Mais toujours utile : égalité entre dictionnaires ordonnés
-
 Avant Python 3.6 les dictionnaires ne conservaient pas l'ordre d'insertion des clés.
 La seule manière d'avoir un dictionnaire ordonné était d'utiliser le type `OrderedDict` du module `collections`.
 Les choses ont évolué depuis et le type a un peu perdu de son intérêt.
@@ -239,29 +236,237 @@ Faites donc appel à `OrderedDict` si vous avez besoin d'un tel comportement, si
 
 #### `ChainMap`
 
-* Chaînage de dictionnaires sans copie
-* Représentation d'espaces de noms
-* Ajouter/retirer des maillons
+Parfois on a plusieurs dictionnaires que l'on aimerait pouvoir considérer comme un seul, sans pour autant nécessiter de copie vers un nouveau dictionnaire qui les intégrerait tous.
+En effet, la copie peut être coûteuse et elle n'a surtout lieu qu'une fois, le dictionnaire copié ne sera pas affecté si les dictionnaires initiaux sont modifiés.
+
+```python
+>>> phonebook_sim = {'Alice': '0633432380', 'Bob': '0663621029'}
+>>> phonebook_tel = {'Alex': '0714381809'}
+>>> phonebook = dict(phonebook_sim) # Copie pour fusionner les deux dictionnaires
+>>> phonebook.update(phonebook_tel)
+>>> phonebook
+{'Alice': '0633432380', 'Bob': '0663621029', 'Alex': '0714381809'}
+>>> phonebook_tel['Mehdi'] = '0762253973'
+>>> phonebook # phonebook n'a pas changé
+{'Alice': '0633432380', 'Bob': '0663621029', 'Alex': '0714381809'}
+```
+
+Le type `ChainMap` répond à ce problème puisqu'il permet de chaîner des dictionnaires dans un seul tout.
+
+```python
+>>> from collections import ChainMap
+>>> phonebook_sim = {'Alice': '0633432380', 'Bob': '0663621029'}
+>>> phonebook_tel = {'Alex': '0714381809'}
+>>> phonebook = ChainMap(phonebook_sim, phonebook_tel)
+>>> phonebook
+ChainMap({'Alice': '0633432380', 'Bob': '0663621029'}, {'Alex': '0714381809'})
+```
+
+Lors de la recherche d'une clé, les dictionnaires seront parcourus successivement pour trouver la valeur.
+
+```python
+>>> phonebook['Bob']
+'0663621029'
+>>> phonebook['Alex']
+'0714381809'
+```
+
+Si la clé n'existe dans aucun dictionnaire, on obtient une erreur `KeyError` comme habituellement.
+
+```python
+>>> phonebook['Mehdi']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python3.8/collections/__init__.py", line 891, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/usr/lib/python3.8/collections/__init__.py", line 883, in __missing__
+    raise KeyError(key)
+KeyError: 'Mehdi'
+```
+
+L'objet `ChainMap` ne contient que des références vers nos dictionnaires, et donc reflète bien les modifications sur ces derniers.
+
+```python
+>>> phonebook_tel['Mehdi'] = '0762253973'
+>>> phonebook['Mehdi']
+'0762253973'
+```
+
+Aussi, il est possible de directement affecter des valeurs au `ChainMap`, celles-ci seront affectées au premier dictionnaire de la chaîne.
+
+```python
+>>> phonebook['Julie'] = '0619096810'
+>>> phonebook_sim
+{'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810'}
+```
+
+Il en est de même pour les clés qui existeraient dans les dictionnaires suivants, elles seraient tout de même assignées au premier (c'est le seul accessible en écriture).
+
+```python
+>>> phonebook['Alex'] = '0734593960'
+>>> phonebook
+ChainMap({'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Alex': '0734593960'}, {'Alex': '0714381809', 'Mehdi': '0762253973'})
+```
+
+On voit ainsi comment se passe la priorité entre les dictionnaires en lecture : la chaîne est parcourue et s'arrête au premier dictionnaire contenant la clé.
+
+```python
+>>> phonebook['Alex']
+'0734593960'
+```
+
+Cette fonctionnalité est très pratique pour mettre en place des espaces de noms, comme les scopes des fonctions en Python : des variables existent à l'intérieur de la fonction et sont prioritaires par rapport aux variables extérieures.
+
+La méthode `new_child` et l'attribut `parents` sont utiles pour cela puisqu'ils permettent respectivement d'ajouter un nouveau dictionnaire en tête de la chaîne (qui comprendra donc toutes les futures modifications sur le `ChainMap`) et de récupérer la suite de la chaîne (la chaîne formée par tous les dictionnaires sauf le premier).
+
+Tous deux renvoient un nouvel objet `ChainMap` sans altérer la chaîne courante.
+
+```python
+>>> new_phonebook = phonebook.new_child()
+>>> new_phonebook['Max'] = '0704779572'
+>>> new_phonebook
+ChainMap({'Max': '0704779572'}, {'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Alex': '0734593960'}, {'Alex': '0714381809', 'Mehdi': '0762253973'})
+>>> new_phonebook.parents
+ChainMap({'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Alex': '0734593960'}, {'Alex': '0714381809', 'Mehdi': '0762253973'})
+```
+
+`new_child` peut s'utiliser sans argument, auquel cas un dictionnaire vide sera ajouté, ou en donnant directement le dictionnaire à ajouter en argument.
+
+```python
+>>> phonebook.new_child({'Max': '0704779572'})
+ChainMap({'Max': '0704779572'}, {'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Alex': '0734593960'}, {'Alex': '0714381809', 'Mehdi': '0762253973'})
+```
+
+On retrouve sinon les mêmes méthodes que sur les dictionnaires.
 
 #### `deque`
 
-* Liste chaînée
-* Données non contigues en mémoire contrairement aux tableaux (listes)
-* Accès lent aux éléments situés en milieu de liste, mais ajout d'éléments en tête/queue très rapide (pas besoin de réallouer un tableau)
+En Python les tableaux sont trompeusement appelés des listes là où ce terme fait souvent référence à des listes chaînées.
+Un tableau représente des données contigües en mémoire, qui ne peuvent pas être morcellées, et occupe donc une zone mémoire continue qui dépend de sa taille.
+
+Ainsi, lorsque l'on ajoute ou retire des éléments à un tableau, il peut être nécessaire d'adapter la taille de la zone mémoire, voire d'en trouver une nouvelle plus grande et d'y copier tous les éléments.
+Python fait cela pour nous, mais ce sont des opérations qui peuvent s'avérer coûteuses.
+
+Les listes chaînées à l'inverse sont des chaînes constituées de maillons, chaque maillon étant un élément avec son propre espace mémoire, ceux-ci peuvent être n'importe où dans la mémoire.  
+L'idée est que chaque maillon référence le précédent et le suivant dans la chaîne.
+
+On pourrait par exemple voir un maillon comme un dictionnaire avec 2 clés : `next` pour référencer le maillon suivant et `value` pour la valeur contenue (car l'idée est quand même bien d'y stocker des valeurs).
+
+Voici ainsi un équivalent en liste chaîne de la liste `[1, 2, 3, 4]`.
+
+```python
+>>> node4 = {'next': None, 'value': 4}
+>>> node3 = {'next': node4, 'value': 3}
+>>> node2 = {'next': node3, 'value': 2}
+>>> node1 = {'next': node2, 'value': 1}
+>>> values = node1
+```
+
+Les variables `node1`, `node2` etc. ne sont que temporaires pour la création de notre liste, elles n'existent plus après, seule `values` référence notre chaîne de maillons.
+
+```python
+>>> del node1
+>>> del node2
+>>> del node3
+>>> del node4
+```
+
+Il nous serait alors possible d'itérer sur notre liste chaînée pour accéder à chacune des valeurs.
+
+```python
+>>> node = values # La liste représente le premier maillon
+>>> while node is not None: # None représente la fin de liste
+...     print(node['value'])
+...     node = node['next'] # On passe au nœud suivant en réaffectant node
+... 
+1
+2
+3
+4
+```
+
+Mais il n'est pas question ici de recoder une liste chaînée, Python en propose déjà une avec le type `deque` du module `collections`.  
+*deque* pour *double-end queue*, c'est-à-dire une queue (liste chaînée) dont les deux extrêmités sont connues (le premier et le dernier maillon) et les liaisons sont doubles (chaque maillon référence le précédent et le suivant), contrairement à notre implémentation où seul le premier maillon était connu et les liaisons étaient simples (référence vers le maillon suivant uniquement).
+
+Le principe est sinon le même.
+Un *deque* se construit comme une liste, soit vide soit à partir d'un itérable existant.
+
+```python
+>>> deque()
+deque([])
+>>> deque([1, 2, 3, 4])
+deque([1, 2, 3, 4])
+```
+
+Et le type propose les mêmes méthodes que les listes, ce sont juste les algorithmes derrière qui sont différents, et certaines opérations qui sont à privilégier plutôt que d'autres.
+
+```python
+>>> values = deque([1, 2, 3, 4])
+>>> values[0]
+1
+>>> values.append(5)
+>>> values
+deque([1, 2, 3, 4, 5])
+```
+
+Par exemple, contrairement aux tableaux (`list`) il est très facile (peu coûteux) d'ajouter des éléments au début ou à la fin, puisqu'il suffit d'insérer un nouveau maillon à l'extrêmité et de changer la référence.
+De même pour supprimer un élément au début ou à la fin.
+
+Les *deque* proposent d'ailleurs des méthodes dédiées avec `appendleft` et `popleft`, équivalentes à `append` et `pop` mais pour opérer au début de la liste.
+
+```python
+>>> values.appendleft(0)
+>>> values
+deque([0, 1, 2, 3, 4, 5])
+>>> values.popleft()
+0
+>>> values
+deque([1, 2, 3, 4, 5])
+```
+
+En revanche, comme seules les extrêmités sont connues, il est coûteux d'aller chercher un élément en milieu de liste, puisqu'il est nécessaire pour cette opération de parcourir tous les maillons jusqu'au bon élément.
+
+```python
+>>> values[2]
+3
+```
+
+Pour accéder à cette valeur, il a fallu parcourir 3 maillons. Il aurait fallu en parcourir 500 pour atteindre le milieu d'une liste chaînée de 1000 éléments.
+Là où pour un tableau l'accès à chaque élément est direct puisque son emplacement mémoire est connu : il se calcule facilement à partir de la position du premier élément, les éléments étant contigüs en mémoire.
+
+Ainsi, ne faites appel aux listes chaînées que pour des opérations qui nécessiteraient de souvent ajouter et/ou supprimer des données en début/fin de séquence, c'est là leur intérêt par rapport aux tableaux.  
+Ne les utilisez pas si vous devez accéder régulièrement à des éléments situés loin des extrêmités, les performances pourraient être désastreuses.
 
 #### `namedtuple`
 
-* Un tuple représente un ensemble cohérent de données
-* Donner un nom aux éléments d'un tuple
+Pour terminer avec le module `collections`, j'aimerais vous parler des *named tuples* (*tuples* nommés).
 
+Vous le savez, un *tuple* représente un ensemble cohérent de données, par exemple deux coordonnées qui identifient un point dans le plan.
+Il est sinon semblable à une liste (bien que non modifiable) et permet d'accéder aux éléments à partir de leur position.
+
+```python
 ```python
 >>> point = (3, 5)
 >>> point[0]
 3
+```
+
+Et par *unpacking* il est possible d'accéder à ses éléments indépendemment.
+
+```python
 >>> x, y = point
 >>> y
 5
 ```
+
+Mais ne serait-il pas plus pratique de pouvoir directement taper `point.y` pour accéder à l'ordonnée du point ?
+C'est plus facilement compréhensible que `point[0]` et moins contraignant que l'*unpacking* qui nécessite de définir une nouvelle variable.
+
+Vous le voyez venir, c'est ce que proposent les *tuples* nommés, donner des noms aux éléments d'un *tuple*.
+
+* Un tuple nommé fait référence à un type particulier
+* Ce type référence les noms associés aux éléments
+* La fonction `namedtuple` permet de créer un nouveau type de *tuples* nommés
 
 ```python
 >>> from collections import namedtuple
