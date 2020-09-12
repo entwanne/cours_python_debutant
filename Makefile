@@ -2,7 +2,7 @@ PDF = zeste_de_python.pdf
 ZIP = zeste_de_python.zip
 SRC = $(shell find src -name "*.md" | sort -V)
 
-FLAGS = --top-level-division=part --toc
+FLAGS = --top-level-division=part --toc --pdf-engine=xelatex
 
 GEN = $(PDF) $(ZIP)
 
