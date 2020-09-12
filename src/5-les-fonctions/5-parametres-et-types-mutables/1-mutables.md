@@ -6,7 +6,7 @@ Les types mutables que nous avons étudiés sont les listes et les dictionnaires
 Cela signifie qu'une fois ces objets instanciés, il est possible d'en modifier la valeur.
 Ce qui n'est pas la même chose que réaffecter une variable car cela affecte toutes les références de l'objet.
 
-````python
+```python
 >>> a = b = {}
 >>> a[0] = True
 >>> a
