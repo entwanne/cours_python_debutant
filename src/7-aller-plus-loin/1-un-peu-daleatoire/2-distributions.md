@@ -45,7 +45,7 @@ D'autres distributions sont possibles pour les tirages de nombres flottants.
 Un autre point important à propos des tirages aléatoires concerne la pondération.
 En effet, les tirages discrets que nous avons effectué jusqu'ici étaient tous informes : chaque valeur avait autant de chance que les autres de tomber.
 
-Avec `random.randint(1, 6)`, chaque valeur à une probabilité de $\franc{1}{6}$ d'être tirée.
+Avec `random.randint(1, 6)`, chaque valeur à une probabilité de $\frac{1}{6}$ d'être tirée.
 On peut d'ailleurs le vérifier en simulant un très grand nombre de tirages et en calculant le nombre d'occurrences de chaque valeur pour en déterminer la fréquence.  
 Si le tirage est bien uniforme, chaque valeur est censée être équitablement présente.
 
