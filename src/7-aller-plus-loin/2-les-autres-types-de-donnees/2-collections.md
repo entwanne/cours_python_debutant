@@ -463,19 +463,43 @@ Mais ne serait-il pas plus pratique de pouvoir directement taper `point.y` pour 
 C'est plus facilement compréhensible que `point[0]` et moins contraignant que l'*unpacking* qui nécessite de définir une nouvelle variable.
 
 Vous le voyez venir, c'est ce que proposent les *tuples* nommés, donner des noms aux éléments d'un *tuple*.
+Mais tout d'abord, il faut créer un type associé à ces *tuples* nommés, pour définir justement les noms de champs.
+Car un *tuple* nommé identifiant un point ne sera pas la même chose qu'un *tuple* nommé identifiant une couleur par exemple.
 
-* Un tuple nommé fait référence à un type particulier
-* Ce type référence les noms associés aux éléments
-* La fonction `namedtuple` permet de créer un nouveau type de *tuples* nommés
+Nous allons donc devoir définir un nouveau type et c'est précisément ce que fait la fonction `namedtuple` du module `collections` : elle crée dynamiquement un type de *tuples* nommés en fonction des paramètres qu'elle reçoit.
+Pour ça, elle prend en arguments le nom du type à créer (utilisé pour la représentation de l'objet) et la liste des noms des champs des *tuples*.
+
+La fonction renvoie un type, mais il faudra assigner ce retour à une variable pour pouvoir l'utiliser, comme tout autre retour de fonction.
+Les types en Python sont en fait des objets comme les autres, qui peuvent donc être assignés à des variables.
+Par convention, on utilisera un nom commençant par une majuscule, pour identifier un type.
 
 ```python
 >>> from collections import namedtuple
 >>> Point = namedtuple('Point', ('x', 'y'))
+>>> Point
+<class '__main__.Point'>
+```
+
+Ensuite, pour instancier un objet `Point`, on appelle le type en lui donnant en arguments les deux coordonnées `x` et `y`.
+
+```python
 >>> point = Point(3, 5)
 >>> point
 Point(x=3, y=5)
 >>> point.x
 3
+```
+
+On le voit à sa représentation, il est aussi possible d'instancier l'objet en utilisant des arguments nommés.
+
+```python
+>>> Point(x=10, y=7)
+Point(x=10, y=7)
+```
+
+Notre objet `point` est toujours un *tuple*, et il reste possible de l'utiliser comme tel.
+
+```python
 >>> point[0]
 3
 >>> x, y = point
