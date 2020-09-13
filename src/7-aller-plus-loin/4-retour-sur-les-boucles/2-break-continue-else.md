@@ -51,6 +51,19 @@ Il n'est pas possible d'influer sur les boucles extérieures.
 ```
 
 Mais `break` n'est pas le seul mot-clé de contrôle du flux d'une boucle et je vais maintenant vous parler de `continue`.
+`continue` permet aussi de terminer immédiatement l'itération en cours, mais pour passer à la suivante.
+Quand un `continue` est rencontré, on est directement conduit à la ligne d'introduction de la boucle et sa condition est réévaluée.
+
+C'est un mot-clé très utile quand on traite une liste de données et que l'une des valeurs est invalide, on peut alors simplement l'ignorer et passer à la suivante.
+
+```python
+total = 0
+for value in values:
+    if value < 0:
+        print('Invalid value', value)
+        continue
+    total += value
+```
 
 * `else` pour savoir comment s'est terminée une boucle (peu utilisé)
 
