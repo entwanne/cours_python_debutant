@@ -1,0 +1,3 @@
+* Renommer les dossiers pour éviter les noms trop longs : adopter des noms concis qui résument les chapitres
+* Renommer les 0-xxx.md en 0-introduction.md
+* Utiliser des noms français slugifiés (sauf noms de modules)
