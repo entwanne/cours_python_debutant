@@ -1,3 +1,10 @@
 * Renommer les dossiers pour éviter les noms trop longs : adopter des noms concis qui résument les chapitres
 * Renommer les 0-xxx.md en 0-introduction.md
 * Utiliser des noms français slugifiés (sauf noms de modules)
+* Renommer 7-aller-plus-loin en 7-perfectionnement
+
+* Déplacer les 7-10-reseau et 7-11-parallel dans une nouvelle partie 8-aller-plus-loin ?
+* Splitter 7-11-parellel en plusieurs chapitres ? -> Non, simples introductions
+* Aborder générateurs & décorateurs ? Non, réservé aux notions avancées
+* Déplacer réseau/parallélisme/stdlib/pip dans une section dédiée (bibliothèques) + regex ?
+    * Partie 8 bibliothèques: Builtins (reversed, sorted, key=, etc.) / Système (os, sys, pathlib) / Nombres (decimal, fractions, math, statistics), Temps (time, date, datetime) / Regex (re) / Réseau (socket) / Parallélisme (threading/multiprocessing/asyncio) / pip
