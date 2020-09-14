@@ -57,6 +57,8 @@ Quand un `continue` est rencontré, on est directement conduit à la ligne d'int
 C'est un mot-clé très utile quand on traite une liste de données et que l'une des valeurs est invalide, on peut alors simplement l'ignorer et passer à la suivante.
 
 ```python
+values = [1, 2, 3, -1, 4, 5]
+
 total = 0
 for value in values:
     if value < 0:
