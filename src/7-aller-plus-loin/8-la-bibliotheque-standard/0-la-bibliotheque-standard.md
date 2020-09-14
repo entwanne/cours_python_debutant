@@ -2,3 +2,6 @@
 
 * Très fournie
 * Réflexe de regarder la stdlib
+
+* decimal, fractions
+* datetime
