@@ -1,4 +1,0 @@
-### Générateurs
-
-* `yield`
-* `send`
