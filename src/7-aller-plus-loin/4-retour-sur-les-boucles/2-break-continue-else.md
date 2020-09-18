@@ -54,6 +54,18 @@ Mais `break` n'est pas le seul mot-clé de contrôle du flux d'une boucle et je 
 `continue` permet aussi de terminer immédiatement l'itération en cours, mais pour passer à la suivante.
 Quand un `continue` est rencontré, on est directement conduit à la ligne d'introduction de la boucle et sa condition est réévaluée.
 
+```python
+while True:
+    value = input('Entrez un nombre: ')
+    if not value:
+        break
+    if not value.isdigit():
+        print('Nombre invalide')
+        continue
+    value = int(value)
+    print(f'{value} * 2 = {value * 2}')
+```
+
 C'est un mot-clé très utile quand on traite une liste de données et que l'une des valeurs est invalide, on peut alors simplement l'ignorer et passer à la suivante.
 
 ```python
@@ -67,6 +79,70 @@ for value in values:
     total += value
 ```
 
-* `else` pour savoir comment s'est terminée une boucle (peu utilisé)
+On a aussi le mot-clé `else` qui est assez facile à comprendre sur une boucle `while` : il intervient après la boucle si la condition a été évaluée comme fausse.
 
-* `continue` et `else` aussi applicables aux boucles `for`
+```python
+pv = 50
+
+while pv > 0:
+    print(f'Pythachu a {pv} PV')
+    pv -= 20
+    print('Pythachu perd 20 PV')
+else:
+    print('Pythachu est KO')
+```
+
+Le `else` intervient donc dans tous les cas… sauf si on a quitté la boucle sans réévaluer la condition (qui ne peut donc pas être fausse), c'est-à-dire en utilisant un `break`.  
+Ainsi, `else` permet de savoir comment s'est terminée une boucle, si on en est sorti normalement (auquel cas on passe dans le bloc) ou si on l'a interrompue (le bloc n'est pas exécuté).
+
+```python
+pv = 50
+
+while pv > 0:
+    print(f'Pythachu a {pv} PV')
+    degats = input('Nombre de degats : ')
+    if not degats.isdigit():
+        break
+    degats = int(degats)
+    pv -= degats
+    print(f'Pythachu perd {degats} PV')
+else:
+    print('Pythachu est KO')
+```
+
+`else` est aussi applicable à la boucle `for` en ayant le même effet, il permet de savoir si la boucle est arrivée jusqu'au bout sans être interrompu.
+
+Ainsi, sans`break` le `else` est bien exécuté.
+
+```python
+>>> for i in range(5):
+...     print(i)
+... else:
+...     print('end')
+... 
+0
+1
+2
+3
+4
+end
+```
+
+Avec un `break` il ne l'est pas.
+
+```python
+>>> for i in range(5):
+...     print(i)
+...     if i == 3:
+...         break
+... else:
+...     print('end')
+... 
+0
+1
+2
+3
+
+```
+
+Le mot-clé `else` est souvent mal compris -- on pourrait croire qu'on entre dans le `else` uniquement s'il n'y a pas eu d'itérations -- et donc peu recommandé pour lever toute ambiguïté.
