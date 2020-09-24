@@ -97,9 +97,86 @@ Dans la même veine on a la fonction `sorted`, semblable à la méthode `sort` d
 [5, 3, 2, 4, 6, 1, 9, 7, 8]
 ```
 
-On notera que
+On notera que le tri se fait en ordre croissant (les plus éléments d'abord) par défaut, mais la fonction accepte un argument `reverse` pour trier en ordre décroissant (les plus grands d'abord).
 
-* Arguments nommés des builtins (key/reverse sur sorted, etc.)
-* `zip`
+```python
+>>> sorted(values, reverse=True)
+[9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+Mieux encore, la fonction propose un paramètre `key` pour pour personnaliser comment seront triés nos éléments.
+C'est une fonction qui recevra un élément en paramètre et renverra une valeur (par exemple un nombre), le tri se fera donc suivant l'ordre entre ces valeurs.
+
+Par exemple, le tri par défaut pour les chaînes de caractères est l'ordre lexicographique (plus ou moins équivalent à l'ordre alphabétique).
+
+```python
+>>> words = ['zèbre', 'autruche', 'cheval', 'oie']
+>>> sorted(words)
+['autruche', 'cheval', 'oie', 'zèbre']
+```
+
+On pourrait alors préciser une fonction de tri `key=len` pour les trier par taille.
+
+```python
+>>> sorted(words, key=len)
+['oie', 'zèbre', 'cheval', 'autruche']
+```
+
+En effet, la fonction `len` sera appelée pour chaque mot et les mots seront triés suivant le retour de la fonction (en l'occurrence 3, 5, 6 et 8).
+Mais il est possible d'utiliser n'importe quelle fonction en tant que clé de tri, tant que cette fonction renvoie quelque chose d'ordonnable.
+
+Voici un autre exemple avec une fonction pour trier les mots dans l'ordre alphabétique mais en commençant par la dernière lettre du mot.
+
+```python
+>>> def key_func(word):
+...     return word[::-1] # On renvoie le mot à l'envers
+... 
+>>> sorted(words, key=key_func)
+['autruche', 'oie', 'zèbre', 'cheval']
+```
+
+Ces deux arguments sont aussi disponibles sur la méthode `sort` des listes.
+
+```python
+>>> words.sort(key=len, reverse=True)
+>>> words
+['autruche', 'cheval', 'zèbre', 'oie']
+```
+
+#### `zip`
+
+`zip` est une fonction très pratique de Python, puisqu'elle permet de parcourir simultanément sur plusieurs itérables.
+On appelle la fonction en lui fournissant nos itérables en arguments, et l'on itère ensuite sur l'objet qu'elle nous renvoie.  
+Les éléments que l'on obtient alors sont des tuples formés des éléments de nos itérables de départ.
+
+```python
+>>> for elem in zip(words, 'abcd', range(4)):
+...     print(elem)
+... 
+('autruche', 'a', 0)
+('cheval', 'b', 1)
+('zèbre', 'c', 2)
+('oie', 'd', 3)
+```
+
+Il est ainsi possible d'utiliser l'_unpacking_ de Python pour avoir quelque chose de plus explicite.
+
+```python
+>>> for word, letter, number in zip(words, 'abcd', range(4)):
+...     print(word, letter, number)
+... 
+autruche a 0
+cheval b 1
+zèbre c 2
+oie d 3
+```
+
+`zip` accepte autant d'arguments que l'on souhaite, on peut l'appeler avec deux itérables comme avec dix.
+
+Aussi, il s'arrête dès que l'un des itérables se termine, [...]
+
+```python
+```
+
 * Module `itertools`
 * Recettes d'`itertools`
