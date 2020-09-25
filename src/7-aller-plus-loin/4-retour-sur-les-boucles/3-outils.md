@@ -173,10 +173,112 @@ oie d 3
 
 `zip` accepte autant d'arguments que l'on souhaite, on peut l'appeler avec deux itérables comme avec dix.
 
-Aussi, il s'arrête dès que l'un des itérables se termine, [...]
+Aussi, il s'arrête dès que l'un des itérables se termine, puisqu'il ne peut alors plus produire de tuple contenant un élément de chaque.
 
 ```python
+>>> for i, j in zip(range(2, 6), range(10)):
+...     print(i, j)
+... 
+2 0
+3 1
+4 2
+5 3
 ```
 
-* Module `itertools`
-* Recettes d'`itertools`
+#### Module `itertools`
+
+En plus des outils *built-in* pour manipuler les itérables, la bibliothèque standard fournit aussi une mine d'or : le module [`itertools`](https://docs.python.org/fr/3/library/itertools.html).
+
+Je ne détaillerai pas tout ce que contient le module, la documentation fera cela beaucoup mieux que moi.
+Je veux juste vous présenter quelques fonctions qui pourraient vous être bien utiles.
+
+##### `chain`
+
+Comme son nom l'indique, `chain` permet de chaîner plusieurs itérables, de façon transparente et quels que soient leurs types.
+
+```python
+>>> from itertools import chain
+>>> for letter in chain('ABC', ['D', 'E'], ('F', 'G')):
+...     print(letter)
+... 
+A
+B
+C
+D
+E
+F
+G
+```
+
+##### `zip_longest`
+
+`zip_longest` est un équivalent à `zip` qui ne s'arrête pas au premier itérable terminé mais qui continue jusqu'au dernier.
+Les valeurs manquantes seront alors complétées par `None`, ou par la valeur précisée au paramètre `fillvalue`.
+
+```python
+>>> from itertools import zip_longest
+>>> for i, j in zip_longest(range(2, 6), range(10)):
+...     print(i, j)
+... 
+2 0
+3 1
+4 2
+5 3
+None 4
+None 5
+None 6
+None 7
+None 8
+None 9
+>>> for letter1, letter2 in zip_longest('ABCD', 'EF', fillvalue='.'):
+...     print(letter1, letter2)
+... 
+A E
+B F
+C .
+D .
+```
+
+##### `product`
+
+`product` calcule le produit cartésien entre plusieurs itérables, c'est-à-dire qu'il produit toutes les combinaisons d'éléments possibles.
+
+```python
+>>> from itertools import product
+>>> for i, c in product(range(5), 'ABC'):
+...     print(i, c)
+... 
+0 A
+0 B
+0 C
+1 A
+1 B
+1 C
+2 A
+2 B
+2 C
+3 A
+3 B
+3 C
+4 A
+4 B
+4 C
+```
+
+Cela revient à écrire des boucles `for` imbriquées tout en économisant des niveaux d'indentation.
+L'exemple précédent est ainsi équivalent au code suivant.
+
+```python
+for i in range(5):
+    for c in 'ABC':
+        print(i, c)
+```
+
+Le module propose d'autres fonctions combinatoires que je vous invite à regarder.
+
+##### Recettes
+
+En plus de donner des explications et exemples pour chacune de ses fonctions, la documentation du module `itertools` [fournit aussi quelques « recettes »](https://docs.python.org/fr/3/library/itertools.html#itertools-recipes).
+
+Il s'agit de fonctions qui répondent à des besoins trop particuliers pour être vraiment intégrées au module.
+Les recettes sont là pour que vous les repreniez dans votre code et que vous les adaptiez à votre convenance.
