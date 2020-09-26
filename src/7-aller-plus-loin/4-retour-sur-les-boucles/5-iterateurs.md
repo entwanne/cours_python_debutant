@@ -5,4 +5,5 @@
 
 * Équivalence d'une boucle `for`
 
+* `map` & `filter`
 * Itérateurs infinis (`itertools.count`)
