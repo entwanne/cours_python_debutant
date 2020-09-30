@@ -112,11 +112,80 @@ Il est aussi possible d'utiliser plusieurs `if` dans l'intension pour définir p
 #### Boucles imbriquées
 
 D'ailleurs, les `for` aussi peuvent être chaînés au sein d'une même intension.
+Cela permet alors de faire la même chose qu'avec des boucles imbriquées pour remplir notre liste.
 
-* Multiples `for` dans une intension
+```python
+>>> [(i, c) for i in range(3) for c in 'AB']
+[(0, 'A'), (0, 'B'), (1, 'A'), (1, 'B'), (2, 'A'), (2, 'B')]
+```
 
-* Intensions imbriquées
+Les boucles sont à lire de gauche à droite comme si elles étaient écrites de haut en bas, le code précédent est équivalent à :
+
+```python
+values = []
+for i in range(3):
+    for c in 'AB':
+        values.append((i, c))
+```
+
+Et il est possible d'enchaîner autant de `for` que l'on veut dans l'intension, comme l'on pourrait en imbriquer autant qu'on veut.
+Mais attention, nous obtenons bien une seule liste en sortie, comportant toutes les combinaisons parcourues lors de l'itération.
+
+Les listes en intension étant des expressions comme les autres, il est aussi possible d'imbriquer les intensions.
+C'est ainsi que l'on peut construire des listes à plusieurs dimensions.
+
+```python
+>>> table = [[0 for x in range(3)] for y in range(2)]
+>>> table
+[[0, 0, 0], [0, 0, 0]]
+```
+
+C'est un modèle de construction assez courant en Python puisqu'il ne souffre pas du problème de références multiples dont je parlais lors de la présentation des listes.
+Ici, chaque sous-liste est une instance différente et peut donc être modifiée indépendamment des autres.
+
+```python
+>>> table[0][1] = 5
+>>> table
+[[0, 5, 0], [0, 0, 0]]
+```
+
+Souvenez-vous, ce n'est pas le résultat qu'on obtenait avec `[[0] * 3] * 2` où chaque ligne était une référence vers la même liste.
+
+```python
+>>> table = [[0] * 3] * 2
+>>> table
+[[0, 0, 0], [0, 0, 0]]
+>>> table[0][1] = 5
+>>> table
+[[0, 5, 0], [0, 5, 0]]
+```
 
 #### Autres constructions en intension
 
 * Dictionnaires et ensembles en intension
+
+On parle souvent de listes en intension mais ce n'est pas le seul type qui peut être construit ainsi.
+Au programme, on trouve aussi les ensembles et les dictionnaires.
+
+Pour les ensembles, la syntaxe est identique aux listes à l'exception qu'on utilise des accolades plutôt que des crochets.
+
+```python
+>>> {i**2 for i in range(10)}
+{0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
+```
+
+Et on retrouve les mêmes fonctionnalités sur les intensions : il est possible d'avoir plusieurs boucles et d'utiliser des conditions de filtrage.
+
+```python
+>>> {i+j for i in range(10) for j in range(10) if (i+j) % 2 == 0}
+{0, 2, 4, 6, 8, 10, 12, 14, 16, 18}
+```
+
+Vous constaterez pour ce dernier exemple que le résultat ne serait pas du tout le même avec une liste, l'ensemble ne permettant pas les duplications.
+
+Pour les dictionnaires on retrouve quelque chose de similaire mais utilisant la syntaxe `cle: valeur` plutôt qu'une simple expression (où `cle` et `valeur` sont aussi des expressions).
+
+```python
+>>> {i: i**2 for i in range(10)}
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+```
