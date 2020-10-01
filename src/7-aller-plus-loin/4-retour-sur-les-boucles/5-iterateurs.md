@@ -16,7 +16,16 @@ Mais si on les regarde de plus près, on voit qu'ils sont un peu particuliers.
 ```
 
 Ou plutôt on ne voit pas grand chose justement, ces objets sont assez intrigants.
-Ils sont itérables bien sûr, nous l'avons montré plus tôt, mais on peut justement voir qu'il ne le sont qu'une fois.
+On sait qu'ils sont itérables, on l'a vu plus tôt, et on peut donc se servir de cette propriété pour les transformer en liste si c'est ce qui nous intéresse.
+
+```python
+>>> list(enumerate('abcde'))
+[(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd'), (4, 'e')]
+>>> list(zip('abc', 'def'))
+[('a', 'd'), ('b', 'e'), ('c', 'f')]
+```
+
+Mais ce qui est plus étonnant c'est qu'on ne peut itérer dessus qu'une seule fois.
 
 ```python
 >>> values = enumerate('abcde')
@@ -30,11 +39,21 @@ Ils sont itérables bien sûr, nous l'avons montré plus tôt, mais on peut just
 (4, 'e')
 >>> for v in values:
 ...     print(v)
-... 
+...
 ```
 
-Une fois parcourus, il n'est plus possible d'itérer sur leurs valeurs.
-Contrairement aux listes par exemple que l'on parcourt autant de fois que l'on veut.
+On constate le même comportement avec la conversion en liste.
+
+```
+>>> values = zip('abc', 'def')
+>>> list(values)
+[('a', 'd'), ('b', 'e'), ('c', 'f')]
+>>> list(values)
+[]
+```
+
+Une fois parcourus une première fois, il n'est plus possible d'itérer à nouveau sur leurs valeurs.
+Contrairement à d'autres itérables comme les listes ou les _ranges_ que l'on parcourt autant de fois que l'on veut.
 
 En fait, ces objets _enumerate_ et _zip_ ne sont pas seulement des itérables, ils sont des itérateurs.
 Un itérateur peut se voir comme un curseur qui se déplace le long d'un itérable, et qui logiquement se consume à chaque étape.
@@ -92,6 +111,14 @@ Mais ils se basent sur des itérables réutilisables que sont les chaînes de ca
 (4, 'e')
 ```
 
+#### Fonctions `map` et `filter`
+
+* `map` & `filter`
+
+#### Itérateurs infinis
+
+* Itérateurs infinis (`itertools.count`)
+
 #### Fonction `iter`
 
 `iter` est une fonction qui renvoie un simple itérateur sur l'itérable donné en argument.
@@ -132,8 +159,3 @@ La fonction renverra alors simplement le même itérateur.
 >>> iter(it)
 <list_iterator object at 0x7f3074a21070>
 ```
-
-* `iter(callable, sentinel)`
-
-* `map` & `filter`
-* Itérateurs infinis (`itertools.count`)
