@@ -115,13 +115,63 @@ Mais ils se basent sur des itérables réutilisables que sont les chaînes de ca
 
 * `map` & `filter`
 
+En évoquant les outils d'itération plus tôt, j'ai volontairement omis les fonctions `map` et `filter`.
+Parce que leurs fonctionnalités sont couvertes par les listes en intension et parce qu'elles renvoient des itérateurs.
+
+`map` et `filter` sont issues de la programmation fonctionnelle et servent respectivement à convertir et à filtrer les données d'un itérable.
+
+`map` prend en arguments une fonction et un itérable, et applique la fonction à chaque élément de l'itérable , renvoyant un itérateur sur les résultats.
+
+```python
+>>> values = [1.3, 2.5, 3.8, 4.2]
+>>> map(round, values)
+<map object at 0x7f4ae2db16a0>
+>>> list(map(round, values))
+[1, 2, 4, 4]
+```
+
+Cela revient donc à utiliser la liste en intension suivante.
+
+```python
+>>> [round(v) for v in values]
+[1, 2, 4, 4]
+```
+
+`filter` est le pendant pour le filtrage des éléments.
+Ici le premier argument est une fonction utilisée comme prédicat : l'élément est conservé si le prédicat et vrai et ignoré sinon.
+
+```python
+>>> def greater_than_two(n):
+...     return n >= 2
+... 
+>>> list(filter(greater_than_two, values))
+[2.5, 3.8, 4.2]
+```
+
+Ici, la liste en intension équivalente serait la suivante.
+
+```python
+>>> [v for v in values if v >= 2]
+[2.5, 3.8, 4.2]
+```
+
+`map` et `filter` existaient avant les listes en intension et sont moins utilisées aujourd'hui, surtout lorsqu'il s'agit de les transformer en listes.
+Elles restent parfois utilisées quand on n'attend rien de plus qu'un itérateur, par exemple pour fournir en argument à une autre fonction.
+
+C'est le cas de `str.join` qui attend un itérable de chaînes de caractères et nécessite donc que les données soient converties en chaînes, ce que permet `map`.
+
+```python
+>>> ', '.join(map(str, values))
+'1.3, 2.5, 3.8, 4.2'
+```
+
 #### Itérateurs infinis
 
 * Itérateurs infinis (`itertools.count`)
 
 #### Fonction `iter`
 
-`iter` est une fonction qui renvoie un simple itérateur sur l'itérable donné en argument.
+Enfin, `iter` est une fonction qui renvoie un simple itérateur sur l'itérable donné en argument.
 Un nouvel itérateur est construit et renvoyé à chaque appel sur l'itérable.
 
 ```python
