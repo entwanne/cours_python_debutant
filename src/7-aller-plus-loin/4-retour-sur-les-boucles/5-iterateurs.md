@@ -113,8 +113,6 @@ Mais ils se basent sur des itérables réutilisables que sont les chaînes de ca
 
 #### Fonctions `map` et `filter`
 
-* `map` & `filter`
-
 En évoquant les outils d'itération plus tôt, j'ai volontairement omis les fonctions `map` et `filter`.
 Parce que leurs fonctionnalités sont couvertes par les listes en intension et parce qu'elles renvoient des itérateurs.
 
@@ -168,10 +166,137 @@ C'est le cas de `str.join` qui attend un itérable de chaînes de caractères et
 #### Itérateurs infinis
 
 * Itérateurs infinis (`itertools.count`)
+Comme je disais, un itérateur ne représente qu'un curseur, il a donc une empreinte très faible en mémoire.
+Mieux encore, il n'a même pas besoin de s'appuyer sur des données qui existent déjà, celles-ci peuvent être générées à la volée lors du parcours.
+
+C'est déjà le principe des objets _range_ qui occupent très peu d'espace : tous les nombres de l'intervalle ne sont pas stockés en mémoire à la création du _range_, ils sont simplement calculés pendant l'itération et disparaissent après.
+
+On peut pousser le concept plus loin et itérer sur des données qui ne pourraient jamais tenir dans la mémoire de l'ordinateur, des données infinies.
+C'est le cas des itérateurs que nous allons voir ici, ils ne se terminent jamais.  
+Ces itérateurs infinis sont tirés du module `itertools`.
+
+Le plus simple d'entre tous c'est `count`, qui permet de compter de 1 en 1.
+
+```python
+>>> from itertools import count
+>>> numbers = count()
+>>> next(numbers)
+0
+>>> next(numbers)
+1
+>>> next(numbers)
+2
+```
+
+À quoi cela peut-il servir ? C'est très pratique pour générer des identifiants uniques puisque chaque appel à `next` renverra un nombre différent.
+
+```python
+>>> id_seq = count()
+>>> def new_event():
+...     return {'id': next(id_seq), 'type': 'monstre', 'message': 'Un pythachu sauvage apparaît'}
+... 
+>>> new_event()
+{'id': 0, 'type': 'monstre', 'message': 'Un pythachu sauvage apparaît'}
+>>> new_event()
+{'id': 1, 'type': 'monstre', 'message': 'Un pythachu sauvage apparaît'}
+>>> new_event()
+```
+
+Cela peut être aussi utile mathématiquement, pour simplement calculer un seuil à partir duquel une propriété est vraie.
+
+```python
+>>> for i in count():
+...     if 2**i > 1000:
+...         break
+... 
+>>> i
+10
+```
+
+On sait ainsi que $2^{10}$ est la première puissance de 2 à être supérieur à 1000.
+
+On notera que `count` peut prendre deux arguments : le premier est le nombre de départ (0 par défaut) et le second est le pas (1 par défaut).
+
+```python
+>>> numbers = count(1, 2)
+>>> next(numbers)
+1
+>>> next(numbers)
+3
+>>> next(numbers)
+5
+```
+
+Un autre itérateur infini est `repeat`, qui répète simplement en boucle le même élément.
+
+```python
+>>> from itertools import repeat
+>>> values = repeat('hello')
+>>> next(values)
+'hello'
+>>> next(values)
+'hello'
+```
+
+On pourra le voir utiliser dans des `zip` pour simuler une séquence de même longueur qu'une autre.
+
+```python
+>>> def additions(seq1, seq2):
+...     for i, j in zip(seq1, seq2):
+...         print(f'{i} + {j} = {i+j}')
+... 
+>>> additions(range(10), repeat(5))
+0 + 5 = 5
+1 + 5 = 6
+2 + 5 = 7
+3 + 5 = 8
+4 + 5 = 9
+5 + 5 = 10
+6 + 5 = 11
+7 + 5 = 12
+8 + 5 = 13
+9 + 5 = 14
+```
+
+`repeat` peut aussi prendre un argument qui indique le nombre de répétitions à effectuer, auquel cas il ne sera plus infini.
+
+```python
+>>> list(repeat('hello', 5))
+['hello', 'hello', 'hello', 'hello', 'hello']
+```
+
+Dans le même genre on trouve enfin `cycle` pour boucler (indéfiniment) sur un même itérable.
+
+```python
+>>> from itertools import cycle
+>>> values = cycle(['hello', 'world'])
+>>> next(values)
+'hello'
+>>> next(values)
+'world'
+>>> next(values)
+'hello'
+```
+
+C'est aussi un cas d'utilisation pour avoir un itérable que l'on voudrait au moins aussi grand qu'un autre.
+
+```python
+>>> additions(range(10), cycle([3, 5, 8]))
+0 + 3 = 3
+1 + 5 = 6
+2 + 8 = 10
+3 + 3 = 6
+4 + 5 = 9
+5 + 8 = 13
+6 + 3 = 9
+7 + 5 = 12
+8 + 8 = 16
+9 + 3 = 12
+```
 
 #### Fonction `iter`
 
-Enfin, `iter` est une fonction qui renvoie un simple itérateur sur l'itérable donné en argument.
+Pour terminer ce chapitre je voudrais vous parler d'`iter`, une fonction qui renvoie un simple itérateur sur l'itérable donné en argument.
 Un nouvel itérateur est construit et renvoyé à chaque appel sur l'itérable.
 
 ```python
@@ -182,17 +307,25 @@ Un nouvel itérateur est construit et renvoyé à chaque appel sur l'itérable.
 <list_iterator object at 0x7f3074a28bb0>
 ```
 
-Ces itérateurs sont semblables à nos objets `enumerate`, on peut appeler `next` dessus et récupérer la valeur suivante, on peut les parcourir et les consommer avec un `for`.
+Ces itérateurs sont semblables à nos objets `enumerate`, on peut appeler `next` dessus et récupérer la valeur suivante.
+Ils sont donc utiles si l'on souhaite parcourir manuellement un itérable à coups de `next`.
 
 ```python
 >>> it = iter(values)
 >>> next(it)
 0
+>>> next(it)
+1
+>>> next(it)
+2
+```
+
+Et bien sûr on peut aussi les parcourir avec un `for`.
+Attention encore, l'itérateur avance pendant le parcours, et le `for` continuera donc l'itération à partir d'où il se trouve.
+
 >>> for v in it:
 ...     print(v)
 ... 
-1
-2
 3
 4
 >>> for v in it:
@@ -200,7 +333,7 @@ Ces itérateurs sont semblables à nos objets `enumerate`, on peut appeler `next
 ... 
 ```
 
-Les itérateurs étant des itérables, il est possible de les donner à `iter`.
+Les itérateurs étant des itérables, il est possible de les donner à leur tour à `iter`.
 La fonction renverra alors simplement le même itérateur.
 
 ```python
