@@ -1,9 +1,4 @@
-### Types d'arguments
-
-À plusieurs reprises j'ai parlé d'argument et de paramètres en évoquant la correspondance entre les premiers et les seconds.
-Je vous propose maintenant d'aller plus loin et de découvrir comment il est possible de gérer les arguments depuis nos fonctions.
-
-#### Arguments optionnels et paramètres par défaut
+### Arguments optionnels
 
 Nous savons déclarer une fonction avec des paramètres simples, et leur associer des arguments lors de l'appel, qu'ils soient positionnels ou nommés.
 
@@ -34,6 +29,12 @@ Pour définir une valeur par défaut à un paramètre, il suffit d'écrire `para
 Voici ainsi une version plus évoluée de notre fonction `log`, s'appuyant sur des valeurs par défaut.
 
 ```python
+>>> def log(message, component=None, level='info'):
+...     if component is None:
+...         print(f'[{level}] {message}')
+...     else:
+...         print(f'[{level}] {component}: {message}')
+...
 >>> log('Une erreur est survenue', 'system', 'error')
 [error] system: Une erreur est survenue
 >>> log("Message d'information")
@@ -41,6 +42,8 @@ Voici ainsi une version plus évoluée de notre fonction `log`, s'appuyant sur d
 >>> log('Fonction dépréciée', level='warning')
 [warning] Fonction dépréciée
 ```
+
+#### Paramètres par défaut mutables
 
 C'est aussi simple que cela… ou presque !
 Il y a une chose à laquelle il faut faire attention, comme toujours, les types mutables.  
@@ -109,5 +112,24 @@ Calcul complexe...
 100
 ```
 
-* Ordre de placement des arguments
-* Ordre lors de l'appel
+#### Ordre de placement des paramètres
+
+Nous l'avions vu, lors d'un appel de fonction les arguments positionnels doivent toujours être placés avant les arguments nommés.
+C'est ce qui permet à Python de faire correctement la correspondance entre arguments et paramètres.
+
+```python
+>>> log(level='warning', 'Avertissement')
+  File "<stdin>", line 1
+SyntaxError: positional argument follows keyword argument
+```
+
+Une règle similaire existe pour les paramètres : ceux qui prennent une valeur par défaut doivent se placer après les autres.
+Cela est logique puisqu'ils sont optionnels, et qu'on ne pourrait pas savoir dans le cas contraire à quel paramètre est censé correspondre un argument.
+
+```python
+>>> def log(component=None, level='info', message):
+...     pass
+... 
+  File "<stdin>", line 1
+SyntaxError: non-default argument follows default argument
+```

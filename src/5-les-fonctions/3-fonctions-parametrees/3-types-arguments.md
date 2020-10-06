@@ -25,6 +25,9 @@ Il est possible de passer à la fois des arguments positionnels et nommés, mais
 ```python
 >>> f(1, b=2)
 1 2
+>>> f(b=2, 1)
+  File "<stdin>", line 1
+SyntaxError: positional argument follows keyword argument
 ```
 
 Un paramètre ne peut toujours correspondre qu'à un seul argument, Python lèvera donc une erreur s'il reçoit deux arguments (un positionnel et un nommé) pour un même paramètre.
