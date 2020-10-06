@@ -1,6 +1,9 @@
 ### Types d'arguments
 
-* Valeurs par défaut des paramètres (attention aux mutables)
+À plusieurs reprises j'ai parlé d'argument et de paramètres en évoquant la correspondance entre les premiers et les seconds.
+Je vous propose maintenant d'aller plus loin et de découvrir comment il est possible de gérer les arguments depuis nos fonctions.
+
+#### Arguments optionnels et paramètres par défaut
 
 Nous savons déclarer une fonction avec des paramètres simples, et leur associer des arguments lors de l'appel, qu'ils soient positionnels ou nommés.
 
@@ -48,10 +51,39 @@ Pour les valeurs immutables, pas de problème, il n'y a pas de risque d'effets d
 Mais pour les mutables, faites bien attention à ce que vous faites, on arrive rapidement à des situations problématiques.
 
 ```python
+>>> def get_monster(name, attacks=[]):
+...     return {'name': name, 'attacks': attacks}
+... 
+>>> pythachu = get_monster('Pythachu')
+>>> pythachu['attacks'].append('tonnerre')
+>>> pythachu
+{'name': 'Pythachu', 'attacks': ['tonnerre']}
+>>> pythard = get_monster('Pythard')
+>>> pythard
+{'name': 'Pythard', 'attacks': ['tonnerre']}
 ```
 
+Et oui, la même liste d'attaque a été utilisée et donc partagée entre nos deux dictionnaires, d'où le bug.
 C'est pourquoi il est généralement conseillé d'éviter les mutables comme valeurs par défaut de paramètres.
-Je dis généralement car il y a des cas où c'est le comportement voulu, cela permet de mettre en place facilement un mécanisme de cache[^cache] sur une fonction par exemple.
+
+Pour cela, on utilisera une valeur comme `None` (appellée sentinelle) qui indiquera l'absence de valeur et permettra donc d'instancier un objet (ici une liste) dans le corps de la fonction, évitant le problème de l'instance partagée.
+
+```python
+>>> def get_monster(name, attacks=None):
+...     if attacks is None:
+...         attacks = []
+...     return {'name': name, 'attacks': attacks}
+... 
+>>> pythachu = get_monster('Pythachu')
+>>> pythachu['attacks'].append('tonnerre')
+>>> pythachu
+{'name': 'Pythachu', 'attacks': ['tonnerre']}
+>>> pythard = get_monster('Pythard')
+>>> pythard
+{'name': 'Pythard', 'attacks': []}
+```
+
+Je dis « généralement » car il y a des cas où c'est le comportement voulu, cela permet de mettre en place facilement un mécanisme de cache[^cache] sur une fonction par exemple.
 
 [^cache]: Un cache est une mémoire associée à une fonction, pour éviter de réexécuter des calculs coûteux.
 
