@@ -162,8 +162,6 @@ Souvenez-vous, ce n'est pas le résultat qu'on obtenait avec `[[0] * 3] * 2` où
 
 #### Autres constructions en intension
 
-* Dictionnaires et ensembles en intension
-
 On parle souvent de listes en intension mais ce n'est pas le seul type qui peut être construit ainsi.
 Au programme, on trouve aussi les ensembles et les dictionnaires.
 

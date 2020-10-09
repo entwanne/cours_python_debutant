@@ -165,7 +165,6 @@ C'est le cas de `str.join` qui attend un itérable de chaînes de caractères et
 
 #### Itérateurs infinis
 
-* Itérateurs infinis (`itertools.count`)
 Comme je disais, un itérateur ne représente qu'un curseur, il a donc une empreinte très faible en mémoire.
 Mieux encore, il n'a même pas besoin de s'appuyer sur des données qui existent déjà, celles-ci peuvent être générées à la volée lors du parcours.
 
@@ -323,6 +322,7 @@ Ils sont donc utiles si l'on souhaite parcourir manuellement un itérable à cou
 Et bien sûr on peut aussi les parcourir avec un `for`.
 Attention encore, l'itérateur avance pendant le parcours, et le `for` continuera donc l'itération à partir d'où il se trouve.
 
+```python
 >>> for v in it:
 ...     print(v)
 ... 
