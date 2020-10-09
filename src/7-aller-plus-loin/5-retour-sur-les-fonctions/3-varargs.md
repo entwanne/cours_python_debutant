@@ -1,7 +1,5 @@
 ### Arguments variadiques
 
-* `*args`, `**kwargs`
-
 Vous pensiez avoir tout vu sur les arguments ? Que nenni !
 Certaines fonctions que nous utilisons couramment exploitent encore des fonctionnalités inconnues.
 
@@ -25,14 +23,14 @@ Et cela se fait avec une syntaxe plutôt simple en Python, il suffit de placer `
 On obtiendra ainsi un tuple `args` contenant ces arguments.
 
 ```python
->>> def get_args(*args):
+>>> def print_args(*args):
 ...     print(args)
 ... 
->>> get_args()
+>>> print_args()
 ()
->>> get_args(1)
+>>> print_args(1)
 (1,)
->>> get_args(1, 2, 3)
+>>> print_args(1, 2, 3)
 (1, 2, 3)
 ```
 
@@ -61,10 +59,10 @@ TypeError: my_sum() missing 1 required positional argument: 'first'
 Si vous testez un peu, vous remarquerez que cette syntaxe est valide pour les arguments positionnels mais pas les arguments nommés.
 
 ```python
->>> get_args(foo='bar')
+>>> print_args(foo='bar')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-TypeError: get_args() got an unexpected keyword argument 'foo'
+TypeError: print_args() got an unexpected keyword argument 'foo'
 ```
 
 En effet, comment un tuple d'arguments pourrait représenter nos arguments nommés ?  
@@ -73,12 +71,12 @@ Mais il existe une autre syntaxe pour récupérer les arguments nommés, sous fo
 Là encore le nom du paramètre n'est qu'une convention.
 
 ```python
->>> def get_args(*args, **kwargs):
+>>> def print_args(*args, **kwargs):
 ...     print(args, kwargs)
 ... 
->>> get_args()
+>>> print_args()
 () {}
->>> get_args(3, 5, foo='bar', toto='tata')
+>>> print_args(3, 5, foo='bar', toto='tata')
 (3, 5) {'foo': 'bar', 'toto': 'tata'}
 ```
 
@@ -86,15 +84,53 @@ Le paramètre spécial `**kwargs` ne peut se placer que tout à la fin de la lis
 `*args` quant à lui peut se placer à peu près où vous les souhaitez (avant `**kwargs`) mais souvenez-vous qu'il attrape tous les arguments positionnels, donc les paramètres situés après ne pourront récupérer que des arguments nommés (d'où le nom de paramètre uniquement nommé).
 
 ```python
->>> def get_args(foo, *args, bar, **kwargs):
+>>> def print_args(foo, *args, bar, **kwargs):
 ...     print(foo, args, bar, kwargs)
 ...
->>> get_args(1, 2, 3, bar=4, baz=5)
+>>> print_args(1, 2, 3, bar=4, baz=5)
 1 (2, 3) 4 {'baz': 5}
 ```
 
-* _unpacking_
+#### Opérateur _splat_
 
-Ce chapitre lui-même ne vous présente pas toutes les possibilités des arguments et paramètres en Python, aussi je vous invite à consulter les liens suivants :
+L'opérateur `*` utilisé dans la liste des paramètres est appelé _splat_, et ce n'est pas sa seule utilisation.
 
-*
+Il permet en effet aussi de réaliser l'opération inverse, celle de transmettre à une fonction les éléments d'une liste (ou autre itérable) comme arguments positionnels différents.
+
+```python
+>>> def addition(a, b):
+...     return a + b
+... 
+>>> addition(*[1, 2])
+3
+>>> args = [1, 2]
+>>> addition(*args)
+3
+```
+
+`addition(*[1, 2])` est ainsi strictement équivalent à `addition(1, 2)`.
+
+Et on voit que le _splat_ du côté de l'appel n'est pas lié au _splat_ dans la définition des paramètres puisque notre fonction n'accepte pas d'arguments variadiques ici.
+Mais les deux sont bien sûr compatibles.
+
+```python
+>>> print_args(*[1, 2, 3])
+(1, 2, 3) {}
+```
+
+Contrairement aux paramètres, rien ne nous empêche ici d'utiliser plusieurs _splats_ pour envoyer des arguments de plusieurs listes, ni d'utiliser des arguments « normaux » en plus de nos listes.
+
+```python
+>>> print_args(1, 2, *[3, 4, 5], 6)
+(1, 2, 3, 4, 5, 6) {}
+>>> print_args(*[1, 2, 3], 4, *[5, 6])
+(1, 2, 3, 4, 5, 6) {}
+```
+
+De manière équivalente, `**` et l'opérateur _double-splat_ et peut s'utiliser lors d'un appel pour transmettre le contenu d'un dictionnaire comme arguments nommés.
+Il est alors nécessaire que les clés du dictionnaire soient des chaînes de caractères (un nom de paramètre ne peut pas être autre chose qu'une chaîne).
+
+```python
+>>> print_args(**{'foo': 0, 'bar': 'baz'})
+() {'foo': 0, 'bar': 'baz'}
+```
