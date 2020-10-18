@@ -95,12 +95,12 @@ operation(op, a, b)
 La _docstring_ n'est pas l'uniquement manière de documenter une fonction, d'autres informations peuvent être apportées par les annotations de types.
 Comme leur nom l'indique, ces annotations servent à décrire les types des paramètres de la fonction.
 
+* Facultatif
 * Types primitifs
-* Module typing: typing.List[...], typing.Tuple[...] -> Python 3.9
-* typing.Union[...], typing.Any
 
 On peut aussi préciser une annotation sur le type de retour de la fonction.
 
 #### Module `typing`
 
-* Module `typing` (introduction aux types courants : `List[...]`, `Tuple[...]` et leur utilité)
+* Module typing: typing.List[...], typing.Tuple[...] -> Python 3.9
+* typing.Union[...], typing.Any
