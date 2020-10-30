@@ -40,6 +40,8 @@ D'autres distributions sont possibles pour les tirages de nombres flottants.
 * `normalvariate`
 * `gauss`
 
+* Ajouter schémas
+
 #### Pondération
 
 Un autre point important à propos des tirages aléatoires concerne la pondération.
@@ -164,3 +166,5 @@ Notre tirage précédent peut alors s'écrire comme suit.
 ```
 
 Je vous laisse calculer la fréquence des tirages pour le vérifier.
+
+* Ajouter schémas des poids & poids cumulés
