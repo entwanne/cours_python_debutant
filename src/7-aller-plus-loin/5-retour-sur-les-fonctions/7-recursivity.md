@@ -58,6 +58,7 @@ Nous pouvons ajouter cette condition à notre fonction récursive et constater q
 
 Mais il y a des cas où la condition de fin est moins évidente à trouver, cela pouvant mener à une récursion infinie.
 
+
 #### Récursion infinie
 
 Notre premier cas ne possédait pas de condition de fin mais s'est arrêté en raison d'une `IndexError`.
@@ -72,7 +73,7 @@ def my_len(s):
     return s + my_len(s[1:])
 ```
 
-Là encore, nous avons oublié de prévoir la condition de fin, et patatra !
+Là encore, nous avons oublié de prévoir la condition de fin (renvoyer 0 sur une chaîne vide), et patatra !
 
 ```python
 >>> my_len('abcdef')
@@ -87,3 +88,55 @@ RecursionError: maximum recursion depth exceeded
 
 Cette fois ce n'est pas une erreur dans notre code qui nous arrête, mais une erreur de Python lui-même qui nous indique que nous avons dépassé le nombre maximum de récursions.
 Nous sommes entrés dans une récursion infinie.
+
+En fait, chaque appel récursif occupe un peu de mémoire dans notre programme, pour stocker le contexte de la fonction (les arguments qui lui sont passés par exemple).
+Quand nous empilons les appels récursifs, la mémoire utilisée croît, jusqu'à atteindre une limite.
+En Python c'est l'interpréteur qui fixe arbitrairement une limite de 1000 appels.
+
+Certains langages (les langages fonctionnels notamment) mettent en œuvre des optimisations pour supprimer cette limite, mais ce n'est pas le cas de Python qui est assez peu porté sur le modèle récursif.
+
+
+#### Récursions croisées
+
+La récursivité ne se limite pas à une fonction seule, il est aussi possible de croiser des fonctions qui s'appelleraient les unes les autres.
+
+Par exemple, comment déterminer si un nombre `n` est impair ? En regardant si `n-1` est pair !
+Et pour savoir si `n-1` est pair on teste si `n-2` est impair.
+On répète cela jusqu'à zéro que l'on sait pair (et donc non impair).
+
+En Python, cela nous donnerait les deux fonctions suivantes.
+
+```python
+def odd(n): # impair
+    if n == 0:
+        return False
+    return even(n - 1)
+
+def even(n): # pair
+    if n == 0:
+        return True
+    return odd(n - 1)
+```
+
+Qui se comportent bien comme on veut pour calculer la parité des nombres.
+
+```python
+>>> odd(5)
+True
+>>> even(5)
+False
+>>> odd(4)
+False
+>>> even(4)
+True
+```
+
+Bien sûr je ne présente ces fonctions qu'à titre d'exemple.
+Les fonctions récursives étant déjà assez rares en Python pour les raisons expliquées plus haut, les récursions croisées le sont encore plus.
+
+
+#### Transformer un code récursif en itératif
+
+* Récursivité peu recommandée en Python
+* Problèmes qui s'expriment mieux en récursif
+* Simuler la pile d'appels en itératif
