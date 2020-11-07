@@ -90,6 +90,10 @@ operation(op, a, b)
     /: division
 ```
 
+#### Comment documenter ?
+
+* Principes d'une documentatiion
+
 #### Annotations de type
 
 La _docstring_ n'est pas l'uniquement manière de documenter une fonction, d'autres informations peuvent être apportées par les annotations de types.
@@ -137,5 +141,79 @@ On le constate d'ailleurs si l'on appelle notre fonction avec des nombres flotta
 
 #### Module `typing`
 
-* typing.Union[...], typing.Any
-* Module typing: typing.List[...], typing.Tuple[...] -> Python 3.9
+Cela nous pose tout de même un problème : notre fonction est documentée pour être utilisée avec des `int`, mais on aimerait pouvoir l'appeler avec des `float`.
+On pourrait la documenter avec des `float` mais se poserait alors le problème inverse.
+
+Heureusement, il existe un module Python pour travailler et modeler ces annotations de types, le module `typing`.
+Celui-ci contient des outils qui vont nous être utiles pour préciser des cas plus complexes d'utilisation des types, comme ici avec le choix entre deux types.
+
+Pour ce problème il existe donc `typing.Union`, un objet particulier qui comme son nom l'indique permet de créer des unions (au sens mathématique) de types.
+Il s'utilise à l'aide de crochets à l'intérieur desquels sont précisés les types autorisés.  
+Dans notre cas on aurait `typing.Union[int, float]`.
+
+Cet objet définit une forme spéciale de typage, et s'utilise donc directement en tant qu'annotation.
+Un paramètre annoté ainsi sera considéré comme pouvant être de n'importe lequel des types précisés.
+
+```python
+import typing
+
+def operation(op: str, a: typing.Union[int, float], b: typing.Union[int, float]) -> typing.Union[int, float]:
+    ...
+```
+
+Ce type n'a pas pour but d'être instancié, et vous obtiendrez d'ailleurs une erreur si vous essayez de le faire.
+Il n'est utile que pour renseigner des annotations.
+
+On notera qu'il est possible de créer un alias à notre type particulier, de façon à le renseigner plus facilement, tout simplement en l'assignant à une variable.
+
+```python
+Number = typing.Union[int, float]
+
+def operation(op: str, a: Number, b: Number) -> Number:
+    ...
+```
+
+[[i]]
+| En l'occurrence dans un cas comme celui-ci on utiliserait plutôt le type `Number` du module `numbers` présenté dans la partie suivante.
+| Il est plus générique que notre solution avec `typing.Union` puisqu'il autorise aussi les complexes et d'autres types encore.
+
+--------------------
+
+D'autres problèmes peuvent se poser lorsque l'on cherche à documenter les types d'une fonction.
+Par exemple prenons la fonction `my_sum` suivante, équivalente à la fonction `sum` de la bibliothèque standard, pour calculer une somme de nombres.
+
+```python
+def my_sum(values, start=0):
+    "Calcule et renvoie les somme des éléments de `values`"
+    for value in values:
+        start += value
+    return start
+```
+
+Comment l'annoter de façon à préciser que l'on attend une liste de nombres comme premier argument ?
+On ne peut pas simplement utiliser `list` qui serait bien trop générique, autorisant des éléments d'autres types et mêmes des listes disparates (composées d'éléments de types différents).
+
+`typing` vient à la rescousse en proposant un `typing.List` que l'on spécialise avec le type voulu, ici le type spécial `Number` défini plus haut.
+
+```python
+def my_sum(values: typing.List[Number], start : typing.Number = 0) -> typing.Number:
+    ...
+```
+
+On pourrait aussi utiliser `typing.Iterable[Number]` qui aurait l'intérêt d'autoriser tout type d'itérable (tuple, range, etc.) et non uniquement les listes.
+
+[[i]]
+| Depuis Python 3.9, le type `list` est directement spécialisable comme annotation de type, rendant `typing.List` obsolète.
+| On peut ainsi simplement utiliser `list[int]` pour indiquer une liste de nombres entiers.  
+| C'est le cas aussi pour les autres conteneurs de la bibliothèque standard tels `tuple` et `dict`.
+|
+| Encore une fois, ces types particuliers n'ont pas pour but d'être instanciés et n'apporteraient aucune garantie sur leurs objets.
+| Ils ne sont utiles qu'à des fins d'annotations.
+
+Le module `typing` comprend de nombreuses choses, certaines dépassant le cadre de ce cours, et je ne vais donc pas m'appesentir sur sa présentation.
+Pour terminer, sachez simplement qu'il existe un type spécial `typing.Any`, pour préciser qu'un paramètre peut accepter une valeur de n'importe quel type.
+
+```python
+def print(value: typing.Any):
+    ...
+```
