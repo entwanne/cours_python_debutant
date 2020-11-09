@@ -15,14 +15,14 @@ On pourrait recoder cette fonction comme cela.
 
 ```python
 def divmod(a, b):
-    return (a / b, a % b)
+    return (a // b, a % b)
 ```
 
 Les parenthèses autour des tuples étant facultatives, il est courant de les omettre pour les `return`, ce qui donne vraiment l'impression de renvoyer plusieurs valeurs.
 
 ```python
 def divmod(a, b):
-    return a / b, a % b
+    return a // b, a % b
 ```
 
 #### Unpacking

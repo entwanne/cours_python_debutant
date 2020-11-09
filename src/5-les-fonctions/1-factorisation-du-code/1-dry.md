@@ -1,6 +1,6 @@
 ### Don't Repeat Yourself
 
-L'idée première, c'est d'éviter de se répéter, de dubliquer du code.
+L'idée première, c'est d'éviter de se répéter, de dupliquer du code.
 En effet, il y a plusieurs portions du code de notre TP qui pourraient être mises en commun et qui nous ferait gagner en clarté.
 
 Un code dupliqué, c'est un code plus diffile à maintenir.
