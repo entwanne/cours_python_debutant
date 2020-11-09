@@ -134,9 +134,4 @@ True
 Bien sûr je ne présente ces fonctions qu'à titre d'exemple.
 Les fonctions récursives étant déjà assez rares en Python pour les raisons expliquées plus haut, les récursions croisées le sont encore plus.
 
-
-#### Transformer un code récursif en itératif
-
-* Récursivité peu recommandée en Python
-* Problèmes qui s'expriment mieux en récursif
-* Simuler la pile d'appels en itératif
+Aussi, préférez dans la mesure du possible opter pour des solutions itératives (voir chapitre en annexe pour transformer un code récursif en itératif).
