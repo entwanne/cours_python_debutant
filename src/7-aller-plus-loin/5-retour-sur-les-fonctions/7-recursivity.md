@@ -8,6 +8,9 @@ On place notre tâche dans une boucle et celle-ci sera donc répétée un certai
 Le modèle récursif est assez différent dans sa conception, il repose sur des fonctions.
 L'idée étant que la fonction s'appelle elle-même, provoquant ainsi une répétition, on parle alors de fonction récursive.
 
+> En mode itératif, marcher c'est mettre un pied devant l'autre et recommencer. En mode récursif, marcher c'est mettre un pied devant l'autre et marcher.
+Source: <https://twitter.com/framaka/status/1327220641150496768>
+
 C'est un concept issu des mathématiques qui se défini assez bien et intuitivement, nous l'appliquons même généralement sans le savoir.  
 Prenons par exemple la somme d'une liste de *N* nombres : de quoi s'agit-il ?
 Simplement de l'addition entre le premier nombre de la liste et la somme des *N-1* autres nombres.
