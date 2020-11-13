@@ -160,8 +160,10 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: 'not_found.txt'
 ```
 
-Aussi, l'exécution du bloc `try` s'arrête à la première erreur rencontrée.
+Aussi, l'exécution d'un bloc `try` s'arrête à la première erreur rencontrée.
 Cela signifie que tout son contenu n'est pas nécessairement exécuté, donc certaines variables définies dans le `try` n'existent peut-être pas.
+
+Essayez la fonction suivante pour vous rendre compte des problèmes que cela peut poser.
 
 ```python
 def get_score(path):
@@ -176,7 +178,7 @@ def get_score(path):
     return score
 ```
 
-Par exemple la fonction qui précède gère mal les exceptions : `score` ne sera jamais définie si une erreur est survenue, et donc le `return` échouera car accèdera à une variable inexistante.  
+La fonction de cet exemple gère mal les exceptions : `score` ne sera jamais définie si une erreur est survenue, et donc le `return` échouera car accèdera à une variable inexistante.  
 Quant aux variables `f` et `content` on ne sait pas si elles existent car cela dépend de l'endroit précis où est survenu l'erreur.
 Pour une erreur à l'ouverture du fichier `content` ne sera pas définie, mais s'il s'agit d'une erreur lors de la conversion alors `content` contiendra sa bonne valeur.
 
@@ -203,7 +205,7 @@ def get_score(path):
 
 * Pile d'appels / stacktrace
 
-
+Le fil d'exécution d'un programme a une forme plutôt arborescente.
 
 * Mécanisme de la remontée d'erreur
 * Placer judicieusement les except
