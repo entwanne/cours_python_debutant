@@ -201,5 +201,11 @@ def get_score(path):
 
 #### Remontée d'erreurs
 
+* Pile d'appels / stacktrace
+
+
+
 * Mécanisme de la remontée d'erreur
 * Placer judicieusement les except
+
+Quand une exception n'est pas attrapée, elle continue sa route jusqu'à couper le programme lui-même.
