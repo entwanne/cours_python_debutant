@@ -223,7 +223,7 @@ def inverse(x):
 
 def main():
     for i in range(10):
-        print(inverse(i))
+        print(i, inverse(i))
 
 main()
 ```
@@ -235,7 +235,7 @@ Traceback (most recent call last):
   File "error.py", line 11, in <module>
     main()
   File "error.py", line 9, in main
-    print(inverse(i))
+    print(i, inverse(i))
   File "error.py", line 5, in inverse
     return division(1, x)
   File "error.py", line 2, in division
@@ -243,9 +243,79 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 ```
 
-De haut en bas, on voit que l'appel à `main` ligne 11 a provoqué un appel à `inverse` ligne 9, qui induit lui-même un appel à `division` ligne 5, à l'intérieur de laquelle se produit l'erreur (ligne 2).
-
-* Mécanisme de la remontée d'erreur
-* Placer judicieusement les except
-
+De haut en bas, on voit que l'appel à `main` ligne 11 a provoqué un appel à `inverse` ligne 9, qui induit lui-même un appel à `division` ligne 5, à l'intérieur de laquelle se produit l'erreur (ligne 2).  
 Quand une exception n'est pas attrapée, elle remonte pas à pas la pile d'appels, et continue sa route jusqu'à couper le programme lui-même.
+
+Car oui, il n'existe pas un seul endroit où l'exception peut être attrapée, elle peut l'être tout le long du programme.
+On pourrait choisir de placer un `try` / `except` dans la fonction `division`, mais aussi dans `inverse` ou dans `main`.
+Choisir de le mettre dans la boucle ou à l'extérieur, chaque solution ayant un comportement différent.
+
+Par exemple, attraper l'exception à l'extérieur de la boucle aura pour effet de s'arrêter à la première erreur, puisque la boucle sera coupée à la première itération (`i = 0`).
+
+* Comencer numérotation des lignes du fichier à 7
+
+```python
+def main():
+    try:
+        for i in range(10):
+            print(i, inverse(i))
+    except ZeroDivisionError:
+        pass
+```
+Code: error.py
+
+```sh
+% python error.py
+```
+
+Alors qu'attraper l'exception à l'intérieur de la boucle permettra de ne couper que l'itération courante puis de passer à la suivante.
+
+```python
+def main():
+    for i in range(10):
+        try:
+            print(i, inverse(i))
+        except ZeroDivisionError:
+            pass
+```
+Code: error.py
+
+```sh
+% python error.py
+1 1.0
+2 0.5
+3 0.3333333333333333
+4 0.25
+5 0.2
+6 0.16666666666666666
+7 0.14285714285714285
+8 0.125
+9 0.1111111111111111
+```
+
+Mais dans cet exemple, les appels à `inverse(0)` ou `division(1, 0)` continuent d'échouer : on pourrait choisir de traiter l'erreur dans ces fonctions pour renvoyer _NaN_.
+
+```python
+def division(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return float('nan')
+```
+Code: error.py
+
+```sh
+% python error.py
+0 nan
+1 1.0
+2 0.5
+3 0.3333333333333333
+4 0.25
+5 0.2
+6 0.16666666666666666
+7 0.14285714285714285
+8 0.125
+9 0.1111111111111111
+```
+
+Il convient alors chaque fois de réfléchir au comportement que l'on veut adopter et de placer judicieusement les blocs `try` / `except` en fonction de cela, pour n'être ni trop large, ni trop fin.
