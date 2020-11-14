@@ -203,11 +203,49 @@ def get_score(path):
 
 #### Remontée d'erreurs
 
-* Pile d'appels / stacktrace
+On peut voir l'exécution d'un programme informatique comme le parcours d'un arbre, de branche en branche, de façon à passer par toutes les feuilles.
+Les embranchements étant faits de conditions, de boucles et d'appels de fonctions. Notamment d'appels de fonctions.  
 
-Le fil d'exécution d'un programme a une forme plutôt arborescente.
+À chaque instant du programme, l'instruction en cours d'exécution représente une curseur le long d'une branche : l'appel d'une fonction fait aller ce curseur plus loin dans l'arbre tandis qu'un retour le fait revenir sur ses pas.  
+Ainsi, il existe toujours un chemin depuis la racine du programme (le tronc) jusque la position actuelle du curseur.
+
+Ce chemin représente la pile d'appels courante (_stacktrace_), les fonctions qu'il a fallu parcourir pour arriver jusqu'à ce point du programme.
+Toute exception est liée à la position courante dans le programme, au contexte qui l'a fait surgir, et donc à un certain état de la pile d'appels.
+
+Cette pile liée à l'exception, on la voit d'ailleurs apparaître dans le terminal quand on n'attrape pas l'exception.
+
+```python
+def division(a, b):
+    return a / b
+
+def inverse(x):
+    return division(1, x)
+
+def main():
+    for i in range(10):
+        print(inverse(i))
+
+main()
+```
+Code: error.py
+
+```sh
+% python error.py
+Traceback (most recent call last):
+  File "error.py", line 11, in <module>
+    main()
+  File "error.py", line 9, in main
+    print(inverse(i))
+  File "error.py", line 5, in inverse
+    return division(1, x)
+  File "error.py", line 2, in division
+    return a / b
+ZeroDivisionError: division by zero
+```
+
+De haut en bas, on voit que l'appel à `main` ligne 11 a provoqué un appel à `inverse` ligne 9, qui induit lui-même un appel à `division` ligne 5, à l'intérieur de laquelle se produit l'erreur (ligne 2).
 
 * Mécanisme de la remontée d'erreur
 * Placer judicieusement les except
 
-Quand une exception n'est pas attrapée, elle continue sa route jusqu'à couper le programme lui-même.
+Quand une exception n'est pas attrapée, elle remonte pas à pas la pile d'appels, et continue sa route jusqu'à couper le programme lui-même.
