@@ -30,6 +30,8 @@ Vous pouvez tester, elle nous donne les bons résultats.
 | La fonction échouera pour les nombres négatifs mais ils ne nous intéressent pas ici car sont en dehors de l'ensemble de définition.
 | L'idéal serait bien sûr d'avoir une exception dédiée à ces cas.
 
+* \+ Fonction de parcours de hiérarchie arborescente ?
+
 <!--
 Premièrement, on va chercher à transformer notre fonction pour qu'elle soit « récursive terminale ».
 On dit d'une fonction récursive qu'elle est terminale si elle n'effectue plus aucune opération après l'appel récursif, c'est-à-dire que la valeur de l'appel est directement renvoyée.  
