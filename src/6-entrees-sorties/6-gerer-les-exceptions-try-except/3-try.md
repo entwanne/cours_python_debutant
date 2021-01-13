@@ -252,9 +252,7 @@ Choisir de le mettre dans la boucle ou à l'extérieur, chaque solution ayant un
 
 Par exemple, attraper l'exception à l'extérieur de la boucle aura pour effet de s'arrêter à la première erreur, puisque la boucle sera coupée à la première itération (`i = 0`).
 
-* Comencer numérotation des lignes du fichier à 7
-
-```python
+```python linenostart=7
 def main():
     try:
         for i in range(10):
@@ -270,7 +268,7 @@ Code: error.py
 
 Alors qu'attraper l'exception à l'intérieur de la boucle permettra de ne couper que l'itération courante puis de passer à la suivante.
 
-```python
+```python linenostart=7
 def main():
     for i in range(10):
         try:
