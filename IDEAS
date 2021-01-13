@@ -4,3 +4,5 @@
 - Ajouter cheat sheet
 - Chapitre "dessine-moi une tortue" (turtle) après les algos
 - "Quel intérêt me demanderez-vous de stocker les valeurs dans une liste plutôt que dans différentes variables ?"
+* Noms de variables/fonctions sensibles à la casse
+* Renvoyer un booléen : `return a == b` plutôt que `if a == b: return True`
