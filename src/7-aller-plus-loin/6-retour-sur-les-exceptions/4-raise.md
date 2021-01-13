@@ -79,6 +79,58 @@ ValueError: Le nombre doit être positif (-1 est négatif)
 
 #### Hiérarchie des exceptions
 
-* Hiérarchie des exceptions (brève)
-
 Nous avons rencontré plusieurs types d'exceptions pour coller à différentes situations.
+Il faut savoir que ces types sont hiérarchisés, afin de pouvoir traiter plus ou moins finement les erreurs qui surviennent.  
+Ainsi, faire un `except` sur un type d'exception arrêtera les exceptions de ce type mais aussi de tous les types qui en descendent.
+
+Par exemple, toutes les exceptions que nous avons vues descendent d'un même type `Exception` : cela signifie qu'il suffit d'attraper `Exception` pour les attraper toutes.
+
+`TypeError` et `ValueError` sont alors deux des principales exceptions, la première indiquant une erreur dans le type des données et la seconde sur la valeur elle-même (le type correspond mais la valeur est incohérente).
+`ValueError` rassemble aussi des exceptions plus précises telles que `UnicodeDecodeError` et `UnicodeEncodeError` que nous avons déjà rencontrée.
+
+`IndexError` et `KeyError` que l'on a beaucoup utilisées dans ce chapitre descendent d'une même exception `LookupError` qui attrape donc toutes les erreurs liées à la recherche dans un conteneur.
+
+```python
+def get_10th(seq):
+    try:
+        return seq[10]
+    except LookupError as e:
+        print('erreur', e)
+```
+
+```python
+>>> get_10th([])
+erreur list index out of range
+>>> get_10th({})
+erreur 10
+```
+
+On trouve aussi une grande famille d'erreurs sous `OSError` qui regroupe toutes les exceptions liées aux entrées/sorties, comme `FileNotFoundError`, `FileExistsError` ou `PermissionError`.
+
+Voici un bref aperçu de cette hiérarchie :
+
+```text
+Exception
+ +-- TypeError
+ +-- ValueError
+ |    +-- UnicodeError
+ |         +-- UnicodeDecodeError
+ |         +-- UnicodeEncodeError
+ +-- ArithmeticError
+ |    +-- ZeroDivisionError
+ +-- NameError
+ |    +-- UnboundLocalError
+ +-- LookupError
+ |    +-- IndexError
+ |    +-- KeyError
+ +-- OSError
+ |    +-- FileNotFoundError
+ |    +-- FileExistsError
+ |    +-- PermissionError
+ +-- SyntaxError
+ +-- AssertionError
+ +-- RuntimeError
+      +-- RecursionError
+```
+
+La hiérarchie complète des exceptions Python peut être trouvée à l'adresse suivante : <https://docs.python.org/fr/3/library/exceptions.html#exception-hierarchy>.
