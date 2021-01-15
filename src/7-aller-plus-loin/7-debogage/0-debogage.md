@@ -10,3 +10,15 @@ C'est ce que l'on appelle le débogage !
 
 Je ne peux que vous conseiller d'être attentif et de bien tester vos codes pour les éviter au maximum, malheureusement ce n'est pas toujours suffisant.  
 Aussi, pour ne pas vous retrouver désemparé quand un bug survient (qu'il soit décelé lorsque l'application tourne ou lors de tests), voici un petit guide pour apprendre à trouver l'origine du bug et la corriger.
+
+Nous prendrons pour exemple au long de ce chapitre le programme suivant de combat entre monstres et qui présente plusieurs bugs :
+
+```python
+```
+Code: battle.py
+
+Il s'accompagne du fichier de données ci-dessous.
+
+```js
+```
+Code: data.json
