@@ -1,0 +1,22 @@
+{
+    "attacks": {
+	"charge": {"name": "Charge", "damage": 20},
+	"tonnerre": {"name": "Tonnerre", "damage": 50},
+	"jet-de-flotte": {"name": "Jet de flotte", "damage": 50},
+	"jet-de-flamme": {"name": "Jet de flamme", "damage": 60}
+    },
+    "monsters": {
+	"pythachu": {
+	    "name": "Pythachu",
+	    "attacks": ["charge", "tonnerre"]
+	},
+	"pythard": {
+	    "name": "Pythard",
+	    "attacks": ["charge", "jet-de-flotte"]
+	},
+	"ponytha": {
+	    "name": "Ponytha",
+	    "attacks": ["charge", "jet-de-flamme"]
+	}
+    }
+}
