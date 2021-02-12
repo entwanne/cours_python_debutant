@@ -1,3 +1,0 @@
-### Module sys
-
-* Informations système

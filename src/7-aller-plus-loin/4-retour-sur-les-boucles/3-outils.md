@@ -143,6 +143,48 @@ Ces deux arguments sont aussi disponibles sur la méthode `sort` des listes.
 ['autruche', 'cheval', 'zèbre', 'oie']
 ```
 
+#### `min` et `max`
+
+On a déjà vu les fonctions `min` et `max` qui permettent respectivement de récupérer le minimum/maximum parmi leurs argument.
+
+```python
+>>> min(3, 1, 2)
+1
+>>> max(3, 1, 2)
+3
+```
+
+On sait aussi qu'on peut les appeler avec un seul argument (un itérable) et récupérer le minimum/maximum dans cet itérable.
+
+```python
+>>> min({3, 1, 2})
+1
+>>> max([3, 1, 2])
+3
+```
+
+Mais sachez maintenant que ces fonctions acceptent aussi un argument `key` qui fonctionne de la même manière que pour `sorted`.  
+Ainsi il est possible d'expliquer comment doivent être comparées les valeurs.
+On peut alors simplement demander la valeur minimale/minimale d'une liste en comparant les nombres selon leur valeur absolue.
+
+```python
+>>> min([-5, -2, 1, 3], key=abs)
+1
+>>> max([-5, -2, 1, 3], key=abs)
+-5
+```
+
+Ces fonctions acceptent aussi un argument `default` dont la valeur est renvoyée (plutôt qu'une erreur) si l'itérable est vide.
+
+```python
+>>> min([])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: min() arg is an empty sequence
+>>> min([], default=42)
+42
+```
+
 #### `zip`
 
 `zip` est une fonction très pratique de Python, puisqu'elle permet de parcourir simultanément sur plusieurs itérables.
