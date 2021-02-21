@@ -16,7 +16,7 @@ On voit Python nous répondre par cette même chaîne délimitée par des apostr
 Il s'agit juste de deux syntaxes équivalents pour représenter une même chaîne.
 
 ```python
->>> 'toto
+>>> 'toto'
 'toto'
 >>> "toto"
 'toto'
@@ -48,7 +48,7 @@ Autrement, on aurait le droit à de belles erreurs car Python penserait en renco
 SyntaxError: invalid syntax
 ```
 
-Mais comment alors représenter une chaîne de caractères possédant à la fois des apostrophes et des guillemets (telle que `J'ai dit "salut") ?
+Mais comment alors représenter une chaîne de caractères possédant à la fois des apostrophes et des guillemets (telle que `J'ai dit "salut"`) ?
 La solution se situe au niveau de l'échappement.
 Il suffit de faire précéder un caractère d'un _backslash_ (`\\`) pour qu'il ne soit pas interprété par Python comme un caractère spécial.
 
