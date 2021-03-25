@@ -69,6 +69,15 @@ def compute(x):
 8
 ```
 
+On notera que l'_unpacking_ est aussi possible pour des tuples d'un seul élément.
+
+```python
+>>> values = (42,)
+>>> a, = values
+>>> a
+42
+```
+
 Enfin, une propriété amusante de la construction/déconstruction de tuples est qu'elle permet facilement d'échanger les valeurs de deux variables.
 En effet, il suffit de construire un tuple avec les valeurs des deux variables puis de le déconstruire vers ces deux mêmes variables en les inversant.
 
