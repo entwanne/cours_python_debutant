@@ -1,14 +1,14 @@
-* Renommer les dossiers pour éviter les noms trop longs : adopter des noms concis qui résument les chapitres
-* Renommer les 0-xxx.md en 0-introduction.md
-* Utiliser des noms français slugifiés (sauf noms de modules)
-* Renommer 7-aller-plus-loin en 7-perfectionnement
+* [x] Renommer les dossiers pour éviter les noms trop longs : adopter des noms concis qui résument les chapitres
+* [x] Renommer les 0-xxx.md en 0-introduction.md
+* [x] Utiliser des noms français slugifiés (sauf noms de modules)
+* [x] Renommer 7-aller-plus-loin en 7-perfectionnement
 
-* Déplacer les 7-10-reseau et 7-11-parallel dans une nouvelle partie 8-aller-plus-loin ?
-* Splitter 7-11-parellel en plusieurs chapitres ? -> Non, simples introductions
-* Aborder générateurs & décorateurs ? Non, réservé aux notions avancées
-* Inverser parties 4 et 5 pour placer les fonctions avant les nouveaux types ? (mais présenter les tuples avec les fonctions : mutabilité / retour multiple) -> bof
-* Déplacer réseau/parallélisme/stdlib/pip dans une section dédiée (bibliothèques) + regex ?
+* [/] Déplacer les 7-10-reseau et 7-11-parallel dans une nouvelle partie 8-aller-plus-loin ?
+* [/] Splitter 7-11-parellel en plusieurs chapitres ? -> Non, simples introductions
+* [/] Aborder générateurs & décorateurs ? Non, réservé aux notions avancées
+* [/] Inverser parties 4 et 5 pour placer les fonctions avant les nouveaux types ? (mais présenter les tuples avec les fonctions : mutabilité / retour multiple) -> bof
+* [~] Déplacer réseau/parallélisme/stdlib/pip dans une section dédiée (bibliothèques) + regex ?
     * Partie 8 bibliothèques: Builtins (reversed, sorted, key=, etc.) / Système (os, sys, pathlib) / Nombres (decimal, fractions, math, statistics), Temps (time, date, datetime) / Regex (re) / Réseau (socket) / Parallélisme (threading/multiprocessing/asyncio) / pip
 
-* Séparer les exercices des annexes (placer avant) dans une partie dédiée (avec un chapitre par partie du cours, une section par chapitre, etc.) et ajouter chapitre annexe sur la correction des exercices
+* [~] Séparer les exercices des annexes (placer avant) dans une partie dédiée (avec un chapitre par partie du cours, une section par chapitre, etc.) et ajouter chapitre annexe sur la correction des exercices
     * (ou correction des exercices fournie après chaque exercice en secret ?)
