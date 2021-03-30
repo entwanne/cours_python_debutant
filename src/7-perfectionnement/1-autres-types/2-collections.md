@@ -5,12 +5,17 @@ Par exemple le module `collections` propose plusieurs types pour gérer des coll
 
 #### `Counter`
 
-Dans le chapitre précédent on utilisait des dictionnaires pour compter les occurrences de nombres tirés aléatoirement et vérifier leur distribution.
-
-On les initialisait avec les occurrences de chaque nombre à 0, pour ensuite pouvoir faire des `+= 1` sans se soucier de savoir si la clé existait ou non.
+Un problème courant en programmation est de vouloir compter des choses.
+Pour cela, les dictionnaires sont une bonne structure de données : on peut facilement associer un nombre à un élément et ainsi incrémenter ce nombre pour compter les occurrences d'un élément.
 
 ```python
->>> occurrences = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6:0}
+>>> numbers = [1, 2, 2, 3, 4, 4, 4]
+>>> occurrences = {}
+>>> for number in numbers:
+...     occurrences[number] = occurrences.get(number, 0) + 1
+... 
+>>> occurrences
+{1: 1, 2: 2, 3: 1, 4: 3}
 ```
 
 Il y a en fait beaucoup plus simple et c'est le type `Counter` du module `collections`, spécialement dédié à compter des objets.  

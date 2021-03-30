@@ -52,13 +52,14 @@ On peut d'ailleurs le vérifier en simulant un très grand nombre de tirages et 
 Si le tirage est bien uniforme, chaque valeur est censée être équitablement présente.
 
 ```python
->>> occurrences = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6:0}
+>>> from collections import Counter
+>>> occurrences = Counter()
 >>> N = 10000
 >>> for _ in range(N):
 ...     val = random.randint(1, 6)
 ...     occurrences[val] += 1
 ...
->>> for val, occ in occurrences.items():
+>>> for val, occ in sorted(occurrences.items()): # sorted pour afficher selon l'ordre des clés
 ...     print(f'{val}: {occ / N}')
 ...
 1: 0.1649
@@ -81,12 +82,12 @@ choices = [1, 2, 3, 4, 4, 5, 5, 6, 6, 6]
 Ici, 6 a une probabilité de 0,3 ($\frac{3}{10}$) d'être tiré, 4 et 5 en ont une de 0,2 et les autres sont de 0,1.
 
 ```python
->>> occurrences = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6:0}
+>>> occurrences = Counter()
 >>> for _ in range(N):
 ...     val = random.choice(choices)
 ...     occurrences[val] += 1
 ...
->>> for val, occ in occurrences.items():
+>>> for val, occ in sorted(occurrences.items()):
 ...     print(f'{val}: {occ / N}')
 ...
 1: 0.0982
@@ -127,12 +128,12 @@ Notre tirage de tout à l'heure pourrait se réécrire de la façon suivante :
 Encore une fois, on peut le vérifier en calculant les fréquences d'apparition.
 
 ```python
->>> occurrences = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6:0}
+>>> occurrences = Counter()
 >>> for _ in range(N):
 ...     val = random.choices(range(1, 7), weights)[0] # Attention, choices renvoie une liste
 ...     occurrences[val] += 1
 ... 
->>> for val, occ in occurrences.items():
+>>> for val, occ in sorted(occurrences.items()):
 ...     print(f'{val}: {occ / N}')
 ... 
 1: 0.0995

@@ -1,4 +1,4 @@
-## La bibliothèque standard
+## Tour d'horizon de la bibliothèque standard
 
 J'ai déjà évoqué à plusieurs reprises la bibliothèque standard de Python (ou *stdlib* pour *standard library*), il s'agit de l'ensemble des modules et fonctions qui sont inclus de base avec Python.  
 Chaque langage vient avec sa bibliothèque standard mais celle de Python est particulièrement fournie.
