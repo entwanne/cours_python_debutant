@@ -1,5 +1,13 @@
 ### Versions de Python
 
-* Versions toujours maintenus
-* 2.x dépréciées
-* Au moins 3.5, 3.8 recommandée
+Ce cours est destiné à un apprentissage de Python 3.
+Une version au moins supérieure à 3.8 est recommandée, les précédentes n'étant plus officiellement supportées (ou seulement partiellement).  
+Je ne garantis pas le bon fonctionnement des exemples du tutoriel pour les versions antérieures à la 3.6.
+
+Python suit depuis 2019 un cycle annuel de sortie, chaque nouvelle version paraîssant au mois d'octobre.
+Le calendrier de support des versions de Python est disponible sur [la page de téléchargement du site officiel](https://www.python.org/downloads/).
+
+Même si la question du choix de version est aujourd'hui simple, elle s'est longtemps posée en raison de la coexistence entre Python 2 et Python 3.
+La version 2.7 a finalement arrêté d'être supportée au 1er janvier 2020.  
+Cependant, il est à noter qu'il se peut que vous rencontriez sur le net des exemples de code utilisant Python 2 et qui ne seraient alors pas compatibles avec votre version.
+Dans ce cas, vous pourrez vous reporter au chapitre en annexe sur [les différences entre Python 2 et Python 3]().
