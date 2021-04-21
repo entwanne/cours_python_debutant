@@ -7,3 +7,4 @@
 * Noms de variables/fonctions sensibles à la casse
 * Renvoyer un booléen : `return a == b` plutôt que `if a == b: return True`
 * Présentation d'IDLE : open file, open module, run module, module browser, etc. (run module incompatible avec les packages)
+* tutoiement/vouvoiement: adopter le tutoiement uniquement pour l'intro ? -> semble ok, basculer peu à peu sur le nous/vous à la fin de l'intro
