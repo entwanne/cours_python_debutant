@@ -31,7 +31,7 @@ Dans ces TP tu seras accompagné par Pythachu, Pythard et Ponytha dans le but de
 | Quelques notions d'anglais sont un plus.
 
 La difficulté augmente bien sûr au long du cours, mais j'ai fait en sorte que l'avancée soit progressive et donc que cette difficulté soit transparente.
-N'hésite pas à demander de l'aide si toutefois tu butterais sur un point ou serais bloqué sur un exercice.  
+N'hésite pas à demander de l'aide si toutefois tu buttais sur un point ou étais bloqué sur un exercice.  
 Je suis aussi ouvert à tous retours si tu trouves que telle notion est mal expliquée ou que telle autre mériterait d'être abordée.
 
 Car oui, ce cours ne couvre pas l'entièreté du langage Python et n'a pas pour volonté de remplacer [sa documentation](https://docs.python.org/fr/3/).

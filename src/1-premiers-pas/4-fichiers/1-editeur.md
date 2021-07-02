@@ -44,7 +44,7 @@ Celle-ci n'est utile que pour le ou les fichiers principaux d'un projet Python, 
 Le _shebang_ est une ligne qui prend la forme suivante, vous verrez parfois `python3` à la place de `python`.
 
 ```python
-!#/usr/bin/env python
+#!/usr/bin/env python
 ```
 
 ##### Encodage

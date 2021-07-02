@@ -13,7 +13,7 @@ On définit une chaîne de caractères à l'aide d'une paire de guillemets, et e
 ```
 
 On voit Python nous répondre par cette même chaîne délimitée par des apostrophes (_quotes_).
-Il s'agit juste de deux syntaxes équivalents pour représenter une même chaîne.
+Il s'agit juste de deux syntaxes équivalentes pour représenter une même chaîne.
 
 ```python
 >>> 'toto'

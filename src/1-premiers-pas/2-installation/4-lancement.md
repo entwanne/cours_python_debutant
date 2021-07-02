@@ -15,7 +15,7 @@ La fenêtre qui s'ouvre devrait ressembler à cela :
 C'est un peu austère, mais vous voilà dans un interpréteur Python !
 Il n'attend que votre code.
 
-Vérifiez bien que la version qui s'affiche est une `3.x.x`, sinon c'est que vous n'avez pas installer la bonne version et je vous renvoie aux chapitres précédents.
+Vérifiez bien que la version qui s'affiche est une `3.x.x`, sinon c'est que vous n'avez pas installé la bonne version et je vous renvoie aux chapitres précédents.
 
 Le « i » de IDLE est pour « interactif », c'est-à-dire qu'il est possible d'y exécuter directement du code et d'en obtenir le résultat.
 Nous reviendrons dessus par la suite, mais cet interpréteur interactif nous sera très utile pour tester nos premiers codes.
