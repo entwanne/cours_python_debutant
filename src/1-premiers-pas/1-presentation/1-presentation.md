@@ -31,7 +31,7 @@ Comme on peut l'apercevoir dans l'exemple, Python est un langage qui se base sur
 Il s'agit des espaces que l'on voit en début de lignes et qui permettent de délimiter les portions logiques du code.  
 L'indentation, souvent recommandée dans les autres langages pour aérer le code et le rendre plus agréable à lire, est une nécessité en Python.
 
-![Illustration piles incluses](https://upload.wikimedia.org/wikipedia/commons/6/68/Python_batteries_included.jpg)
+![Illustration piles incluses](img/batteries_included.jpg)
 Figure: « Piles incluses » -- _Crédits: [Frank Stajano](https://commons.wikimedia.org/wiki/File:Python_batteries_included.jpg)_
 
 Python est parfois qualifié de « piles incluses », par rapport au fait qu'il est fourni de base avec beaucoup de fonctionnalités (création de fenêtres, gestion native de différents formats de fichiers, etc.).  
