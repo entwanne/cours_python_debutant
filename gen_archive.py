@@ -49,6 +49,8 @@ def rewrite_titles(f):
                 line = line[document_depth:]
             else:
                 print('Warning with title {!r} in file {}:{}'.format(line, f.name, i))
+        elif not code and 'img/' in line:
+            line = re.sub(r'(!\[.+\]\()img/', r'\1archive:img/', line)
         yield line
 
 # Write a file in the archive
