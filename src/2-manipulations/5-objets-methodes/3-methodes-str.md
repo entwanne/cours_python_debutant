@@ -1,6 +1,7 @@
 ### Méthodes des chaînes de caractères
 
 Les chaînes de caractères possèdent d'autres méthodes utiles dont voici un bref aperçu.
+Nous en découvrirons encore bien d'autres dans la suite de ce cours.
 
 #### `strip`
 
@@ -9,6 +10,30 @@ La méthode `strip` vue précédemment retire les espaces aux extrêmités de la
 ```python
 >>> ' hello   world '.strip()
 'hello   world'
+```
+
+Il est possible d'appliquer la méthode sur une variable si celle-ci est assignée à une chaîne de caractères.
+Ou sur toute autre expression s'évaluant comme une chaîne de caractères, des parenthèses pouvant alors être nécessaires pour changer la priorité de l'opération.
+
+```python
+>>> text = ' hello   world '
+>>> text.strip()
+'hello   world'
+>>> input().strip()
+  coucou
+'coucou'
+>>> (' to' * 3).strip()
+'to to to'
+```
+
+Cette méthode, tout comme les autres qui suivent, renvoie une nouvelle chaîne de caractères modifiée.
+Elle n'affecte jamais directement la chaîne sur laquelle elle est appliquée.
+
+```python
+>>> text.strip()
+'hello   world'
+>>> text
+' hello   world '
 ```
 
 #### `capitalize` et `title`
@@ -55,7 +80,7 @@ Il s'agit donc du comportement réciproque de l'opérateur `[ ]`.
 'd'
 ```
 
-À noter que si l'opérateur est présent plusieurs fois, c'est la première position trouvée qui est renvoyée.
+À noter que si le caractère est présent plusieurs fois dans la chaîne, c'est la première position trouvée qui est renvoyée.
 
 ```python
 >>> 'abcabc'.index('b')

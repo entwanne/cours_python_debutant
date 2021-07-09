@@ -63,9 +63,10 @@ Aussi, il est déconseillé de nommer une variable d'une même nom qu'une foncti
 
 On évitera enfin les noms `l`, `O` ou `I` qui portent à confusion car ne sont pas bien distingables de 1 ou 0 avec certaines polices de caractères.
 
-Les différentes règles de style à appliquer en Python sont décrites dans la [PEP8](https://www.python.org/dev/peps/pep-0008/).
-Il s'agit d'un guide écrit par les créateurs de Python pour aider à comprendre ces conventions.  
-Une section de la PEP8 est particulièrement dédiée au nommage : <https://www.python.org/dev/peps/pep-0008/#naming-conventions>.
+[[i]]
+| Les différentes règles de style à appliquer en Python sont décrites dans la [PEP8](https://www.python.org/dev/peps/pep-0008/).
+| Il s'agit d'un guide écrit par les créateurs de Python pour aider à comprendre ces conventions.  
+| Une section de la PEP8 est particulièrement dédiée au nommage : <https://www.python.org/dev/peps/pep-0008/#naming-conventions>.
 
 #### La variable `_`
 

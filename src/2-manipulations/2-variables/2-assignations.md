@@ -35,8 +35,10 @@ Autre exemple avec la réassignation d'une variable x.
 
 Les opérations du type `x = x + y` sont d'ailleurs tellement courantes que Python leur a prévu un opérateur d'affectation spécifique : `+=`.  
 `x += 1` est ainsi équivalent à `x = x + 1`.
+On appelle cette opération une incrémentation, car on ajoute un incrément au nombre actuel.
 
 Et cela ne se limite pas à l'addition mais comprend aussi les autres opérateurs arithémtiques qui bénéficient tous de leur propre opérateur d'affectation : `-=`, `*=`, `/=`, `//=`, `%=` et `**=`.
+L'opération de soustraction-assignation (`-=`) s'appelle une décrémentation.
 
 ```python
 >>> x = 0

@@ -18,7 +18,11 @@ On voit que l'interpréteur ne nous affiche rien cette fois-ci, parce que le ré
 
 ![Une variable est une étiquette sur une valeur.](img/variable_assign.png)
 
-Le nom de la variable devient alors une valeur comme une autre, qui peut être utilisé dans différentes expressions.  
+Si l'interpréteur ne nous affiche rien, c'est aussi parce que `result = round(8 / 3) + 2` n'est pas une expression.
+Cette ligne définit une variable mais ne possède pas de valeur à proprement parler. On ne peut pas l'utiliser au sein d'une autre expression.
+On dit simplement qu'il s'agit d'une instruction.
+
+Le nom de la variable définie devient quant à lui une valeur comme une autre, qui peut être utilisée dans différentes opérations.  
 Dans chaque expression, le nom de variable est évalué par Python et remplacé par sa valeur, permettant donc d'exécuter la suite du calcul.
 
 ```python

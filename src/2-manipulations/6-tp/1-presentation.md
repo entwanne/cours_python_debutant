@@ -10,4 +10,9 @@ Les attaques se caractérisent par le nombre de points de vie qu'elles infligent
 À chaque tour de jeu, une attaque est sélectionnée pour chaque monstre et les dégâts correspondant sont infligés à l'adversaire.
 Un monstre est KO quand sa barre de vie est vide. Le survivant remporte le combat.
 
+Dans ces TP tu seras accompagné par Pythachu, Pythard et Ponytha.
+
+![Attrapez-les tous !](img/pythomons.png)
+
 Pour plus de facilité, le jeu se déroulera en mode texte dans le terminal.
+Nous allons y aller par étapes et ce TP constitue la première étape : on va ici chercher à réaliser un seul tour de jeu.

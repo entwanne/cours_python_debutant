@@ -21,10 +21,7 @@ Pour nous rejoindre, rien de plus simple, rends-toi de ce pas vers [le premier c
 J'ai découpé ce cours en plusieurs parties (ou paliers) pour te permettre d'avancer pas à pas dans l'apprentissage du Python, en commençant par les bases pour à terme réussir à réaliser des programmes complets.  
 Chaque partie se divise en chapitres, pour présenter les différentes notions du langage, avec des exercices pour les mettre en pratique.
 
-Les parties sont généralement conclues par un chapitre de travaux pratiques (TP), pour utiliser concrètement les connaissances apprises au long des chapitres qui précèdent.  
-Dans ces TP tu seras accompagné par Pythachu, Pythard et Ponytha dans le but de réaliser un jeu de combat au tour par tour, dans le style de Pokémon.
-
-![Attrapez-les tous !](img/pythomons.png)
+Les parties sont généralement conclues par un chapitre de travaux pratiques (TP), pour utiliser concrètement les connaissances apprises au long des chapitres qui précèdent, dans le but de réaliser un jeu de combat au tour par tour en mode texte.
 
 [[i]]
 | Tu n'as pas besoin de connaissances particulières pour démarrer ce tutoriel : savoir installer un logiciel sur ton ordinateur et connaître les bases du calcul (opérations élémentaires) sont les seuls pré-requis.  
