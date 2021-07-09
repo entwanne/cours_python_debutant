@@ -12,6 +12,8 @@ Comme son nom l'indique, une variable n'est pas fixée dans le temps.
 36
 ```
 
+![Réassignation de variable.](img/variable_reassign.png)
+
 Mais on peut aussi utiliser une même variable à gauche et à droite de la définition.
 
 ```python
