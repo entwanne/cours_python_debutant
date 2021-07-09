@@ -14,7 +14,7 @@ Peut-être connais-tu déjà l'un ou l'autre de ces langages, ou même que tu pr
 Ta quête du Python est sur le point de commencer !
 Un tout nouveau monde de rêves, d'aventures et de programmation t'attend ! Dingue !
 
-Pour nous rejoindre, rien de plus simple, rends-toi de ce pas vers [le premier chapitre]() afin d'en découvrir plus sur le langage.
+Pour nous rejoindre, rien de plus simple, rends-toi de ce pas vers [le premier chapitre](./1-premiers-pas/1-presentation/) afin d'en découvrir plus sur le langage.
 
 ---------------------
 

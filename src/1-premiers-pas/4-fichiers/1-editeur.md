@@ -17,8 +17,8 @@ Là, vous pouvez rédiger votre code Python puis enregistrer le fichier avec l'o
 Pensez à nommer votre fichier avec une extension `.py`.
 Dans mon cas j'ai choisi `calc.py` comme nom de fichier.
 
-Nous commençons simple pour le moment avec un simple calcul comme nous le faisions dans le chapitre précédent.
-Nos fichiers de code s'étofferont avec le temps pour devenir des programmes plus complets, mais `calc.py` est déjà un programme Python à part entière, qui ne permet que de calculer le résultat de simples calculs.
+Nous commençons simple pour le moment avec deux calculs faciles comme nous le faisions dans le chapitre précédent.
+Nos fichiers de code s'étofferont avec le temps pour devenir des programmes plus complets, mais `calc.py` est déjà un programme Python à part entière, qui ne permet que de calculer le résultat de simples opérations.
 
 --------------------
 

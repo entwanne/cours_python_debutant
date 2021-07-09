@@ -17,7 +17,7 @@ Plus fort encore, on peut lui demander d'additionner plusieurs nombres !
 6
 ```
 
-Je mets des espaces mais ceux-ci sont facultatifs. Ils sont néanmoins préférables pour une bonne lisibilité du code.
+Je mets des espaces autour des `+` mais celles-ci sont facultativs. Elles sont néanmoins préférables pour une bonne lisibilité du code.
 
 ```python
 >>> 1+2+3
@@ -71,7 +71,7 @@ Les parenthèses permettent aussi de jouer sur l'associativité des opérateurs,
 ```
 
 Tout ce que nous demandons à Python doit être exprimé dans la syntaxe qu'il comprend -- ici des nombres et des opérations, mais nous verrons par la suite qu'il est possible de bien plus.  
-Dans le cas contraire, Python nous annoncera gentilment qu'il ne comprend pas ce que nous lui demandons, que la syntaxe est incorrecte.
+Dans le cas contraire, Python nous annoncera gentiment qu'il ne comprend pas ce que nous lui demandons, que la syntaxe est incorrecte.
 
 ```python
 >>> il fait beau aujourd'hui

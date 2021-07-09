@@ -1,3 +1,1 @@
-Fin.
-
-Python. Je t'aime tellement, je t'aime plus que tout.
+Un zeste de Python, Python in Zest'.

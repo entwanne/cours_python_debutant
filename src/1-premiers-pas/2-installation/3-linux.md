@@ -22,7 +22,7 @@ sudo apt install python3
 La première commande ne sert qu'à mettre à jour l'index des dépôts pour éviter toute surprise.
 
 [[a]]
-| Sur ces distributions, il faudra utiliser la commande `python3` plutôt que simple `python` pour invoquer la version 3 de Python.
+| Sur ces distributions, il faudra utiliser la commande `python3` plutôt que simplement `python` pour invoquer la version 3 de Python.
 
 #### Fedora
 
