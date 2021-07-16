@@ -2,4 +2,4 @@
 
 Cours à destination de Zeste de Savoir.
 
-![Logo](logo_cours.png)
+![Un zeste de Python.](img/logo_cours.png)

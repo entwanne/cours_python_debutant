@@ -16,6 +16,8 @@ Un tout nouveau monde de rêves, d'aventures et de programmation t'attend ! Din
 
 Pour nous rejoindre, rien de plus simple, rends-toi de ce pas vers [le premier chapitre](./1-premiers-pas/1-presentation/) afin d'en découvrir plus sur le langage.
 
+![Un zeste de Python.](img/logo_cours.png)
+
 ---------------------
 
 J'ai découpé ce cours en plusieurs parties (ou paliers) pour te permettre d'avancer pas à pas dans l'apprentissage du Python, en commençant par les bases pour à terme réussir à réaliser des programmes complets.  
