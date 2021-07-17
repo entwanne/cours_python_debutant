@@ -63,27 +63,42 @@ Ce n'est pas gênant pour des valeurs non modifiables (nombres, chaînes), mais 
 [[0, 5, 0], [0, 5, 0]]
 ```
 
-Les opérateurs d'ordre (`<`, `>`) sont aussi utilisables entre deux listes, leur résultat dépend de la comparaison entre les éléments des listes.
+Les opérateurs d'ordre (`<`, `>`) sont aussi utilisables entre deux listes, leur résultat dépend de la comparaison entre les éléments des listes, par ordre lexicographique.
 
-C'est-à-dire qu'on commence par comparer les premièrs éléments des deux listes, puis les deuxièmes et ainsi de suite jusqu'à ce qu'une des listes soit épuisée.
+C'est-à-dire qu'on commence par comparer les premièrs éléments des deux listes : s'ils sont différents, alors la liste dont l'élément est le plus grand est considérée comme supérieure.
 
-La comparaison s'arrête dès que deux éléments sont différents, où l'on sait alors lequel est supérieur à l'autre.
-Ou alors si une seule des listes est épuisée, elle est considérée comme inférieure.
+```python
+>>> [3, 0, 0] > [1, 9, 9]
+True
+>>> [3, 0, 0] < [1, 9, 9]
+False
+>>> [3, 0, 0] < [4, 9]
+True
+>>> [1, 2, 3] < [2]
+True
+>>> ['abc', 'def'] < ['ghi']
+True
+```
+
+Mais s'ils sont égaux, l'opération continue en passant aux éléments suivants, et ainsi de suite jusqu'à l'épuisement de l'une des listes.
+Une liste qui est épuisée avant l'autre est considérée comme inférieure. Ainsi `[1, 2, 3]` est inférieure à `[1, 2, 3, 4]`.
 
 ```python
 >>> [1, 2, 3] < [1, 2, 4]
 True
 >>> [1, 2, 3] < [1, 2, 2]
 False
->>> [1, 2, 3, 9] < [1, 2, 4]
+>>> [1, 2, 3] < [1, 2, 3, 4]
 True
->>> [1, 2, 3] < [2]
+>>> [1, 2, 3, 9] < [1, 2, 4]
 True
 >>> [1, 2, 3] < [1]
 False
+>>> ['abc', 'def'] > ['abc']
+True
 ```
 
-Si ces éléments sont de types non compatibles, alors l'opération produira une erreur.
+Dans le cas où les éléments des deux listes ne sont pas ordonnables, on obtient une erreur de type signifiant que la comparaison est impossible.
 
 ```python
 >>> [1, 2] < [1, 'a']
@@ -91,6 +106,19 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: '<' not supported between instances of 'int' and 'str'
 ```
+
+Et on retrouve bien sûr les opérateurs d'inégalités `<=` et `>=`.
+
+```python
+>>> [3, 2, 1] > [3, 2, 1]
+False
+>>> [3, 2, 1] >= [3, 2, 1]
+True
+>>> [3, 2, 1] <= [3, 2, 1]
+True
+```
+
+--------------------
 
 D'autres opérateurs prennent la forme de fonctions.
 C'est le cas de `len` pour récupérer la taille d'une liste.

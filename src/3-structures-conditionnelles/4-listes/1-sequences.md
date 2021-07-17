@@ -1,30 +1,57 @@
-### Des tableaux de valeurs
+### Des séquences de valeurs
 
-Une liste en Python peut être vue comme un tableau de valeurs.
-Un tableau au sens basique du terme : imaginez une ligne avec des cases, chaque case contenant une valeur.
+Une liste en Python peut être vue comme une séquence de valeurs.
+Imaginez une simple ligne de tableau avec des cases, chaque case contenant une valeur.
 
 +---+---+---+---+---+---+---+
 | 5 | 3 | 2 | 8 | 6 | 7 | 3 |
 +---+---+---+---+---+---+---+
 
-Cette liste se représente en Python de la manière suivante :
+Ceci est la représentation d'une liste de 7 nombres entiers.
+On la noterait en Python de la manière suivante :
 
 ```python
 numbers = [5, 3, 2, 8, 6, 7, 3]
 ```
 
-On utilise donc des crochets pour délimiter la liste, et des virgules pour séparer les valeurs.
+On utilise donc des crochets pour délimiter la liste, et des virgules pour séparer les valeurs les unes des autres.
 
 Chaque case de la liste est associée à une position (ou index). Ainsi la case en première position contient la valeur 5, celle en deuxième position contient la valeur 3, etc.
 L'ordre des éléments dans une liste est donc important, et celui-ci est libre (mes valeurs n'ont par exemple pas besoin d'être rangées en ordre croissant).
 
+```python
+>>> [1, 2, 3]
+[1, 2, 3]
+>>> [2, 3, 1]
+[2, 3, 1]
+```
+
 On note que la case en septième (dernière) position contient aussi la valeur 3. Une même valeur peut être présente dans la liste à plusieurs positions.
 
-La liste peut aussi être vue comme une généralisation des chaînes de caractères : plutôt que ne contenir uniquement des caractères, la liste peut contenir des valeurs de tous types.
-L'exemple précédent ne montre qu'une liste composée de nombres entiers (`int`), mais n'importe quelle valeur peut être contenue dans une liste.  
-On peut même construire une liste de valeurs de types différents (on verra par la suite que l'important est d'avoir une manière unique de traiter chacune de ces valeurs).
+La liste peut être vue comme une généralisation des chaînes de caractères : là où la chaîne est une séquance de caractères, la liste peut contenir des valeurs de tous types.
+L'exemple précédent ne montre qu'une liste composée de nombres entiers (`int`), mais n'importe quelle valeur peut être contenue dans une liste.
 
 ```python
+>>> ['abc', 'def']
+['abc', 'def']
+>>> [4.5, 1.8, -3.2]
+[4.5, 1.8, -3.2]
+```
+
+Il faut voir les listes comme des ensembles de valeurs distinctes les unes des autres mais qui forment un tout.
+Elles sont le reflet même des listes de la vie courante : une liste de courses, une liste d'élèves, une liste de notes, etc.
+
+```python
+courses = ['pain', 'œufs', 'lait', 'pâtes', 'tomates']
+eleves = ['Julie', 'Martin', 'Sami', 'Natacha']
+notes = [12, 9, 16, 13]
+```
+
+On peut aussi construire une liste composée de valeurs de types différents.
+On verra par la suite que l'important est d'avoir une manière unique de traiter l'ensemble des éléments.
+
+```python
+notes = [12, 8.5, 16, 12.5]
 items = ['salut', 42, True, 1.5]
 ```
 
@@ -74,7 +101,4 @@ Seule la dernière virgule, puisque suivie d'aucune valeur, est facultative.
 Je la laisse par commodité et pour ne pas faire de différences entre les lignes.
 
 Une liste se définit aussi par le nombre d'éléments qu'elle contient, sa taille.
-Cette taille sera amenée à évoluer au cours du déroulement du programme, la liste pouvant gagner ou perdre des valeurs suivant certaines opérations.
-
-* Insister sur l'utilité des listes : présenter un semble de valeurs, de façon à toutes les traiter de la même manière
-* Exemples concrets de listes : liste de course, liste d'élèves dans une classe
+Cette taille sera amenée à évoluer au cours du déroulement du programme, la liste pouvant gagner ou perdre des élémentss suivant certaines opérations.
