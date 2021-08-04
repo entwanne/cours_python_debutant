@@ -12,7 +12,7 @@ Youtube a démarré avec Python et l'utilise encore aujourd'hui pour de nombreus
 Zeste de Savoir lui-même tourne grâce à Python : avec Django plus précisément, un outil Python très répandu pour écrire des sites Internet.
 
 Python est aussi très représenté dans le monde scientifique, avec des applications dans l'intelligence artificielle et le _machine learning_.
-Il a par exemple était impliqué dans la photographie du trou noir M87 en 2019[^blackhole] ou le vol de l'hélicoptère Ingenuity sur Mars en 2021[^ingenuity].
+Il a par exemple été impliqué dans la photographie du trou noir M87 en 2019[^blackhole] ou le vol de l'hélicoptère Ingenuity sur Mars en 2021[^ingenuity].
 
 ![Trou noir M87](https://numpy.org/images/content_images/cs/blackhole.jpg)
 Figure: Trou noir M87 (_crédits: Event Horizon Telescope Collaboration_)

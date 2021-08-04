@@ -22,7 +22,7 @@ On peut l'exécuter avec l'option `-i` et continuer à utiliser l'interpréteur 
 0.5
 ```
 
-Son utilisé n'apparaît peut-être pas flagrante pour le moment, mais ça nous sera utile quand nous aurons des fichiers plus complets et que nous voudrons y tester une valeur en particulier.
+Son utilité n'apparaît peut-être pas flagrante pour le moment, mais ça nous sera utile quand nous aurons des fichiers plus complets et que nous voudrons y tester une valeur en particulier.
 
 --------------------
 
