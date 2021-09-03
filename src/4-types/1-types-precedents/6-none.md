@@ -3,7 +3,7 @@
 `None` est une valeur particulière en Python, qui représente l'absence de valeur.
 On l'a déjà rencontrée sans vraiment y faire attention.
 
-C'est par exemple la valeur renvoyée par les fonctions ou méthodes qui ne renvoient rien.
+C'est par exemple la valeur renvoyée par les fonctions ou méthodes qui ne renvoient « rien ».
 
 ```python
 >>> [].clear()
@@ -20,7 +20,7 @@ None
 ```
 
 Dans certains traitements, il est parfois utile de savoir si l'on a affaire à `None` ou à une autre valeur.
-Pour vérifier ça, on serait tenter si notre valeur est égale à `None` avec un `==`.
+Pour vérifier ça, on serait tenté de tester si notre valeur est égale à `None` avec un `==`.
 
 Mais `None` est une valeur unique en Python, il n'en existe qu'un (on parle de _singleton_) et on préférera donc utiliser l'opérateur d'idendité : `is`.
 
@@ -33,7 +33,7 @@ True
 False
 ```
 
-Il est aussi possible de tester la non-identité avec l'opérateur `is not`.
+On retrouve aussi l'opérateur `is not` pour vérifier qu'une valeur n'est pas `None`.
 
 ```python
 >>> abs(-5) is not None

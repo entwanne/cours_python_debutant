@@ -12,6 +12,6 @@ Par exemple on pourrait avoir
 phonebook = [['Alice', '0633432380'], ['Bob', '0663621029'], ['Alex', '0714381809']]
 ```
 
-Ça fonctionnerait mais c'est loin d'être idéal, il faudrait se souvenir d'utiliser `[0]` pour le nom et `[1]` pour le numéro, et ça demanderait de parcourir toute la liste chaque fois que l'on cherchera un numéro.
+Ça fonctionnerait mais c'est loin d'être idéal, il faudrait se souvenir d'utiliser `[0]` pour le nom et `[1]` pour le numéro, et ça demanderait de parcourir toute la liste chaque fois que l'on voudrait chercher un numéro.
 
-Heureusement les dictionnaires sont une structure de données bien plus adaptée.
+Heureusement pour nous, les dictionnaires sont une structure de données bien plus adaptée à ce genre de problématique.

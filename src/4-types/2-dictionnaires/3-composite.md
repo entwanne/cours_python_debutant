@@ -16,7 +16,7 @@ Pensez par exemple à la représentation des monstres dans notre TP : on a un n
 Car en effet, tous les types de données sont acceptés en tant que valeurs, et toutes les valeurs n'ont pas besoin d'être du même type.
 
 Mais on peut faire encore mieux.
-En usant de listes et de dictionnaires, on construit donc facilement des structures arborescentes pour représenter toutes nos données.
+En usant de listes et de dictionnaires, on construit facilement des structures arborescentes pour représenter toutes nos données.
 
 ```python
 monstres = {
@@ -46,10 +46,12 @@ attaques = {
 
 joueurs = [
     {
+        'nom': 'Joueur 1',
         'monstre': 'Pythachu',
         'PV': 100,
     },
     {
+        'nom': 'Joueur 2',
         'monstre': 'Ponytha',
         'PV': 120,
     },
@@ -60,7 +62,7 @@ Ainsi, on représente dans des variables différentes la structure de nos donné
 Pour avoir d'un côté la définition des monstres et des attaques, et de l'autre les monstres en jeu.
 
 ```python
->>> print('Joueur 1 :', joueurs[0]['monstre'])
+>>> print(joueurs[0]['nom'], ':', joueurs[0]['monstre'])
 Joueur 1 : Pythachu
 >>> print('Attaques :', monstres[joueurs[0]['monstre']]['attaques'])
 Attaques : ['tonnerre', 'charge']

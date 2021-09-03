@@ -11,7 +11,7 @@ Les dictionnaires sont des objets modifiables, on retrouve donc l'opérateur d'i
 {'Alice': '0633432380', 'Bob': '0712800331'}
 ```
 
-Par contre pas de _slicing_ ici, cela n'a pas de sens sur un dictionnaire.
+Par contre pas de _slicing_ ici, cela n'a pas de sens sur des clés de dictionnaire.
 
 Une clé non trouvée dans le dictionnaire provoque une erreur.
 
@@ -20,6 +20,15 @@ Une clé non trouvée dans le dictionnaire provoque une erreur.
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'Mehdi'
+```
+
+Les dictionnaires sont sensibles à la casse, c'est-à-dire que les lettres majuscules sont traitées différemment des minuscules.
+`'Alice'` et `'alice'` sont alors deux clés distinctes.
+
+```python
+>>> phonebook['alice'] = '0729570663'
+>>> phonebook
+{'Alice': '0633432380', 'Bob': '0712800331', 'alice': '0729570663'}
 ```
 
 On retrouve aussi l'opérateur d'appartenance (`in`), qui fonctionne sur les clés et non sur les valeurs.
@@ -35,23 +44,26 @@ Et on peut connaître la taille d'un dictionnaire en appelant la fonction `len`.
 
 ```python
 >>> len(phonebook)
-2
+3
 ```
-
-* égalité/différence entre dictionnaires
-    * l'ordre des éléments n'importe pas dans un test d'égalité
 
 Comme tout objet, il est possible de tester l'égalité entre deux dictionnaires avec l'opérateur `==`, et la différence avec `!=`.
 Deux dictionnaires sont considérés comme égaux s'ils contiennent les mêmes éléments, avec les mêmes valeurs pour les mêmes clés.
-Quel que soit l'ordre des éléments dans le dictionnaire.
 
 ```python
 >>> {'a': 1} == {'a': 1}
 True
 >>> {'a': 0} == {'b': 0}
 False
->>> {'a': 0, 'b': 1} != {'b': 1, 'a': 0}
-False
+>>> {'a': 0} != {'a': 0, 'b': 1}
+True
+```
+
+Cela est vrai quel que soit l'ordre des éléments dans le dictionnaire.
+
+```python
+>>> {'a': 0, 'b': 1} == {'b': 1, 'a': 0}
+True
 >>> {'a': 0, 'b': 1} != {'b': 1, 'a': 0, 'c': 2}
 True
 ```
@@ -82,6 +94,8 @@ La méthode `pop` est d'ailleurs équivalente à celle des listes, elle supprime
 ```python
 >>> phonebook.pop('Alice')
 '0633432380'
+>>> phonebook.pop('alice')
+'0729570663'
 ```
 
 L'appel produit une erreur si la clé n'est pas trouvée, mais il est là encore possible de donner une valeur par défaut en deuxième argument.
@@ -133,4 +147,33 @@ La méthode renvoie la valeur associée à cette clé dans le dictionnaire, donc
 {'Julie': '0619096810'}
 ```
 
-* Conversions: appel à `dict(...)`, args (mapping ou liste d'items) & kwargs
+#### Conversions
+
+On peut convertir une liste de couples clé/valeur en un dictionnaire, en appelant `dict` comme une fonction.
+
+Par exemple avec notre répertoire téléphonique défini en introduction :
+
+```python
+>>> phonebook = [['Alice', '0633432380'], ['Bob', '0663621029'], ['Alex', '0714381809']]
+>>> dict(phonebook)
+{'Alice': '0633432380', 'Bob': '0663621029', 'Alex': '0714381809'}
+```
+
+L'appel à `dict` sur un dictionnaire existant permet aussi d'en créer une copie.
+
+```python
+>>> phonebook = {'Mehdi': '0762253973'}
+>>> mybook = dict(phonebook)
+>>> mybook['Julie'] = '0734593960'
+>>> mybook
+{'Mehdi': '0762253973', 'Julie': '0734593960'}
+>>> phonebook
+{'Mehdi': '0762253973'}
+```
+
+Enfin, une autre utilité de l'appel à `dict` est de pouvoir construire un dictionnaire à partir d'arguments nommés. Les noms des arguments deviennent ainsi les clés du dictionnaire.
+
+```python
+>>> dict(Bob='0712800331', Julie='0734593960', Mehdi='0762253973')
+{'Bob': '0712800331', 'Julie': '0734593960', 'Mehdi': '0762253973'}
+```

@@ -9,7 +9,7 @@ Toute valeur Python peut être interprétée comme un booléen (par conversion i
 
 * Le nombre zéro (`0`, `0.0`) vaut `False`.
 * Les conteneurs vides (chaîne vide, liste vide) valent `False`.
-* Toute valeur qui ne vaut pas explicitement `True` vaut `False`.
+* Toute valeur qui ne vaut pas explicitement `False` vaut `True`.
 
 Il est aussi possible de convertir explicitement une valeur en booléen en faisant appel au type booléen.
 Les règles de conversion sont les mêmes que celles énoncées ci-dessus.
@@ -63,6 +63,8 @@ Prenons le cas de `and` avec une opération `a and b` :
 5
 >>> ['foo'] and 0
 0
+>>> 5 and True
+True
 ```
 
 Le même genre de raccourci existe pour `or`, qui renvoie `a` si `a` vaut `True` et `b` sinon.
@@ -74,6 +76,8 @@ Le même genre de raccourci existe pour `or`, qui renvoie `a` si `a` vaut `True`
 5
 >>> [] or 0
 0
+>>> 0 or True
+True
 ```
 
 On notera enfin en termes de conversions que les booléens eux-mêmes sont aussi implicitement convertis en nombres lorsqu'utilisés comme tels.

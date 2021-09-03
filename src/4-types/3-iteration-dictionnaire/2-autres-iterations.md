@@ -1,7 +1,7 @@
 ### Autres manières d'itérer
 
 On sait itérer sur les clés et récupérer la valeur associée à chaque clé, mais est-ce qu'il n'y a pas plus simple ?
-En effet, imaginons que nous ne soyons intéressé que par les valeurs du dictionnaires, pourquoi s'encombrer avec les clés ?
+En effet, imaginons que nous ne soyons intéressé que par les valeurs du dictionnaire, pourquoi s'encombrer avec les clés ?
 
 Les dictionnaires possèdent pour cela une méthode `values` renvoyant l'ensemble des valeurs du dictionnaire, sans les clés.
 
@@ -11,8 +11,8 @@ dict_values(['0633432380', '0663621029', '0714381809'])
 ```
 
 La méthode renvoie un objet d'un type un peu spécial, `dict_values`.
-Il s'agit en fait d'une « vue », une sorte de liste qui n'existerait pas en tant que telle en mémoire (il n'y a pas de tableau d'éléments) mais qui saurait où aller chercher ses éléments.  
-Il n'y a donc pas de duplication, la vue référence juste les valeurs du dictionnaire.
+Il s'agit en fait d'une « vue », une sorte de liste qui n'existe pas en tant que telle en mémoire (il n'y a pas de séquence d'éléments) mais qui sait où aller chercher ses éléments.  
+Il n'y a donc pas de duplication des données, la vue référence juste les valeurs du dictionnaire.
 
 Et cet objet un peu spécial est bien sûr itérable :
 
@@ -63,3 +63,23 @@ Alice : 0633432380
 Bob : 0663621029
 Alex : 0714381809
 ```
+
+#### Conversions
+
+On l'a vu, on peut convertir un dictionnaire en liste, ce qui nous renvoie la liste de ses clés.
+
+Les différentes vues que nous venons de voir sont elles aussi convertibles.
+Plus généralement, tout objet itérable (que l'on peut parcourir avec un `for`) est convertible en liste via un appel à `list`.
+
+```python
+>>> list(phonebook.keys())
+['Alice', 'Bob', 'Alex']
+>>> list(phonebook.values())
+['0633432380', '0663621029', '0714381809']
+>>> list(phonebook.items())
+[('Alice', '0633432380'), ('Bob', '0663621029'), ('Alex', '0714381809')]
+```
+
+[[q]]
+| Que représentent les parenthèses dans le dernier exemple ?
+| La réponse est dans le prochain chapitre. :)
