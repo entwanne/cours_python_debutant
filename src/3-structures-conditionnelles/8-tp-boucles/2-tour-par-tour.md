@@ -18,7 +18,7 @@ On se permettra enfin d'ajouter un récapitulatif après chaque attaque pour nou
 
 #### Solution
 
-Voici sans plus attendre la solution de notre jeu qui en est maintenant vrailent un. :)
+Voici sans plus attendre la solution de notre jeu qui en est maintenant vraiment un. :)
 
 [[s]]
 | ```python
