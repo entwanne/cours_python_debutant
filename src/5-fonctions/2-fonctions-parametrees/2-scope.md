@@ -1,25 +1,20 @@
 ### Espace de noms
 
-* Une fonction définit un espace de noms (un scope)
-* Les variables définies à l'intérieur d'une fonction n'existent que dans celle-ci
-
 Chaque fonction comporte son propre espace de noms (ou scope), c'est-à-dire une entité qui contient toutes les définitions de variables.
 Ainsi, une variable définie à l'intérieur d'une fonction n'existe que dans celle-ci.
 
 ```python
-def f():
-    a = 5
-    print(a)
-```
-
-```
+>>> def f():
+...     a = 5
+...     print(a)
+...
 >>> a
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'a' is not defined
 ```
 
-Que ce soit avant ou après l'appel de la fonction.
+Que ce soit avant ou après l'appel de la fonction, la variable `a` n'existe pas dans l'espace de noms principal (ou global).
 
 ```python
 >>> f()
@@ -43,7 +38,7 @@ Traceback (most recent call last):
 NameError: name 'x' is not defined
 ```
 
-Il est en revanche possible pour une fonction d'accéder aux variables définies à l'extérieur.
+Il est en revanche possible pour une fonction d'accéder aux variables définies à l'extérieur de celle-ci.
 
 ```python
 >>> value = 42
@@ -63,6 +58,7 @@ Ce qui implique que le comportement de la fonction change si la valeur de la var
 13
 ```
 
+Mais les espaces de noms extérieur et intérieur à la fonction sont bien deux scopes distincts.
 Deux variables de même nom peuvent exister dans des scopes différents sans qu'elles n'interfèrent entre-elles.
 
 ```python

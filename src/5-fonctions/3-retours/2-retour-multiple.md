@@ -14,7 +14,7 @@ def division(a, b):
 ```
 
 Dans les cas où `b` vaut zéro, on rentrera donc dans le bloc de la première condition et le `return` sera exécuté.
-On se retrouve donc à sortir de la fonction sans exécuter la suite, c'est pourquoi aucune exception n'est ensuite levée.
+On se retrouve donc à sortir de la fonction sans exécuter la suite, c'est pourquoi aucune erreur n'est ensuite levée.
 
 ```python
 >>> division(1, 2)
@@ -39,4 +39,4 @@ def secret_addition(a, b):
 None
 ```
 
-Pour rappel, la valeur `None` n'est par défaut pas affichée par l'interpréteur interactif, d'où l'appel à `print`.
+Pour rappel, la valeur `None` n'est par défaut pas affichée par l'interpréteur interactif, d'où l'appel à `print` pour la mettre en évidence.

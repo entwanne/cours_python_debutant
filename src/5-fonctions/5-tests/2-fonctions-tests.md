@@ -18,11 +18,13 @@ Traceback (most recent call last):
 AssertionError
 ```
 
-Attention cependant, les assertions ne doivent avoir un rôle que lors du développement.
-Elles peuvent en effet être désactivées (et donc n'avoir aucun effet même si évaluées à `False`) en production (notamment si les optimisations de l'interpréteur sont activées).
-Aucun problème pour des tests puisqu'ils seront exécutés dans un environnement de développement ou de tests.
+[[a]]
+| Attention cependant, les assertions ne doivent avoir un rôle que lors du développement.
+| Elles peuvent en effet être désactivées (et donc n'avoir aucun effet même si évaluées à `False`) en production (notamment si les optimisations de l'interpréteur sont activées).  
+| Aucun problème pour des tests puisqu'ils seront exécutés dans un environnement de développement ou de tests.
 
-Vous pouvez d'ailleurs essayer en lançant un script contenant des assertions avec `python -O script.py`.
+[[i]]
+| Vous pouvez d'ailleurs essayer en lançant un script contenant des assertions avec `python -O script.py`, celles-ci n'ont alors plus aucun effet.
 
 #### Tests unitaires
 
@@ -181,7 +183,7 @@ def test_my_sum_float():
     assert my_sum([0.1, 0.2, 0.3]) == 0.1 + 0.2 + 0.3
 ```
 
-Mais c'est aussi quelque chose à quoi il faudra faire attention, les problèmes peuvent aussi bien se situer dans la fonction à tester que dans la fonction de test elle-même.
+Mais c'est aussi quelque chose à quoi il faudra faire attention, les problèmes peuvent aussi bien se situer dans la fonction à tester que dans les tests eux-mêmes.
 
 On relance une nouvelle fois nos tests.
 
@@ -200,10 +202,10 @@ Mais on n'obtient pas une `AssertionError`, c'est une `IndexError` qui est levé
 Parce que ce n'est pas l'assertion qui a échoué, une erreur est survenue avant.
 
 Si on regarde à la ligne indiquée dans la fonction `my_sum`, on voit `result = numbers[0]`.
-En effet, sur une liste vide il n'y a pas de premier élément (index 0), d'où l'exception `IndexError`.
+En effet, sur une liste vide il n'y a pas de premier élément (index 0), d'où l'erreur `IndexError`.
 
 Comme correction, on pourrait apporter une pré-condition en début de fonction pour traiter explicitement le cas de la liste vide en renvoyant directement zéro.
-Ainsi, la suite de la fonction ne sera pas exécutée et on évitera de rencontrer l'exception.
+Ainsi, la suite de la fonction ne serait pas exécutée et on éviterait de rencontrer l'erreur.
 
 ```python
 def my_sum(numbers):
@@ -225,8 +227,9 @@ Et maintenant, ça marche.
 Cette fois-ci, nous couvrons l'ensemble des cas que nous souhaitions vérifier.
 Nous ne testons pas la fonction sur une chaîne de caractères ou d'autres types incohérents car nous savons qu'elle n'est pas prévue pour fonctionner dans ces conditions.
 
-Bien sûr, la fonction `my_sum` est inutilement compliquée, elle n'était là que dans un but d'exercice pour montrer comment apparaissaient les erreurs et quelles stratégies on pouvait adopter pour les corriger.
-En voici une autre version bien plus lisible et elle aussi dépourvue de bugs.
+[[i]]
+| Bien sûr, la fonction `my_sum` est inutilement compliquée, elle n'était là que dans un but d'exercice pour montrer comment apparaissaient les erreurs et quelles stratégies on pouvait adopter pour les corriger.
+| En voici une autre version bien plus lisible et elle aussi dépourvue de bugs.
 
 ```python
 def my_sum(numbers):

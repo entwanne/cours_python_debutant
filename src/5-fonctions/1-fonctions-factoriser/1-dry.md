@@ -4,8 +4,8 @@ L'idée première, c'est d'éviter de se répéter, de dupliquer du code.
 En effet, il y a plusieurs portions du code de notre TP qui pourraient être mises en commun et qui nous ferait gagner en clarté.
 
 Un code dupliqué, c'est un code plus diffile à maintenir.
-Déjà, il est plus long à lire et il faut garder plus d'éléméents de contexte en tête pour le comprendre.
-Mais ça alourdit aussi les étapes de réécriture / correction.
+Déjà, il est plus long à lire et il faut garder plus d'éléments de contexte en tête pour le comprendre.
+Mais ça alourdit aussi les étapes de réécriture et/ou de correction.
 
 Quand un code est présent à un seul endroit, il n'y a que cet endroit à réécrire pour l'adapter.
 Quand il est dupliqué à dix emplacements différents, il devient plus difficile d'aller tous les corriger.

@@ -27,7 +27,7 @@ Il faudra donc écrire les scénarios de tests les plus précis et complets poss
 Des bugs peuvent se glisser à toutes les phases du développement, et il est donc préférable de ne pas attendre la fin du développement d'une fonctionnalité pour la tester.
 Tester tôt permet en effet d'éliminer plus tôt les bugs rencontrés, et de ne pas les enfouir sous d'autres couches qui les rendront plus difficilement détectables.
 
-Certains modèles vont encore plus loin et préconisent l'écriture des tests avant même de réaliser les fonctions cibles (on parle de _test-driven development_).
-Cela permet d'être clair sur le comportement attendu et d'avancer itérativement jusqu'à ce que notre fonction remplisse tous les cas de tests attendus.
+Certains modèles vont encore plus loin et préconisent l'écriture des tests avant même de réaliser les fonctionnalités cibles (on parle de _test-driven development_).
+Cela permet d'être clair sur le comportement attendu et d'avancer itérativement en écrivant les tests puis les fonctionnalités, jusqu'à ce que notre fonction remplisse tous les cas de tests attendus.
 
 Nous allons maintenant voir comment écrire simplement nos scénarios de tests en Python.
