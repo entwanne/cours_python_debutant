@@ -1,6 +1,6 @@
 ## Formater les données
 
-On a vu comment ouvrir des fichiers et y écrire du texte, mais toutes les données que nous manipulons ne sont pas du textes.
+On a vu comment ouvrir des fichiers et y écrire du texte, mais toutes les données que nous manipulons ne sont pas du texte.
 Bien sûr il est possible de les convertir, c'est d'ailleurs ce que fait la fonction `print` sur ce qu'elle reçoit, mais comment conserver une structure des données ?
 
 Par exemple pour notre sauvegarde il va nous falloir enregistrer l'état du jeu, tout ce qui différencie la partie en cours d'une autre : les noms des monstres et leurs points de vie.

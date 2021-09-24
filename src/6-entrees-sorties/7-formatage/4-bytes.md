@@ -3,8 +3,8 @@
 Pour la suite nous allons quitter les formats textuels et nous intéresser aux formats dits « binaires », qui ne sont donc pas lisibles comme du texte.
 Et pour cela, nous avons besoin de découvrir un autre type de Python, le type `bytes`.
 
-Ce type représente une chaîne d'octets, les octets étant l'unité de stockage des informations sur un ordinateur, soit des nombres de 8 bites (de 0 à 255 inclus).
-Un objet _bytes_ peut donc être vue comme un tableau de nombres, chaque nombre étant la valeur d'un octet.
+Ce type représente une chaîne d'octets, les octets étant l'unité de stockage des informations sur un ordinateur, soit des nombres de 8 bits (de 0 à 255 inclus).
+Un objet _bytes_ peut donc être vu comme un tableau de nombres, chaque nombre étant la valeur d'un octet.
 
 On peut d'ailleurs définir un objet _bytes_ à partir d'un tel tableau.
 
@@ -30,13 +30,49 @@ Traceback (most recent call last):
 TypeError: 'bytes' object does not support item assignment
 ```
 
-Les deux types sont d'ailleurs assez semblables, ils étaient même confondus en Python 2, les deux identifient des chaînes.  
+Les deux types sont d'ailleurs assez semblables, ils étaient même confondus en Python 2, les deux identifiant des chaînes.  
 Les caractères ne sont qu'une abstraction pour interpréter des octets comme du texte, et une chaîne de caractères est ainsi une chaîne d'octets munie d'une règle définissant comment interpréter les octets en caractères.
 Cette règle est appelée un encodage, mais j'y reviendrai ensuite.
 
-Cette similitude entre les deux s'appuie entre autres sur la table ASCII qui établit une correspondance entre certains caractères (notamment les caractères alphanumériques latins « de base » -- sans accents -- et les chiffres) et des octets, elle sert encore aujourd'hui de base à de nombreux encodages.
+Cette similitude entre les deux s'appuie entre autres sur la table ASCII qui établit une correspondance entre certains caractères (notamment les caractères alphanumériques latins « de base » -- sans accents -- et les chiffres, ainsi que des caractères de contrôle) et des octets, elle sert encore aujourd'hui de base à de nombreux encodages.
 
-* Insérer la table ASCII
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|       |   00  |   10  |   20  |   30  |   40  |   50  |   60  |   70  |
++=======+=======+=======+=======+=======+=======+=======+=======+=======+
+| **0** | `NUL` | `DLE` | `' '` | `'0'` | `'@'` | `'P'` | `'`'` | `'p'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **1** | `SOH` | `DC1` | `'!'` | `'1'` | `'A'` | `'Q'` | `'a'` | `'q'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **2** | `STX` | `DC2` | `'"'` | `'2'` | `'B'` | `'R'` | `'b'` | `'r'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **3** | `ETX` | `DC3` | `'#'` | `'3'` | `'C'` | `'S'` | `'c'` | `'s'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **4** | `EOT` | `DC4` | `'$'` | `'4'` | `'D'` | `'T'` | `'d'` | `'t'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **5** | `ENQ` | `NAK` | `'%'` | `'5'` | `'E'` | `'U'` | `'e'` | `'u'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **6** | `ACK` | `SYN` | `'&'` | `'6'` | `'F'` | `'V'` | `'f'` | `'v'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **7** | `BEL` | `ETB` | `"'"` | `'7'` | `'G'` | `'W'` | `'g'` | `'w'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **8** | ` BS` | `CAN` | `'('` | `'8'` | `'H'` | `'X'` | `'h'` | `'x'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **9** | ` HT` | ` EM` | `')'` | `'9'` | `'I'` | `'Y'` | `'i'` | `'y'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **A** | ` LF` | `SUB` | `'*'` | `':'` | `'J'` | `'Z'` | `'j'` | `'z'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **B** | ` VT` | `ESC` | `'+'` | `';'` | `'K'` | `'['` | `'k'` | `'{'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **C** | ` FF` | ` FS` | `','` | `'<'` | `'L'` | `'\'` | `'l'` | `'|'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **D** | ` CR` | ` GS` | `'-'` | `'='` | `'M'` | `']'` | `'m'` | `'}'` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **E** | ` SO` | ` RS` | `'.'` | `'>'` | `'N'` | `'^'` | `'n'` | `'~'` | 
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| **F** | ` SI` | ` US` | `'/'` | `'?'` | `'O'` | `'_'` | `'o'` | `DEL` |
++-------+-------+-------+-------+-------+-------+-------+-------+-------+
+Table: Table ASCII
+
 
 C'est pourquoi, lors de l'affichage, Python essaie généralement de représenter un objet _bytes_ comme du texte, en s'appuyant sur la table ASCII.
 
@@ -45,7 +81,7 @@ C'est pourquoi, lors de l'affichage, Python essaie généralement de représente
 b'ABC'
 ```
 
-65, 66 et 67 sont les valeurs ASCII des caractères `A`, `B` et `C`.
+65, 66 et 67 sont les valeurs ASCII des caractères `A`, `B` et `C` (ou `0x41`, `0x42` et `0x43` en hexadécimal).
 
 On le voit ainsi, une chaîne d'octets peut simplement se définir comme une chaîne de caractères préfixée d'un `b`.
 
@@ -167,7 +203,7 @@ b'\xff\xfe\x00\x00\xe9\x00\x00\x00t\x00\x00\x00\xe9\x00\x00\x00'
 b'\xff\xfe\x00\x00a\x00\x00\x00b\x00\x00\x00c\x00\x00\x00'
 ```
 
-Ou encore l'encodage latin-1 (ou iso-8859-1) un langage encore parfois utilisé sur certains systèmes en Europe (Windows notamment).
+Ou encore l'encodage latin-1 (ou iso-8859-1) un encodage encore parfois utilisé sur certains systèmes en Europe (Windows notamment).
 
 ```python
 >>> 'été'.encode('latin-1')
@@ -194,6 +230,15 @@ Une chaîne ayant été encodée avec un certain encodage doit toujours être d�
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe9 in position 0: invalid continuation byte
+```
+
+On notera aussi que l'ascii est reconnu comme un encodage à part entière par les méthodes `encode` et `decode`. Bien sûr, seuls les caractères de la table ASCII sont autorisés dans les chaînes.
+
+```python
+>>> 'abcdef'.encode('ascii')
+b'abcdef'
+>>> b'abcdef'.decode('ascii')
+'abcdef'
 ```
 
 Les encodages interviennent quand vous traitez des données extérieures au programme, et notamment des fichiers.

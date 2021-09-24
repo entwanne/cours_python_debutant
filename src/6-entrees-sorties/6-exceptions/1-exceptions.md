@@ -1,12 +1,12 @@
 ### Tout ne se passe pas comme prévu
 
-On a déjà rencontré des exceptions, elles se produisent quand une opération échoue (conversion impossible, élément inexistant dans un dictionnaire, ouverture d'un fichier introuvable, etc.).
-L'erreur survient alors sous la forme d'une exception avec un type particulier (`ValueError`, `TypeError, `KeyError`, etc.).
+On a déjà rencontré des exceptions, ce sont les erreurs qui se produisent quand une opération échoue (conversion impossible, élément inexistant dans un dictionnaire, ouverture d'un fichier introuvable, etc.).
+L'erreur survient alors sous la forme d'une exception avec un type particulier (`ValueError`, `TypeError`, `KeyError`, etc.).
 
 Le soucis c'est que cela coupe l'exécution da la fonction et du programme (hors interpréteur interactif).
 
-Imaginions que nous souhaitions au chargement de notre jeu regarder si une sauvegarde existe.
-On esseraierait alors d'ouvrir le fichier de sauvegarde, et s'il n'existe pas on obtiendrait une excpetion.
+Imaginons que nous souhaitions au chargement de notre jeu regarder si une sauvegarde existe.
+On esseraierait alors d'ouvrir le fichier de sauvegarde, et s'il n'existe pas on obtiendrait une exception.
 
 ```python
 with open('game.sav') as save:
@@ -14,6 +14,9 @@ with open('game.sav') as save:
 
 print('Jeu en cours...')
 ```
+Code: game.py
+
+À l'exécution :
 
 ```python
 Traceback (most recent call last):
@@ -25,7 +28,7 @@ Ainsi, le programme s'arrête à l'exception, ce qui est plutôt embêtant.
 Notre jeu devrait être en mesure de démarrer sans sauvegarde existante, de traiter l'erreur et de continuer.
 
 Pour autant une exception peut être un comportement attendu, d'autant plus si elle provient d'une valeur entrée par l'utilisateur.
-Dans une calculatrice, on veut pas que le programme plante si l'utilisateur demande une division par zéro.
+Dans une calculatrice, on ne veut pas que le programme plante si l'utilisateur demande une division par zéro.
 De même dans un annuaire si un nom n'est pas trouvé.
 
 ```python

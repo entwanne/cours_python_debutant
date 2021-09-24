@@ -1,4 +1,6 @@
-Nous avons fait un tour des modules disponibles dans la bibliothèque standard de Python, mais ce ne sont pas les seuks formats existant.
+### Autres formats
+
+Nous avons fait un tour des modules disponibles dans la bibliothèque standard de Python, mais ce ne sont pas les seuls formats existant.
 Pour les autres, il faudra en revanche s'appuyer sur des modules tiers, nous verrons par la suite comment en installer.
 
 Voici donc quelques autres formats que vous pourriez croiser et qui se prêtent à diverses utilisations.
@@ -18,7 +20,7 @@ save = "game.dat"
 ```
 Code: config.toml
 
-* Lien toml
+* Page de la bibliothèque `toml` en Python : <https://github.com/uiri/toml>
 
 ##### yaml
 
@@ -36,16 +38,16 @@ base_pv: 50
 ```
 Code: pythachu.yaml
 
-* Lien YAML
+* Page de la bibliothèque `PyYAML` en Python : <https://pyyaml.org/wiki/PyYAML>
 
 ##### msgpack
 
 _msgpack_ est lui aussi un format de données assez semblable à JSON, à l'exception près que c'est un format binaire.
-Il permet donc de manière compact de représenter nombres, chaînes de caractères, listes et dictionnaires.
+Il permet donc de manière compacte de représenter nombres, chaînes de caractères, listes et dictionnaires.
 
 C'est un format interopérable qui possède des bibliothèques pour à peu près tous les langages.
 
-* Lien msgpack
+* Page du projet `msgpack` : <https://msgpack.org/>
 
 ##### Protobuf
 
@@ -54,4 +56,4 @@ Les programmes doivent donc utiliser un protocole commun qui définit les types 
 
 Cela permet d'omettre les informations de typage dans la sérialisation, et d'avoir une assurance de la validité des données transmises.
 
-* Lien Protobuf
+* Page du projet `protobuf` : <https://developers.google.com/protocol-buffers>

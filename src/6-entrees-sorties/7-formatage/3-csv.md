@@ -1,7 +1,7 @@
 ### Format CSV
 
-Le format CSV (* *) est un format textuel utilisé pour représenter des données tabulaires, comme un tableur.
-Chaque ligne du fichier correspondra à une ligne du tableau, et les lignes divisées en colonnes selon un séparateur (généralement `,` ou `;`).
+Le format CSV (*Comma-Separated Values*) est un format textuel utilisé pour représenter des données tabulaires, comme un tableur.
+Chaque ligne du fichier correspondra à une ligne du tableau, et les lignes sont divisées en colonnes selon un séparateur (généralement `,` ou `;`).
 
 Voici un exemple de document CSV :
 
@@ -104,7 +104,7 @@ ponytha,flamme,150
 ```
 Code: monstres.csv
 
-On notera que l'objet possède aussi une méthode `writerows` pour écrire plusieurs lignes en une fois (en prenant paramètre une liste de lignes).
+On notera que l'objet possède aussi une méthode `writerows` pour écrire plusieurs lignes en une fois (en prenant en argument une liste de lignes).
 
 De même, le module propose aussi `DictWriter` pour écrire des lignes depuis un dictionnaire.  
 Le `DictWriter` doit être appelé avec en arguments le fichier de sortie mais aussi la ligne d'en-tête, qui servira à extraire les bonnes valeurs des dictionnaires.
@@ -126,11 +126,11 @@ Une particularité du CSV est de supporter plusieurs dialectes, car différents 
 `,` n'est pas toujours le séparateur de colonnes par exemple.
 Le dialecte définit aussi quels caractères d'échappement utiliser dans différents contextes.
 
-Ainsi, toutes les fonctions que nous avons vu prennent un argument nommé `dialect` qui permet de choisir le dialecte à utiliser, il s'agit d'`'excel'` par défaut, où directement des arguments correspondant aux options à définir (`delimiter`, `quotechar`, `€scapechar`, etc.).
+Ainsi, toutes les fonctions que nous avons vu acceptent un argument nommé `dialect` qui permet de choisir le dialecte à utiliser (il s'agit d'`'excel'` par défaut), ou directement des arguments correspondant aux options à définir (`delimiter`, `quotechar`, `escapechar`, etc.).
 
 #### Avantages et inconvénients
 
 Le format CSV a l'intérêt d'être interopérable, malgré ses multiples dialectes qui peuvent rendre son utilisation confuse.
-Il est néanmoins assez lisible est facile d'utilisation.
+Il est néanmoins assez lisible et facile d'utilisation.
 
 C'est par contre un format assez limité qui ne permet que de représenter des données tabulaires simples (peu adapté pour formater des données arborescentes) et qui ne permet pas de typer ses valeurs.

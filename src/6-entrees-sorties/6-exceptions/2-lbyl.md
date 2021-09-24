@@ -53,7 +53,7 @@ else:
     state = None
 ```
 
-On notera que les objets `Path` possèdent aussi une méthode `open` équivalent à la fonction du même nom : `Path(foo).open()` revient à écrire `open(foo)`.
+On notera que les objets `Path` possèdent aussi une méthode `open` équivalente à la fonction du même nom : `Path(foo).open()` revient à écrire `open(foo)`.
 On peut alors améliorer notre code précédent pour éviter les répétitions.
 
 ```python
@@ -69,13 +69,13 @@ else:
 #### Limites
 
 La stratégie *LBYL* est cependant limitée.
-Déjà, il est difficile d'envisager tous les cas d'erreurs : on pourrait obtenir une exception parce que le fichier est répertoire, parce que les permissions ne sont pas suffisantes pour le lire, etc.
+Déjà, il est difficile d'envisager tous les cas d'erreurs : on pourrait obtenir une exception parce que le fichier est un répertoire, parce que les permissions ne sont pas suffisantes pour le lire, etc.
 
 Mais considérons que l'on arrive à anticiper toutes les erreurs possibles, il resterait un problème.
-Quand on demande au système si un fichier existe, il le vérifie à l'instant *t* ; mais quand on l'ouvre nous somme à l'instant *t+1*.  
+Quand on demande au système si un fichier existe, il le vérifie à l'instant *t* ; mais quand on l'ouvre nous sommes à l'instant *t+1*.  
 Pendant ce très court laps de temps le fichier a pu être supprimé, déplacé, ses permissions modifiées, et donc on n'échapperait pas à l'exception.
 
 Il va alors nous falloir adopter une autre stratégie, dite *EAFP* (*Easier to ask for forgiveness than permission*, *il est plus simple de demander pardon que demander la permission*). C'est-à-dire laisser l'exception se produire et la traiter ensuite, comme nous allons le voir tout de suite.
 
-Pour autant, la stratégie *LBYL* n'est pas à jeter, il reste des cas où elle est parfaitement adaptée, quand les conditions ne sont pas amenées à changer entre les pré-conditions et l'opérations.
+Pour autant, la stratégie *LBYL* n'est pas à jeter, il reste des cas où elle est parfaitement adaptée, quand les conditions ne sont pas amenées à changer entre les pré-conditions et l'opération.
 C'est le cas par exemple du test pour le quotient nul dans la division, s'il est non-nul à l'instant *t*, il sera toujours à *t+1*.

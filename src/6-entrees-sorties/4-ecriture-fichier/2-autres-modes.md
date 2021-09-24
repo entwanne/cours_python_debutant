@@ -46,6 +46,12 @@ FileExistsError: [Errno 17] File exists: 'hello.txt'
 Mais dans le cas d'un fichier inexistant, il aura le même effet que le mode `'w'`.
 C'est un mode qui permet par exemple d'éviter que deux programmes concurrents n'écrasent un fichier en croyant le créer.
 
+[[q]]
+| Quelle est donc cette instruction `pass` ?  
+| C'est une instruction Python qui permet juste de ne rien faire, elle permet de conclure un bloc indenté (quand Python attend quelque chose) sans rien faire de particulier, juste _passer_.
+|
+| Elle n'est pas équivalente à `...`, qui est une expression et possède donc une valeur (`Ellipsis`).
+
 ```python
 >>> with open('newfile.txt', 'x') as f:
 ...     f.write('New file')
@@ -75,6 +81,7 @@ Mais attention à ne pas vous emmêler avec les lectures/écritures et la mémoi
 Il est ainsi possible d'écraser des portions du fichier qui n'ont pas encore été lues, c'est pourquoi il faut être vigilent lors de l'utilisation de ce mode.
 
 ```python
+>>> with open('hello.txt', 'r+') as f:
 ...     f.write('>>>')
 ...     f.read()
 ... 
@@ -88,7 +95,7 @@ Il est ainsi possible d'écraser des portions du fichier qui n'ont pas encore é
 
 Pensez donc aux méthodes `seek` et `flush` qui pourraient vous être utiles pour vous déplacer dans le fichier et vider le tampon.
 
-De façon similaire on trouver aussi des modes de mise à jour en ajout (`'a+'`), en troncature (`'w+'`) et en création (`'x+'`).
+De façon similaire on trouve aussi des modes de mise à jour en ajout (`'a+'`), en troncature (`'w+'`) et en création (`'x+'`).
 Le premier aura pour effet de placer le curseur à la fin du fichier, et le second d'effacer le contenu actuel du fichier.
 
 Il ne s'agit ici que de modes pour opérer sur les fichiers en mode texte, nous verrons par la suite comment traiter les fichiers binaires.

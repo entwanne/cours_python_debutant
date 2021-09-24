@@ -75,6 +75,7 @@ attaques : [{'name': 'charge', 'type': 'normal', 'damage': 20}, {'name': 'tonner
 Vous l'aurez compris, `pickle` est un format très pratique en Python, puisqu'il permet de tout représenter ou presque.
 Il n'est en revanche pas interopérable puisque applicable seulement à Python.
 
-De plus, il permet l'exécution de code arbitraire ce qui présente donc une grosse faille de sécurité sur des données non sûres, il est donc à bannir pour tout ce qui reçoit des données distantes sans couche supplémentaire de sécurité.
+[[a]]
+| Attention aussi, ce format permet l'exécution de code arbitraire ce qui présente donc une grosse faille de sécurité sur des données non sûres, il est donc à bannir pour tout ce qui reçoit des données distantes sans couche supplémentaire de sécurité.
 
 Dans notre cas d'une sauvegarde de l'état d'un programme, c'est un assez bon choix.

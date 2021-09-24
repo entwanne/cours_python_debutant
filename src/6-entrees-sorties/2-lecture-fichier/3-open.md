@@ -1,20 +1,17 @@
 ### Fonction open
 
-* Fonction `open` pour ouvrir un fichier
-* Répertoire courant
-* Modes d'ouverture, `'r'` pour lecture
-
 Nous allons commencer simplement avec un fichier texte.
 Commencez par créer un fichier `hello.txt` dans votre répertoire courant, contenant simplement la phrase `Hello World!`.
+Vous pouvez utiliser votre éditeur de code pour créer ce fichier.
 
-[[attention]]
+[[a]]
 | Sous Windows, l'extension des fichiers n'est pas affichée par défaut.
 | Assurez-vous donc que votre fichier se nomme bien `hello.txt` (extension comprise) pour que la suite puisse fonctionner correctement.
 
 Depuis Python, nous utiliserons ensuite la fonction `open` pour ouvrir le fichier, avec comme argument le chemin vers notre fichier.
 Ici, comme notre fichier se trouve dans le répertoire courant, il nous suffira de faire `open('hello.txt')`.
 
-Pour un fichier dans le répertoire parent, nous aurions par exemple écrit `open('../hello.txt')`, ou `open('subdirectory/hello.txt')` pour un répertoire enfant.
+Pour un fichier dans le répertoire parent, nous aurions par exemple écrit `open('../hello.txt')`, ou `open('subdirectory/hello.txt')` pour un répertoire enfant (`open('..\hello.txt')` ou `open('subdirectory\hello.txt')` sous Windows).
 
 ```python
 >>> open('hello.txt')
@@ -25,7 +22,7 @@ On voit que l'appel nous renvoie un objet un peu étrange mais l'essentiel est l
 
 Qu'est-ce que ce mode ?  
 Il faut savoir que plusieurs opérations sont possibles pour les fichiers, de lecture et d'écriture.
-Les différentes opérations impliques des besoins différents et le système d'exploitation requiert donc un mode lors de l'ouverture du fichier.  
+Les différentes opérations impliquent des besoins différents et le système d'exploitation requiert donc un mode lors de l'ouverture du fichier.  
 Ici, `r` signifie que nous ouvrons le fichier en lecture seule (*read*), nous verrons par la suite quels autres modes d'ouverture existent.
 
 La fonction open prend un deuxième argument optionnel pour spécifier ce mode. Il vaut `'r'` par défaut, d'où le comportement que nous observons.
@@ -36,7 +33,7 @@ La fonction open prend un deuxième argument optionnel pour spécifier ce mode. 
 ```
 
 Ça c'est pour les cas où ça se passe bien.
-Il se peut aussi que l'ouverture échoue : si le fichier est introuvable ou que les droits sont insuffisants par exemple.
+Il se peut aussi que l'ouverture échoue : si le fichier est introuvable ou que les droits sont insuffisants par exemple (pas la permission d'accéder au fichier appartenant à un autre utilisateur).
 Dans ce cas, une erreur sera levée par la fonction `open` et le fichier ne sera pas ouvert.
 
 ```python

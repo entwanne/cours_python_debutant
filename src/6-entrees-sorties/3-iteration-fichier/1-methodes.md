@@ -1,6 +1,6 @@
 ### Méthodes des fichiers
 
-Avec `read` nous savons lire le contenu complet dans une chaîne de caractères.
+Avec `read` nous savons lire le contenu complet d'un fichier dans une chaîne de caractères.
 Mais ce n'est pas toujours le plus pratique et il est souvent préférable de pouvoir traiter un fichier par morceaux.
 En plus, ça évite de devoir stocker la totalité du fichier en mémoire si ça n'est pas nécessaire (heureusement que les lecteurs vidéo ne chargent pas tout le contenu d'un film dans une chaîne de caractères).
 
@@ -30,7 +30,7 @@ Pour ce chapitre, j'utiliserai le fichier `corbeau.txt` avec le contenu suivant�
 | Code: corbeau.txt
 
 Une première manière de découper est d'utiliser l'argument optionnel de `read` qui permet de préciser une taille.
-La longueur du texte renvoyée sera ainsi toujours inférieure ou égale à cette taille (inférieur s'il n'y a plus rien d'autre à lire par exemple), et le curseur avancé d'autant dans le fichier.
+La longueur du texte renvoyé sera ainsi toujours inférieure ou égale à cette taille (inférieur s'il n'y a plus rien d'autre à lire par exemple), et le curseur avancé d'autant dans le fichier.
 
 ```python
 >>> with open('corbeau.txt') as f:

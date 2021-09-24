@@ -17,6 +17,9 @@ Utilisée sans argument, elle renvoie le contenu complet du fichier sous forme d
 
 On remarque ici que mon fichier se termine par un saut de ligne, cela fait partie du contenu du fichier.
 
+[[i]]
+| Sous Windows, il est possible que votre fichier se termine par `\r\n`, qui est la représentation d'un passage à la ligne sur ce système.
+
 Mais l'objet que nous avons en Python n'est pas à proprement parler un fichier, c'est une entité qui enrobe les opérations possibles sur le fichier, on parle de _wrapper_.
 Et celui-ci ne représente qu'un curseur qui avance dans le fichier présent sur le système.
 Ainsi, l'état d'un fichier évolue au fur et à mesure qu'on le parcourt.
@@ -99,7 +102,7 @@ def get_file_number(filename):
 42
 ```
 
-Et si on tente de l'exécuter avec notre fichier `hello.txt` (qui ne contient pas un nombre) on obtient logiquement une erreur.
+Mais si on tente de l'exécuter avec notre fichier `hello.txt` (qui ne contient pas un nombre) on obtient logiquement une erreur.
 
 ```python
 >>> get_file_number('hello.txt')
@@ -110,11 +113,11 @@ ValueError: invalid literal for int() with base 10: 'Hello World!\n'
 ```
 
 L'erreur survient à la ligne 4 de notre fonction, `value = int(content)`.
-À cet instant, l'exécution de la fonction s'arrête pour remonter l'exception survenue.  
+À cet instant, l'exécution de la fonction s'arrête pour remonter l'erreur survenue.  
 La ligne suivante, `f.close()` n'a donc pas pu être exécutée, et ne le sera pas.
 C'est tout de même problématique.
 
-Il y a des mécanismes pour traiter les exceptions et gérer des cas comme celui-ci (voir chapitres suivants), mais le plus simple est encore de ne pas avoir à faire l'appel à `close` nous-même.
+Il y a des mécanismes pour traiter les erreurs et gérer des cas comme celui-ci (voir chapitres suivants), mais le plus simple est encore de ne pas avoir à faire l'appel à `close` nous-même.
 
 Pour cela il existe en Python ce qu'on appelle des gestionnaires de contexte qui permettent de facilement traiter les ressources.
 Ils prennent la forme d'un bloc `with`, suivi par l'expression récupérant la ressource (ici l'appel à `open`).
@@ -156,7 +159,7 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: 'Hello World!\n'
 ```
 
-L'exception est toujours là en cas d'erreur, mais cette fois-ci la ressource a correctement été libérée, le mécanisme est géré par Python.
+L'erreurs survient toujours, mais cette fois-ci la ressource a correctement été libérée, le mécanisme est géré par Python.
 
 [[i]]
 | Quand vous manipulez des fichiers, utilisez donc toujours un bloc `with` pour éviter les soucis.
