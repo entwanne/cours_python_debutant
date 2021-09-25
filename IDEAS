@@ -9,3 +9,4 @@
 * Présentation d'IDLE : open file, open module, run module, module browser, etc. (run module incompatible avec les packages)
 * tutoiement/vouvoiement: adopter le tutoiement uniquement pour l'intro ? -> semble ok, basculer peu à peu sur le nous/vous à la fin de l'intro
 * Chapitre annexe "différences Python 2/3"
+* Chapitre annexe sur les flags de formatage (différentes options, !a, !r)
