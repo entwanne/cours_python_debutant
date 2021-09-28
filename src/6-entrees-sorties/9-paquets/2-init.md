@@ -18,7 +18,7 @@ Code: `operations/__init__.py`
 Hello
 ```
 
-[[w]]
+[[a]]
 | Attention au nommage du fichier, il faut bien deux *underscores* de part et d'autre de `init`.
 
 Bien sûr cet exemple n'est pas très utile, mais ce fichier `__init__.py` peut aussi nous servir à charger directement le code des modules du paquet.  

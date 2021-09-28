@@ -100,7 +100,7 @@ Retrouvez maintenant ci-dessous la solution que je propose pour ce TP.
 | ```
 | Code: `test_tp.py`
 
-[[w]]
+[[i]]
 | On remarque qu'après l'exécution de nos tests, un fichier `test_game.dat` persiste dans le répertoire courant.
 | Ce n'est pas très grave pour l'instant mais ce n'est pas très propre non plus.
 |

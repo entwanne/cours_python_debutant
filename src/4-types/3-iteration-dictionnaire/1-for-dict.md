@@ -26,7 +26,7 @@ Bob : 0663621029
 Alex : 0714381809
 ```
 
-[[w]]
+[[i]]
 | Si vous utilisez une version de Python antérieure à 3.6, il se peut que vous obteniez un ordre différent dans les itérations.
 | En effet, l'ordre des éléments dans un dictionnaire était auparavant aléatoire.
 

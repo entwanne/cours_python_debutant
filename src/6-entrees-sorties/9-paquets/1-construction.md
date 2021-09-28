@@ -30,7 +30,7 @@ Ce paquet forme un espace de noms supplémentaire autour de nos modules, et nous
 -1
 ```
 
-[[w]]
+[[a]]
 | Pensez à bien vous placer depuis le répertoire contenant le dossier `operations` et non dans le dossier `operations` lui-même pour exécuter ce code.  
 | Par exemple si votre dossier `operations` se trouve dans un dossier `projet`, il faut que vous exécutiez l'interpréteur depuis ce dossier `projet` sans quoi Python ne serait pas en mesure de trouver le paquet.
 
