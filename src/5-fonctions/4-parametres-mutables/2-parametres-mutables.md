@@ -1,6 +1,6 @@
 ### Paramètres mutables
 
-Ça peut donc être perturbant au premier abord, puisque la modification d'un paramètre altère la vakeur passée en argument.
+Ça peut donc être perturbant au premier abord, puisque la modification d'un paramètre altère la valeur passée en argument.
 
 ```python
 def append_zero(values):
