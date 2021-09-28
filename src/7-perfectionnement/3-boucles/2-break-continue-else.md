@@ -51,6 +51,7 @@ Il n'est pas possible d'influer sur les boucles extérieures.
 ```
 
 Mais `break` n'est pas le seul mot-clé de contrôle du flux d'une boucle et je vais maintenant vous parler de `continue`.
+
 `continue` permet aussi de terminer immédiatement l'itération en cours, mais pour passer à la suivante.
 Quand un `continue` est rencontré, on est directement conduit à la ligne d'introduction de la boucle et sa condition est réévaluée.
 
@@ -110,9 +111,9 @@ else:
     print('Pythachu est KO')
 ```
 
-`else` est aussi applicable à la boucle `for` en ayant le même effet, il permet de savoir si la boucle est arrivée jusqu'au bout sans être interrompu.
+`else` est aussi applicable à la boucle `for` en ayant le même effet, il permet de savoir si la boucle est arrivée jusqu'au bout sans être interrompue.
 
-Ainsi, sans`break` le `else` est bien exécuté.
+Ainsi, sans `break` le `else` est bien exécuté.
 
 ```python
 >>> for i in range(5):
@@ -145,4 +146,5 @@ Avec un `break` il ne l'est pas.
 
 ```
 
-Le mot-clé `else` est souvent mal compris -- on pourrait croire qu'on entre dans le `else` uniquement s'il n'y a pas eu d'itérations -- et donc peu recommandé pour lever toute ambiguïté.
+[[i]]
+| Le mot-clé `else` est souvent mal compris -- on pourrait croire qu'on entre dans le `else` uniquement s'il n'y a pas eu d'itérations -- et donc peu recommandé pour lever toute ambiguïté.

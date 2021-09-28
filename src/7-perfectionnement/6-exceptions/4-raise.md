@@ -4,9 +4,9 @@ Les exceptions ont deux faces.
 D'un côté il s'agit de les attraper pour faire un traitement correct des erreurs, ce qui était l'objet des précédentes parties.  
 Mais de l'autre il est aussi question de lever des exceptions pour signaler les erreurs.
 
-Souvenez-vous de notre fonction `factorielle` qui ne gérait pas correctement les nombres négatifs en argument, ce qui pouvait mener à des bugs[^boucles].
+Souvenez-vous de notre factorielle qui ne gérait pas correctement les nombres négatifs en entrée, ce qui pouvait mener à des bugs[^boucles].
 
-[^boucles]: Voir chapitre « Retour sur les boucles ».
+[^boucles]: Voir chapitre [Boucler sur une condition (`while`)]().
 
 La factorielle d'un nombre négatif n'a pas de sens et notre fonction ne devrait même pas les accepter.
 Elle devrait lever une exception quand un tel nombre lui est donné, pour que l'appelant sache que la valeur passée est problématique.
@@ -41,7 +41,7 @@ ValueError
 ```
 
 Mais l'erreur n'est pas très explicite.
-Nous avons par le type d'erreur qu'il est question de la valeur, mais aucune autre information ne nous est donnée.  
+Nous savons par le type d'erreur qu'il est question de la valeur, mais aucune autre information ne nous est donnée.  
 Parce que lors du `raise` nous avons simplement précisé un type sans plus d'informations.
 
 Il est en fait possible d'appeler un type d'exception pour l'instancier, en lui donnant les arguments que l'on veut (généralement un message d'erreur), et d'utiliser cette instance pour le `raise`.
@@ -83,10 +83,12 @@ Nous avons rencontré plusieurs types d'exceptions pour coller à différentes s
 Il faut savoir que ces types sont hiérarchisés, afin de pouvoir traiter plus ou moins finement les erreurs qui surviennent.  
 Ainsi, faire un `except` sur un type d'exception arrêtera les exceptions de ce type mais aussi de tous les types qui en descendent.
 
-Par exemple, toutes les exceptions que nous avons vues descendent d'un même type `Exception` : cela signifie qu'il suffit d'attraper `Exception` pour les attraper toutes.
+Par exemple, toutes les exceptions que nous avons vues descendent d'un même type `Exception` : cela signifie qu'il suffit d'attraper `Exception` pour les attraper toutes.[^chen]
+
+[^chen]: Allez dire ça au Professeur Chen, il sera vert.
 
 `TypeError` et `ValueError` sont alors deux des principales exceptions, la première indiquant une erreur dans le type des données et la seconde sur la valeur elle-même (le type correspond mais la valeur est incohérente).
-`ValueError` rassemble aussi des exceptions plus précises telles que `UnicodeDecodeError` et `UnicodeEncodeError` que nous avons déjà rencontrée.
+`ValueError` rassemble aussi des exceptions plus précises telles que `UnicodeDecodeError` et `UnicodeEncodeError` que nous avons déjà rencontrées.
 
 `IndexError` et `KeyError` que l'on a beaucoup utilisées dans ce chapitre descendent d'une même exception `LookupError` qui attrape donc toutes les erreurs liées à la recherche dans un conteneur.
 

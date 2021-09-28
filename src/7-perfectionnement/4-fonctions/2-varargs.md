@@ -35,7 +35,7 @@ On obtiendra ainsi un tuple `args` contenant ces arguments.
 ```
 
 `args` est ici un nom complètement arbitraire (mais très couramment utilisé) pour nommer cette liste, et n'importe quel autre nom fonctionnerait tout aussi bien.
-C'est le `*` placé avant qui a pour effet de récupérer les arguments et non le nom donné au paramètres.
+C'est le `*` placé avant qui a pour effet de récupérer les arguments et non le nom donné au paramètre.
 
 Avec `*args`, tous les arguments sont ainsi optionnels.
 Mais il est aussi possible de préciser d'autres paramètres avant `*args`, qui ne récupérera alors que le reste des arguments : cela permet alors de conserver des arguments obligatoires.
@@ -67,7 +67,7 @@ TypeError: print_args() got an unexpected keyword argument 'foo'
 
 En effet, comment un tuple d'arguments pourrait représenter nos arguments nommés ?  
 Mais il existe une autre syntaxe pour récupérer les arguments nommés, sous forme d'un dictionnaire cette fois : `**kwargs`.
-`kwargs` pour *keyword-only arguments* (arguments uniquement nommés) car il ne pourra récupérer que les arguments qui sont explicitement nommés.
+`kwargs` pour *keyword arguments* (arguments nommés) car il ne pourra récupérer que les arguments qui sont explicitement nommés.
 Là encore le nom du paramètre n'est qu'une convention.
 
 ```python
@@ -81,7 +81,7 @@ Là encore le nom du paramètre n'est qu'une convention.
 ```
 
 Le paramètre spécial `**kwargs` ne peut se placer que tout à la fin de la liste des paramètres puisqu'il récupère les arguments qui n'ont pas été attrapés par les paramètres précédents.
-`*args` quant à lui peut se placer à peu près où vous les souhaitez (avant `**kwargs`) mais souvenez-vous qu'il attrape tous les arguments positionnels, donc les paramètres situés après ne pourront récupérer que des arguments nommés (d'où le nom de paramètre uniquement nommé).
+`*args` quant à lui peut se placer à peu près où vous le souhaitez (avant `**kwargs`) mais souvenez-vous qu'il attrape tous les arguments positionnels, donc les paramètres situés après ne pourront récupérer que des arguments nommés.
 
 ```python
 >>> def print_args(foo, *args, bar, **kwargs):
@@ -90,6 +90,9 @@ Le paramètre spécial `**kwargs` ne peut se placer que tout à la fin de la lis
 >>> print_args(1, 2, 3, bar=4, baz=5)
 1 (2, 3) 4 {'baz': 5}
 ```
+
+Dans cet exemple, il n'est pas possible de fournir un argument positionnel au paramètre `bar`.
+`bar` est ce qu'on appelle un paramètre _keyword-only_ (nommé uniquement).
 
 #### Opérateur _splat_
 
@@ -127,7 +130,7 @@ Contrairement aux paramètres, rien ne nous empêche ici d'utiliser plusieurs _s
 (1, 2, 3, 4, 5, 6) {}
 ```
 
-De manière équivalente, `**` et l'opérateur _double-splat_ et peut s'utiliser lors d'un appel pour transmettre le contenu d'un dictionnaire comme arguments nommés.
+De manière équivalente, `**` est l'opérateur _double-splat_ et peut s'utiliser lors d'un appel pour transmettre le contenu d'un dictionnaire comme arguments nommés.
 Il est alors nécessaire que les clés du dictionnaire soient des chaînes de caractères (un nom de paramètre ne peut pas être autre chose qu'une chaîne).
 
 ```python

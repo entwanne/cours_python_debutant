@@ -1,10 +1,10 @@
-### Déboguer pas à pas
+### Déboguer « à la main »
 
 Maintenant que nous sommes en mesure de nous dépatouiller pour inspecter les valeurs, il est temps de comprendre comment elles évoluent au cours du programme pour mener jusqu'au bug.
 
 #### Suivre et comprendre les exceptions
 
-Une manière courante de procéder au débogage, bien qu'elle ne soit pas des plus efficaces, est de placer des appels à `print` à plusieurs en droits du programme afn d'afficher des informations de debug.
+Une manière courante de procéder au débogage, bien qu'elle ne soit pas des plus efficaces, est de placer des appels à `print` à plusieurs endroits du programme afin d'afficher des informations de debug.
 
 Par exemple si l'on reprend le programme présenté en introduction, on remarque que le premier problème que l'on rencontre est que le programme affiche sans cesse « Valeur invalide » avant même que l'on ait entré quelque chose.  
 Pour comprendre ce qui se passe, on peut donc ajouter un `print` pour afficher ce que l'on connaît, la valeur de `value` et celle de `choices`.
@@ -41,7 +41,7 @@ On peut donc conditionner l'affichage du message d'erreur au fait que `value` ne
 ```
 Code: battle.py
 
-Une autre erreur que l'on remarque, c'est le plantage à la fin après avoir sélectionné l'attaque « éclair ».
+Une autre erreur que l'on remarque, c'est le plantage à la fin après avoir sélectionné l'attaque « eclair ».
 C'est une erreur qui se produit systématiquement dans le cas où l'on choisit cette attaque, et qui n'arrive pas autrement.  
 On peut donc facilement la reproduire pour l'analyser.
 
@@ -94,7 +94,7 @@ KeyError: 'eclair'
 ```
 
 Et là on constate que l'attaque `eclair` proposée pour le monstre n'existe pas dans le dictionnaire des attaques car elle n'est pas encore implémentée : on a donc simplement renseigné une mauvaise valeur dans notre JSON.  
-Il nous suffit de corriger ce dernier et supprimer `eclair` pour corriger l'erreur, on peut alors retirer tous les `print` de debug de notre programme.
+Il nous suffit de corriger ce dernier en supprimant `eclair` pour résoudre l'erreur, on peut alors retirer tous les `print` de debug de notre programme.
 
 ```js linenostart=9
 	"pythachu": {
@@ -122,7 +122,7 @@ Il n'y a en fait que la fonction `apply_attack` qui est déterministe : elle do
 Pour la tester, il faut alors que l'on donne à la fonction des données dans le format qu'elle attend (deux joueurs et une attaque) puis que l'on vérifie son retour.
 Ici la fonction ne renvoie rien mais elle peut altérer ses paramètres, c'est donc sur ceux-ci que nous ferons nos assertions afin de vérifier que les points de vie sont bien mis à jour (en l'occurence que les dégâts sont retirés du second monstre).
 
-Les paramètres n'ont pas besoin d'être exhaustifs mais simplement de contenir les informations qui seront utilisées par la fonction.
+Les arguments n'ont pas besoin d'être exhaustifs mais simplement de contenir les informations qui seront utilisées par la fonction.
 Ici les joueurs n'ont besoin de n'avoir par exemple qu'un nombre de points de vie et un nom de monstre, et l'attaque seulement un nom et un nombre de dégâts.
 
 ```python
@@ -163,7 +163,7 @@ AssertionError
 ```
 
 Notre assertion échoue parce que les PV du second joueur ne valent pas 70 comme attendu.  
-Sans plus d'outils à notre disposition pour le moment, on peut associer à nos tests un `print` comme précédemment avant d'obtenir plus d'informations.
+Sans plus d'outils à notre disposition pour le moment, on peut associer à nos tests un `print` comme précédemment afin d'obtenir plus d'informations.
 
 ```python linenostart=15
     apply_attack(p1, p2, attack)
@@ -172,7 +172,7 @@ Sans plus d'outils à notre disposition pour le moment, on peut associer à nos 
 ```
 Code: test_battle.py
 
-À l'exécution du test on comprend mieux le problème : les PV du deuxième jour n'ont pas bougé.
+À l'exécution du test on comprend mieux le problème : les PV du deuxième joueur n'ont pas bougé.
 
 ```shell
 % python test_battle.py

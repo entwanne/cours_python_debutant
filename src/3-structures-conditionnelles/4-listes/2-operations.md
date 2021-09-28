@@ -194,6 +194,28 @@ On notera aussi l'opérateur `del` permettant lui aussi de supprimer une valeur 
 ['à', 'a', 'b', 'c', 'd', 'đ', 'e']
 ```
 
+[[i]]
+| L'opérateur `del` est d'ailleurs un opérateur qui permet de supprimer une variable.
+| `del foo` revient à désaffecter la variable `foo` qui n'existe alors plus dans la suite du programme.
+|
+| ```python
+| >>> foo = 'abc'
+| >>> del foo
+| >>> foo
+| Traceback (most recent call last):
+|   File "<stdin>", line 1, in <module>
+| NameError: name 'foo' is not defined
+| ```
+|
+| `del` ne supprime pas la valeur à proprement parler qui peut toujours être référencée par une autre variable.
+|
+| ```python
+| >>> foo = bar = [1, 2, 3]
+| >>> del foo
+| >>> bar
+| [1, 2, 3]
+| ```
+
 #### Slicing
 
 Nous avons vu pour l'instant comment accéder facilement à un élément d'une liste à partir de son index, grâce à l'opérateur d'indexation (`[]`).

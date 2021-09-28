@@ -2,15 +2,7 @@
 
 Je vais être assez bref sur ce sujet car je ne souhaite pas vous inonder d'informations compliquées, mais je pense qu'il est temps de parler un peu des scopes.
 
-![Vous avez un peu de temps pour parler de scopes ?](image témoins de jéhovah)
-
-* Scopes
-* `global` / `nonlocal`
-* Introduction aux closures (+ lien)
-
-#### Variables globales
-
-On a vu plus tôt que les fonctions définissaient un espace de noms : les variable définies dans une fonction n'existent pas à l'extérieur.
+On a vu plus tôt que les fonctions définissaient un espace de noms (un scope) : les variable définies dans une fonction n'existent pas à l'extérieur.
 L'inverse n'est pas vrai, les mécanismes de Python permettent d'accéder depuis une fonction à une variable définie à l'extérieur.
 
 ```python
@@ -53,12 +45,14 @@ UnboundLocalError: local variable 'x' referenced before assignment
 Ces points mènent à une question : est-il possible de redéfinir une variable extérieure depuis une fonction Python ?
 La réponse est oui, mais à l'aide de mots-clés spécifiques.
 
+#### Variables globales
+
 Dans notre exemple, `x` est appelée une variable globale, car elle est définie à la racine (au plus haut espace de noms) du module courant, et est donc accessible dans tout le module.
 Pour redéfinir une variable globale depuis une fonction du module, il nous faut la déclarer au sein de la fonction.
 La déclarer c'est indiquer à Python que la variable existe quelque part et lui permettre de la retrouver, afin de la distinguer d'une variable locale.
 
 Ici, on va utiliser le mot-clé `global` pour indiquer que la variable existe dans le scope global du module.
-Après, il nous sera possible de l'utiliser comme une variable locale, et donc même la redéfinir.
+Après, il nous sera possible de l'utiliser comme une variable locale, et donc même de la redéfinir.
 
 ```python
 >>> def set_x():
@@ -91,7 +85,7 @@ Mais cela signifie à Python que c'est dans ce scope qu'il faudra la définir.
 
 [[a]]
 | L'utilisation de `global` induit naturellement des effets de bord et rend le flux d'exécution du programme plus difficile à suivre.
-| Dans la mesure du possible, évitez donc de l'utiliser à moins d'être sûr de ce que vous faites.
+| Dans la mesure du possible, évitez donc de l'utiliser à moins d'être sûrs de ce que vous faites.
 
 On notera aussi que le mot-clé `global` n'est utile que pour redéfinir une variable globale, il n'est pas nécessaire pour y accéder ni même pour la modifier.
 
@@ -140,12 +134,12 @@ Ces fonctions seront comme toutes les variables locales, perdues si elles ne son
 ```python
 >>> def get_print():
 ...     def special_print(*args):
-...         print('>', *args)
+...         print(':', *args)
 ...     return special_print
 ... 
 >>> p = get_print()
 >>> p('toto')
-> toto
+: toto
 ```
 
 #### Variables non-locales

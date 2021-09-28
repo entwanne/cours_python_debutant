@@ -29,7 +29,7 @@ finally:
 En plus de ça, le bloc `with` peut aussi influer sur la remontée d'exceptions, et donc stopper une exception qui serait levée à l'intérieur du bloc.
 
 C'est ce que permet facilement le gestionnaire de contexte `suppress` du module `contextlib` de la bibliothèque standard.  
-Il s'utilise en précisant les types d'erreurs que l'on veut voir supprimées.
+Il s'utilise en précisant les types d'erreurs que l'on veut voir supprimés.
 
 ```python
 >>> from contextlib import suppress
@@ -38,7 +38,7 @@ Il s'utilise en précisant les types d'erreurs que l'on veut voir supprimées.
 ...
 ```
 
-Plusieurs types peuvent être donnés en argument pour tous les supprimer.
+Plusieurs types peuvent être donnés en arguments pour tous les supprimer.
 
 ```python
 >>> with suppress(ValueError, TypeError):

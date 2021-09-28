@@ -5,7 +5,7 @@ C'est pourquoi Python propose de base de nombreux outils relatifs à l'itératio
 
 Vous êtes-vous déjà demandé comment itérer simultanément sur plusieurs listes ou comment répéter une liste ? Ce chapitre est fait pour vous !
 
-#### Fonctions *builtins*
+#### Fonctions natives (_builtins_)
 
 On a déjà vu un certain nombre de *builtins* dans les chapitres précédents, mais il en reste quelques unes très intéressantes que j'ai omises jusqu'ici.
 
@@ -97,15 +97,15 @@ Dans la même veine on a la fonction `sorted`, semblable à la méthode `sort` d
 [5, 3, 2, 4, 6, 1, 9, 7, 8]
 ```
 
-On notera que le tri se fait en ordre croissant (les plus éléments d'abord) par défaut, mais la fonction accepte un argument `reverse` pour trier en ordre décroissant (les plus grands d'abord).
+On notera que le tri se fait en ordre croissant (les plus petits éléments d'abord) par défaut, mais la fonction accepte un argument `reverse` pour trier en ordre décroissant (les plus grands d'abord).
 
 ```python
 >>> sorted(values, reverse=True)
 [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
-Mieux encore, la fonction propose un paramètre `key` pour pour personnaliser comment seront triés nos éléments.
-C'est une fonction qui recevra un élément en paramètre et renverra une valeur (par exemple un nombre), le tri se fera donc suivant l'ordre entre ces valeurs.
+Mieux encore, la fonction propose un paramètre `key` pour personnaliser la manière dont seront triés nos éléments.
+C'est une fonction qui recevra un élément en paramètre et renverra une valeur (par exemple un nombre), le tri se fera alors suivant l'ordre entre ces valeurs renvoyées.
 
 Par exemple, le tri par défaut pour les chaînes de caractères est l'ordre lexicographique (plus ou moins équivalent à l'ordre alphabétique).
 
@@ -130,7 +130,9 @@ Voici un autre exemple avec une fonction pour trier les mots dans l'ordre alphab
 ```python
 >>> def key_func(word):
 ...     return word[::-1] # On renvoie le mot à l'envers
-... 
+...
+>>> key_func('autruche')
+'ehcurtua'
 >>> sorted(words, key=key_func)
 ['autruche', 'oie', 'zèbre', 'cheval']
 ```
@@ -145,7 +147,7 @@ Ces deux arguments sont aussi disponibles sur la méthode `sort` des listes.
 
 #### `min` et `max`
 
-On a déjà vu les fonctions `min` et `max` qui permettent respectivement de récupérer le minimum/maximum parmi leurs argument.
+On a déjà vu les fonctions `min` et `max` qui permettent respectivement de récupérer le minimum/maximum parmi leurs arguments.
 
 ```python
 >>> min(3, 1, 2)
@@ -187,7 +189,7 @@ ValueError: min() arg is an empty sequence
 
 #### `zip`
 
-`zip` est une fonction très pratique de Python, puisqu'elle permet de parcourir simultanément sur plusieurs itérables.
+`zip` est une fonction très pratique de Python, puisqu'elle permet de parcourir simultanément plusieurs itérables.
 On appelle la fonction en lui fournissant nos itérables en arguments, et l'on itère ensuite sur l'objet qu'elle nous renvoie.  
 Les éléments que l'on obtient alors sont des tuples formés des éléments de nos itérables de départ.
 

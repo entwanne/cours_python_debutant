@@ -6,7 +6,7 @@ Une expression est une instruction qui possède une valeur.
 Pour une condition c'est facile : on a une valeur si la condition est vraie et une autre valeur sinon.
 Mais quelle pourrait être la valeur d'une boucle ?
 
-Il n'y a pas de réponse évident à cette question, et c'est pourquoi il n'y a pas d'expression générale pour exécuter une boucle.
+Il n'y a pas de réponse évidente à cette question, et c'est pourquoi il n'y a pas d'expression générale pour exécuter une boucle.
 Il existe en revanche les listes en intension, qui permettent de construire une liste à partir d'une boucle `for`.
 
 L'intension est un concept mathématique qui s'oppose à l'extension pour définir un ensemble[^intension_extension].
@@ -16,7 +16,7 @@ La définition par extension, c'est celle que nous avons utilisée jusqu'ici, qu
 powers = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 ```
 
-La définition par intension consiste à décrire l'ensemble selon une règle, par exemple « les dix premières puissances de 2 ».
+La définition par intension consiste elle à décrire l'ensemble selon une règle, par exemple « les dix premières puissances de 2 ».
 On la traduirait en Python par le code suivant :
 
 ```python

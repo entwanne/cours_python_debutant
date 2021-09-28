@@ -18,7 +18,7 @@ Pour cela, les dictionnaires sont une bonne structure de données : on peut fac
 {1: 1, 2: 2, 3: 1, 4: 3}
 ```
 
-Il y a en fait beaucoup plus simple et c'est le type `Counter` du module `collections`, spécialement dédié à compter des objets.  
+Il y a en fait beaucoup plus simple avec le type `Counter` du module `collections`, spécialement dédié à compter des objets.  
 Il se comporte comme un dictionnaire où chaque clé non existante serait considérée comme associée à la valeur 0.
 
 ```python
@@ -83,7 +83,7 @@ Les valeurs négatives sont ensuite retirées du résultat.
 Counter({'a': 2, 'b': 1})
 ```
 
-Il est possible de calculer l'union et l'intersection entre deux objets `Counter`, l'union étant composée des maximums de chaque valeur et l'intersection des minimums.
+Il est possible de calculer l'union et l'intersection entre deux objets `Counter`, l'union étant composée des maximums de chaque valeur et l'intersection des minimums (zéro compris).
 
 ```python
 >>> Counter(a=5, b=1) | Counter(a=3, c=2)
@@ -91,6 +91,10 @@ Counter({'a': 5, 'c': 2, 'b': 1})
 >>> Counter(a=5, b=1) & Counter(a=3, c=2)
 Counter({'a': 3})
 ```
+
+[[i]]
+| On peut voir cela comme des opérations sur des ensembles où les éléments peuvent avoir plusieurs occurrences.
+| Logiquement, l'intersection entre un ensemble qui contient 5 occurrences de `a` et un ensemble qui en contient 3 est un ensemble avec 3 `a`.
 
 Enfin, les compteurs ajoutent quelques méthodes par rapport aux dictionnaires.  
 `most_common` par exemple permet d'avoir la liste ordonnée des valeurs les plus communes, associées à leur nombre d'occurrences.
@@ -157,7 +161,7 @@ Cela simplifie des problèmes où l'on veut associer des listes de valeurs à de
 ```
 
 Mais les `defaultdict` permettent cela encore plus facilement : les valeurs manquantes seront automatiquement instanciées, sans besoin d'appel explicite à `setdefault`.
-Pour cela, un `defaultdict` s'instancie avec une fonction (ou un type) qui sera appelée à chaque clé manquante pour obtenir la valeur.
+Pour cela, un `defaultdict` s'instancie avec une fonction (ou un type) qui sera appelée à chaque clé manquante pour obtenir la valeur à affecter.
 
 Ainsi, l'exemple précédent pourrait se réécrire comme suit.
 
@@ -353,11 +357,11 @@ Ainsi, lorsque l'on ajoute ou retire des éléments à un tableau, il peut être
 Python fait cela pour nous, mais ce sont des opérations qui peuvent s'avérer coûteuses.
 
 Les listes chaînées à l'inverse sont des chaînes constituées de maillons, chaque maillon étant un élément avec son propre espace mémoire, ceux-ci peuvent être n'importe où dans la mémoire.  
-L'idée est que chaque maillon référence le précédent et le suivant dans la chaîne.
+L'idée est que chaque maillon référence le précédent et/ou le suivant dans la chaîne.
 
 On pourrait par exemple voir un maillon comme un dictionnaire avec 2 clés : `next` pour référencer le maillon suivant et `value` pour la valeur contenue (car l'idée est quand même bien d'y stocker des valeurs).
 
-Voici ainsi un équivalent en liste chaîne de la liste `[1, 2, 3, 4]`.
+Voici ainsi un équivalent en liste chaînée de la liste `[1, 2, 3, 4]`.
 
 ```python
 >>> node4 = {'next': None, 'value': 4}
@@ -366,6 +370,11 @@ Voici ainsi un équivalent en liste chaîne de la liste `[1, 2, 3, 4]`.
 >>> node1 = {'next': node2, 'value': 1}
 >>> values = node1
 ```
+
+[[i]]
+| On utilise `None` pour marquer la fin de la chaîne, indiquant qu'il n'y a plus d'autre maillon après `node4`.
+
+![Liste chaînée](img/liste_chainee.png)
 
 Les variables `node1`, `node2` etc. ne sont que temporaires pour la création de notre liste, elles n'existent plus après, seule `values` référence notre chaîne de maillons.
 
@@ -444,12 +453,11 @@ Ne les utilisez pas si vous devez accéder régulièrement à des éléments sit
 
 #### `namedtuple`
 
-Pour terminer avec le module `collections`, j'aimerais vous parler des *named tuples* (*tuples* nommés).
+Pour terminer avec le module `collections`, j'aimerais vous parler des *named tuples* (tuples nommés).
 
-Vous le savez, un *tuple* représente un ensemble cohérent de données, par exemple deux coordonnées qui identifient un point dans le plan.
+Vous le savez, un tuple représente un ensemble cohérent de données, par exemple deux coordonnées qui identifient un point dans le plan.
 Il est sinon semblable à une liste (bien que non modifiable) et permet d'accéder aux éléments à partir de leur position.
 
-```python
 ```python
 >>> point = (3, 5)
 >>> point[0]
@@ -465,14 +473,14 @@ Et par *unpacking* il est possible d'accéder à ses éléments indépendemment.
 ```
 
 Mais ne serait-il pas plus pratique de pouvoir directement taper `point.y` pour accéder à l'ordonnée du point ?
-C'est plus facilement compréhensible que `point[0]` et moins contraignant que l'*unpacking* qui nécessite de définir une nouvelle variable.
+C'est plus facilement compréhensible que `point[1]` et moins contraignant que l'*unpacking* qui nécessite de définir une nouvelle variable.
 
-Vous le voyez venir, c'est ce que proposent les *tuples* nommés, donner des noms aux éléments d'un *tuple*.
-Mais tout d'abord, il faut créer un type associé à ces *tuples* nommés, pour définir justement les noms de champs.
-Car un *tuple* nommé identifiant un point ne sera pas la même chose qu'un *tuple* nommé identifiant une couleur par exemple.
+Vous le voyez venir, c'est ce que proposent les tuples nommés : donner des noms aux éléments d'un tuple.
+Mais tout d'abord, il faut créer un type associé à ces tuples nommés, pour définir justement les noms de champs.
+Car un tuple nommé identifiant un point ne sera pas la même chose qu'un tuple nommé identifiant une couleur par exemple.
 
-Nous allons donc devoir définir un nouveau type et c'est précisément ce que fait la fonction `namedtuple` du module `collections` : elle crée dynamiquement un type de *tuples* nommés en fonction des paramètres qu'elle reçoit.
-Pour ça, elle prend en arguments le nom du type à créer (utilisé pour la représentation de l'objet) et la liste des noms des champs des *tuples*.
+Nous allons donc devoir définir un nouveau type et c'est précisément ce que fait la fonction `namedtuple` du module `collections` : elle crée dynamiquement un type de tuples nommés en fonction des arguments qu'elle reçoit.
+Pour ça, elle prend en arguments le nom du type à créer (utilisé pour la représentation de l'objet) et la liste des noms des champs des tuples.
 
 La fonction renvoie un type, mais il faudra assigner ce retour à une variable pour pouvoir l'utiliser, comme tout autre retour de fonction.
 Les types en Python sont en fait des objets comme les autres, qui peuvent donc être assignés à des variables.
@@ -502,7 +510,7 @@ On le voit à sa représentation, il est aussi possible d'instancier l'objet en 
 Point(x=10, y=7)
 ```
 
-Notre objet `point` est toujours un *tuple*, et il reste possible de l'utiliser comme tel.
+Notre objet `point` est toujours un tuple, et il reste possible de l'utiliser comme tel.
 
 ```python
 >>> point[0]

@@ -1,15 +1,4 @@
-## Débogage
-
-Les bugs sont monnaie courante en programmation.
-Une erreur d'inattention est vite arrivée, et hop, un bug se glisse dans le programme.
-
-Ils peuvent prendre de multiples formes : parfois ils feront planter purement et simplement l'application, d'autres mèneront à des traitements incohérents voire à des failles de sécurité, d'autres encore pourront être invisibles.  
-Mais quand un bug est repéré, il est encore loin d'être identifié : il faut trouver quelle fonction n'a pas eu un traitement correct et sur quelles données le problème survient.  
-Il s'agit alors de tenter de reproduire l'erreur dans différentes conditions pour l'identifier, pour enfin être en mesure de la corriger.
-C'est ce que l'on appelle le débogage !
-
-Je ne peux que vous conseiller d'être attentif et de bien tester vos codes pour les éviter au maximum, malheureusement ce n'est pas toujours suffisant.  
-Aussi, pour ne pas vous retrouver désemparé quand un bug survient (qu'il soit décelé lorsque l'application tourne ou lors de tests), voici un petit guide pour apprendre à trouver l'origine du bug et la corriger.
+### Programme de référence
 
 Nous prendrons pour exemple au long de ce chapitre le programme suivant de combat entre monstres et qui présente plusieurs bugs :
 
@@ -87,28 +76,30 @@ Il s'accompagne du fichier de données ci-dessous.
 ```js
 {
     "attacks": {
-	"charge": {"name": "Charge", "damage": 20},
-	"tonnerre": {"name": "Tonnerre", "damage": 50},
-	"jet-de-flotte": {"name": "Jet de flotte", "damages": 50},
-	"jet-de-flamme": {"name": "Jet de flamme", "damage": 60}
+        "charge": {"name": "Charge", "damage": 20},
+        "tonnerre": {"name": "Tonnerre", "damage": 50},
+        "jet-de-flotte": {"name": "Jet de flotte", "damages": 50},
+        "jet-de-flamme": {"name": "Jet de flamme", "damage": 60}
     },
     "monsters": {
-	"pythachu": {
-	    "name": "Pythachu",
-	    "attacks": ["charge", "tonnerre", "eclair"]
-	},
-	"pythard": {
-	    "name": "Pythard",
-	    "attacks": ["charge", "jet-de-flotte"]
-	},
-	"ponytha": {
-	    "name": "Ponytha",
-	    "attacks": ["charge", "jet-de-flamme"]
-	}
+        "pythachu": {
+            "name": "Pythachu",
+            "attacks": ["charge", "tonnerre", "eclair"]
+        },
+        "pythard": {
+            "name": "Pythard",
+            "attacks": ["charge", "jet-de-flotte"]
+        },
+        "ponytha": {
+            "name": "Ponytha",
+            "attacks": ["charge", "jet-de-flamme"]
+        }
     }
 }
 ```
 Code: data.json
+
+Ces deux fichiers sont à retrouver sur le Gist suivant : <https://gist.github.com/entwanne/630e73d59696b0bab2899b0db1ea201b>.
 
 Vous pouvez dores et déjà tenter d'exécuter le programme, et constater que celui-ci a un comportement incohérent voire lève une exception.
 

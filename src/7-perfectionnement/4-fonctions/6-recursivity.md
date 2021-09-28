@@ -11,7 +11,7 @@ L'idée étant que la fonction s'appelle elle-même, provoquant ainsi une répé
 > En mode itératif, marcher c'est mettre un pied devant l'autre et recommencer. En mode récursif, marcher c'est mettre un pied devant l'autre et marcher.
 Source: <https://twitter.com/framaka/status/1327220641150496768>
 
-C'est un concept issu des mathématiques qui se défini assez bien et intuitivement, nous l'appliquons même généralement sans le savoir.  
+C'est un concept issu des mathématiques qui se définit assez bien et intuitivement, nous l'appliquons même généralement sans le savoir.  
 Prenons par exemple la somme d'une liste de *N* nombres : de quoi s'agit-il ?
 Simplement de l'addition entre le premier nombre de la liste et la somme des *N-1* autres nombres.
 
@@ -73,7 +73,7 @@ On a `len('abcdef')` égal à `1 + len('bcdef')`.
 
 ```python
 def my_len(s):
-    return s + my_len(s[1:])
+    return 1 + my_len(s[1:])
 ```
 
 Là encore, nous avons oublié de prévoir la condition de fin (renvoyer 0 sur une chaîne vide), et patatra !
@@ -96,7 +96,8 @@ En fait, chaque appel récursif occupe un peu de mémoire dans notre programme, 
 Quand nous empilons les appels récursifs, la mémoire utilisée croît, jusqu'à atteindre une limite.
 En Python c'est l'interpréteur qui fixe arbitrairement une limite de 1000 appels.
 
-Certains langages (les langages fonctionnels notamment) mettent en œuvre des optimisations pour supprimer cette limite, mais ce n'est pas le cas de Python qui est assez peu porté sur le modèle récursif.
+[[i]]
+| Certains langages (les langages fonctionnels notamment) mettent en œuvre des optimisations pour supprimer cette limite, mais ce n'est pas le cas de Python qui est assez peu porté sur le modèle récursif.
 
 
 #### Récursions croisées
@@ -135,6 +136,7 @@ True
 ```
 
 Bien sûr je ne présente ces fonctions qu'à titre d'exemple.
-Les fonctions récursives étant déjà assez rares en Python pour les raisons expliquées plus haut, les récursions croisées le sont encore plus.
+Les fonctions récursives étant déjà assez rares en Python pour les raisons expliquées plus haut, les récursions croisées le sont encore plus.  
+Et l'exemple présenté ci-dessus est particulièrement inefficace (on peut directement tester la parité d'un nombre avec `n % 2`).
 
-Aussi, préférez dans la mesure du possible opter pour des solutions itératives (voir chapitre en annexe pour transformer un code récursif en itératif).
+Aussi, préférez dans la mesure du possible opter pour des solutions itératives (voir [chapitre en annexe pour transformer un code récursif en itératif]()).

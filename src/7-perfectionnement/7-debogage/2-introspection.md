@@ -2,7 +2,7 @@
 
 #### Informations sur la valeur
 
-Avant d'en venir proprement au débogage de notre programme, faisons un tour des outils qui sont à notre disposition pour examiner notre programme.
+Avant d'en venir proprement au débogage de notre programme, faisons un tour des outils qui sont à notre disposition pour l'examiner.
 Il s'agit de fonctions proposées par Python pour inspecter différentes valeurs du programme.  
 On parle d'outils d'introspection car ils permettent au programme de s'examiner lui-même.
 
@@ -31,7 +31,7 @@ Elle peut tout à fait être appelée depuis un programme pour afficher (avec `p
 
 Grâce à cette simple information, on identifie déjà à quoi correspond notre valeur.
 
-Mais une autre information pertinente que l'on connaît déjà sur notre valeur, c'est son type, renvoyé par la fonction `type`.  
+Mais une autre information pertinente que l'on connaît aussi sur notre valeur, c'est son type, renvoyé par la fonction `type`.  
 Cela nous permet, pour peu que l'on connaisse le type, de s'avoir quelles opérations et méthodes sont applicables à notre objet.
 
 ```python
@@ -77,7 +77,7 @@ class list(object)
 | Attention, cela fonctionne pour toutes les valeurs sauf les chaînes de caractères.
 |
 | En effet, la fonction `help` interprète les chaînes comme un sujet d'aide en particulier :
-| help('NUMBERS') affichera de l'aide sur les nombres en Python et pas sur le type `str`.
+| `help('NUMBERS')` affichera de l'aide sur les nombres en Python et pas sur le type `str`.
 
 ```python
 >>> help('NUMBERS')
@@ -128,11 +128,11 @@ Par exemple on peut obtenir ainsi tout le contenu d'un module.
 3.141592653589793
 ```
 
-Outre les modules, on manipule asssez peu de tels objets dans les _built-ins_ ou la bibliothèque standard, mais ils sont assez courants dans les bibliothèques tierces.
-On trouve tout de même des attributs sur les fichiers renvoyés par la fonction `open` par exemple.
+À part les modules, on manipule asssez peu d'objets avec des attributs dans les _built-ins_ ou la bibliothèque standard, mais ils sont assez courants dans les bibliothèques tierces.
+On a tout de même la fonction `open` qui nous renvoie un tel objet par exemple.
 
 ```python
->>> vars(open('heelo.txt'))
+>>> vars(open('hello.txt'))
 {'mode': 'r'}
 ```
 
@@ -146,9 +146,9 @@ TypeError: vars() argument must have __dict__ attribute
 ```
 
 [[i]]
-| Vous avez peut-être déjà rencontré la notation `obj.__dict__` pour accéder au dictionnaire d'attributs d'un objet, sachez qu'elle est équivalente à `vars(dict)`.
+| Vous avez peut-être déjà rencontré la notation `obj.__dict__` pour accéder au dictionnaire d'attributs d'un objet, sachez qu'elle est équivalente à `vars(obj)`.
 
-Notez enfin que `vars` peut s'utiliser sans argument, elle renverra alors le dictionnaire des variables définies dans l'espace de nom courant, ce qui peut être utile au débogage aussi.
+Notez enfin que `vars` peut s'utiliser sans argument, elle renverra alors le dictionnaire des variables définies dans l'espace de nom courant, ce qui peut aussi être utile au débogage.
 
 ```python
 >>> vars()

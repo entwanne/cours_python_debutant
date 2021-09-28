@@ -16,7 +16,7 @@ def get_10th(seq):
 >>> get_10th('abcd')
 ```
 
-L'idée étant que le contenu du `try` peut lever une erreur qui qui sera attrapée par le bloc `except` si son type correspond (`IndexError` ici).
+L'idée étant que le contenu du `try` peut lever une erreur qui sera attrapée par le bloc `except` si son type correspond (`IndexError` ici).
 
 Plusieurs blocs `except` peuvent être placés à la suite sur des types d'erreurs différents pour leur offrir un traitement particulier.
 
@@ -49,7 +49,7 @@ def get_10th(seq):
 
 #### Données complémentaires des exceptions
 
-Enfin, une exception possède certes un type pour expliciter la cause de l'erreur, mais d'autres informations complémentaires sont aussi accessibles.
+Une exception possède certes un type pour expliciter la cause de l'erreur, mais d'autres informations complémentaires sont aussi accessibles.
 
 En effet, une exception n'est rien d'autre qu'un objet Python, qui possède donc des attributs et des méthodes.
 Pour récupérer l'objet de cette exception, il suffit de placer un `as nom_de_la_variable` derrière le `except` afin de l'affecter à une variable `nom_de_la_variable`.  
