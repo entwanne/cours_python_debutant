@@ -1,7 +1,7 @@
 ### Gestion des nombres
 
-On a vite fait de passer sur les nombres car on peut croire que l'on en a fait le tour une fois que l'on a vu les types `int`, `float` et `complex` car ils semblent en effet couvrir toutes les catégories de nombres que l'on connaît.  
-Si c'est vrai pour ce qui est des nombres entiers, les types dédiés aux réels et aux complexes sont des approximations.
+On a vite fait de passer sur les nombres car on peut croire que l'on en a fait le tour une fois que l'on a vu les types `int`, `float` et `complex` qui semblent en effet couvrir toutes les catégories de nombres que l'on connaît.  
+Si c'est vrai pour ce qui est des nombres entiers, les types dédiés aux réels et aux complexes n'en sont que des approximations.
 
 #### Nombres décimaux
 
@@ -31,7 +31,7 @@ Decimal('5.55')
 Decimal('-5.3')
 ```
 
-Les décimaux sont aussi compatibles avec les entiers, une opération entre des nombres des deux renverra toujours un décimal.
+Les décimaux sont aussi compatibles avec les entiers, une opération entre des nombres des deux types renverra toujours un décimal.
 
 ```python
 >>> Decimal('0.1') + 3
@@ -68,10 +68,10 @@ Decimal('0.1')
 2.1
 ```
 
-Les nombres décimaux sont pratiques pour manipuler des valeurs qui ne doivent pas subir d'arrondis involontaires, comme des valeurs monétaires, mais sont performants à manipuler que les flottants qui sont directement gérés par le processeur.
+Les nombres décimaux sont pratiques pour manipuler des valeurs qui ne doivent pas subir d'arrondis involontaires, comme des valeurs monétaires, mais sont moins performants à manipuler que les flottants qui sont directement gérés par le processeur.
 
 Enfin, les décimaux sont tout de même soumis à une précision limitée qui ne leur permet alors pas de représenter tous les nombres décimaux possibles.  
-Avec une précision par défaut de 28 décimales, on remarque ainsi qu'il y a une perte de précision quand il y a un trop gros écart entre le chiffre le plus à gauche et celui le plus à droite, qui se ressent lors des opérations suivantes.
+Avec une précision par défaut de 28 décimales, on remarque ainsi qu'il y a une perte de précision quand il y a une trop grande distance entre le chiffre le plus à gauche et celui le plus à droite, qui se ressent lors des opérations suivantes.
 
 ```python
 >>> Decimal('1.000000000000000000000000001') * 2
@@ -96,12 +96,12 @@ Decimal('2')
 #### Nombres rationnels
 
 Mais quelle que soit la précision choisie, celle-ci sera toujours finie (pour des raisons de performances), et on ne pourra donc pas représenter un nombre avec une infinité ou un trop grand nombre de décimales.  
-On ne peut pas représenter de façon exacte le nombre `1/3` avec un `Decimal`.
+On ne peut pas représenter de façon exacte le nombre $\frac{1}{3}$ avec un `Decimal`.
 
 En revanche, il existe un autre type pour représenter les nombres rationnels : le type `Fraction` du module `fractions`.
 
 [[i]]
-| Pour rappel, un nombre rationnel est un nombre qui peut s'écrire comme le quotient (la fraction) entre deux nombres entiers, tels que `1/3`, `15/10` (1.5) ou encore `8/2` (4).
+| Pour rappel, un nombre rationnel est un nombre qui peut s'écrire comme le quotient (la fraction) entre deux nombres entiers, tels que $\frac{1}{3}$ (`1/3`), $\frac{15}{10}$ (`1.5`) ou encore $\frac{8}{2}$ (`4`).
 
 Un objet `Fraction` s'instancie avec le numérateur et le dénominateur de la fraction et s'utilise ensuite comme n'importe quel nombre.
 
@@ -182,9 +182,9 @@ False
 
 Cela implique que les décimaux ne sont pas compatibles avec les autres types de la hiérarchie, et ne le sont en fait qu'avec les entiers.
 
-#### Biblitohèques mathématiques
+#### Bibliothèques mathématiques
 
-On a vu qu'il existait en Python le module `math` qui regroupe l'essentiel des fonctions mathématiques sur les nombres réels.
+On a vu qu'il existait en Python le module `math` qui regroupe l'essentiel des fonctions mathématiques sur les nombres réels, et dont on peut retrouver la liste sur [la page de documentation dédiée](https://docs.python.org/fr/3/library/math.html).  
 On le sait moins, mais il existe aussi un module `cmath` pour des fonctions équivalentes dans le domaine des complexes.
 
 ```python
@@ -211,6 +211,8 @@ Le module étend donc le domaine de définition de certaines fonctions de `math`
 (-1+1.2246467991473532e-16j)
 ```
 
+Toutes ces fonctions sont à retrouver dans la [documentation du module `cmath`](https://docs.python.org/fr/3/library/cmath.html).
+
 Mais à propos de nombres, on trouve aussi le module `statistics` qui comme son nom l'indique fournit des outils de statistiques.
 On trouvera ainsi des fonctions pour calculer la moyen (`mean`), la médiane (`median`), la variance (`variance`) ou encore l'écart type (`stdev`) d'une série de données.
 
@@ -226,4 +228,4 @@ On trouvera ainsi des fonctions pour calculer la moyen (`mean`), la médiane (`m
 2.0275875100994063
 ```
 
-Pour plus d'informations sur les outils fournis par ce module, je vous invite à vous reporter sur [sa documentation]().
+Pour plus d'informations sur les outils fournis par ce module, je vous invite à vous reporter sur [sa documentation](https://docs.python.org/fr/3/library/statistics.html).

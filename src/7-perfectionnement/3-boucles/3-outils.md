@@ -107,6 +107,10 @@ On notera que le tri se fait en ordre croissant (les plus petits éléments d'ab
 Mieux encore, la fonction propose un paramètre `key` pour personnaliser la manière dont seront triés nos éléments.
 C'est une fonction qui recevra un élément en paramètre et renverra une valeur (par exemple un nombre), le tri se fera alors suivant l'ordre entre ces valeurs renvoyées.
 
+[[i]]
+| Les fonctions en Python sont des valeurs comme les autres que l'on peut donc parfaitement passer en argument.
+| Ces arguments-fonctions sont généralement appelés des _callbacks_ (ou « fonctions de rappel »).
+
 Par exemple, le tri par défaut pour les chaînes de caractères est l'ordre lexicographique (plus ou moins équivalent à l'ordre alphabétique).
 
 ```python

@@ -9,7 +9,7 @@ Mais quelques autres de ces fonctions méritent qu'on en parle un peu.
 Les fonctions `ord` et `chr` par exemple permettent de manipuler les caractères et leurs codes numériques.  
 Jusqu'ici on n'a jamais dissocié caractères et chaînes de caractères, puisque les caractères sont simplement des chaînes de taille 1.
 
-Mais en pratique, une chaîne de caractères s'apparente plutôt à un tableau de code numériques (des nombres entiers) où chaque code identifie un caractère particulier selon la spécification unicode.
+Mais en pratique, une chaîne de caractères s'apparente plutôt à une séquence de code numériques (des nombres entiers) où chaque code identifie un caractère particulier selon la spécification unicode.
 
 Ainsi, la fonction `ord` permet simplement de récupérer le code associé à un caractère, et la fonction `chr` le caractère associé à un code.
 
@@ -54,7 +54,7 @@ ValueError: chr() arg not in range(0x110000)
 La fonction `format` permet d'obtenir la représentation formatée de n'importe quelle valeur, sous forme d'une chaîne de caractères.
 
 Vous ne la connaissez pas mais c'est elle qui intervient dans le mécanisme des chaînes de formatage (_f-string_) pour transformer les valeurs et leur appliquer le format demandé.  
-Elle prend ainsi en arguments la valeur et le format à lui appliquer.
+Elle prend ainsi en arguments la valeur et le format (les options de formatage) à lui appliquer.
 
 ```python
 >>> format(42, '05X')
@@ -102,7 +102,7 @@ Toutes ces fonctions natives peuvent être retrouvées sur [la page de documenta
 
 #### Module `operator`
 
-Les opérateurs font en quelque sorte partie des _builtins_ même si on y pense moins.
+Les opérateurs font en quelque sorte partie des _built-ins_ même si on y pense moins.
 Après tout, il s'agit aussi de fonctions natives de Python.
 
 Mais les opérateurs sont des symboles et on ne peut pas les manipuler en tant que tels.
@@ -134,44 +134,48 @@ Quelques subtilités à noter :
     2
     ```
 
-* `operator.concat` est un alias vers `operator.add`, ces deux opérations se représentant par l'opérateur `+`.
+* `operator.concat` (concaténation) est équivalent à `operator.add`, ces deux opérations se représentant par l'opérateur `+`, mais s'attend à ce que ses arguments soient des séquences.
 
     ```python
     >>> operator.concat('foo', 'bar')
     'foobar'
     >>> operator.add('foo', 'bar')
     'foobar'
+    >>> operator.concat(3, 5)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: 'int' object can't be concatenated
     ```
 
-* Les opérateurs `and`, `or` et `not` sont préfixés d'un `_` afin de ne pas générer de conflits avec les mots-clés.
+* Les opérateurs `&` et `|` deviennent `and_` et `or_`, suffixés d'un `_` pour ne pas générer de conflit avec les mots-clés `and` et `or`. De même que `not` devient `not_`.
 
     ```python
-    >>> operator.and_(False, True)
-    False
-    >>> operator.or_(False, True)
-    True
+    >>> operator.and_(3, 1)
+    1
+    >>> operator.or_(3, 1)
+    3
     >>> operator.not_(False)
     True
     ```
 
-* Pour chaque fonction `foo` d'un opérateur arithmétique on trouve une fonction `ifoo` pour l'opérateur en-place (par-exemple `iadd` pour `+=`).
+* Pour chaque fonction `xxx` d'un opérateur arithmétique on trouve une fonction `ixxx` pour l'opérateur en-place (par-exemple `iadd` pour `+=`).
 
     ```python
-    >>> l = []
-    >>> operator.iadd(l, [42])
+    >>> values = []
+    >>> operator.iadd(values, [42])
     [42]
-    >>> l
+    >>> values
     [42]
     ```
 
 * Les opérateurs `[]`, `[]=` et `del []` sont appelés `getitem`, `setitem` et `delitem`.
 
     ```python
-    >>> operator.setitem(l, 0, 21)
-    >>> operator.getitem(l, 0)
+    >>> operator.setitem(values, 0, 21)
+    >>> operator.getitem(values, 0)
     21
-    >>> operator.delitem(l, 0)
-    >>> l
+    >>> operator.delitem(values, 0)
+    >>> values
     []
     ```
 
