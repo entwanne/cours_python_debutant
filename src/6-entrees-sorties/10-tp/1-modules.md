@@ -146,4 +146,4 @@ J'ai aussi ajouté un fichier `__main__.py` pour exécuter notre TP avec `python
 | Code: `tp/prompt.py`
 
 [[i]]
-| Comme vous le voyez, j'ai ici laissé un fichier `__init__.py` car il ne nous est pas utile.
+| Comme vous le voyez, j'ai ici laissé un fichier `__init__.py` vide car il ne nous est pas utile.
