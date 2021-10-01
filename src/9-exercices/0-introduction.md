@@ -1,4 +1,4 @@
-## Exercices
+# Exercices -- draft
 
 * Répertoires d'exercices
 * France-ioi
