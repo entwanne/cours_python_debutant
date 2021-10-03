@@ -149,7 +149,7 @@ Cela explique qu'une opération entre une fraction et un complexe renverra toujo
 ```
 
 Mais ce ne sont pas les seuls types de nombres que vous pourriez être amenés à manipuler, et certaines bibliothèques pourraient venir avec leurs propres types.  
-Pour autant, ces types se conformeraient à la hiérarchie présentée au-dessus car ils y feraient référence en utilisant les types abstraits (`Number`, `Complex`, `Real`, `Rational`, `Integral`) définis dans le module `numbers`.
+Pour autant, ces types se conformeraient à la hiérarchie présentée au-dessus car ils y feraient référence en utilisant les types abstraits (`Number` -- nombre, `Complex` -- complexe, `Real` -- réel, `Rational` -- rationnel, `Integral` -- entier) définis dans le module `numbers`.
 
 Les types abstraits ainsi définis permettent de savoir à quelle classe appartient à un nombre, à l'aide d'appels à `isinstance`.
 

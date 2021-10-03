@@ -168,7 +168,8 @@ Quelques subtilités à noter :
     [42]
     ```
 
-* Les opérateurs `[]`, `[]=` et `del []` sont appelés `getitem`, `setitem` et `delitem`.
+* Les opérateurs `foo[key]`, `foo[key] = value` et `del foo[key]` sont appelés `getitem`, `setitem` et `delitem`.
+  `getitem` renvoie la valeur demandée, `setitem` et `delitem` renvoient `None`.
 
     ```python
     >>> operator.setitem(values, 0, 21)
