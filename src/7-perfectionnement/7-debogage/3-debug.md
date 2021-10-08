@@ -110,7 +110,7 @@ Code: data.json
 Mais on le voit, utiliser `print` pour déboguer peut être assez fastidieux.
 Heureusement un autre outil peut nous venir en aide : un ensemble de tests unitaires.
 
-Je vous en parlais d'ailleurs [plus tôt](), les tests unitaires nous permettent de déceler des bugs dans nos fonctions en vérifiant que le retour correspond à ce qui est attendu.  
+Je vous en parlais d'ailleurs [plus tôt](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/5-fonctions/5-tests/), les tests unitaires nous permettent de déceler des bugs dans nos fonctions en vérifiant que le retour correspond à ce qui est attendu.  
 C'est pourquoi je ne peux que vous reconseiller de découper vos programmes en fonctions afin de plus facilement pouvoir les déboguer.
 L'idéal serait aussi de disposer les fonctions en différents modules pour pouvoir tester unitairement chacun des modules.
 

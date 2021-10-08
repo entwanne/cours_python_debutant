@@ -1,6 +1,6 @@
 ### Fonctions natives
 
-Je ne reviendrai pas sur l'ensemble des fonctions natives (*built-ins*) car beaucoup ont déjà été présentées dans les chapitres précédents, notamment [celui sur les fonctions calculatoires]() et [celui dédié aux outils sur les boucles]().
+Je ne reviendrai pas sur l'ensemble des fonctions natives (*built-ins*) car beaucoup ont déjà été présentées dans les chapitres précédents, notamment [celui rappelant les différents types](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/4-types/1-types-precedents/) et [celui dédié aux outils sur les boucles](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/#3-3-outils).
 
 Mais quelques autres de ces fonctions méritent qu'on en parle un peu.
 

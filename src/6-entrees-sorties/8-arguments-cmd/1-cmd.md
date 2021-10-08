@@ -1,7 +1,7 @@
 ### Ligne de commande
 
 Pour l'instant nous appelons nos programmes depuis la ligne de commande en tapant `python program.py`.
-Mais nous savons aussi que nous pouvons [définir un _shebang_ et rendre notre fichier exécutable]() sous Linux pour le lancer en tapant `./program.py`.
+Mais nous savons aussi que nous pouvons [définir un _shebang_ et rendre notre fichier exécutable](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/1-premiers-pas/4-fichiers/#ex%C3%A9cution-depuis-le-terminal) sous Linux pour le lancer en tapant `./program.py`.
 
 Dans les deux cas, cela fait appel à l'interpréteur Python en lui donnant le chemin de notre programme en argument.
 Mais il est possible de renseigner d'autres arguments lors du lancement et ceux-ci seront transmis à notre programme.

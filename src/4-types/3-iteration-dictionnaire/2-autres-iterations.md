@@ -34,7 +34,7 @@ dict_keys(['Alice', 'Bob', 'Alex'])
 
 Itérer sur cette vue revient donc à itérer directement sur le dictionnaire, mais comme on dit « explicit is better than implicit »[^PEP20].
 
-[^PEP20]: Il s'agit d'un « vers » extrait de la [PEP20](), un « poème » qui décrit la philosophie de Python.
+[^PEP20]: Il s'agit d'un « vers » extrait de la [PEP20](https://www.python.org/dev/peps/pep-0020/), un « poème » qui décrit la philosophie de Python.
 
 ```python
 >>> for name in phonebook.keys():

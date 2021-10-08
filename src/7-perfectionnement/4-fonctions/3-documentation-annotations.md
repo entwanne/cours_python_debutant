@@ -106,7 +106,7 @@ La _docstring_ n'est pas l'unique manière de documenter une fonction, d'autres 
 Comme leur nom l'indique, ces annotations servent à décrire les types des paramètres de la fonction.
 
 [[i]]
-| Les annotations sont parfaitement facultatives, elles sont utiles à la documentation et pour des outils d'analyse statique (tel que `mypy` présenté en annexe).  
+| Les annotations sont parfaitement facultatives, elles sont utiles à la documentation et pour des outils d'analyse statique (tel que `mypy` présenté [en annexe](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/4-outils/#2-2-mypy)).  
 | Elles existent et vous pouvez donc en rencontrer dans un code, c'est pourquoi je vous les présente, mais ne vous sentez pas obligé de les utiliser si vous n'en ressentez pas le besoin.
 
 Notre fonction peut s'annoter simplement : le premier paramètre est une chaîne de caractère, et les deux suivants sont des nombres, que l'on va pour le moment considérer comme des `int`.

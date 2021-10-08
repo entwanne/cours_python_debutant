@@ -132,7 +132,7 @@ De la même manière, on a les opérateurs OU-inclusif (`|`) et OU-exclusif/XOR 
 '0b10010'
 ```
 
-D'autres opérations bit-à-bit sont encore possibles (`~`, `<<`, `>>`), vous pourrez en apprendre plus sur cette page : <>.
+D'autres opérations bit-à-bit sont encore possibles (`~`, `<<`, `>>`), vous pourrez en apprendre plus sur [cette page dédiée aux opérateurs](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/1-glossaire/#3-3-operateurs).
 
 #### Précision des flottants
 

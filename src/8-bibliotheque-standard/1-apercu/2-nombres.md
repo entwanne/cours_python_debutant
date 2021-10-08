@@ -80,7 +80,7 @@ Decimal('2.000000000000000000000000002')
 Decimal('2.000000000000000000000000000')
 ```
 
-La précision des décimaux peut cependant être connue et réglée à l'aide des fonctions `getcontext` et `setcontext` tel que décrit dans [la documentation du module]().
+La précision des décimaux peut cependant être connue et réglée à l'aide des fonctions `getcontext` et `setcontext` tel que décrit dans [la documentation du module](https://docs.python.org/fr/3/library/decimal.html).
 
 ```python
 >>> from decimal import getcontext

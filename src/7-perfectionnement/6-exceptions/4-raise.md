@@ -6,7 +6,7 @@ Mais de l'autre il est aussi question de lever des exceptions pour signaler les 
 
 Souvenez-vous de notre factorielle qui ne gérait pas correctement les nombres négatifs en entrée, ce qui pouvait mener à des bugs[^boucles].
 
-[^boucles]: Voir chapitre [Boucler sur une condition (`while`)]().
+[^boucles]: Voir chapitre [Boucler sur une condition (`while`)](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/3-structures-conditionnelles/6-boucles/).
 
 La factorielle d'un nombre négatif n'a pas de sens et notre fonction ne devrait même pas les accepter.
 Elle devrait lever une exception quand un tel nombre lui est donné, pour que l'appelant sache que la valeur passée est problématique.
