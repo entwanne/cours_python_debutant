@@ -51,5 +51,5 @@ Il est aussi possible de préciser plusieurs objets à importer en les séparant
 Enfin, il peut arriver que vous rencontriez des `from foo import *`.
 Cela permet d'importer tous les noms présents dans le module `foo` (ici `addition` et `soustraction`) et de les rendre directement accessibles comme s'ils étaient tous précisés explicitement.
 
-C'est une syntaxe pratique pour des tests rapides dans l'interpréteur mais qui est oeu recommandable généralement, parce qu'elle pollue inutilement l'espace de noms courant avec tout le contenu du module (et peut effacer des objets s'il y a un conflit entre les noms).
+C'est une syntaxe pratique pour des tests rapides dans l'interpréteur mais qui est peu recommandable généralement, parce qu'elle pollue inutilement l'espace de noms courant avec tout le contenu du module (et peut effacer des objets s'il y a un conflit entre les noms).
 Comme on dit, l'explicite est préférable à l'implicite.

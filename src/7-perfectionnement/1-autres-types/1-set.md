@@ -3,7 +3,7 @@
 Les ensembles sont des collections de données pour représenter des valeurs uniques.
 Dans un ensemble, il ne peut pas y avoir de doublons, un peu comme pour les clés de dictionnaires.
 
-D'ailleurs, la syntaxe pour définir un ensemble ressemble à celle des dictionnaires : un ensemble se définit à l'aide d'accolades à l'intérieur desquelles on séparer les valeurs par des virgules.
+D'ailleurs, la syntaxe pour définir un ensemble ressemble à celle des dictionnaires : un ensemble se définit à l'aide d'accolades à l'intérieur desquelles on sépare les valeurs par des virgules.
 
 ```python
 >>> {0, 1, 2, 3, 4, 5}
@@ -69,8 +69,8 @@ Elle se calcule avec l'opérateur `-`.
 {0, 1}
 ```
 
-Enfin, `^` est l'opérateur de disjonction.
-La disjonction calcule l'ensemble des valeurs qui ne sont pas communes aux deux ensembles, c'est l'inverse de l'intersection.
+Enfin, `^` est l'opérateur de différence symétrique.
+La différence symétrique calcule l'ensemble des valeurs qui ne sont pas communes aux deux ensembles, c'est l'inverse de l'intersection.
 Ou autrement dit la différence entre l'union et l'intersection.
 
 ```python
@@ -205,7 +205,7 @@ Traceback (most recent call last):
 KeyError: 'pop from an empty set'
 ```
 
-On retrouve sinon différentes méthodes sur les ensembles équivalentes aux opérateurs décrits au-dessus : `union`, `intersection`, `difference` et `symmetric_difference` (disjonction).
+On retrouve sinon différentes méthodes sur les ensembles équivalentes aux opérateurs décrits au-dessus : `union`, `intersection`, `difference` et `symmetric_difference`.
 L'avantage par rapport aux opérateurs est que ces méthodes peuvent prendre plusieurs ensembles en paramètres, ou même des objets de tous types (itérables) et opérer dessus.
 
 ```python
@@ -214,6 +214,7 @@ L'avantage par rapport aux opérateurs est que ces méthodes peuvent prendre plu
 ```
 
 Chacune de ces méthodes est doublée d'une version qui modifie en place l'ensemble courant, respectivement `update`, `intersection_update`, `difference_update` et `symmetric_difference_update`.
+Ces méthodes ne renvoient rien.
 
 ```python
 >>> values = {1, 2, 3}

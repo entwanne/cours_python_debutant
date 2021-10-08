@@ -1,6 +1,6 @@
 ### Chaînes de caractères
 
-La chaîne de caractère est le type utilisé pour représenter du texte, on peut la voir comme un tableau contenant des caractères.
+La chaîne de caractère est le type utilisé pour représenter du texte, on peut la voir comme une séquence (ou un tableau) de caractères.
 
 #### Conversions
 
@@ -113,12 +113,18 @@ Les méthode `lstrip`, `rstrip` et `strip` permettent respectivement de renvoyer
 'foo bar'
 ```
 
-Elles acceptent un argument optionnel pour supprimer une chaîne en particulier plutôt que des espaces.
+Elles acceptent un argument optionnel pour supprimer des caractères en particulier plutôt que des espaces.
 
 ```python
 >>> '...hello...'.strip('.')
 'hello'
+>>> '.-hello-..'.strip('.-')
+'hello'
 ```
+
+[[a]]
+| Attention, l'argument donné à `strip` spécifie un ensemble de caractères à supprimer et nom une chaîne précise.
+| `s.strip('.-')` et `s.strip('-.')` sont équivalents.
 
 Les méthodes `upper`, `lower`, `capitalize` et `title` permettent d'obtenir une nouvelle chaîne en changeant la casse des caractères.
 
@@ -133,7 +139,7 @@ Les méthodes `upper`, `lower`, `capitalize` et `title` permettent d'obtenir une
 'Hello World!'
 ```
 
-`index` et `find` servent à trouver la première position d'un caractère (ou d'une sous-chaîne dans une chaîne.
+`index` et `find` servent à trouver la première position d'un caractère (ou d'une sous-chaîne) dans une chaîne.
 
 `index` produit une erreur si le caractère n'est pas trouvé, `find` renvoie `-1`.
 
@@ -159,6 +165,8 @@ Il est possible de compter le nombre d'occurrences d'un caractère (ou d'une sou
 ```python
 >>> 'hello world'.count('o')
 2
+>>> 'toto'.count('to')
+2
 ```
 
 On peut tester spécifiquement si une chaîne commence ou termine par une autre avec les méthodes `startswith` et `endswith`.
@@ -173,6 +181,19 @@ False
 False
 >>> 'hello world'.endswith('world')
 True
+```
+
+[[i]]
+| Depuis Python 3.9, les chaînes de caractères possèdent aussi des méthodes `removeprefix` et `removesuffix` qui permettent de retirer une sous-chaîne au début ou à la fin de notre chaîne.  
+| Ces méthodes ne produisent pas d'erreur si la sous-chaîne n'est pas trouvée et renvoient juste la chaîne telle quelle.
+
+```python
+>>> 'helloworld'.removeprefix('hello')
+'world'
+>>> 'helloworld'.removesuffix('world')
+'hello'
+>>> 'helloworld'.removeprefix('world')
+'helloworld'
 ```
 
 Différents tests sont possibles sur les chaînes de caractères pour savoir si elles sont composées de caractères alphanumériques (`isalnum`), alphabétiques (`isalpha`), numériques (`isdigit`) et d'autres encore.
@@ -192,8 +213,6 @@ True
 
 #### Méthodes avancées
 
-* Méthodes plus avancée : `str.replace`, `str.split`, `str.join`
-
 La méthode `replace` permet de renvoyer une copie de la chaîne en remplaçant un caratère (ou une sous-chaîne) par un autre.
 
 ```python
@@ -205,7 +224,7 @@ La méthode `replace` permet de renvoyer une copie de la chaîne en remplaçant 
 'heo world'
 ```
 
-On peut découper une chaîne de caractères vers une liste de chaînes à partir d'un séparateur avec la méthode `split`.
+On peut découper une chaîne de caractères vers une liste de chaînes à partir d'un séparateur (caractère ou sous-chaîne) avec la méthode `split`.
 Par défaut, le séparateur est l'espace.
 
 ```python
@@ -213,11 +232,31 @@ Par défaut, le séparateur est l'espace.
 ['hello', 'world']
 >>> 'abc:def:ghi'.split(':')
 ['abc', 'def', 'ghi']
+>>> 'abc : def : ghi'.split(' : ')
+['abc', 'def', 'ghi']
+```
+
+Ce séparateur ne peut pas être une chaîne vide.
+
+```python
+>>> 'hello'.split('')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: empty separator
 ```
 
 Enfin, il est possible d'unir les chaînes de caractère d'une liste autour d'un séparateur en utilisant la méthode `join` sur ce séparateur.
 
 ```python
+>>> ' '.join(['hello', 'world'])
+'hello world'
 >>> ':'.join(['abc', 'def', 'ghi'])
 'abc:def:ghi'
+```
+
+La chaîne vide est ici acceptée pour concaténer directement les chaînes.
+
+```python
+>>> ''.join(['h', 'e', 'l', 'l', 'o'])
+'hello'
 ```

@@ -33,7 +33,7 @@ Chaque `{}` correspond à la valeur suivante dans la liste des arguments.
 ```
 
 Mais ces accolades ne sont pas destinées à rester éternellement vides, on peut y préciser différents types de choses.
-Déjà, cela peut servir à spécifier l'argument que l'on souhaite utiliser : il peut arriver qu'on veuille afficher le deuxième argument avant le premeir par exemple.
+Déjà, cela peut servir à spécifier l'argument que l'on souhaite utiliser : il peut arriver qu'on veuille afficher le deuxième argument avant le premier par exemple.
 On entre donc simplement le numéro de l'argument positionnel entre les accolades pour y faire référence (`0` étant le premier argument, `1` le deuxième, etc.).
 
 ```python
@@ -60,17 +60,33 @@ Il est possible de mixer arguments positionnels et nommés, mais attention à ne
 '10-abc'
 ```
 
-* Accéder aux attributs (nombres complexes) / éléments (list / dict) de l'argument positionnel/nommé
+On peut aussi accéder directement aux attributs ou éléments de l'argument positionnel ou nommé, en utilisant le point pour les attributs et les crochets pour les éléments.
+
+```python
+>>> '{0.real}-{items[1]}'.format(1+2j, items=['a', 'b', 'c'])
+'1.0-b'
+```
 
 Voilà pour le placement des arguments mais ce n'est pas tout : le principal intérêt de cette méthode `format` est de pouvoir… formater les valeurs, leur donner le format que l'on souhaite.
 
 #### Options de formatage
 
-* Mini-langage
+Il existe pour cela un mini-langage dédié aux options de formatage.
+Ces options se placeront toujours derrière un signe `:` entre les accolades.
+
+Par exemple, il est possible en utilisant un nombre comme option d'aligner le texte sur un certain nombre de caractères.
+On l'appelle la largeur de champ.
 
 ```python
 >>> '{:10}'.format('abc')
 'abc       '
+```
+
+Par défaut le texte sera aligné à gauche (espaces ajoutées à droite).
+Il est possible d'être explicite là-dessus en faisant précéder le nombre d'un `<`.  
+Mais on peut aussi utiliser `>` ou `^` pour l'aligner à droite ou le centrer.
+
+```python
 >>> '{:<10}'.format('abc')
 'abc       '
 >>> '{:>10}'.format('abc')
@@ -78,6 +94,9 @@ Voilà pour le placement des arguments mais ce n'est pas tout : le principal in
 >>> '{:^10}'.format('abc')
 '   abc    '
 ```
+
+Pour le formatage des nombres, on peut préciser l'option ` ` (espace) qui a pour effet d'ajouter une espace avant les nombres positifs, de façon à les aligner avec les négatifs (qui commencent par un caractère `-`).  
+De même on peut utiliser l'option `+` pour afficher explicitement le `+` des nombres positifs.
 
 ```python
 >>> '{: }'.format(5)
@@ -90,6 +109,9 @@ Voilà pour le placement des arguments mais ce n'est pas tout : le principal in
 '-5'
 ```
 
+Pour les nombres entiers, on peut utiliser les caractères `x`, `o` ou `b` comme options pour choisir la base dans laquelle le nombre sera écrit.
+Avec `x`, le nombre sera écrit en hexadécimal, en octal avec `o` et en binaire avec `b`.
+
 ```python
 >>> '{:x}'.format(42)
 '2a'
@@ -97,9 +119,29 @@ Voilà pour le placement des arguments mais ce n'est pas tout : le principal in
 '52'
 >>> '{:b}'.format(42)
 '101010'
+```
+
+On peut ajouter un `#` avant ce caractère pour insérer un préfixe indiquant la base utilisée.
+
+```python
 >>> '{:#x}'.format(42)
 '0x2a'
+>>> '{:#b}'.format(42)
+'0b101010'
 ```
+
+La largeur de champ est aussi utilisable pour les nombres, ils seront par défaut alignés à droite.
+On peut préfixer cette largeur de champ d'un `0` pour compléter le nombre avec des zéros plutôt qu'avec des espaces.
+
+```python
+>>> '{:5}'.format(123)
+'  123'
+>>> '{:05}'.format(123)
+'00123'
+```
+
+Pour ce qui est des nombres flottants, on peut utiliser l'option `.` suivie d'un nombre pour indiquer la précision.
+Ce nombre correspond au nombre maximum de chiffres que l'on veut afficher, cela compte les chiffres avant et après la virgule (sauf les zéros initiaux)
 
 ```python
 >>> '{}'.format(0.1+0.2)
@@ -110,36 +152,37 @@ Voilà pour le placement des arguments mais ce n'est pas tout : le principal in
 '0.3333333333333333'
 >>> '{:.5}'.format(1/3)
 '0.33333'
+>>> '{:.5}'.format(4/3)
+'1.3333'
+>>> '{:.5}'.format(1/30)
+'0.033333'
 ```
+
+Il existe aussi une option `%` pour afficher un nombre flottant sous la forme d'un pourcentage.
+On peut ajouter une précision (avec un point) à ce pourcentage, qui cette fois-ci précise le nombre de chiffres après la virgule uniquement.
 
 ```python
 >>> '{:%}'.format(1/2)
 '50.000000%'
->>> '{:.0%}'.format(1/3)
-'33%'
+>>> '{:.1%}'.format(1/3)
+'33.3%'
 ```
 
-* Doubler les accodales pour les échapper
+Étant donné que les accolades ont un effet bien particulier au sein des chaînes de formatage, il est nécessaire de les échapper pour les ajouter en tant que caractères.
+Il faut pour cela les doubler. `{{` correspondra au caractère `{` dans une chaîne de formatage, et `}}` au caractère `}`.
 
 ```python
 >>> '{} {{}} {}'.format(1, 2)
 '1 {} 2'
 ```
 
-* flags de formatage reçus depuis les arguments
-* d'autres objets pourront avoir leurs propres options de formatage
+Ces options de formatage ne sont pas exhaustives, et vous les trouverez plus en détails dans la [documentation détaillée](https://docs.python.org/fr/3/library/string.html#formatspec).
 
-```python
-help('FORMATTING')
-```
-
-* https://docs.python.org/fr/3/library/string.html#formatspec
-* ± annexe
-    * `!r`, `!a`
+Vous pouvez aussi obtenir plus d'aide sur le formatage à l'aide de l'appel `help('FORMATTING')` depuis l'interpréteur interactif.
 
 #### Operateur `%`
 
-Une autre méthode plus ancienne existe aussi en Python, elle utilise l'opérateur `%`.
+Une autre méthode de formatage plus ancienne existe aussi en Python, elle utilise l'opérateur `%`.
 
 On applique donc cet opérateur à une chaîne (à gauche) en lui donnant un tuple d'arguments (à droite).
 Comme précédemment, la chaîne suit un certain format pour définir où seront insérés les arguments.
@@ -154,7 +197,7 @@ En pratique, on a donc quelque chose de la sorte :
 'Bob dit à Alice: tu me dois 20€'
 ```
 
-On trouve aussi la possibilité de préciser des options telle que la largeur ou la précision, en les insérant entre le `%` et le caractère représentant le type.
+On trouve aussi la possibilité de préciser des options telle que la largeur de champ ou la précision, en les insérant entre le `%` et le caractère représentant le type.
 
 ```python
 >>> '%10s répond: il ne me reste que %.2f€' % ('Alice', 18.5)

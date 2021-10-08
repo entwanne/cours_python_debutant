@@ -8,8 +8,8 @@ Elles se caractérisent par un préfixe `f` placé avant les guillemets délimit
 'abc'
 ```
 
-Il ne s'agit pas d'un type particulier, on le voit notre expression a juste renvoyé la chaîne `'abc'`.
-Le préfixe signale juste qu'il peut y avoir des choses à interpréteur à l'intérieur de notre chaîne.
+Il ne s'agit pas d'un type particulier, on le voit car notre expression a juste renvoyé la chaîne `'abc'`.
+Le préfixe signale simplement qu'il peut y avoir des choses à interpréter à l'intérieur de notre chaîne.
 
 Et ces choses, elles sont similaires à ce que l'on faisait avec `str.format`.
 Dans les chaînes de formatage, on va pouvoir trouver des séquences entre accolades pour signaler où l'on souhaite insérer des valeurs.
@@ -32,6 +32,15 @@ Bien sûr, tous les types de données y sont utilisables.
 >>> name = 'Max'
 >>> f'Salut {name} !'
 'Salut Max !'
+```
+
+Et tous types d'expressions sont valides à l'intérieur de ces accolades.
+Il faut juste faire attention à ne pas s'emmêler les pinceaux avec les guillemets : on ne peut pas placer d'apostrophe dans une chaîne délimitée par des apostrophes par exemple.
+
+```python
+>>> fruits = {'a': 'abricot', 'b': 'banane'}
+>>> f"{fruits['b']}, {len(fruits)}"
+'banane, 2'
 ```
 
 Entre accolades, on peut aussi placer un `:` et y ajouter toutes les options de formatage disponibles avec `str.format`.

@@ -8,7 +8,7 @@ Cette astuce ce sont les générateurs pseudo-aléatoires.
 [^impossible]: À moins d'utiliser un périphérique dédié.
 
 Ces générateurs sont des outils produisant des suites de nombres qui semblent aléatoirement tirés.
-Pour cela ils s'appuient sur des paramètres extérieurs tels que le temps afin d'initialiser leur état, puis sur des opérations mathématiques pour générer un nombre en fonction des précédents.  
+Pour cela ils s'appuient sur des paramètres extérieurs tels que le temps ou le statut des périphériques afin d'initialiser leur état, puis sur des opérations mathématiques pour générer un nombre en fonction des précédents.  
 En pratique ça fonctionne bien, mais attention : deux générateurs qui seraient initialisés avec la même valeur produiraient exactement les mêmes nombres.
 
 Certains langages vous demandent d'initialiser le générateur pseudo-aléatoire avant de commencer à faire des tirages, mais Python le fait pour nous lors de l'import du module `random`, et est donc directement utilisable.
@@ -24,7 +24,7 @@ Le module propose de nombreuses fonctions mais nous n'allons nous intéresser qu
 Premièrement, le plus simple, les fonctions pour tirer un nombre entier aléatoire, tel un lancer de dé.
 Il y en a deux, `randrange` et `randint`.
 
-La première reçoit entre 1 et 3 arguments, comme la fonction `range`, formant donc un intervalle avec une valeurs de début (0 si omise), de fin et un pas (1 si omis).
+La première reçoit entre 1 et 3 arguments, comme la fonction `range`, formant donc un intervalle avec une valeur de début (0 si omise), de fin et un pas (1 si omis).
 Elle renvoie un nombre aléatoire compris dans cet intervalle (pour rappel, la valeur de fin est exclue de l'intervalle).
 
 Voici par exemple des tirages de nombres entre 1 et 6 (inclus).
@@ -66,6 +66,8 @@ Ainsi, notre tirage de dé se ferait comme suit.
 ```python
 >>> random.randint(1, 6)
 6
+>>> random.randint(1, 6)
+4
 ```
 
 #### Opérations aléatoires
@@ -119,7 +121,7 @@ Enfin, la fonction `shuffle` permet de simplement trier aléatoire la liste (ell
 ['dormir', 'aller au ciné', 'manger']
 ```
 
-C'est utile pour mélanger un paquet de cartes ou d'autres opérations du genre, et d'avoir ensuite un tirage sans remise.
+C'est utile pour mélanger un paquet de cartes ou d'autres opérations du genre, et avoir ensuite un tirage sans remise.
 
 ```python
 >>> cards = ['as de pique', '3 de trèfle', '7 de carreau', 'dame de cœur']

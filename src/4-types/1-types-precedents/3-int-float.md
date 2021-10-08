@@ -132,11 +132,11 @@ De la même manière, on a les opérateurs OU-inclusif (`|`) et OU-exclusif/XOR 
 '0b10010'
 ```
 
-D'autres opérations bit-à-bit sont encore possibles (`~`, `<<`, `>>`), vous pourrez en apprendre plus sur cette page : <>.
+D'autres opérations bit-à-bit sont encore possibles (`~`, `<<`, `>>`), vous pourrez en apprendre plus sur [cette page dédiée aux opérateurs](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/1-glossaire/#3-3-operateurs).
 
 #### Précision des flottants
 
-Les nombres flottants en Python ont une précision limitée, c'est-à-dire qu'ils auront du mal à représenter des nombres trop grads ou avec trop de chiffres après la virgule.
+Les nombres flottants en Python ont une précision limitée, c'est-à-dire qu'ils auront du mal à représenter des nombres trop grands ou avec trop de chiffres après la virgule.
 
 ```python
 >>> 0.10000000000000001
@@ -220,16 +220,23 @@ De façon similaire, on retrouve l'infini négatif avec `float('-inf')`.
 
 #### Nombres complexes
 
+[[i]]
+| Vous pouvez passer cette section si vous n'êtes pas familiers des nombres complexes, ce n'est pas important pour la suite.
+
 Python embarque aussi nativement les nombres complexes qui sont accessibles via le suffixe `j` pour représenter la partie imaginaire.
 Les complexes sont un sur-ensemble des flottants, et les mêmes opérations sont donc applicables sur eux.
 
 ```python
 >>> 1+2j + 4+5j
 (5+7j)
+>>> 0.5j + 3.2+9.3j
+(3.2+9.8j)
 >>> (1+2j) * (4+5j)
 (-6+13j)
 >>> 1j*1j
 (-1+0j)
+>>> (1+2j) ** 2
+(-3+4j)
 ```
 
 Par ailleurs, on trouve sur ces nombres des attributs `real` et `imag` pour accéder aux parties réelle/imaginaire, et une méthode `conjugate` pour calculer le conjugué.
@@ -240,8 +247,22 @@ Par ailleurs, on trouve sur ces nombres des attributs `real` et `imag` pour acc�
 1.0
 >>> c.imag
 2.0
->>> c.
-c.conjugate(  c.imag        c.real        
 >>> c.conjugate()
 (1-2j)
+```
+
+Bien sûr, les nombres complexes ne sont par ordonnables entre-eux.
+
+```python
+>>> 1+2j < 2+1j
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: '<' not supported between instances of 'complex' and 'complex'
+```
+
+Enfin, la fonction `abs` (valeur absolue) permet aussi de calculer le module d'un nombre complexe.
+
+```python
+>>> abs(3+4j)
+5.0
 ```

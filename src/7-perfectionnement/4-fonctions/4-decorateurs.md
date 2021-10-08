@@ -1,6 +1,6 @@
 ### Décorateurs
 
-Les décorateurs c'est fait pour décorer.
+Les décorateurs sont faits pour décorer.
 Enfin pas exactement, il faut comprendre le terme comme « envelopper ».
 Un décorateur, c'est un objet que l'on va appliquer à une fonction pour en changer le comportement.
 
@@ -8,10 +8,10 @@ Le décorateur est indépendant et extérieur à la fonction, il se contente de 
 Lors des appels à notre fonction, c'est le décorateur qui prendra le pas et choisira les opérations à effectuer.
 Il pourra choisir d'appeler notre fonction ou non, d'exécuter des opérations avant ou après, etc.
 
-Par exeple, plus tôt dans ce chapitre nous avons vu un mécanisme de cache (mémoïsation) appliqué à une fonction, à l'aide de la valeur par défaut d'un paramètre.
-Ce mécanisme aurait pu être implémenté à l'aide d'un décorateur, celui-ci décidant si l'appel à la fonction est nécessaire ou non, en fonction de ce qu'il a dans son cache, puis se chargerait d'y enregistrer les résultats reçus.
-
 Il s'agit de l'application directe du [patron de conception décorateur](https://fr.wikipedia.org/wiki/D%C3%A9corateur_(patron_de_conception)).
+
+Par exemple, plus tôt dans ce chapitre nous avons vu un mécanisme de cache (mémoïsation) appliqué à une fonction, à l'aide de la valeur par défaut d'un paramètre.
+Ce mécanisme aurait pu être implémenté à l'aide d'un décorateur, celui-ci décidant si l'appel à la fonction est nécessaire ou non, en fonction de ce qu'il a dans son cache, puis il se chargerait d'y enregistrer les résultats reçus.
 
 La syntaxe pour appliquer un décorateur à une fonction est très simple, il suffit de précéder la définition de notre fonction par une ligne composée d'un `@` et du nom du décorateur.
 
@@ -42,7 +42,7 @@ def addition(a, b):
     return a + b
 ```
 
-On le voit à l'utilisation, la fonction est appelée que si son résultat n'est pas déjà connu.
+On le voit à l'utilisation, la fonction n'est appelée que si son résultat n'est pas déjà connu.
 
 ```python
 >>> addition(3, 5)
@@ -63,7 +63,7 @@ Mais que signifie ce _lru_ dans `lru_cache` ?
 Il s'agit du sigle _Least Recently Used_ (_Utilisés le Plus Récemment_ en français) explicitant le comportement du cache.
 
 En effet, votre ordinateur a une mémoire limitée et le cache cherche donc à minimiser son empreinte.
-Pour cela, il ne conservera pas tous les résultats en mémoire mais seulement ceux qu'ils jugent prioritaires.
+Pour cela, il ne conservera pas tous les résultats en mémoire mais seulement ceux qu'il juge prioritaires.
 C'est là qu'intervient le mécanisme _LRU_ qui signifie simplement que les résultats prioritaires sont ceux utilisés le plus récemment.  
 Cela signifie aussi que les résultats les plus anciens finiront par disparaître du cache lorsque celui-ci aura été rempli par d'autres valeurs.
 
@@ -125,7 +125,7 @@ def addition(a, b):
 ```
 
 [[i]]
-| On notera que depuis Python 3.9 il existe aussi le décorateur `cache` remplissant le rôle de cache illimité (`lru_cache(None)`).
+| On notera que depuis Python 3.9 il existe aussi le décorateur `cache` dans le module `functools` remplissant le rôle de cache illimité (`lru_cache(None)`).
 |
 | ```python
 | from functools import cache

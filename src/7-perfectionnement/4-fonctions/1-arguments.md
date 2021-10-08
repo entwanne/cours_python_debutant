@@ -46,7 +46,7 @@ Voici ainsi une version plus évoluée de notre fonction `log`, s'appuyant sur d
 #### Paramètres par défaut mutables
 
 C'est aussi simple que cela… ou presque !
-Il y a une chose à laquelle il faut faire attention, comme toujours, les types mutables.  
+Il y a une chose à laquelle il faut faire attention, comme toujours, ce sont les types mutables.  
 Eh oui, les valeurs par défaut sont définies une seule fois pour toutes, quand la fonction elle-même est définie.
 C'est-à-dire que ces valeurs seront partagées entre tous les appels à la fonction.
 

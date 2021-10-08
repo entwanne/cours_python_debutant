@@ -1,6 +1,6 @@
 ### Les fichiers sont itérables
 
-La solution avec `readlines` n'est pas satisfaisante si nous voulons traiter le fichier pas à pas, et celle avec `readline` un peu compliquée : on constate que la boucle `while` ne se prête pas à ce problème puisqu'on est obligé de répéter l'opération `line = f.readline()`.
+La solution avec `readlines` n'est pas satisfaisante si nous voulons traiter le fichier pas à pas, et celle avec `readline` est un peu compliquée : on constate que la boucle `while` ne se prête pas à ce problème puisqu'on est obligé de répéter l'opération `line = f.readline()`.
 
 Mais pour rappel, les listes ne sont pas les seuls objets itérables.
 Outre les autres exemples que l'on a déjà vus, il est aussi possible d'itérer sur des fichiers.

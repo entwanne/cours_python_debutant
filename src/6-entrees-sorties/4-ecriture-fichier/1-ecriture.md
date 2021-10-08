@@ -26,7 +26,7 @@ Traceback (most recent call last):
 io.UnsupportedOperation: not readable
 ```
 
-Mais il nous est alors possible d'écrire dans le fichier.
+Mais il nous est alors possible d'écrire dans le fichier, à l'aide de la méthode `write`.
 
 ```python
 >>> f.write('Salut')
@@ -50,14 +50,14 @@ Si vous inspectez à nouveau le contenu du fichier, le contenu devrait cette foi
 Il n'est généralement pas utile de faire appel à `flush`, car celui-ci arrivera bien assez tôt (comme dans les cas expliqués plus haut).
 Mais à titre d'exemple, vous saurez que la méthode existe et quel effet elle a.
 
-Nous pouvons maintenant fermer notre fichier (en l'absence de `with`) : `f.close()`.
-
 ```
 salut
 ```
 Code: hello.txt
 
-Si vous vous souvenez, notre fichier contenait précédemment le texte « Hello World! », celui-ci a été entièrement effacé lorsque nous avons ouvert le fichier en mode `'w'`.
+Nous pouvons maintenant fermer notre fichier (en l'absence de `with`) : `f.close()`.
+
+Pour rappel, notre fichier contenait précédemment le texte « Hello World! », celui-ci a été entièrement effacé lorsque nous avons ouvert le fichier en mode `'w'`.
 C'est le comportement de Python avec ce mode.
 
 Un autre comportement du mode d'écriture est de créer le fichier de destination si celui-ci n'existe pas.
@@ -72,7 +72,7 @@ Ce code ne provoque pas d'erreur et crée un nouveau fichier `newfile.txt` conte
 #### Écrire plusieurs lignes dans un fichier
 
 Vous avez peut-être effectué plusieurs appels successifs à `write` en espérant écrire plusieurs lignes dans un fichier.
-Mais ça ne fonctionne pas comme ça, vous avez juste obtenu des mots à la suite.
+Mais ça ne fonctionne pas comme ça, vous avez juste obtenu des lettres à la suite.
 
 ```python
 >>> with open('alphabet.txt', 'w') as f:
@@ -114,7 +114,7 @@ with open('alphabet.txt', 'w') as f:
     f.write('abc\ndef\nghi\n')
 ```
 
-Mais on pourra trouver plusieurs appels à `write` si l'on dipose par exemple d'une liste d'éléments à écrire, auquel cas on procèdera avec une boucle `for`.
+Mais on pourra trouver plusieurs appels à `write` si l'on dispose par exemple d'une liste d'éléments à écrire, auquel cas on procèdera avec une boucle `for`.
 
 ```python
 lines = ['abc\n', 'def\n', 'ghi\n']
@@ -138,7 +138,7 @@ Notez que les fichiers possèdent déjà une méthode `writelines` pour répondr
 
 #### La fonction `print`
 
-Enfin, sachez qu'il est aussi ossible d'utiliser la fonction `print` pour écrire dans des fichiers.
+Enfin, sachez qu'il est aussi possible d'utiliser la fonction `print` pour écrire dans des fichiers.
 Par défaut cette fonction écrit son résultat sur le terminal (qui est vu comme un fichier par le système), mais il est possible de choisir une autre sortie (un autre fichier) avec l'argument nommé `file`.
 
 ```python
@@ -174,8 +174,9 @@ hello world!
 hello world!>>>
 ```
 
-Le résultat sans `\n` peut paraître surprenant.
-Les `>>>` sont en fait l'invite de commande de Python : comme il n'y a pas eu de saut de ligne, il apparaît à la suite.
+[[i]]
+| Le résultat sans `\n` peut paraître surprenant.
+| Les `>>>` sont en fait l'invite de commande de Python : comme il n'y a pas eu de saut de ligne, il apparaît à la suite.
 
 Dans un fichier cela donnerait les résultats que l'on pouvait avoir précédemment avec `write`.
 
@@ -203,4 +204,4 @@ Cela est bien sûr compatible avec l'argument `sep` pour préciser le séparateu
 ```
 
 Enfin la fonction `print` prend aussi un argument optionnel `flush` recevant un booléen, et qui permet donc un appel automatique à la méthode `flush` si `True` lui est passé.
-Ce n'est encore une fois utile que dans de rares cas, et pour des écritures qui ne seraient déjà pas terminées d'un saut de ligne.
+Ce n'est encore une fois utile que dans de rares cas, et pour des écritures qui ne seraient pas déjà terminées d'un saut de ligne.

@@ -24,19 +24,20 @@ elif password == '4321':
 Dans le code précédent, les deux structures conditionnelles sont indépendantes l'une de l'autre.
 Le deuxième `if / elif` est exécuté quelle que soit l'issue du premier `if`.
 
+Il se lit de la manière suivante :
+
+> L'utilisateur entre un nom et un mot de passe.
+>
+> * Si le nom d'utilisateur est « admin », afficher « Le compte administrateur est désactivé. »
+>
+> * Si le mot de passe est « 1234 », afficher « Mot de passe trop faible ».
+> * Sinon, si le mot de passe est « 4321 », afficher « C'est pas mieux ».
+
 Et comme on le voit, le `elif` se rapporte toujours au `if` qui le précède directement, il en est de même pour `else`.
 
-Cette syntaxe est parfaitement valide en Python mais peut parfois poser problème dans l'interpréteur interactif.
-En effet, ce dernier n'interprète pas les sauts de ligne de la même manière, et nécessite ainsi toujours une ligne vide pour marquer la fin d'une structure conditionnelle.
-
-On le remarque aux caractères utilisés par le prompt.
-Il s'agit par défaut de `>>>` qui indique que nous sommes en dehors de tout bloc.
-Une fois dans un bloc, ce prompt se transforme en `...` signifiant que l'interpréteur attend d'autres lignes à ajouter au bloc.  
-Une ligne vide permet alors de demander à l'interpréteur de sortir du bloc.
-
-De la même façon, il sera impossible d'avoir une ligne vide au milieu d'un bloc conditionnel dans l'interpréteur interactif.
-Ces limitations peuvent être très gênants et c'est pourquoi le *REPL* est déconseillé pour des codes complexes.
-Il reste toutefois très utile pour tester rapidement un petit bout de code.
+[[a]]
+| Encore une fois, attention aux exemples de code qui pourraient ne pas fonctionner dans l'interpréteur interactif.
+| Ce dernier demandera toujours de laisser une ligne vide entre deux blocs conditionnels distincts.
 
 #### Imbrication
 
@@ -49,11 +50,13 @@ Quand il n'y a qu'un seul bloc, on ne constate qu'un niveau d'indentation.
 Mais pour imbriquer une nouvelle condition sous une autre, il va nous falloir passer au niveau d'indentation suivant en ajoutant encore 4 espaces.
 Ainsi, Python compte le nombre d'espaces présentes en début de ligne pour déterminer dans quel bloc il se trouve.
 
+Cela nous donne aussi une démarcation visuelle pour bien voir comment s'agencent nos blocs conditionnels.
+
 ```python
 quit = input('Voulez vous quitter le programme (oui/non) ? ')
 
 if quit == 'oui':
-    confirm = input('Vous êtes sûr (oui/non) ?')
+    confirm = input('Vous êtes sûr (oui/non) ? ')
     if confirm == 'oui':
         print('Fermeture en cours...')
     else:
@@ -64,3 +67,10 @@ else:
 
 Je vous invite à recopier le code qui précède dans un fichier et à l'exécuter en testant les 3 combinaisons possibles.
 On constate bien que la condition sur `confirm` n'est exécutée que lorsque `quit` vaut « oui », et que les `else` sont indentés au même niveau que les `if` auxquels ils se rapportent.
+
+```
+Voulez vous quitter le programme (oui/non) ? oui
+Vous êtes sûr (oui/non) ? non
+Décidez-vous !
+```
+Code: Exécution du programme

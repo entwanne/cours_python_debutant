@@ -1,12 +1,23 @@
 ### Généralités
 
-Une valeur en Python peut-être le résultat de n'importe quel expression (opération, appel de fonction, accès à une variable, etc.)
-Toute valeur possède un type qui définit ses opérations.
+Une valeur en Python peut-être le résultat de n'importe quelle expression (opération, appel de fonction, accès à une variable, etc.).
+Toute valeur possède un type qui définit les opérations qui lui sont applicables.
 
 #### Conversions
 
 Certaines valeurs peuvent être converties d'un type vers un autre.
 Pour cela, les types s'utilisent comme des fonctions, où la valeur à convertir est donnée en argument.
+
+```python
+>>> int('123')
+123
+>>> float(42)
+42.0
+>>> list('abc')
+['a', 'b', 'c']
+>>> str(1.5)
+'1.5'
+```
 
 #### Comparaisons
 

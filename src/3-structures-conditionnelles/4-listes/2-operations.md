@@ -6,6 +6,8 @@ Tout comme les chaînes de caractères, les listes possèdent donc une taille.
 Là encore, il est possible de connaître cette taille à l'aide d'un appel à la fonction `len`.
 
 ```python
+>>> len(numbers)
+7
 >>> len(words)
 13
 ```
@@ -14,6 +16,8 @@ Comme pour les chaînes toujours, il est possible d'accéder aux éléments de l
 0 correspondant à la première position, 1 à la deuxième, etc.
 
 ```python
+>>> numbers[4]
+6
 >>> print(words[8])
 contenus
 ```
@@ -21,45 +25,74 @@ contenus
 Les index négatifs sont aussi acceptés.
 
 ```python
->>> print(words[-2])
-sujets
+>>> words[-2]
+'sujets'
 ```
 
-Et les listes sont aussi concaténables les unes aux autres, permettant de construire une grande liste en aggrégeant des plus petites.
+On peut tester l'égalité entre deux listes à l'aide des opérateurs `==` et `!=`.
+Deux listes sont égales si elles contiennent les mêmes valeurs dans le même ordre.
+
+```python
+>>> [1, 2, 3] == [1, 2, 3]
+True
+>>> [1, 2, 3] == [3, 2, 1]
+False
+>>> [1, 2, 3] != [3, 2, 1]
+True
+```
+
+Comme les chaînes de caractères, les listes sont aussi concaténables les unes aux autres, permettant de construire une grande liste en aggrégeant des plus petites.
+De même qu'elles sont concaténables par multiplication avec un nombre entier.
 
 ```python
 >>> [1, 1, 2, 3] + [5, 8, 13] + [21]
 [1, 1, 2, 3, 5, 8, 13, 21]
+>>> ['ab', 'cd'] * 3
+['ab', 'cd', 'ab', 'cd', 'ab', 'cd']
 ```
 
-Les listes possèdent différentes méthodes, par exemple pour rechercher et compter les éléments :
+--------------------
 
-* `index` renvoie la première position trouvée pour un élément (et produit une erreur si l'élément n'est pas trouvé).
-* `count` renvoie le nombre d'occurrences d'un élément dans la liste (donc 0 si l'élément n'est pas présent).
+En plus de ça, les listes possèdent aussi différentes méthodes, par exemple pour rechercher et compter les éléments :
+
+* `index` renvoie la position d'une valeur dans la liste.
+  Cette position correspond au premier élément trouvé (si la valeur est présente plusieurs fois), et la méthode produit une erreur si la valeur n'est pas trouvée.
 
 ```python
->>> numbers = [5, 3, 2, 8, 6, 7, 3]
 >>> numbers.index(2)
 2
 >>> numbers.index(3)
 1
 >>> numbers.index(7)
 5
+>>> numbers.index(9)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: 9 is not in list
+>>> words.index('savoir')
+3
+```
+
+* `count` compte et renvoie le nombre d'occurrences d'un élément dans la liste (donc 0 si l'élément n'est pas présent).
+
+```python
 >>> numbers.count(3)
 2
 >>> numbers.count(8)
 1
 >>> numbers.count(9)
 0
+>>> words.count('des')
+2
 ```
 
 #### Mutabilité
 
-Les listes sont des objets dits mutables, c'est-à-dire modifiables, ce qui n'est pas le cas des autres types que nous avons vu jusqu'ici.
+Les listes sont des objets dits mutables, c'est-à-dire modifiables, ce qui n'est pas le cas des autres types de données que nous avons vus jusqu'ici.
 En effet, sur les précédentes données que nous manipulions, leur valeur ne pouvait pas changer une fois qu'elles avaient été définies.  
 Nous pouvions redéfinir une variable vers une nouvelle valeur (`a = 10; a += 1`), mais la valeur en question restait inchangée (`10` valait toujours `10`).
 
-Sur les listes, nous pouvons librement remplacer certains éléments par d'autres, grâce à l'opérateur d'indexation (`[]`) couplé à une affectation (`=`).
+Sur les listes, nous pouvons par exemple librement remplacer certains éléments par d'autres, grâce à l'opérateur d'indexation (`[]`) couplé à une affectation (`=`).
 
 ```python
 >>> words = ['salut', 'les', 'amis']
@@ -70,7 +103,7 @@ Sur les listes, nous pouvons librement remplacer certains éléments par d'autre
 
 Ici c'est bien la valeur même de la liste qui a été modifiée : on a altéré son contenu pour remplacer un élément, mais `words` est toujours la même liste.
 
-On peut le mettre encore plus en évidence si l'on a deux variables qui référencent la même liste.
+On peut mettre cet état de fait en évidence si l'on a deux variables qui référencent la même liste.
 
 ```python
 >>> numbers = copy = [1, 2, 3, 4]
@@ -81,10 +114,11 @@ On peut le mettre encore plus en évidence si l'on a deux variables qui référe
 [10, 2, 3, 4]
 ```
 
-Et c'est d'ailleurs un comportement qui est souvent perçu comme une erreur par les débutants, mais il faut bien comprendre que `numbers` et `copy` sont deux étiquettes sur une même liste.
-Ainsi, une modification de `numbers` est aussi une modification de `copy`.
+[[a]]
+| C'est d'ailleurs un comportement qui est souvent perçu comme une erreur par les débutants, mais il faut bien comprendre que `numbers` et `copy` sont deux étiquettes sur une même liste.
+| Ainsi, une modification de `numbers` est également une modification de `copy`.
 
-Nos listes étant modifiables, elles possèdent certaines opérations pour insérer ou supprimer des éléments.
+Nos listes étant modifiables, elles proposent aussi certaines opérations pour insérer ou supprimer des éléments.
 
 La méthode `append` permet comme son nom l'indique d'ajouter un nouvel élément en fin de liste (à la dernière position), augmentant donc de 1 la taille de la liste.
 
@@ -160,6 +194,28 @@ On notera aussi l'opérateur `del` permettant lui aussi de supprimer une valeur 
 ['à', 'a', 'b', 'c', 'd', 'đ', 'e']
 ```
 
+[[i]]
+| L'opérateur `del` est d'ailleurs un opérateur qui permet de supprimer une variable.
+| `del foo` revient à désaffecter la variable `foo` qui n'existe alors plus dans la suite du programme.
+|
+| ```python
+| >>> foo = 'abc'
+| >>> del foo
+| >>> foo
+| Traceback (most recent call last):
+|   File "<stdin>", line 1, in <module>
+| NameError: name 'foo' is not defined
+| ```
+|
+| `del` ne supprime pas la valeur à proprement parler qui peut toujours être référencée par une autre variable.
+|
+| ```python
+| >>> foo = bar = [1, 2, 3]
+| >>> del foo
+| >>> bar
+| [1, 2, 3]
+| ```
+
 #### Slicing
 
 Nous avons vu pour l'instant comment accéder facilement à un élément d'une liste à partir de son index, grâce à l'opérateur d'indexation (`[]`).
@@ -167,6 +223,7 @@ Mais cet opérateur est plus puissant que cela et permet des utilisations plus a
 
 Il est en effet possible d'extraire plusieurs éléments en un seul appel, à l'aide d'une syntaxe particulière.
 Il s'agit de préciser entre les crochets une position de début et une position de fin, séparées par un signe `:`.
+On appelle cela le _slicing_ (ou « découpage »).
 
 La valeur renvoyée sera la liste des éléments compris entre ces deux positions (démarrant à la position de début et s'arrêtant juste avant la position de fin).
 
@@ -195,7 +252,7 @@ Une fois de plus, il est possible d'utiliser des index négatifs pour se positio
 [1, 2, 3, 5, 8]
 ```
 
-Enfin, une autre facilité et que l'on peut omettre la position de début ou la position de fin.
+Une autre facilité est que l'on peut omettre la position de début ou la position de fin.
 Sans position de début on considère que l'on part du début de la liste (index `0`) et sans fin que l'on va jusqu'à la fin (index `len(numbers)`).
 
 ```python
@@ -212,8 +269,9 @@ Si l'on omet le début et la fin, on récupère une liste contenant tous les él
 [1, 1, 2, 3, 5, 8, 13, 21]
 ```
 
-On peut aussi préciser une troisième valeur qui est le pas (par défaut de 1).
+On peut enfin préciser une troisième valeur qui est le « pas » (par défaut de 1).
 Ce pas indique combien d'index on passe entre chaque élément.
+Un pas de 3 signifie que l'on ne considère qu'un élément sur 3.
 
 Ainsi, `[1:8:3]` correspondra aux index 1, 4 et 7 (3 de différence entre chaque index)
 
@@ -222,14 +280,22 @@ Ainsi, `[1:8:3]` correspondra aux index 1, 4 et 7 (3 de différence entre chaque
 [1, 5, 21]
 ```
 
-Ou encore `[::2]` permettra d'extraire un élément sur deux.
+Ou encore `[::2]` permettra d'extraire un élément sur deux de la liste initiale.
+En effet cela permet d'extraire l'élément d'index 0, puis 2, puis 4, etc.
 
 ```python
 >>> numbers[::2]
 [1, 2, 5, 13]
+```
+
+Le pas est calculé à partir de l'index de départ, le résultat sera donc différent avec `[1::2]` qui considérera en premier l'élément d'index 1, puis 3, puis 5, etc.
+
+```python
 >>> numbers[1::2]
 [1, 3, 8, 21]
 ```
+
+--------------------
 
 Voilà pour ce qui est des accès en lecture, mais ces opérations sont aussi possibles pour la modification.
 
@@ -265,40 +331,4 @@ Enfin, l'opération de _slicing_ (en lecture seulement) est aussi disponible sur
 'etpou'
 ```
 
-Pour plus d'informations sur le _slicing_ en Python, je vous invite à découvrir ce tutoriel : <>.
-
-#### Listes à plusieurs dimensions
-
-* Imbriquer des listes dans des listes
-
-Les listes précédentes ne contenaient que des types de données simples, nombres ou chaînes de caractères.
-On pouvait alors les voir comme des tableaux de données à une dimension (une seule ligne).
-
-Mais les listes peuvent contenir toutes sortes de données, même des plus complexes comme… des listes.
-
-```
->>> items = [1, 2, [3, [4]]]
->>> items
-[1, 2, [3, [4]]]
-```
-
-Pour accéder aux éléments des sous-listes, on pourra simplement chaîner les opérateurs `[]`.
-
-```python
->>> items[2][1][0]
-4
->>> items[2][0] = 5
->>> items
-[1, 2, [5, [4]]]
-```
-
-Quand une liste est composée uniquement de sous-listes, elle peut alors prendre la forme d'un tableau à plusieurs dimensions.
-Comme ici avec une liste représentant un plateau de morpion (tableau à 2 dimensions, lignes et colonnes).
-
-```python
-morpion = [
-    ['x', ' ', ' '],
-    ['o', 'o', ' '],
-    ['x', ' ', ' '],
-]
-```
+Pour plus d'informations sur le _slicing_ en Python, je vous invite à découvrir ce tutoriel : [Les slices en Python](https://zestedesavoir.com/tutoriels/582/les-slices-en-python/).

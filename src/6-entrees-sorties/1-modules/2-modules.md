@@ -2,7 +2,7 @@
 
 Les modules forment un espace de noms et permettent ainsi de regrouper les définitions de fonctions et variables, en les liant à une même entité.
 
-Ils prennent la forme de fichiers Python (un nom et une extension `.py`) et doivent suivre une nomenclature particulière (la même que pour les noms de variables ou de fonction).  
+Ils prennent la forme de fichiers Python (un nom et une extension `.py`) et doivent suivre une nomenclature particulière (la même que pour les noms de variables ou de fonction) : uniquement composés de lettres, de chiffres et d'_underscores_ (`_`), et ne commençant pas par un chiffre.  
 Ainsi, un fichier `foo.py` correspondra à un module `foo`.
 
 ```python
@@ -103,14 +103,14 @@ Notez que la fonction `help` n'est pas utile uniquement pour les modules, elle p
 Vous pouvez faire défiler l'écran à l'aide des flèches haut/bas ou page-up/page-down, ainsi que la touche espace pour naviguer de page en page.
 
 La fonction s'utilise aussi avec une chaîne de caractères en argument pour rechercher de l'aide sur un sujet précis.
-Par exemple `help('keywords')` pour obtenir la liste des mots-clés Python.
+Par exemple `help('keywords')` pour obtenir la liste des mots-clés de Python.
 
 Enfin, on peut utiliser la fonction sans argument pour entrer dans une interface d'aide où chaque ligne entrée sera exécutée comme un nouvel appel à la fonction `help`.
 
 ```python
 >>> help()
 
-Welcome to Python 3.8's help utility!
+Welcome to Python 3.9's help utility!
 
 [...]
 

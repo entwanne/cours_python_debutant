@@ -1,7 +1,7 @@
 ### Bibliothèque standard
 
 Python dispose par défaut de nombreux modules déjà prêts à être utilisés.
-Ils sont regroupés dans ce qu'on appelle la bibliothèque standard (_stdlib_), c'est-à-dire les modules disponibles directement après l'installation de Python.
+Ils sont regroupés dans ce qu'on appelle la bibliothèque standard (ou _stdlib_ pour _standard library_), c'est-à-dire les modules disponibles directement après l'installation de Python.
 
 Ces modules apportent des fonctions concernant des domaines particuliers qui ne sont pas incluses dans l'espace de noms global pour ne pas le surcharger.
 Ainsi on a par exemple un module `math` pour toutes les fonctions mathématiques usuelles (`sqrt`, `exp`, `cos`, `sin`) ainsi que les constantes (`pi`, `e`).
@@ -14,7 +14,7 @@ On importe donc le module comme on le faisait précédemment.
 
 Le module a beau ne pas se trouver dans le répertoire d'exécution, Python arrive à le trouver car il se situe dans un des répertoires d'installation.
 
-[[attention]]
+[[a]]
 | Attention d'ailleurs à la priorité des répertoires lors de la recherche d'un module : si nous avions un fichier `math.py` dans le répertoire d'exécution, c'est lui qui serait importé lors d'un `import math` plutôt que celui de la bibliothèque standard.
 | Veillez donc toujours à ne pas utiliser de nom existant pour vos propres modules.
 
@@ -63,7 +63,7 @@ Je voudrais enfin attirer votre attention sur la fonction `isclose`.
 Cette fonction permet de comparer deux nombres flottants avec une certaine marge d'erreur.
 
 Pour rappel, il y a une certaine imprécision dans le stockage des flottants, et l'opérateur `==` est donc déconseillé.
-`isclose` prend simplement les deux nombres en paramètres et renvoie un booléen indiquant s'ils « égaux » (disons très proches) ou non.
+`isclose` prend simplement les deux nombres en paramètres et renvoie un booléen indiquant s'ils sont « égaux » (disons très proches) ou non.
 
 ```python
 >>> 0.1 + 0.2 == 0.3

@@ -7,7 +7,7 @@ Mais est-ce que c'est toujours ça que l'on veut ? Pas nécessairement, non, il
 Heureusement, nous avons pour cela les conditions avec lesquelles nous allons séparer nos cas.
 
 Par exemple, on pourrait imaginer un mécanisme de recherche dans une liste.
-Le corde parcourerait tous les éléments jusqu'à trouver celui ou ceux qui répondent à notre critère.
+Le code parcourerait tous les éléments jusqu'à trouver celui ou ceux qui répondent à notre critère.
 
 Disons par exemple que nous voulions trouver un nombre impair dans une liste de nombres.
 Dans le bloc de notre boucle, nous testerons si la valeur actuelle est impaire, et la conserverons dans une variable si tel est le cas.  
@@ -56,7 +56,7 @@ On n'aurait pas un type de donnée pour contenir un nombre indéterminé de vale
 Passons maintenant à un exemple plus complexe et tentons d'identifier le plus grand nombre dans une liste.
 On va ainsi itérer sur les nombres, et s'il est le plus grand, on le conserve dans une variable.
 
-Sur le principe c'est très bien, mais comment saura-t-on sur le moment qu'il est le plus grand ?
+Sur le principe c'est très bien, mais comment saura-t-on sur le moment qu'il est le plus grand de tous les nombres ?
 C'est difficile à déterminer, il nous faudrait à chaque fois reparcourir toute la liste pour voir si l'on trouve un autre nombre encore plus grand… ça fait beaucoup d'opérations.
 
 Mais ce qu'on peut facilement déterminer, c'est s'il est le plus grand nombre jusqu'ici.
@@ -144,6 +144,10 @@ On peut utiliser sa valeur dans nos calculs, comme ici pour la table de multipli
 3 × 10 = 30
 ```
 
+[[i]]
+| Il faut savoir qu'il est courant, dans des petites boucles (quelques lignes), d'utiliser un nom de variable court pour itérer sur nos valeurs.
+| Ne soyez donc pas surpris de rencontrer des `i` (indice) ou `n` (_number_) utilisés à cet effet pour itérer sur des nombres, ou des `s` (_string_) pour itérer sur des chaînes de caractères.
+
 Le premier argument donné à `range` est optionnel, et vaut 0 s'il est omis. Ainsi, `range(5)` est équivalent à `range(0, 5)`.
 
 ```python
@@ -170,6 +174,49 @@ Et comme pour le _slicing_, les intervalles possèdent un pas optionnel, qui rep
 8
 ```
 
+#### Construire une liste
+
+À l'aide de `range` et de la méthode `append` des listes, on peut alors facilement construire une liste itérativement, en ajoutant un nouvel élément à chaque tour de boucle.
+Par exemple ici une liste de cinq zéros (équivalente à `[0] * 5`).
+
+```python
+>>> zeros = []
+>>> for _ in range(5):
+...     zeros.append(0)
+... 
+>>> zeros
+[0, 0, 0, 0, 0]
+```
+
+[[i]]
+| Pour rappel, `_` est le nom de variable usuel pour une valeur que l'on n'utilise pas.
+| On n'a en effet pas besoin ici de savoir quelle est la valeur de l'itération en cours, tout ce qui nous importe est de faire deux itérations.
+
+Ou la liste des carrés des 10 premiers entiers naturels.
+
+```python
+>>> squares = []
+>>> for i in range(10):
+...     squares.append(i**2)
+... 
+>>> squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+
+C'est aussi la solution à notre problème de multiplication des listes multi-dimensionnelles, puisque nous avons maintenant un moyen d'instancier séparément chacune des sous-listes !
+
+```python
+>>> grid = []
+>>> for _ in range(2):
+...     grid.append([1, 2, 3])
+... 
+>>> grid
+[[1, 2, 3], [1, 2, 3]]
+>>> grid[0].append(4)
+>>> grid
+[[1, 2, 3, 4], [1, 2, 3]]
+```
+
 #### Boucles imbriquées
 
 De la même manière que pour les conditions, les boucles peuvent être imbriquées les unes aux autres.
@@ -181,7 +228,7 @@ Pour revenir à l'exemple des tables de mutliplication, on peut ainsi représent
 >>> for a in range(1, 4):
 ...     for b in range(1, 11):
 ...         print(a, '×', b, '=', a * b)
-...     print()
+...     print'---')
 ... 
 1 × 1 = 1
 1 × 2 = 2
@@ -193,7 +240,7 @@ Pour revenir à l'exemple des tables de mutliplication, on peut ainsi représent
 1 × 8 = 8
 1 × 9 = 9
 1 × 10 = 10
-
+---
 2 × 1 = 2
 2 × 2 = 4
 2 × 3 = 6
@@ -204,7 +251,7 @@ Pour revenir à l'exemple des tables de mutliplication, on peut ainsi représent
 2 × 8 = 16
 2 × 9 = 18
 2 × 10 = 20
-
+---
 3 × 1 = 3
 3 × 2 = 6
 3 × 3 = 9
@@ -215,7 +262,7 @@ Pour revenir à l'exemple des tables de mutliplication, on peut ainsi représent
 3 × 8 = 24
 3 × 9 = 27
 3 × 10 = 30
-
+---
 ```
 
 On remarque que le second `print` est en dehors de la deuxième boucle, il est ainsi exécuté à chaque itération de la première et permet de marquer une séparation entre chaque table.

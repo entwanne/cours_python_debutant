@@ -5,7 +5,7 @@ Contrairement aux types précédents, les listes sont des objets modifiables (le
 
 #### Conversions
 
-Une chaîne de caractères étant un tableau, elle peut être convertie en liste de caractères en faisant appel à `list`.
+Une chaîne de caractères étant une séquence, elle peut être convertie en liste de caractères en faisant appel à `list`.
 
 ```python
 >>> list('hello')
@@ -13,6 +13,13 @@ Une chaîne de caractères étant un tableau, elle peut être convertie en liste
 ```
 
 Cela peut justement permettre de récupérer l'équivalent modifiable d'une chaîne de caractère.
+
+```python
+>>> txt = list('hello')
+>>> txt[1] = 'a'
+>>> ''.join(txt)
+'hallo'
+```
 
 #### Opérations
 
@@ -52,7 +59,7 @@ True
 Au niveau de la multiplication d'une liste par un nombre, il faut bien faire attention aux cas de références multiples.
 Quand on multiplie ainsi une liste, on ne copie pas les éléments qu'elle contient mais on ne fait que les dupliquer. On a donc plusieurs fois un même objet dans la liste.
 
-Ce n'est pas gênant pour des valeurs non modifiables (nombres, chaînes), mais si une liste contient d'autres listes ça peut vite devenir problématique.
+Ce n'est pas gênant pour des valeurs non modifiables (nombres, chaînes), mais si une liste contient d'autres listes cela peut vite devenir problématique.
 
 ```python
 >>> table = [[0, 0, 0]] * 2
@@ -63,27 +70,42 @@ Ce n'est pas gênant pour des valeurs non modifiables (nombres, chaînes), mais 
 [[0, 5, 0], [0, 5, 0]]
 ```
 
-Les opérateurs d'ordre (`<`, `>`) sont aussi utilisables entre deux listes, leur résultat dépend de la comparaison entre les éléments des listes.
+Les opérateurs d'ordre (`<`, `>`) sont aussi utilisables entre deux listes, leur résultat dépend de la comparaison entre les éléments des listes, par ordre lexicographique.
 
-C'est-à-dire qu'on commence par comparer les premièrs éléments des deux listes, puis les deuxièmes et ainsi de suite jusqu'à ce qu'une des listes soit épuisée.
+C'est-à-dire qu'on commence par comparer les premiers éléments des deux listes : s'ils sont différents, alors la liste dont l'élément est le plus grand est considérée comme supérieure.
 
-La comparaison s'arrête dès que deux éléments sont différents, où l'on sait alors lequel est supérieur à l'autre.
-Ou alors si une seule des listes est épuisée, elle est considérée comme inférieure.
+```python
+>>> [3, 0, 0] > [1, 9, 9]
+True
+>>> [3, 0, 0] < [1, 9, 9]
+False
+>>> [3, 0, 0] < [4, 9]
+True
+>>> [1, 2, 3] < [2]
+True
+>>> ['abc', 'def'] < ['ghi']
+True
+```
+
+Mais s'ils sont égaux, l'opération continue en passant aux éléments suivants, et ainsi de suite jusqu'à l'épuisement de l'une des listes.
+Une liste qui est épuisée avant l'autre est considérée comme inférieure. Ainsi `[1, 2, 3]` est inférieure à `[1, 2, 3, 4]`.
 
 ```python
 >>> [1, 2, 3] < [1, 2, 4]
 True
 >>> [1, 2, 3] < [1, 2, 2]
 False
->>> [1, 2, 3, 9] < [1, 2, 4]
+>>> [1, 2, 3] < [1, 2, 3, 4]
 True
->>> [1, 2, 3] < [2]
+>>> [1, 2, 3, 9] < [1, 2, 4]
 True
 >>> [1, 2, 3] < [1]
 False
+>>> ['abc', 'def'] > ['abc']
+True
 ```
 
-Si ces éléments sont de types non compatibles, alors l'opération produira une erreur.
+Dans le cas où les éléments des deux listes ne sont pas ordonnables, on obtient une erreur de type signifiant que la comparaison est impossible.
 
 ```python
 >>> [1, 2] < [1, 'a']
@@ -91,6 +113,19 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: '<' not supported between instances of 'int' and 'str'
 ```
+
+Et on retrouve bien sûr les opérateurs d'inégalités `<=` et `>=`.
+
+```python
+>>> [3, 2, 1] > [3, 2, 1]
+False
+>>> [3, 2, 1] >= [3, 2, 1]
+True
+>>> [3, 2, 1] <= [3, 2, 1]
+True
+```
+
+--------------------
 
 D'autres opérateurs prennent la forme de fonctions.
 C'est le cas de `len` pour récupérer la taille d'une liste.
@@ -116,8 +151,8 @@ On a aussi les fonctions `min` et `max` pour récupérer le plus petit ou le plu
 55
 ```
 
-Enfin je voulais aussi présenter les fonctions `all` et `any`, qui agissent comme des `and`/`or` sur l'ensemble des éléments d'une liste, mais renvoyant un booléen dans tous les cas.
-`all` vérifie que tous les éléments sont vrais, et `æny` qu'au moins un élément est vrai.
+Enfin je voulais aussi vous présenter les fonctions `all` et `any`, qui agissent comme des `and`/`or` sur l'ensemble des éléments d'une liste, mais renvoient un booléen dans tous les cas.
+`all` vérifie que tous les éléments sont vrais, et `any` qu'au moins un élément est vrai.
 
 Ainsi, `all([a, b, c, d])` est équivalent à `a and b and c and d` et `any([a, b, c, d])` à `a or b or c or d`.
 
@@ -134,7 +169,7 @@ True
 False
 ```
 
-Attention cependant au comportement sur les listes vides : `all` s'attend à ce que tous les éléments sont vrais ; mais si la liste ne contient aucun élément, alors techniquement ils sont bien tous vrais.
+Attention cependant au comportement sur les listes vides : `all` s'attend à ce que tous les éléments soient vrais ; mais si la liste ne contient aucun élément, alors techniquement ils sont bien tous vrais.
 De même pour `any` qui veut au moins un élément vrai, ce qui ne peut pas être le cas s'il n'y a aucun élément.
 
 ```python
@@ -204,7 +239,7 @@ C'est le cas de `reverse` qui inverse l'ordre des éléments.
 ['a', 'b', 'c', 'd', 'e', 'f']
 ```
 
-Il est possible de passer un booléen comme argument nommé `reverse` pour trier dans l'autre sens.
+Il est possible de passer un booléen comme argument nommé `reverse` pour trier les éléments dans l'autre sens.
 
 ```python
 >>> values.sort(reverse=True)
@@ -234,28 +269,6 @@ Ce même comportement est aussi possible en appelant `list` sur une liste exista
 ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 ```
 
-Pour savoir si deux valeurs sont la même liste, on peut utiliser l'opérateur d'identité `is`.
-Cette opérateur vérifie que deux valeurs sont un seul et même objet.
-
-```python
->>> values = [1, 2, 3]
->>> other_values = values
->>> other_values is values
-True
->>> other_values = values.copy()
->>> other_values is values
-False
->>> other_values == values
-True
-```
-
-À l'inverse, on trouve l'opérateur `is not` pour tester la non-identité.
-
-```python
->>> other_values is not values
-True
-```
-
 [[a]]
 | Attention cependant avec les listes multi-dimensionnelles : `copy` ne réalise une copie que du premier niveau de la liste.
 
@@ -279,4 +292,30 @@ Mais cela ne concerne bien sûr que les dimensions imbriquées : `values` et `o
 [['a', 'b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j']]
 >>> other_values
 [['a', 'b', 'c'], ['d', 'e', 'f', 'g']]
+```
+
+#### Identité
+
+Il existe en Python un opérateur d'identité, l'opérateur `is`.
+Celui-ci permet de tester si deux valeurs sont un seul et même objet, et non simplement des valeurs égales.
+
+Il permet ainsi de savoir si deux variables pointent vers une même liste ou vers deux listes distinctes.
+
+```python
+>>> values = [1, 2, 3]
+>>> other_values = values
+>>> other_values is values
+True
+>>> other_values = values.copy()
+>>> other_values is values
+False
+>>> other_values == values
+True
+```
+
+À l'inverse, on trouve l'opérateur `is not` pour tester la non-identité.
+
+```python
+>>> other_values is not values
+True
 ```

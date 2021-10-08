@@ -24,7 +24,7 @@ from collections import OrderedDict
 container = OrderedDict()
 # Number of nested levels
 document_depth = 0
-trans = str.maketrans('','','#*_`\n')
+trans = str.maketrans('','','#`\n')
 
 # Split filenames into a dict that represent file hierarchy
 for section in sections:
@@ -74,7 +74,11 @@ def make_document(archive, obj, name=None):
     keys = list(obj.keys())
     if keys[0].startswith('0-'):
         container['introduction'] = obj.pop(keys[0])
-        container['title'] = write_file(archive, container['introduction'])
+        title = write_file(archive, container['introduction'])
+        if title.endswith(' -- draft'):
+            title = title.removesuffix(' -- draft')
+            container['ready_to_publish'] = False
+        container['title'] = title
     if keys[-1].startswith('x-'):
         container['conclusion'] = obj.pop(keys[-1])
         write_file(archive, container['conclusion'])

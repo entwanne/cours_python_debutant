@@ -31,7 +31,7 @@ Téléchargez le fichier `.exe` pointé et exécutez-le.
 [[a]]
 | Téléchargez toujours l'inistallateur depuis le site officiel de Python plutôt qu'une autre source, afin d'éviter tout programme frauduleux.
 
-![Installation de Python](https://docs.python.org/fr/3/_images/win_installer.png)
+![Installation de Python](img/win_installer.png)
 
 Cochez alors les cases « Install launcher for all users » (installer pour tous les utilisateurs) et « Add Python to PATH » (ajouter Python aux chemins système) pour simplifier les utilisations futures.
 Cliquez ensuite sur « Install now » (installer maintenant) afin de procéder à l'installation de Python sur votre système.

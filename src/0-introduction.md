@@ -14,24 +14,23 @@ Peut-être connais-tu déjà l'un ou l'autre de ces langages, ou même que tu pr
 Ta quête du Python est sur le point de commencer !
 Un tout nouveau monde de rêves, d'aventures et de programmation t'attend ! Dingue !
 
-Pour nous rejoindre, rien de plus simple, rends-toi de ce pas vers [le premier chapitre]() afin d'en découvrir plus sur le langage.
+Pour nous rejoindre, rien de plus simple, rends-toi de ce pas vers [le premier chapitre](./1-premiers-pas/1-presentation/) afin d'en découvrir plus sur le langage.
+
+![Un zeste de Python.](img/logo_cours.png)
 
 ---------------------
 
 J'ai découpé ce cours en plusieurs parties (ou paliers) pour te permettre d'avancer pas à pas dans l'apprentissage du Python, en commençant par les bases pour à terme réussir à réaliser des programmes complets.  
 Chaque partie se divise en chapitres, pour présenter les différentes notions du langage, avec des exercices pour les mettre en pratique.
 
-Les parties sont généralement conclues par un chapitre de travaux pratiques (TP), pour utiliser concrètement les connaissances apprises au long des chapitres qui précèdent.  
-Dans ces TP tu seras accompagné par Pythachu, Pythard et Ponytha dans le but de réaliser un jeu de combat au tour par tour, dans le style de Pokémon.
-
-![Attrapez-les tous !](img/pythomons.png)
+Les parties sont généralement conclues par un chapitre de travaux pratiques (TP), pour utiliser concrètement les connaissances apprises au long des chapitres qui précèdent, dans le but de réaliser un jeu de combat au tour par tour en mode texte.
 
 [[i]]
 | Tu n'as pas besoin de connaissances particulières pour démarrer ce tutoriel : savoir installer un logiciel sur ton ordinateur et connaître les bases du calcul (opérations élémentaires) sont les seuls pré-requis.  
 | Quelques notions d'anglais sont un plus.
 
 La difficulté augmente bien sûr au long du cours, mais j'ai fait en sorte que l'avancée soit progressive et donc que cette difficulté soit transparente.
-N'hésite pas à demander de l'aide si toutefois tu butterais sur un point ou serais bloqué sur un exercice.  
+N'hésite pas à demander de l'aide si toutefois tu buttais sur un point ou étais bloqué sur un exercice.  
 Je suis aussi ouvert à tous retours si tu trouves que telle notion est mal expliquée ou que telle autre mériterait d'être abordée.
 
 Car oui, ce cours ne couvre pas l'entièreté du langage Python et n'a pas pour volonté de remplacer [sa documentation](https://docs.python.org/fr/3/).

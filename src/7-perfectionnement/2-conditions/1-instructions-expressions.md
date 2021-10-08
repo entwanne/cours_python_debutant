@@ -46,9 +46,9 @@ SyntaxError: invalid syntax
 De la même manière, les conditions ne sont pas des expressions, il s'agit de blocs de code.
 
 ```python
->>> (if True: pront('ok'))
+>>> (if True: print('ok'))
   File "<stdin>", line 1
-    (if True: pront('ok'))
+    (if True: print('ok'))
      ^
 SyntaxError: invalid syntax
 ```

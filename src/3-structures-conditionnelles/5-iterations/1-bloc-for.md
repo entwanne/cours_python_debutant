@@ -6,10 +6,15 @@ Pour réaliser un traitement (par exemple afficher un message) pour chacune des 
 En programmation ce genre de construction s'appelle une boucle, soit un bloc de code qui sera répété un certain nombre de fois.
 Ici un bloc exécuté pour chaque élément de notre liste.
 
-On a pour cela en Python le bloc `for` qui permet de parcourir une liste, d'itérer sur ses éléments.
+On a pour cela en Python le bloc `for` qui permet de parcourir une liste, d'itérer sur ses éléments.  
+Sa syntaxe est la suivante :
 
-Sa syntaxe est la suivante : `for element in values:`.
-`values` est ici notre liste, et `element` une variable qui sera successivement (à chaque tour de boucle) assignée à chaque élément de la liste.
+```python
+for element in values:
+    ...
+```
+
+`values` étant ici notre liste, et `element` une variable qui sera successivement (à chaque tour de boucle) assignée à chaque élément de la liste.
 
 `for` introduit un bloc, la ligne se termine donc par un `:` et est suivie d'un bloc indenté.
 
@@ -47,6 +52,7 @@ On peut voir l'itération comme un curseur qui se déplace le long de notre list
 
 Comme toute variable, il nous est aussi possible de la redéfinir, mais attention : il ne s'agit que d'une variable assignée à un élément de la liste, elle n'est en aucune manière liée à la liste.  
 Donc redéfinir la variable n'aura aucun effet sur la liste qui restera inchangée.
+Et le redéfinition n'est que temporaire, puisque la variable sera assignée à une nouvelle valeur de la liste à la prochaine itération.
 
 ```python
 >>> for elem in numbers:

@@ -1,6 +1,6 @@
 ### Interpréteur interactif
 
-L'interpréteur interactif est très pratique pour tester un bout de code rapidement ou explorer une valeur : on peut directement voir ce que contient une valeur, et facilement essayer telle ou telle ligne de code pour vérifier qu'elle fonction.  
+L'interpréteur interactif est très pratique pour tester un bout de code rapidement ou explorer une valeur : on peut directement voir ce que contient une valeur, et facilement essayer telle ou telle ligne de code pour vérifier qu'elle fonctionne.  
 Il permet aussi de réaliser des calculs étape par étape.
 
 Mais il n'est pas adapté pour écrire du plus long code, il gère mal l'indentation (c'est une spécificité du langage Python sur laquelle nous reviendrons par la suite) et les blocs de code à la suite.  

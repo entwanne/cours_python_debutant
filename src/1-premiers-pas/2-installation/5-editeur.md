@@ -1,5 +1,7 @@
 ### Éditeur de texte
 
+Un éditeur de texte est un programme tel que le bloc-notes qui nous permet de modifier des fichiers texte, ici nos fichiers de code Python.
+
 Même si IDLE peut faire office d'éditeur de texte, il n'est pas le plus pratique pour ça.
 Il offre en effet de la coloration syntaxique sur le code (ce qui permet de mettre en évidence les mots-clés et structures du langage) mais est assez rudimentaire sur le reste.  
 D'autres éditeurs vont fournir des fonctionnalités supplémentaires utiles pour travailler sur vos projets, comme le fait de fournir des onglets pour naviguer entre les fichiers.

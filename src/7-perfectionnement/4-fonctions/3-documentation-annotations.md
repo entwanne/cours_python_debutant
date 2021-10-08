@@ -38,7 +38,7 @@ D'un côté, on n'a rien renseigné d'autre à notre fonction, et il serait diff
 #### Docstring
 
 Une première étape vers la documentation est de rédiger une _docstring_ dans notre fonction.
-Une _docstring_ c'est simple une chaîne de caractères placée au début de notre fonction, sans assignation ni rien.
+Une _docstring_ c'est simplement une chaîne de caractères placée au début de notre fonction, sans assignation ni rien.
 
 ```python
 def operation(op, a, b):
@@ -92,15 +92,21 @@ operation(op, a, b)
 
 #### Comment documenter ?
 
-* Principes d'une documentatiion
+Dans notre documentation, on ne va pas définir en détails ce que fait notre fonction, expliquer toutes les conditions qui y sont faites, ça n'aurait pas trop d'intérêt.
+Non, le but d'une documentation est de décrire l'usage : comment utiliser notre fonction et à quoi s'attendre en retour.
 
-#### Annotations de type
+Si notre fonction a des comportements particuliers (erreurs qu'elle gère ou pas, astuces d'optimisation, etc.), il est bon aussi de les indiquer dans la documentation.
 
-La _docstring_ n'est pas l'uniquement manière de documenter une fonction, d'autres informations peuvent être apportées par les annotations de types.
+Pour notre fonction `operation`, la documentation devrait indiquer que notre fonction réalise des opérations arithmétiques de 4 types (addition, soustraction, multiplication et division flottante) et renvoie le résultat de l'opération, l'opération à effectuer et les deux opérandes étant récupérés depuis les paramètres.  
+Il serait ajouté que la fonction affiche un message d'erreur en cas d'opération inconnue (en renvoyant `-1`), et qu'elle ne traite pas l'erreur de division par zéro.
+
+#### Annotations de types
+
+La _docstring_ n'est pas l'unique manière de documenter une fonction, d'autres informations peuvent être apportées par les annotations de types.
 Comme leur nom l'indique, ces annotations servent à décrire les types des paramètres de la fonction.
 
 [[i]]
-| Les annotations sont parfaitement facultatives, elles sont utiles à la documentation et pour des outils d'analyse statique (tel que `mypy` présenté en annexe).  
+| Les annotations sont parfaitement facultatives, elles sont utiles à la documentation et pour des outils d'analyse statique (tel que `mypy` présenté [en annexe](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/4-outils/#2-2-mypy)).  
 | Elles existent et vous pouvez donc en rencontrer dans un code, c'est pourquoi je vous les présente, mais ne vous sentez pas obligé de les utiliser si vous n'en ressentez pas le besoin.
 
 Notre fonction peut s'annoter simplement : le premier paramètre est une chaîne de caractère, et les deux suivants sont des nombres, que l'on va pour le moment considérer comme des `int`.
@@ -121,7 +127,7 @@ operation(op: str, a: int, b: int)
 ...
 ```
 
-Il est aussi possible de préciser une annotation sur la fonction en elle-même pour en indiquer le type de la valeur de retour.
+Il est aussi possible de préciser une annotation sur la fonction en elle-même pour indiquer le type de la valeur de retour.
 Pour cela, on utilise un `->` derrière la liste des paramètres, suivi du type de retour.
 
 ```python
@@ -130,7 +136,7 @@ def operation(op: str, a: int, b: int) -> int:
 ```
 
 [[a]]
-| Les annotations ne changent rien lors de l'exécution du programme, la fonction peut être appelée avec d'autre type que ceux précisés sans que cela ne provoque d'erreur.
+| Les annotations ne changent rien lors de l'exécution du programme, elles sont là à titre indicatif, la fonction peut être appelée avec d'autres types que ceux précisés sans que cela ne provoque d'erreur.
 
 On le constate d'ailleurs si l'on appelle notre fonction avec des nombres flottants.
 

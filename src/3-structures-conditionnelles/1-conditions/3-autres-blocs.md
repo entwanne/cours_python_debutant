@@ -1,10 +1,10 @@
 ### Et sinon ?
 
 Nous avons vu quoi faire quand une condition était vraie, mais ce n'est pas le seul cas qui nous intéresse.
-Une condtion peut en effet être vraie ou fausse, et un traitement particulier doit pouvoir être apporté à ce dernier cas.
+Une condtion est en effet soit vraie soit fausse, et un traitement particulier doit pouvoir être apporté à ce deuxième cas de figure.
 
-Python fournit cela avec le bloc `else` (« sinon ») qui soit suivre directement un bloc `if`.
-Ainsi aucune expression n'est nécessaire derrière le mot-clé `else`, le signe `:` reste néanmoins obligatoire pour introduire le bloc.
+Python fournit pour cela le bloc `else` (« sinon ») qui se place directement après un bloc `if`.
+Aucune expression n'est nécessaire derrière le mot-clé `else` (pas de condition à préciser), le signe `:` reste néanmoins obligatoire pour introduire le bloc.
 
 Le contenu du bloc `else` sera exécuté si et seulement si la condition du `if` est fausse.
 
@@ -72,7 +72,17 @@ print('Relancez le programme pour une nouvelle partie')
 Il faut bien noter qu'un bloc `elif` dépend du `if` et des autres `elif` qui le précèdent, son contenu ne sera donc exécuté que si toutes les conditions précédentes se sont révélées fausses.
 
 `if` étant le mot-clé qui introduit une structure conditionnelle, il doit être placé avant les `elif` / `else`.
-De même, `else` terminant cette structure, il se plce à la suite de tous les `elif`.
+De même, `else` terminant cette structure, il se place à la suite de tous les `elif`.
 
 `elif` et `else` restent bien sûr optionnels, un bloc conditionnel peut ne contenir qu'un simple `if`.
 On peut aussi imaginer un `if` suivi de `elif` mais sans `else`.
+
+```python
+secret = 'p4ssw0rd'
+password = input('Entrez le mot de passe : ')
+
+if password == '':
+    print('Veuillez saisir un mot de passe valide')
+elif password == secret:
+    print('Authentification réussie')
+```

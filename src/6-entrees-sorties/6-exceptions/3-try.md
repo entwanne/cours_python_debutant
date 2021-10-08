@@ -107,7 +107,7 @@ Changeons d'exemple et passons à un cas plus réel de lecture de fichier.
 Imaginons que l'on souhaite simplement lire un score dans un fichier.
 Il nous faut alors une fonction prenant un chemin de fichier en paramètre et renvoyant son contenu sous forme de nombre.
 
-Plusieurs exceptions peuvent survenir comme on l'a vu : le fichier peut ne pas exister ou ne pas avoir les bonnes permissions (`OSError`), peut contenir une valeur invalide (`ValueError`) et d'autres encore.
+Plusieurs exceptions peuvent survenir comme on l'a vu : le fichier peut ne pas exister ou ne pas avoir les bonnes permissions (erreurs `OSError`), peut contenir une valeur invalide (`ValueError`) et d'autres encore.
 
 ```python
 def get_score(path):
@@ -145,7 +145,7 @@ def get_score(path):
             print('Score invalide')
 ```
 
-Dans l'exemple précédent, la conversion du contenu du fichier en nombre a toujours lieu dans le `try` donc l'erreur sur `hello.txt` serait bien traitée.
+Dans l'exemple précédent, la conversion du contenu du fichier en nombre a toujours lieu dans le `try` donc l'erreur sur `hello.txt` sera bien traitée.
 Mais l'ouverture du fichier se situe en dehors, nous ne gérons donc pas l'erreur `OSError` sur `not_found.txt`.
 
 ```python
@@ -159,6 +159,10 @@ Traceback (most recent call last):
   File "<stdin>", line 2, in get_score
 FileNotFoundError: [Errno 2] No such file or directory: 'not_found.txt'
 ```
+
+[[i]]
+| On voit que l'erreur qui survient est une `FileNotFoundError` et non une `OSError`.
+| Il faut savoir qu'il existe une hiérarchie des exceptions que nous étudierons plus tard, et que `FileNotFoundError` est une erreur qui descend de `OSError`.
 
 Aussi, l'exécution d'un bloc `try` s'arrête à la première erreur rencontrée.
 Cela signifie que tout son contenu n'est pas nécessairement exécuté, donc certaines variables définies dans le `try` n'existent peut-être pas.

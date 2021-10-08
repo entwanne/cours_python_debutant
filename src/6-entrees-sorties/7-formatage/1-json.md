@@ -1,6 +1,6 @@
 ### Format JSON
 
-Un premier format de données assez courant en information est le JSON (pour _JavaScript Object Notation_) qui comme son nom l'indique provient du Javascript.
+Un premier format de données assez courant en informatique est le JSON (pour _JavaScript Object Notation_) qui comme son nom l'indique provient du Javascript.
 Il s'est ainsi répandu dans le monde du web pour devenir un format de prédilection pour les échanges entre applications.
 
 C'est un format textuel, c'est-à-dire qu'il est lisible à l'œil sous forme de texte (contrairement à un format binaire), bien que parfois difficile à écrire à la main.

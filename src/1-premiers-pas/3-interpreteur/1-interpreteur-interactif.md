@@ -25,9 +25,9 @@ Ainsi, Python nous dit que `12` vaut `12`. Merci Python !
 | Notez que lorsqu'au long de ce cours je vous présenterai un code sous la forme suivante :
 |
 | ```python
-| >>> foo
-| bar
+| >>> xxx
+| yyy
 | ```
 |
-| Cela signifie qu'il faut exécuter le code `foo` dans l'interpréteur Python et que celui-ni nous affiche alors `bar`.  
+| Cela signifie qu'il faut exécuter le code `xxx` dans l'interpréteur Python et que celui-ci nous affiche alors `yyy`.  
 | J'utiliserai donc cette notation avec des chevrons pour présenter des exemples de l'interpréteur interactif.

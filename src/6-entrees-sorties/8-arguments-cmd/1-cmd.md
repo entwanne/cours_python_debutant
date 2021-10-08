@@ -1,8 +1,7 @@
 ### Ligne de commande
 
 Pour l'instant nous appelons nos programmes depuis la ligne de commande en tapant `python program.py`.
-
-* Script exécutable + shebang
+Mais nous savons aussi que nous pouvons [définir un _shebang_ et rendre notre fichier exécutable](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/1-premiers-pas/4-fichiers/#ex%C3%A9cution-depuis-le-terminal) sous Linux pour le lancer en tapant `./program.py`.
 
 Dans les deux cas, cela fait appel à l'interpréteur Python en lui donnant le chemin de notre programme en argument.
 Mais il est possible de renseigner d'autres arguments lors du lancement et ceux-ci seront transmis à notre programme.
@@ -93,11 +92,27 @@ Le premier élément de `sys.argv` sera toujours présent, notre programme n'aur
 
 Il y a un seul soucis avec notre message d'erreur : celui-ci est imprimé sur la sortie standard.
 
-* Bloc info: notion Linux de sortie d'erreur et de sortie standard
-* Comment les différencier en bash, redirection des flux (`>`, `2>`)
+[[q]]
+| Qu'est-ce que la sortie standard ?
+|
+| Sur Linux, les programmes qui tournent sont automatiquement reliés à 3 périphériques :
+|
+| * L'entrée standard, celle qui récupère le texte entré sur le terminal, accessible via `input()`.
+| * La sortie standard, où est affiché par défaut tout ce qui sort du programme sur le terminal (avec `print` par exemple).
+| * La sortie d'erreur, spécifiquement dédiée aux erreurs.
 
-En fait, chaque sortie correspond à un fichier ouvert par le programme.
-Pour la sortie standard, c'est `sys.stdout`. (_standard output_).
+Les sorties standard et d'erreur sont toutes deux affichées par défaut sur le terminal, mais elles sont pourtant différentes.
+Dans un shell Bash, il est possible d'utiliser l'opérateur `>` pour rediriger le flux de sortie standard vers un fichier, et l'opérateur `2>` pour la sortie d'erreur.
+
+```bash
+% python addition.py > out 2> err
+```
+
+Si l'on inspecte nos fichiers, on constate bien que `out` contient le message d'erreur et que `err` est vide.
+On aimerait que ce soit l'inverse en cas d'erreur.
+
+En fait, chaque sortie correspond à un fichier ouvert par défaut par le programme.
+Pour la sortie standard, il s'agit de `sys.stdout`. (_standard output_).
 On peut l'utiliser comme tout autre fichier ouvert en écriture.
 
 ```python

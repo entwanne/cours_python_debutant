@@ -1,3 +1,0 @@
-### Expressions rationnelles
-
-* re

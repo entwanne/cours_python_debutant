@@ -18,9 +18,9 @@ Le tirage de ce nombre est uniforme, grossièrement cela veut dire qu'on a autan
 Une fonction est spécifiquement dédiée au tirage uniforme entre deux nombres flottants, il s'agit de la fonction `uniform`.
 
 ```python
->>> random.uniform(1, 10)
+>>> random.uniform(0, 10)
 1.4017486291855232
->>> random.uniform(1, 10)
+>>> random.uniform(0, 10)
 5.926447309804371
 ```
 
@@ -28,26 +28,52 @@ Suivant les arrondis, la borne supérieure peut être inclue ou non dans l'inter
 
 [^infini]: Pas exactement puisque la représentation d'un flottant est finie, mais vous comprenez l'idée.
 
+On a l'habitute de présenter une distribution par sa densité de probabilité, la fonction qui montre quelles zones de l'intervalle ont plus de chances d'être sollicitées.  
+Dans le cas d'une distribution uniforme, cette densité est constante.
+
+![Densité de probabilité d'une distribution uniforme.](img/random_uniform.png)
+
 D'autres distributions sont possibles pour les tirages de nombres flottants.
 
-* Note sur les distributions
+Il y a par exemple la distribution triangulaire accessible via la fonction `triangular`, qui prend en argument les deux bornes de l'intervalle.  
+On parle de distribution triangulaire car sa densité représente un triangle entre les deux bornes.
+
+![Densité de probabilité d'une distribution triangulaire.](img/random_triangular.png)
+
+Ainsi, les valeurs autour du sommet du triangle auront plus de probabilité d'être tirées que celles aux extrémités.
 
 ```python
->>> random.triangular(1, 10)
+>>> random.triangular(0, 10)
 4.0479535343895865
 ```
 
-* `normalvariate`
-* `gauss`
+Un troisième argument optionnel, le mode, permet de spécifier la valeur du sommet du triangle (par défaut il s'agit du milieu de l'intervalle, 5 dans notre exemple).
 
-* Ajouter schémas
+```python
+>>> random.triangular(0, 10, 2)
+2.4400405218007473
+```
+
+On trouve aussi la distribution normale, qui représente la distribution naturelle autour d'une moyenne avec un certain écart type.
+La moyenne et l'écart type sont les deux arguments de la fonction `normalvariate`.
+
+```python
+>>> random.normalvariate(5, 1)
+4.655500829738334
+>>> random.normalvariate(5, 1)
+5.808402224132684
+```
+
+Sa densité de probabilité prend la forme d'une cloche centrée autour de la moyenne. Plus on s'éloigne de la moyenne, moins les valeurs ont de chance d'être tirées.
+
+![Densité de probabilité d'une distribution normale.](img/random_normal.png)
 
 #### Pondération
 
 Un autre point important à propos des tirages aléatoires concerne la pondération.
-En effet, les tirages discrets que nous avons effectué jusqu'ici étaient tous informes : chaque valeur avait autant de chance que les autres de tomber.
+En effet, les tirages discrets que nous avons effectué jusqu'ici étaient tous uniformes : chaque valeur avait autant de chance que les autres de tomber.
 
-Avec `random.randint(1, 6)`, chaque valeur à une probabilité de $\frac{1}{6}$ d'être tirée.
+Avec `random.randint(1, 6)`, chaque valeur a une probabilité de $\frac{1}{6}$ d'être tirée.
 On peut d'ailleurs le vérifier en simulant un très grand nombre de tirages et en calculant le nombre d'occurrences de chaque valeur pour en déterminer la fréquence.  
 Si le tirage est bien uniforme, chaque valeur est censée être équitablement présente.
 
@@ -71,6 +97,8 @@ Si le tirage est bien uniforme, chaque valeur est censée être équitablement p
 ```
 
 On voit que chaque fréquence est proche de 0,1666.
+
+![Distribution uniforme des valeurs.](img/random_uniform_weights.png)
 
 Mais parfois on souhaiterait pouvoir pondérer notre tirage, affecter un poids différent à chaque valeur.
 Une manière de faire serait d'utiliser un `choice` et d'y mettre plusieurs fois les valeurs selon l'importance que l'on souhaite leur donner.
@@ -125,6 +153,8 @@ Notre tirage de tout à l'heure pourrait se réécrire de la façon suivante :
 [5]
 ```
 
+![Pondération des valeurs.](img/random_weights.png)
+
 Encore une fois, on peut le vérifier en calculant les fréquences d'apparition.
 
 ```python
@@ -168,4 +198,4 @@ Notre tirage précédent peut alors s'écrire comme suit.
 
 Je vous laisse calculer la fréquence des tirages pour le vérifier.
 
-* Ajouter schémas des poids & poids cumulés
+![Poids cumulés.](img/random_cum_weights.png)

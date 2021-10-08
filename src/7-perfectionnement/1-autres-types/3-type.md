@@ -98,6 +98,7 @@ On trouve ainsi un type `Iterable`.
 Il n'est pas utilisable en tant que tel, on ne peut pas instancier d'objets du type `Iterable`, mais on peut l'utiliser pour vérifier qu'un objet est bien itérable en appelant `isinstance`.
 
 ```python
+>>> from collections.abc import Iterable
 >>> isinstance([1, 2, 3], Iterable)
 True
 >>> isinstance((4, 5, 6), Iterable)

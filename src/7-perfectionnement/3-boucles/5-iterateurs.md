@@ -3,9 +3,9 @@
 #### Itérables et itérateurs
 
 Depuis plusieurs chapitres j'utilise le terme d'itérables pour qualifier les objets qui peuvent être parcourus à l'aide d'une boucle `for`, mais qu'en est-il ?
-On a vu qu'il eistait un grand nombre d'itérables, tels que les chaînes de caractères, les listes, les _range_, les dictionnaires, les fichiers, etc.
+On a vu qu'il existait un grand nombre d'itérables, tels que les chaînes de caractères, les listes, les _range_, les dictionnaires, les fichiers, etc.
 
-Il y en a d'autres encore et l'on en a vus plus récemment dans ce chapitre : les retours des fonctions `enumerate` ou `zip` sont aussi des itérables.
+Il y en a d'autres encore et l'on en a vu plus récemment dans ce chapitre : les retours des fonctions `enumerate` ou `zip` sont aussi des itérables.
 Mais si on les regarde de plus près, on voit qu'ils sont un peu particuliers.
 
 ```python
@@ -44,7 +44,7 @@ Mais ce qui est plus étonnant c'est qu'on ne peut itérer dessus qu'une seule f
 
 On constate le même comportement avec la conversion en liste.
 
-```
+```python
 >>> values = zip('abc', 'def')
 >>> list(values)
 [('a', 'd'), ('b', 'e'), ('c', 'f')]
@@ -118,7 +118,7 @@ Parce que leurs fonctionnalités sont couvertes par les listes en intension et p
 
 `map` et `filter` sont issues de la programmation fonctionnelle et servent respectivement à convertir et à filtrer les données d'un itérable.
 
-`map` prend en arguments une fonction et un itérable, et applique la fonction à chaque élément de l'itérable , renvoyant un itérateur sur les résultats.
+`map` prend en arguments une fonction et un itérable, et applique la fonction à chaque élément de l'itérable, renvoyant un itérateur sur les résultats.
 
 ```python
 >>> values = [1.3, 2.5, 3.8, 4.2]
@@ -237,7 +237,7 @@ Un autre itérateur infini est `repeat`, qui répète simplement en boucle le m�
 'hello'
 ```
 
-On pourra le voir utiliser dans des `zip` pour simuler une séquence de même longueur qu'une autre.
+On pourra le voir utilisé dans des `zip` pour simuler une séquence de même longueur qu'une autre.
 
 ```python
 >>> def additions(seq1, seq2):
@@ -342,3 +342,5 @@ La fonction renverra alors simplement le même itérateur.
 >>> iter(it)
 <list_iterator object at 0x7f3074a21070>
 ```
+
+On constate bien que les deux valeurs ont la même adresse.
