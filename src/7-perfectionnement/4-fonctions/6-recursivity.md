@@ -139,4 +139,4 @@ Bien sûr je ne présente ces fonctions qu'à titre d'exemple.
 Les fonctions récursives étant déjà assez rares en Python pour les raisons expliquées plus haut, les récursions croisées le sont encore plus.  
 Et l'exemple présenté ci-dessus est particulièrement inefficace (on peut directement tester la parité d'un nombre avec `n % 2`).
 
-Aussi, préférez dans la mesure du possible opter pour des solutions itératives (voir [chapitre en annexe pour transformer un code récursif en itératif]()).
+Aussi, préférez dans la mesure du possible opter pour des solutions itératives.

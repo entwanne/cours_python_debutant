@@ -176,7 +176,7 @@ Il faut pour cela les doubler. `{{` correspondra au caractère `{` dans une cha�
 '1 {} 2'
 ```
 
-Ces options de formatage ne sont pas exhaustives, et vous les trouverez plus en détails dans la [documentation détaillée](https://docs.python.org/fr/3/library/string.html#formatspec) ou  en annexe.
+Ces options de formatage ne sont pas exhaustives, et vous les trouverez plus en détails dans la [documentation détaillée](https://docs.python.org/fr/3/library/string.html#formatspec).
 
 Vous pouvez aussi obtenir plus d'aide sur le formatage à l'aide de l'appel `help('FORMATTING')` depuis l'interpréteur interactif.
 

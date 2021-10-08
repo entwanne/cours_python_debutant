@@ -13,4 +13,3 @@ Le calendrier de support des versions de Python est disponible sur [la page de t
 Même si la question du choix de version est aujourd'hui simple, elle s'est longtemps posée en raison de la coexistence entre Python 2 et Python 3.
 La version 2.7 a finalement arrêté d'être supportée au 1er janvier 2020.  
 Cependant, il est à noter qu'il se peut que vous rencontriez sur le net des exemples de code utilisant Python 2 et qui ne seraient alors pas compatibles avec votre version.
-Dans ce cas, vous pourrez vous reporter au chapitre en annexe sur [les différences entre Python 2 et Python 3]().

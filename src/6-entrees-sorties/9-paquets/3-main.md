@@ -7,7 +7,7 @@ C'est une option qui permet de demander à Python d'exécuter un module à parti
 Cela permet de ne pas avoir à connaître le chemin complet vers le fichier du module pour le lancer.
 Et certains modules Python s'en servent pour mettre à disposition des petits programmes.
 
-Par exemple le module `turtle` (un module de dessin présenté [en annexe]()) propose une démo si on l'exécute via `python -m turtle` :
+Par exemple le module `turtle` propose une démo si on l'exécute via `python -m turtle` :
 
 ![Démonstration de turtle.](img/demo_turtle.png)
 Figure: `python -m turtle`
