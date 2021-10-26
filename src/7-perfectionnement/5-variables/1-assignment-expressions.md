@@ -10,7 +10,7 @@ Imaginons par exemple que nous souhaitions tester successivement plusieurs param
 Disons que nous ayons une configuration où plusieurs paramètres pourraient servir à définir une même valeur dans des conditions différentes (définir depuis un chemin de fichier, définir depuis une URL, etc.) et que par commodité nous souhaitions nettoyer les paramètres en supprimant les espaces de début et de fin.  
 Avec des assignations simples, il nous faut imbriquer plusieurs conditions les unes dans les autres.
 
-```python
+```pycon
 >>> config = {'path': ' ', 'text': 'toto'}
 >>> url = config.get('url', '').strip()
 >>> if url:
@@ -37,7 +37,7 @@ Elles sont introduites avec l'opérateur `:=` aussi appelé opérateur « walru
 
 Pour reprendre l'exemple précédent, on pourrait alors le réécrire comme suit :
 
-```python
+```pycon
 >>> config = {'path': ' ', 'text': 'toto'}
 >>> if url := config.get('url', '').strip():
 ...     uri = url
@@ -56,7 +56,7 @@ Dans cet exemple, `url := config.get('url', '').strip()` assigne la variable `ur
 
 L'opérateur `:=` est l'un des moins prioritaires de Python, ainsi il sera souvent nécessaire de placer l'expression entre paranthèses pour la prioriser.
 
-```python
+```pycon
 >>> if (x := round(3.5)) > 0:
 ...     print(x)
 ... 
@@ -65,7 +65,7 @@ L'opérateur `:=` est l'un des moins prioritaires de Python, ainsi il sera souve
 
 Là où sans parenthèses, la condition aurait été évaluée comme `x := (round(3.5) > 0)` donc `x` aurait été un booléen.
 
-```python
+```pycon
 >>> if x := round(3.5) > 0:
 ...     print(x)
 ... 
@@ -79,7 +79,7 @@ True
 Enfin, pour éviter toute confusion avec l'opérateur `=`, les expressions d'assignation ne sont pas autorisées là où les instructions sont autorisées.
 Il n'est ainsi pas possible d'écrire `foo := 'bar'` directement dans l'interpréteur Python.
 
-```python
+```pycon
 >>> foo := 'bar'
   File "<stdin>", line 1
     foo := 'bar'
@@ -89,7 +89,7 @@ SyntaxError: invalid syntax
 
 Mais on peut placer l'expression entre parenthèses pour lever la confusion et la rendre valide.
 
-```python
+```pycon
 >>> (foo := 'bar')
 'bar'
 >>> foo

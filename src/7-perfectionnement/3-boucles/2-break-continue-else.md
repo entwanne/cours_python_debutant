@@ -3,7 +3,7 @@
 `break` permet donc de stopper la boucle.
 Il n'est pas seulement disponible pour les boucles `while`, on peut aussi l'utiliser dans un `for`.
 
-```python
+```pycon
 >>> for i in range(10):
 ...     print(i)
 ...     if i == 5:
@@ -19,7 +19,7 @@ Il n'est pas seulement disponible pour les boucles `while`, on peut aussi l'util
 
 Comme précédemment, la sortie de boucle est immédiate, l'effet ne serait donc pas le même si le `print` était placé après le bloc `if`.
 
-```python
+```pycon
 >>> for i in range(10):
 ...     if i == 5:
 ...         break
@@ -35,7 +35,7 @@ Comme précédemment, la sortie de boucle est immédiate, l'effet ne serait donc
 Il faut savoir que dans le cas de boucles imbriquées, `break` ne se rapporte qu'à la boucle juste au-dessus.
 Il n'est pas possible d'influer sur les boucles extérieures.
 
-```python
+```pycon
 >>> for x in range(3):
 ...     for y in range(3):
 ...         if y == 2:
@@ -115,7 +115,7 @@ else:
 
 Ainsi, sans `break` le `else` est bien exécuté.
 
-```python
+```pycon
 >>> for i in range(5):
 ...     print(i)
 ... else:
@@ -131,7 +131,7 @@ end
 
 Avec un `break` il ne l'est pas.
 
-```python
+```pycon
 >>> for i in range(5):
 ...     print(i)
 ...     if i == 3:

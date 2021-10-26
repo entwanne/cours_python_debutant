@@ -19,7 +19,7 @@ On utilise donc des crochets pour délimiter la liste, et des virgules pour sép
 Chaque case de la liste est associée à une position (ou index). Ainsi la case en première position contient la valeur 5, celle en deuxième position contient la valeur 3, etc.
 L'ordre des éléments dans une liste est donc important, et celui-ci est libre (mes valeurs n'ont par exemple pas besoin d'être rangées en ordre croissant).
 
-```python
+```pycon
 >>> [1, 2, 3]
 [1, 2, 3]
 >>> [2, 3, 1]
@@ -31,7 +31,7 @@ On note que la case en septième (dernière) position contient aussi la valeur 3
 La liste peut être vue comme une généralisation des chaînes de caractères : là où la chaîne est une séquance de caractères, la liste peut contenir des valeurs de tous types.
 L'exemple précédent ne montre qu'une liste composée de nombres entiers (`int`), mais n'importe quelle valeur peut être contenue dans une liste.
 
-```python
+```pycon
 >>> ['abc', 'def']
 ['abc', 'def']
 >>> [4.5, 1.8, -3.2]
@@ -58,7 +58,7 @@ items = ['salut', 42, True, 1.5]
 Une liste peut aussi ne contenir aucun élément (liste vide), on la définit alors à l'aide d'une simple paire de crochets `[]`.  
 Un autre cas particulier est celui des listes contenant un seul élément, où la virgule est facultative puisqu'il n'y a pas de valeurs à séparer.
 
-```python
+```pycon
 >>> []
 []
 >>> [4]

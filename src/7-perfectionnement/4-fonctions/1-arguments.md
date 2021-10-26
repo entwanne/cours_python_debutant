@@ -2,7 +2,7 @@
 
 Nous savons déclarer une fonction avec des paramètres simples, et leur associer des arguments lors de l'appel, qu'ils soient positionnels ou nommés.
 
-```python
+```pycon
 >>> def log(message, component, level):
 ...     print(f'[{level}] {component}: {message}')
 ... 
@@ -14,7 +14,7 @@ Nous savons déclarer une fonction avec des paramètres simples, et leur associe
 
 Nous obtenons un message d'erreur si nous omettons un des arguments.
 
-```python
+```pycon
 >>> log('Une erreur est survenue', 'system')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -28,7 +28,7 @@ Les arguments optionnels correspondent simplement aux paramètres ayant une vale
 Pour définir une valeur par défaut à un paramètre, il suffit d'écrire `parametre=valeur` plutôt que `parametre` dans la liste des paramètres de la fonction.
 Voici ainsi une version plus évoluée de notre fonction `log`, s'appuyant sur des valeurs par défaut.
 
-```python
+```pycon
 >>> def log(message, component=None, level='info'):
 ...     if component is None:
 ...         print(f'[{level}] {message}')
@@ -53,7 +53,7 @@ C'est-à-dire que ces valeurs seront partagées entre tous les appels à la fonc
 Pour les valeurs immutables, pas de problème, il n'y a pas de risque d'effets de bord.
 Mais pour les mutables, faites bien attention à ce que vous faites, on arrive rapidement à des situations problématiques.
 
-```python
+```pycon
 >>> def get_monster(name, attacks=[]):
 ...     return {'name': name, 'attacks': attacks}
 ... 
@@ -71,7 +71,7 @@ C'est pourquoi il est généralement conseillé d'éviter les mutables comme val
 
 Pour cela, on utilisera une valeur comme `None` (appellée sentinelle) qui indiquera l'absence de valeur et permettra donc d'instancier un objet (ici une liste) dans le corps de la fonction, évitant le problème de l'instance partagée.
 
-```python
+```pycon
 >>> def get_monster(name, attacks=None):
 ...     if attacks is None:
 ...         attacks = []
@@ -90,7 +90,7 @@ Je dis « généralement » car il y a des cas où c'est le comportement voulu
 
 [^cache]: Un cache est une mémoire associée à une fonction, pour éviter de réexécuter des calculs coûteux.
 
-```python
+```pycon
 >>> def compute(x, cache={}):
 ...     if x in cache:
 ...         return cache[x]
@@ -117,7 +117,7 @@ Calcul complexe...
 Nous l'avions vu, lors d'un appel de fonction les arguments positionnels doivent toujours être placés avant les arguments nommés.
 C'est ce qui permet à Python de faire correctement la correspondance entre arguments et paramètres.
 
-```python
+```pycon
 >>> log(level='warning', 'Avertissement')
   File "<stdin>", line 1
 SyntaxError: positional argument follows keyword argument
@@ -126,7 +126,7 @@ SyntaxError: positional argument follows keyword argument
 Une règle similaire existe pour les paramètres : ceux qui prennent une valeur par défaut doivent se placer après les autres.
 Cela est logique puisqu'ils sont optionnels, et qu'on ne pourrait pas savoir dans le cas contraire à quel paramètre est censé correspondre un argument.
 
-```python
+```pycon
 >>> def log(component=None, level='info', message):
 ...     pass
 ... 

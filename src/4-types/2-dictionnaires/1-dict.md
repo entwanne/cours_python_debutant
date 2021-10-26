@@ -17,7 +17,7 @@ phonebook = {'Alice': '0633432380', 'Bob': '0663621029', 'Alex': '0714381809'}
 C'est déjà plus clair à écrire, mais là où ça devient intéressant c'est pour l'accès aux éléments.
 On retrouve en effet l'opérateur `[]`, mais on va pouvoir lui préciser une clé de notre dictionnaire plutôt qu'un index.
 
-```python
+```pycon
 >>> phonebook['Alex']
 '0714381809'
 ```

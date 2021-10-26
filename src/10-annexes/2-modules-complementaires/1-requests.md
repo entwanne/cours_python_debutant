@@ -7,7 +7,7 @@ On l'installe via `pip install requests`.
 
 Par exemple on peut l'utiliser pour interroger l'API de Zeste de Savoir, ici pour obtenir la liste des tags du site.
 
-```python
+```pycon
 >>> import requests
 >>> resp = requests.get('https://zestedesavoir.com/api/tags')
 >>> resp.status_code

@@ -24,7 +24,7 @@ Voici le tableau de l'ensemble des mots-clés de Python :
 * `None` : Valeur `None`, qui représente l'absence de valeur.
 * `True` : Valeur `True` du type booléen.
 * `and` : Opération booléenne ET (conjonction).
-  ```python
+  ```pycon
   >>> True and False
   False
   ```
@@ -163,12 +163,12 @@ Voici le tableau de l'ensemble des mots-clés de Python :
 * `match` : Introduit un bloc de filtrage par motif[^python_310][^non_aborde].
 * `nonlocal` : Déclare une variable comme non-locale[^nonlocal].
 * `not` : Opération booléenne NON (négation).
-  ```python
+  ```pycon
   >>> not True
   False
   ```
 * `or` : Opération booléenne OU (disjontion).
-  ```python
+  ```pycon
   >>> True or False
   True
   ```

@@ -9,7 +9,7 @@ On lui donne une valeur en argument et la fonction nous renvoie simplement son t
 
 [^type]: C'est en fait plus compliqué que cela et je ne rentrerai pas dans les détails ici, mais `type` est lui-même un type, le type de tous les types. Nous ne l'utiliserons dans ce tutoriel que comme une fonction.
 
-```python
+```pycon
 >>> type(5)
 <class 'int'>
 >>> type('foo')
@@ -21,7 +21,7 @@ On lui donne une valeur en argument et la fonction nous renvoie simplement son t
 Cela peut être utile dans des phases de débogage, pour s'assurer qu'une valeur est bien du type auquel on pense.  
 On peut aussi l'utiliser dans le code pour vérifier le type d'un objet mais ce n'est généralement pas recommandé (car trop strict, voir plus bas).
 
-```python
+```pycon
 >>> def check_type(value):
 ...     if type(value) is str:
 ...         print("C'est une chaîne de caractères")
@@ -37,7 +37,7 @@ Ce n'est pas une chaîne de caractères
 L'autre outil mis à disposition de Python pour reconnaître le type d'une valeur est la fonction `isinstance`.
 Cette fonction reçoit une valeur et un type, et renvoie un booléen selon que la valeur soit de ce type ou non.
 
-```python
+```pycon
 >>> isinstance('foo', str)
 True
 >>> isinstance(5, str)
@@ -47,7 +47,7 @@ False
 Mais une valeur n'est pas d'un seul type, il existe en fait une hiérarchie entre les types.
 Par exemple, tous les objets Python sont des instances du type `object`, car `object` est le parent de tous les types.
 
-```python
+```pycon
 >>> isinstance('foo', object)
 True
 >>> isinstance(5, object)
@@ -56,7 +56,7 @@ True
 
 Ou encore, avec notre objet `point` construit précédemment, qui est à la fois une instance de `Point` et de `tuple`.
 
-```python
+```pycon
 >>> type(point)
 <class '__main__.Point'>
 >>> isinstance(point, Point)
@@ -67,7 +67,7 @@ True
 
 Cela nous montre une première limitation de l'appel à `type` pour vérifier le type, qui ne verrait pas que nos valeurs sont aussi des `object`, ou notre point un `tuple`.
 
-```python
+```pycon
 >>> type('foo') is object
 False
 >>> type(5) is object
@@ -97,7 +97,7 @@ C'est ce que propose le module `collections.abc` qui fournit une collection de t
 On trouve ainsi un type `Iterable`.
 Il n'est pas utilisable en tant que tel, on ne peut pas instancier d'objets du type `Iterable`, mais on peut l'utiliser pour vérifier qu'un objet est bien itérable en appelant `isinstance`.
 
-```python
+```pycon
 >>> from collections.abc import Iterable
 >>> isinstance([1, 2, 3], Iterable)
 True
@@ -111,7 +111,7 @@ False
 
 Il y a aussi `Hashable` par exemple pour vérifier qu'une valeur est hashable, que l'on peut l'utiliser en tant que clé dans un dictionnaire ou la stocker dans un ensemble.
 
-```python
+```pycon
 >>> from collections.abc import Hashable
 >>> isinstance(42, Hashable)
 True

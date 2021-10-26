@@ -8,7 +8,7 @@ L'interpréteur attend que vous lui demandiez quelque chose.
 
 Mais quoi ? Pour commencer, je vous propose d'entrer un nombre, Python le comprendra.
 
-```python
+```pycon
 >>> 12
 12
 ```
@@ -24,7 +24,7 @@ Ainsi, Python nous dit que `12` vaut `12`. Merci Python !
 [[i]]
 | Notez que lorsqu'au long de ce cours je vous présenterai un code sous la forme suivante :
 |
-| ```python
+| ```pycon
 | >>> xxx
 | yyy
 | ```

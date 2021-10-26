@@ -61,7 +61,7 @@ joueurs = [
 Ainsi, on représente dans des variables différentes la structure de nos données.
 Pour avoir d'un côté la définition des monstres et des attaques, et de l'autre les monstres en jeu.
 
-```python
+```pycon
 >>> print(joueurs[0]['nom'], ':', joueurs[0]['monstre'])
 Joueur 1 : Pythachu
 >>> print('Attaques :', monstres[joueurs[0]['monstre']]['attaques'])

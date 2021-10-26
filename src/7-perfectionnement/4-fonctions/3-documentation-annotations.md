@@ -25,7 +25,7 @@ def operation(op, a, b):
 La gestion d'erreurs est nulle mais ce n'est pas le sujet ici, nous y reviendrons plus tard. :)  
 Voyons pour le moment à quoi ressemble la page d'aide de notre fonction.
 
-```python
+```pycon
 >>> help(operation)
 Help on function operation in module __main__:
 
@@ -49,7 +49,7 @@ def operation(op, a, b):
 Dans le déroulement de notre fonction ça ne change rien puisqu'une telle chaîne de caractères n'a aucun effet.
 Mais Python la détecte et la rend accessible comme documentation de notre fonction.
 
-```python
+```pycon
 >>> help(operation)
 Help on function operation in module __main__:
 
@@ -76,7 +76,7 @@ def operation(op, a, b):
 
 Ne vous inquiétez pas pour les retours à la ligne introduits au début et à la fin de la chaîne, ils disparaissent dans la documentation.
 
-```python
+```pycon
 >>> help(operation)
 Help on function operation in module __main__:
 
@@ -119,7 +119,7 @@ def operation(op: str, a: int, b: int):
 
 Ces informations sont ajoutées à la signature de la fonction dans la documentation fournie par `help`.
 
-```python
+```pycon
 >>> help(operation)
 Help on function operation in module __main__:
 
@@ -140,7 +140,7 @@ def operation(op: str, a: int, b: int) -> int:
 
 On le constate d'ailleurs si l'on appelle notre fonction avec des nombres flottants.
 
-```python
+```pycon
 >>> operation('+', 1.2, 3.4)
 4.6
 ```

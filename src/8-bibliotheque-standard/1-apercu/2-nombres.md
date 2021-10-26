@@ -7,14 +7,14 @@ Si c'est vrai pour ce qui est des nombres entiers, les types dédiés aux réels
 
 En effet, nous avons vu que les `float` étaient stockés par l'ordinateur sous forme binaire et étaient donc souvent des approximations des nombres décimaux que nous connaissons, ce qui pouvait mener à des erreurs d'arrondis.
 
-```python
+```pycon
 >>> 0.1 + 0.1 + 0.1
 0.30000000000000004
 ```
 
 Un autre type existe néanmoins pour représenter de façon précise un nombre décimal, il s'agit du type `Decimal` du module `decimal`.
 
-```python
+```pycon
 >>> from decimal import Decimal
 >>> Decimal('0.1')
 Decimal('0.1')
@@ -24,7 +24,7 @@ Decimal('0.3')
 
 Un `Decimal` s'instancie avec une chaîne de caractère représentant notre nombre décimal et se comporte ensuite comme n'importe quel nombre : toutes les opérations usuelles peuvent s'y appliquer.
 
-```python
+```pycon
 >>> Decimal('1.5') * Decimal('3.7')
 Decimal('5.55')
 >>> Decimal('-4.2') - Decimal('1.1')
@@ -33,7 +33,7 @@ Decimal('-5.3')
 
 Les décimaux sont aussi compatibles avec les entiers, une opération entre des nombres des deux types renverra toujours un décimal.
 
-```python
+```pycon
 >>> Decimal('0.1') + 3
 Decimal('3.1')
 >>> Decimal('0.1') * 4
@@ -47,21 +47,21 @@ Decimal('0.01')
 |
 | Il est en fait possible de créer un décimal à partir d'un flottant, mais ce flottant comprenant dès le départ une erreur d'arrondi, celle-ci se répercutera sur le décimal.
 |
-| ```python
+| ```pycon
 | >>> Decimal(0.1)
 | Decimal('0.1000000000000000055511151231257827021181583404541015625')
 | ```
 
 On notera par ailleurs qu'il est possible de créer un décimal à partir d'un nombre entier, ce dernier ne comportant pas d'approximation.
 
-```python
+```pycon
 >>> Decimal(1) / Decimal(10)
 Decimal('0.1')
 ```
 
 À tout moment, il est possible de converir un décimal en entier ou flottant à l'aide d'un appel à `int` ou `float`.
 
-```python
+```pycon
 >>> int(Decimal('1.4') * Decimal('1.5'))
 2
 >>> float(Decimal('1.4') * Decimal('1.5'))
@@ -73,7 +73,7 @@ Les nombres décimaux sont pratiques pour manipuler des valeurs qui ne doivent p
 Enfin, les décimaux sont tout de même soumis à une précision limitée qui ne leur permet alors pas de représenter tous les nombres décimaux possibles.  
 Avec une précision par défaut de 28 décimales, on remarque ainsi qu'il y a une perte de précision quand il y a une trop grande distance entre le chiffre le plus à gauche et celui le plus à droite, qui se ressent lors des opérations suivantes.
 
-```python
+```pycon
 >>> Decimal('1.000000000000000000000000001') * 2
 Decimal('2.000000000000000000000000002')
 >>> Decimal('1.0000000000000000000000000001') * 2
@@ -82,7 +82,7 @@ Decimal('2.000000000000000000000000000')
 
 La précision des décimaux peut cependant être connue et réglée à l'aide des fonctions `getcontext` et `setcontext` tel que décrit dans [la documentation du module](https://docs.python.org/fr/3/library/decimal.html).
 
-```python
+```pycon
 >>> from decimal import getcontext
 >>> ctx = getcontext()
 >>> ctx.prec = 30
@@ -105,7 +105,7 @@ En revanche, il existe un autre type pour représenter les nombres rationnels :
 
 Un objet `Fraction` s'instancie avec le numérateur et le dénominateur de la fraction et s'utilise ensuite comme n'importe quel nombre.
 
-```python
+```pycon
 >>> from fractions import Fraction
 >>> Fraction(1, 3) + Fraction(1, 3)
 Fraction(2, 3)
@@ -115,7 +115,7 @@ Fraction(1, 1)
 
 Les fractions sont elles aussi compatibles avec les entiers, et convertibles en `int` ou `float`.
 
-```python
+```pycon
 >>> Fraction(1, 3) * 4
 Fraction(4, 3)
 >>> int(Fraction(4, 3))
@@ -143,7 +143,7 @@ En Python, les complexes sont représentés par le type `complex`, les réels pa
 
 Cela explique qu'une opération entre une fraction et un complexe renverra toujours un complexe.
 
-```python
+```pycon
 >>> Fraction(1, 3) + 2j
 (0.3333333333333333+2j)
 ```
@@ -153,7 +153,7 @@ Pour autant, ces types se conformeraient à la hiérarchie présentée au-dessus
 
 Les types abstraits ainsi définis permettent de savoir à quelle classe appartient à un nombre, à l'aide d'appels à `isinstance`.
 
-```python
+```pycon
 >>> import numbers
 >>> isinstance(4, numbers.Integral) # Les int sont des entiers
 True
@@ -171,7 +171,7 @@ True
 
 Les décimaux sont un cas un peu à part car ils ne s'inscrivent pas dans la hiérarchie, ils se situent quelque part entre les entiers et les rationnels. Aussi, les décimaux ne sont pas considérés comme des instances de `numbers.Real` ou `numbers.Rational`.
 
-```python
+```pycon
 >>> isinstance(Decimal('0.1'), numbers.Number)
 True
 >>> isinstance(Decimal('0.1'), numbers.Real)
@@ -187,7 +187,7 @@ Cela implique que les décimaux ne sont pas compatibles avec les autres types de
 On a vu qu'il existait en Python le module `math` qui regroupe l'essentiel des fonctions mathématiques sur les nombres réels, et dont on peut retrouver la liste sur [la page de documentation dédiée](https://docs.python.org/fr/3/library/math.html).  
 On le sait moins, mais il existe aussi un module `cmath` pour des fonctions équivalentes dans le domaine des complexes.
 
-```python
+```pycon
 >>> import math
 >>> math.sqrt(2) # Racine carrée de 2
 1.4142135623730951
@@ -204,7 +204,7 @@ ValueError: math domain error
 
 Le module étend donc le domaine de définition de certaines fonctions de `math` pour permettre de les appliquer à des nombres complexes. C'est le cas des fonctions trigonométriques ou exponentielles par exemple.
 
-```python
+```pycon
 >>> cmath.cos(1+2j)
 (2.0327230070196656-3.0518977991518j)
 >>> cmath.exp(1j * cmath.pi)
@@ -216,7 +216,7 @@ Toutes ces fonctions sont à retrouver dans la [documentation du module `cmath`]
 Mais à propos de nombres, on trouve aussi le module `statistics` qui comme son nom l'indique fournit des outils de statistiques.
 On trouvera ainsi des fonctions pour calculer la moyen (`mean`), la médiane (`median`), la variance (`variance`) ou encore l'écart type (`stdev`) d'une série de données.
 
-```python
+```pycon
 >>> data = [1, 2, 2, 3, 4, 5, 5, 6, 7]
 >>> statistics.mean(data)
 3.888888888888889

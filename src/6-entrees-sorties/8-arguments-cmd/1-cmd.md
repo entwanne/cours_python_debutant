@@ -115,7 +115,7 @@ En fait, chaque sortie correspond à un fichier ouvert par défaut par le progra
 Pour la sortie standard, il s'agit de `sys.stdout`. (_standard output_).
 On peut l'utiliser comme tout autre fichier ouvert en écriture.
 
-```python
+```pycon
 >>> import sys
 >>> sys.stdout.write('hello\n')
 hello
@@ -128,7 +128,7 @@ Le 6 qui apparaît n'est que le retour de l'appel à `write` (6 caractères ont 
 
 Et de façon similaire, on a `sys.stderr` qui correspond à la sortie d'erreur.
 
-```python
+```pycon
 >>> print('error', file=sys.stderr)
 error
 ```

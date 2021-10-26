@@ -8,7 +8,7 @@ def append_zero(values):
     return values
 ```
 
-```python
+```pycon
 >>> l = [1, 2, 3]
 >>> append_zero(l)
 [1, 2, 3, 0]
@@ -24,7 +24,7 @@ def append_zero(values):
     return values
 ```
 
-```python
+```pycon
 >>> l = [1, 2, 3]
 >>> append_zero(l)
 [1, 2, 3, 0]
@@ -40,7 +40,7 @@ def append_zero(values):
     return values
 ```
 
-```python
+```pycon
 >>> l = [1, 2, 3]
 >>> append_zero(l)
 [1, 2, 3, 0]

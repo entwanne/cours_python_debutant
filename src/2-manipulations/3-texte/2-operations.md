@@ -5,7 +5,7 @@ Une chaîne de caractères est une valeur à part entière, et comme toute valeu
 Pour commencer, la fonction `len` est une fonction de base de Python, qui peut être appelée avec une chaîne de caractères en argument.
 La fonction renvoie un nombre entier représentant la longueur de la chaîne, c'est-à-dire le nombre de caractères qu'elle contient.
 
-```python
+```pycon
 >>> len('Hello')
 5
 >>> len('Hello World!')
@@ -20,14 +20,14 @@ C'est le cas de l'opérateur d'addition (`+`) que nous avons vu pour les nombres
 On ne va en effet pas additionner deux chaînes de caractères, ça n'aurait pas de sens, mais on va les mettre l'une à la suite de l'autre.
 On appelle cette opération une concaténation.
 
-```python
+```pycon
 >>> 'Hello' + ' ' + 'World' + '!'
 'Hello World!'
 ```
 
 Les délimitateurs ne faisant pas partie de la chaîne, il est bien sûr possible de mixer des chaînes délimitées par des apostrophes avec d'autres délimitées par des guillemets.
 
-```python
+```pycon
 >>> 'abc' + "def"
 'abcdef'
 ```
@@ -35,7 +35,7 @@ Les délimitateurs ne faisant pas partie de la chaîne, il est bien sûr possibl
 Nous retrouvons aussi l'opérateur de multiplication `*` pour représenter un autre type de concaténation : la répétition d'une chaîne un certain nombre de fois.
 `'to' * 3` est ainsi équivalent à `'to' + 'to' + 'to'`.
 
-```python
+```pycon
 >>> 'to' * 3
 'tototo'
 ```
@@ -43,7 +43,7 @@ Nous retrouvons aussi l'opérateur de multiplication `*` pour représenter un au
 On peut multiplier un texte par un nombre nul ou négatif, cela a pour effet de produire une chaîne vide.
 En revanche multiplier une chaîne par un nombre flottant n'a aucun sens, et Python nous le fait bien comprendre.
 
-```python
+```pycon
 >>> 'toto' * 0
 ''
 >>> 'toto' * -10
@@ -56,7 +56,7 @@ TypeError: can't multiply sequence by non-int of type 'float'
 
 Toutes les facilités vues jusqu'ici avec les opérateurs d'assignation restent bien sûr valables.
 
-```python
+```pycon
 >>> msg = 'Salut '
 >>> msg += 'tom'*2 + ' et ' + 'na'*2
 >>> print(msg)
@@ -70,7 +70,7 @@ Cela se fait à l'aide de crochets (`[ ]`) en indiquant entre-eux la position du
 Il faut savoir que généralement en informatique on compte à partir de 0.
 Le premier caractère d'une chaîne se trouve donc à la position 0 de la séquence, le deuxième caractère à la position 1, etc. jusqu'au n-ième caractère à la position *n-1*.
 
-```python
+```pycon
 >>> msg = 'Salut'
 >>> msg[0]
 'S'
@@ -92,7 +92,7 @@ Index | Caractère
 
 Il est ainsi possible d'accéder à n'importe quel caractère de la chaîne à partir de son index, s'il est compris dans les bornes (de `0` à `len(msg)-1`).
 
-```python
+```pycon
 >>> msg[5]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -103,7 +103,7 @@ On observe qu'au-delà on obtient une erreur `IndexError`, soit un index invalid
 On peut en revanche utiliser des index négatifs pour prendre la chaîne en sens inverse : -1 correspond au dernier caractère, -2 à l'avant dernier, jusqu'à `-len(msg)` pour le premier.
 Chaque caractère a ainsi deux positions possibles dans la chaîne.
 
-```python
+```pycon
 >>> msg[-1]
 't'
 >>> msg[-3]

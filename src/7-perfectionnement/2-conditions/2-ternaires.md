@@ -11,7 +11,7 @@ valeur if condition else autre_valeur
 
 Cette expression vaut `valeur` si `condition` est vraie et `autre_valeur` sinon.
 
-```python
+```pycon
 >>> 'good' if 5 + 3 == 8 else 'bad'
 'good'
 >>> 'good' if 5 + 3 == 7 else 'bad'
@@ -22,7 +22,7 @@ Cette expression vaut `valeur` si `condition` est vraie et `autre_valeur` sinon.
 
 Les expressions conditionnelles permettent d'avoir un code plus concis lorsque les conditions à traiter sont simples.
 
-```python
+```pycon
 >>> x = 3
 >>> y = 5
 >>> z = (2 * x if x < 10 else x) / (y if y else 1)
@@ -30,7 +30,7 @@ Les expressions conditionnelles permettent d'avoir un code plus concis lorsque l
 
 Sans elles, il nous aurait fallu écrire le code suivant :
 
-```python
+```pycon
 >>> if x < 10:
 ...     tmp1 = 2 * x
 ... else:
@@ -46,7 +46,7 @@ Sans elles, il nous aurait fallu écrire le code suivant :
 
 Elles sont souvent utilisées aussi lors d'appels de fonctions ou méthodes.
 
-```python
+```pycon
 >>> sep = None
 >>> 'a,b,c'.split(sep if sep is not None else ',')
 ['a', 'b', 'c']

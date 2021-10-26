@@ -84,7 +84,7 @@ Code: Seconde exécution
 L'interpréteur interactif peut parfois poser problème quand on utilise des blocs.
 Il demande en effet de laisser une ligne vide après chaque bloc (ce qui n'est pas nécessaire autrement), sans quoi vous obtiendrez une erreur de syntaxe.
 
-```python
+```pycon
 >>> if 2 == 2:
 ...     print('Gagné')
 ... print('Fin')
@@ -100,7 +100,7 @@ Tout ce qui est tapé derrière un `...` est donc considéré par l'interpréteu
 
 Une ligne vide permet de demander à l'interpréteur de sortir du bloc, qui serait alors exécuté immédiatement avant de passer à la suite.
 
-```python
+```pycon
 >>> if 2 == 2:
 ...     print('Gagné')
 ...

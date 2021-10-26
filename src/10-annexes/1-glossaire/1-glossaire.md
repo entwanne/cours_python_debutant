@@ -62,7 +62,7 @@ for item in iterable:
 
 **Objet** que l'on peut appeler, tel qu'une **fonction**.
 
-```python
+```pycon
 >>> min(3, 4)
 3
 >>> int('123')
@@ -164,7 +164,7 @@ Comportement permettant de remonter des erreurs dans le programme afin de les tr
 
 Ensemble d'opérations Python qui produisent une **valeur**.
 
-```python
+```pycon
 >>> (1 + 2 * 3) / 5 + round(1/3, 2)
 1.73
 ```
@@ -177,7 +177,7 @@ Document sur le système d'exploitation (adressé par un **chemin**), représent
 
 Opération recevant des **arguments** et renvoyant une nouvelle **valeur** en fonction de ceux-ci (fonctions mathématiques par exemple : `round`, `abs`).
 
-```python
+```pycon
 >>> round(3.5)
 4
 >>> abs(-2)
@@ -207,7 +207,7 @@ Action d'obtenir une **représentation** d'une **valeur** dans un format voulu.
 
 Chaîne de **formatage**, élément de syntaxe permettant de composer facilement des **chaines de caractères**.
 
-```python
+```pycon
 >>> f"1 + 3 = {1+3}"
 '1 + 3 = 4'
 ```
@@ -248,7 +248,7 @@ import math
 
 Manière de créer des **listes** / **ensembles** / **dictionnaires** par **itération**.
 
-```python
+```pycon
 >>> [i**2 for i in range(5)]
 [0, 1, 4, 9, 16]
 >>> {i**2 for i in range(5)}
@@ -305,7 +305,7 @@ _LBYL_ s'oppose à **_EAFP_**.
 
 **Fonction** intégrée à un **objet**, opération spécifique à un **type**.
 
-```python
+```pycon
 >>> [1, 2, 3].pop()
 3
 ```
@@ -323,7 +323,7 @@ Les mots-clés ne peuvent pas être utilisés comme noms de **variables**.
 
 Une **valeur** mutable est une valeur modifiable, que l'on peut altérer (les **listes** par exemple) contrairement à une valeur immutable (comme les **tuples**).
 
-```python
+```pycon
 >>> values = [1, 2, 3]
 >>> values[0] = 4
 >>> values
@@ -394,7 +394,7 @@ Voir [cet article](https://zestedesavoir.com/articles/1079/les-secrets-dun-code-
 **Valeur** renvoyée par une **fonction**.
 Donne sa valeur à l'**expression** d'appel de la fonction.
 
-```python
+```pycon
 >>> x = abs(-1)
 >>> x
 1
@@ -412,7 +412,7 @@ Espace de noms, là où sont déclarées les **variables**.
 
 Découpage d'une séquence selon un intervalle.
 
-```python
+```pycon
 >>> 'abcdefghi'[1:-1:2]
 'bdfh'
 >>> [1, 2, 3, 4][1:]

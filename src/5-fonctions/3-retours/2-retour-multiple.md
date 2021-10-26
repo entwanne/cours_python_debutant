@@ -16,7 +16,7 @@ def division(a, b):
 Dans les cas où `b` vaut zéro, on rentrera donc dans le bloc de la première condition et le `return` sera exécuté.
 On se retrouve donc à sortir de la fonction sans exécuter la suite, c'est pourquoi aucune erreur n'est ensuite levée.
 
-```python
+```pycon
 >>> division(1, 2)
 0.5
 >>> division(2, 0)
@@ -31,7 +31,7 @@ def secret_addition(a, b):
         return 42
 ```
 
-```python
+```pycon
 >>> secret_addition(12, 30)
 42
 >>> secret_addition(12, 33)

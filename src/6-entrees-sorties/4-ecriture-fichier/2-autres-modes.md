@@ -16,7 +16,7 @@ C'est-à-dire que tout le contenu déjà présent sera conservé, les modificati
 
 Voyez par exemple avec notre fichier `hello.txt` contenant pour le moment `salut`.
 
-```python
+```pycon
 >>> with open('hello.txt', 'a') as f:
 ...     f.write(' tout le monde')
 ...
@@ -34,7 +34,7 @@ C'est un mode qui peut être particulièrement utile pour des outils de journali
 On l'a vu, le mode `'w'` crée le fichier s'il n'existe pas.
 Il existe un mode plus strict, `'x'` (pour *eXclusif*), spécialement dédié à la création de fichier : ce mode échouera si le fichier existe déjà.
 
-```python
+```pycon
 >>> with open('hello.txt', 'x') as f:
 ...     pass
 ... 
@@ -52,7 +52,7 @@ C'est un mode qui permet par exemple d'éviter que deux programmes concurrents n
 |
 | Elle n'est pas équivalente à `...`, qui est une expression et possède donc une valeur (`Ellipsis`).
 
-```python
+```pycon
 >>> with open('newfile.txt', 'x') as f:
 ...     f.write('New file')
 ... 
@@ -64,7 +64,7 @@ C'est un mode qui permet par exemple d'éviter que deux programmes concurrents n
 Nous avons vu que nous pouvions ouvrir un fichier pour le lire ou pour y écrire, mais il est aussi possible d'y faire les deux à la fois.
 Cela se fait avec le mode `'r+'`, dédié à la mise à jour (_update_).
 
-```python
+```pycon
 >>> with open('hello.txt', 'r+') as f:
 ...     f.read()
 ...     f.write('!!!')
@@ -80,7 +80,7 @@ Cela se fait avec le mode `'r+'`, dédié à la mise à jour (_update_).
 Mais attention à ne pas vous emmêler avec les lectures/écritures et la mémoire tampon, sachant qu'il n'y a qu'un unique curseur dans le fichier.
 Il est ainsi possible d'écraser des portions du fichier qui n'ont pas encore été lues, c'est pourquoi il faut être vigilent lors de l'utilisation de ce mode.
 
-```python
+```pycon
 >>> with open('hello.txt', 'r+') as f:
 ...     f.write('>>>')
 ...     f.read()

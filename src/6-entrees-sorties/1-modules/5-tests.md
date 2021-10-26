@@ -47,7 +47,7 @@ A
 B
 ```
 
-```python
+```pycon
 >>> import foo
 A
 ```

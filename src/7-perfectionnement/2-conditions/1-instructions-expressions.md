@@ -11,7 +11,7 @@ L'instruction c'est la définition au sens large d'un élément de syntaxe, pour
 Ainsi, les expressions sont des instructions, mais toutes les instructions ne sont pas des expressions.
 Une expression c'est ce qu'on peut utiliser partout où une valeur est attendue : en argument à une fonction, dans une assignation de variable, dans une condition, etc.
 
-```python
+```pycon
 >>> len('foo')
 3
 >>> x = 3 * 5 + 2
@@ -23,7 +23,7 @@ ok
 
 Dit autrement, une expression c'est ce que l'on peut mettre entre parenthèses.
 
-```python
+```pycon
 >>> ('foo')
 'foo'
 >>> (3 * 5 + 2)
@@ -35,7 +35,7 @@ Dit autrement, une expression c'est ce que l'on peut mettre entre parenthèses.
 Et par exemple une assignation de variable n'est pas une expression, elle ne possède aucune valeur, pas même `None`.
 Si l'on cherche à placer une assignation entre parenthèses on obtient une erreur de syntaxe.
 
-```python
+```pycon
 >>> (foo = 'bar')
   File "<stdin>", line 1
     (foo = 'bar')
@@ -45,7 +45,7 @@ SyntaxError: invalid syntax
 
 De la même manière, les conditions ne sont pas des expressions, il s'agit de blocs de code.
 
-```python
+```pycon
 >>> (if True: print('ok'))
   File "<stdin>", line 1
     (if True: print('ok'))

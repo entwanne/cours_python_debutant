@@ -9,7 +9,7 @@ def addition(a, b):
 
 C'est-à-dire que `addition(1, 2)` est une expression qui s'évalue à `None`, malgré le texte affiché par la fonction.
 
-```python
+```pycon
 >>> x = addition(1, 2)
 3
 >>> print(x)
@@ -28,13 +28,13 @@ def addition(a, b):
 
 On remarque que maintenant, l'appel à la fonction n'affiche plus rien (il n'y a plus de `print`).
 
-```python
+```pycon
 >>> x = addition(1, 2)
 ```
 
 En revanche, on récupère bien le résultat calculé dans la variable `x`.
 
-```python
+```pycon
 >>> print(x)
 3
 ```
@@ -43,7 +43,7 @@ En revanche, on récupère bien le résultat calculé dans la variable `x`.
 
 Étant une expression à part entière, il est possible de l'utiliser comme valeur dans d'autres expressions :
 
-```python
+```pycon
 >>> addition(addition(1, 1), addition(addition(1, 1), 1))
 5
 ```

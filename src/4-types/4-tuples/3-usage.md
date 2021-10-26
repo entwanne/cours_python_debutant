@@ -7,7 +7,7 @@ Il est même préférable de l'utiliser si l'on sait qu'il ne sera jamais questi
 Mais il y a aussi des opérations qui ne sont possibles qu'avec les tuples.
 Étant non modifiables, ils peuvent être utilisés en tant que clés de dictionnaires.
 
-```python
+```pycon
 >>> cells = {(0, 0): 'x', (0, 1): '.', (1, 0): '.', (1, 1): 'x'}
 >>> cells[(1, 0)]
 '.'
@@ -18,7 +18,7 @@ Mais il y a aussi des opérations qui ne sont possibles qu'avec les tuples.
 
 Les parenthèses sont encore une fois facultatives lors des accès.
 
-```python
+```pycon
 >>> cells[0, 0]
 'x'
 ```
@@ -32,7 +32,7 @@ Cette structure permet ainsi de représenter d'une grille de données où chaque
 
 Par exemple si un tuple contient une liste, rien n'empêche d'ajouter des éléments à cette liste.
 
-```python
+```pycon
 >>> events = ('29/05/2019', ['anniversaire', 'soirée'])
 >>> events[1].append('rdv coiffeur')
 >>> events
@@ -41,7 +41,7 @@ Par exemple si un tuple contient une liste, rien n'empêche d'ajouter des élém
 
 Un tel tuple ne pourra donc pas être utilisé comme clé de dictionnaire, parce qu'il contient une liste qui ne peut pas être utilisée comme tel.
 
-```python
+```pycon
 >>> {events: None}
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -51,7 +51,7 @@ TypeError: unhashable type: 'list'
 Mais beaucoup d'utilisations des tuples sont tous simplement implicites.
 C'est en effet une manière de faire des assignations multiples de variables.
 
-```python
+```pycon
 >>> a, b = 1, 2
 >>> a
 1
@@ -61,7 +61,7 @@ C'est en effet une manière de faire des assignations multiples de variables.
 
 Techniquement, cela revient à écrire `(a, b) = (1, 2)`, ou encore :
 
-```python
+```pycon
 >>> tmp = (1, 2)
 >>> (a, b) = tmp
 ```

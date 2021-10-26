@@ -9,7 +9,7 @@ On récupère de la même manière la valeur de retour de la méthode lors de l'
 
 Par exemple la méthode `strip` du type `str` permet de renvoyer la chaîne de caractères en retirant les espaces présents au début et à la fin.
 
-```python
+```pycon
 >>> '   hello '.strip()
 'hello'
 ```
@@ -17,7 +17,7 @@ Par exemple la méthode `strip` du type `str` permet de renvoyer la chaîne de c
 Pour que l'expression ait un sens, il faut bien sûr que la méthode existe pour cet objet.
 On obtient une erreur dans le cas contraire.
 
-```python
+```pycon
 >>> 'hello'.toto()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

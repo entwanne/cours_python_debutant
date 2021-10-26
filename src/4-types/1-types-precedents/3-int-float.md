@@ -7,7 +7,7 @@ Les premiers ne représentent que des nombres entiers, avec une précision infin
 
 On peut facilement convertir des valeurs en `int` ou `float` en faisant appel à ces types comme à des fonctions.
 
-```python
+```pycon
 >>> int('42')
 42
 >>> float('4.5')
@@ -20,7 +20,7 @@ On peut facilement convertir des valeurs en `int` ou `float` en faisant appel à
 
 Toute valeur n'est pas convertible en nombre, des erreurs peuvent donc survenir si l'argument est invalide.
 
-```python
+```pycon
 >>> int('4.5') # 4.5 n'est pas un nombre entier valide
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -32,7 +32,7 @@ ValueError: invalid literal for int() with base 10: '4.5'
 Beaucoup d'opérations sont applicables sur les nombres, et les deux types sont compatibles entre-eux.
 On retrouve d'abord les opérations arithmétiques : addition (`+`), soustraction (`-`), multiplication (`*`), division (`/`), divisition euclidienne (`//`), modulo (`%`) et puissance (`**`).
 
-```python
+```pycon
 >>> 1 + 5
 6
 >>> 4.3 - 2
@@ -51,7 +51,7 @@ On retrouve d'abord les opérations arithmétiques : addition (`+`), soustractio
 
 On a aussi tous les opérateurs de comparaison, qui renvoient des valeurs booléennes : l'égalité (`==`), la différence (`!=`), l'infériorité (`<`, `<=`) et la supériorité (`>`, `>=`).
 
-```python
+```pycon
 >>> 3 == 3.0
 True
 >>> 1 != 2
@@ -66,7 +66,7 @@ True
 
 Et d'autres opérateurs ne sont accessibles que via des fonctions : la valeur absolue (`abs`), l'arrondi (`round`), le minimum (`min`), le maximum (`max`) et la division euclidienne avec reste (`divmod`).
 
-```python
+```pycon
 >>> abs(-1.2)
 1.2
 >>> round(1/3, 4)
@@ -84,7 +84,7 @@ Et d'autres opérateurs ne sont accessibles que via des fonctions : la valeur a
 On sait que l'on peut convertir un nombre en chaîne de caractères en appelant `str`, qui utilise la représentation décimale (en base 10), mais d'autres représentations sont possibles pour les entiers.
 `bin` permet d'avoir la représentation binaire (base 2), `oct` pour l'octale (base 8) et `hex` pour l'hexadécimale (base 16).
 
-```python
+```pycon
 >>> bin(42)
 '0b101010'
 >>> oct(42)
@@ -95,7 +95,7 @@ On sait que l'on peut convertir un nombre en chaîne de caractères en appelant 
 
 Ces représentations sont d'ailleurs parfaitement valides pour être entrées en tant que nombre dans l'interpréteur, qui les analysera donc selon leur préfixe (`0b`, `0o` ou `0x`).
 
-```python
+```pycon
 >>> 0b101010
 42
 >>> 0o52
@@ -111,21 +111,21 @@ Différents opérateurs -- à rapprocher des opérateurs booléens -- tirent par
 
 Ainsi, l'opérateur ET (`&`) calcule le nombre résultat de l'application d'un ET binaire (`and`) entre chaque bit de deux nombres.
 
-```python
+```pycon
 >>> bin(0b101010 & 0b111000)
 '0b101000'
 ```
 
 J'utilise ici des représentations binaires pour que le calcul soit plus lisible, mais l'opérateur s'applique simplement sur des entiers et renvoie un entier.
 
-```python
+```pycon
 >>> 42 & 56
 40
 ```
 
 De la même manière, on a les opérateurs OU-inclusif (`|`) et OU-exclusif/XOR (`^`).
 
-```python
+```pycon
 >>> bin(0b101010 | 0b111000)
 '0b111010'
 >>> bin(0b101010 ^ 0b111000)
@@ -138,7 +138,7 @@ D'autres opérations bit-à-bit sont encore possibles (`~`, `<<`, `>>`), vous po
 
 Les nombres flottants en Python ont une précision limitée, c'est-à-dire qu'ils auront du mal à représenter des nombres trop grands ou avec trop de chiffres après la virgule.
 
-```python
+```pycon
 >>> 0.10000000000000001
 0.1
 ```
@@ -147,7 +147,7 @@ On voit ici que le dernier 1 s'est perdu.
 C'est dû au fait que ces nombres sont stockés sur une zone mémoire de taille fixe, et que des arrondis sont nécessaires dans certains cas.  
 On peut le voir aussi sur d'autres opérations qui produisent normalement des nombres infinis.
 
-```python
+```pycon
 >>> 1/3
 0.3333333333333333
 >>> 7/6
@@ -158,7 +158,7 @@ Par ailleurs, les nombres y sont stockés en base 2, et certains nombres qui nou
 C'est pourquoi des arrondis sont effectués sur ces nombres.
 Ils ne sont pas toujours visibles, mais ils peuvent apparaître à certains moments et être source de bugs.
 
-```python
+```pycon
 >>> 0.1 + 0.1 + 0.1
 0.30000000000000004
 ```
@@ -166,7 +166,7 @@ Ils ne sont pas toujours visibles, mais ils peuvent apparaître à certains mome
 En raison de ces arrondis il est plutôt déconseillé de comparer deux flottants avec `==`, puisque cela pourrait amener à un résultat incohérent.
 Nous verrons dans la suite du cours comment résoudre ce problème.
 
-```python
+```pycon
 >>> 0.1 + 0.1 + 0.1 == 0.3
 False
 ```
@@ -178,7 +178,7 @@ Il s'agit de représenter un nombre avec un exposant d'une puissance de 10. Cela
 
 Par exemple, `3.2e5` est égal à `3.5 * 10**5` soit `320000.0`, et `4e-3` à `4.0 * 10**-3` donc `0.004`
 
-```python
+```pycon
 >>> 3.2e5
 320000.0
 >>> 4e-3
@@ -187,7 +187,7 @@ Par exemple, `3.2e5` est égal à `3.5 * 10**5` soit `320000.0`, et `4e-3` à `4
 
 Pour certains nombres, trop grands/petits pour être représentés correctement avec la notation habituelle, Python basculera automatiquement en notation scientifique.
 
-```python
+```pycon
 >>> 9.6 ** 100
 1.6870319358849588e+98
 >>> 2 / 10000000000
@@ -197,7 +197,7 @@ Pour certains nombres, trop grands/petits pour être représentés correctement 
 Enfin, il est aussi possible avec les flottants de représenter les infinis (positif et négatif), mais il ne sont pas directement accessibles.
 On peut accéder à l'infini positif à l'aide de l'expression `float('inf')`.
 
-```python
+```pycon
 >>> inf = float('inf')
 >>> inf
 inf
@@ -211,7 +211,7 @@ inf
 
 L'infini sera toujours supérieur à n'importe quel autre nombre.
 
-```python
+```pycon
 >>> inf > 10**100
 True
 ```
@@ -226,7 +226,7 @@ De façon similaire, on retrouve l'infini négatif avec `float('-inf')`.
 Python embarque aussi nativement les nombres complexes qui sont accessibles via le suffixe `j` pour représenter la partie imaginaire.
 Les complexes sont un sur-ensemble des flottants, et les mêmes opérations sont donc applicables sur eux.
 
-```python
+```pycon
 >>> 1+2j + 4+5j
 (5+7j)
 >>> 0.5j + 3.2+9.3j
@@ -241,7 +241,7 @@ Les complexes sont un sur-ensemble des flottants, et les mêmes opérations sont
 
 Par ailleurs, on trouve sur ces nombres des attributs `real` et `imag` pour accéder aux parties réelle/imaginaire, et une méthode `conjugate` pour calculer le conjugué.
 
-```python
+```pycon
 >>> c = 1+2j
 >>> c.real
 1.0
@@ -253,7 +253,7 @@ Par ailleurs, on trouve sur ces nombres des attributs `real` et `imag` pour acc�
 
 Bien sûr, les nombres complexes ne sont par ordonnables entre-eux.
 
-```python
+```pycon
 >>> 1+2j < 2+1j
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -262,7 +262,7 @@ TypeError: '<' not supported between instances of 'complex' and 'complex'
 
 Enfin, la fonction `abs` (valeur absolue) permet aussi de calculer le module d'un nombre complexe.
 
-```python
+```pycon
 >>> abs(3+4j)
 5.0
 ```

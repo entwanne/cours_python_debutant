@@ -13,7 +13,7 @@ print('Hello')
 ```
 Code: `operations/__init__.py`
 
-```python
+```pycon
 >>> import operations
 Hello
 ```
@@ -30,7 +30,7 @@ from .soustraction import soustraction
 ```
 Code: `operations/__init__.py`
 
-```python
+```pycon
 >>> import operations
 >>> operations.addition(3, 5)
 8

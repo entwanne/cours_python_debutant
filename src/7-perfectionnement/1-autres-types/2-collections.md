@@ -8,7 +8,7 @@ Par exemple le module `collections` propose plusieurs types pour gérer des coll
 Un problème courant en programmation est de vouloir compter des choses.
 Pour cela, les dictionnaires sont une bonne structure de données : on peut facilement associer un nombre à un élément et ainsi incrémenter ce nombre pour compter les occurrences d'un élément.
 
-```python
+```pycon
 >>> numbers = [1, 2, 2, 3, 4, 4, 4]
 >>> occurrences = {}
 >>> for number in numbers:
@@ -21,7 +21,7 @@ Pour cela, les dictionnaires sont une bonne structure de données : on peut fac
 Il y a en fait beaucoup plus simple avec le type `Counter` du module `collections`, spécialement dédié à compter des objets.  
 Il se comporte comme un dictionnaire où chaque clé non existante serait considérée comme associée à la valeur 0.
 
-```python
+```pycon
 >>> from collections import Counter
 >>> occurrences = Counter()
 >>> occurrences[4]
@@ -32,7 +32,7 @@ Counter()
 
 On peut donc facilement modifier les valeurs sans avoir à se demander si la clé existe déjà.
 
-```python
+```pycon
 >>> occurrences[3] += 1
 >>> occurrences[5] += 2
 >>> occurrences
@@ -41,7 +41,7 @@ Counter({5: 2, 3: 1})
 
 Quand une valeur est redéfinie, elle est donc présente « pour de vrai » dans le dictionnaire, même si elle nulle.
 
-```python
+```pycon
 >>> occurrences[4] = 0
 >>> occurrences
 Counter({5: 2, 3: 1, 4: 0})
@@ -49,7 +49,7 @@ Counter({5: 2, 3: 1, 4: 0})
 
 Un objet `Counter` peut être initialisé comme un dictionnaire : à partir d'un dictionnaire existant ou à l'aide d'arguments nommés.
 
-```python
+```pycon
 >>> Counter({'foo': 3, 'bar': 5})
 Counter({'bar': 5, 'foo': 3})
 >>> Counter(foo=3, bar=5)
@@ -58,7 +58,7 @@ Counter({'bar': 5, 'foo': 3})
 
 Mais il peut aussi être instancié avec un itérable quelconque, auquel cas il s'initialisera en comptant les différentes valeurs de cet itérable.
 
-```python
+```pycon
 >>> Counter([1, 2, 3, 4, 3, 1, 3])
 Counter({3: 3, 1: 2, 2: 1, 4: 1})
 >>> Counter('tortue')
@@ -70,7 +70,7 @@ Très pratique donc pour compter directement ce qui nous intéresse.
 En plus des opérations communes aux dictionnaires, on trouve aussi des opérations arithmétiques.  
 Il est ainsi possible d'additionner deux compteurs, ce qui renvoie un nouveau compteur contenant les sommes des valeurs.
 
-```python
+```pycon
 >>> Counter(a=5, b=1) + Counter(a=3, c=2)
 Counter({'a': 8, 'c': 2, 'b': 1})
 ```
@@ -78,14 +78,14 @@ Counter({'a': 8, 'c': 2, 'b': 1})
 À l'inverse, la soustraction entre compteurs renvoie les différences.
 Les valeurs négatives sont ensuite retirées du résultat.
 
-```python
+```pycon
 >>> Counter(a=5, b=1) - Counter(a=3, c=2)
 Counter({'a': 2, 'b': 1})
 ```
 
 Il est possible de calculer l'union et l'intersection entre deux objets `Counter`, l'union étant composée des maximums de chaque valeur et l'intersection des minimums (zéro compris).
 
-```python
+```pycon
 >>> Counter(a=5, b=1) | Counter(a=3, c=2)
 Counter({'a': 5, 'c': 2, 'b': 1})
 >>> Counter(a=5, b=1) & Counter(a=3, c=2)
@@ -100,7 +100,7 @@ Enfin, les compteurs ajoutent quelques méthodes par rapport aux dictionnaires.
 `most_common` par exemple permet d'avoir la liste ordonnée des valeurs les plus communes, associées à leur nombre d'occurrences.
 La méthode prend un paramètre `n` pour spécifier le nombre de valeurs que l'on veut obtenir (par défaut toutes les valeurs seront présentes).
 
-```python
+```pycon
 >>> count = Counter('abcdabcaba')
 >>> count.most_common()
 [('a', 4), ('b', 3), ('c', 2), ('d', 1)]
@@ -110,7 +110,7 @@ La méthode prend un paramètre `n` pour spécifier le nombre de valeurs que l'o
 
 La méthode `elements` permet d'itérer sur les valeurs comme si elles étaient représentées plusieurs fois selon leur nombre d'occurrences.
 
-```python
+```pycon
 >>> for item in count.elements():
 ...     print(item)
 ... 
@@ -130,7 +130,7 @@ d
 Sur les compteurs, la méthode se chargera de faire la somme des valeurs.  
 Elle peut prendre n'importe quel itérable en argument, qu'elle considérera comme un compteur.
 
-```python
+```pycon
 >>> count.update('bcde')
 >>> count
 Counter({'a': 4, 'b': 4, 'c': 3, 'd': 2, 'e': 1})
@@ -138,7 +138,7 @@ Counter({'a': 4, 'b': 4, 'c': 3, 'd': 2, 'e': 1})
 
 Il est aussi possible de faire la même chose en soustrayant les compteurs avec la méthode `substract`.
 
-```python
+```pycon
 >>> count.subtract('abcd')
 >>> count
 Counter({'a': 3, 'b': 3, 'c': 2, 'd': 1, 'e': 1})
@@ -151,7 +151,7 @@ Cette méthode permettait d'assurer qu'une valeur soit toujours présente pour u
 
 Cela simplifie des problèmes où l'on veut associer des listes de valeurs à des clés, comme un annuaire où chaque personne pourrait avoir plusieurs numéros.
 
-```python
+```pycon
 >>> phonebook = {}
 >>> phonebook.setdefault('Bob', []).append('0663621029')
 >>> phonebook.setdefault('Bob', []).append('0714381809')
@@ -165,7 +165,7 @@ Pour cela, un `defaultdict` s'instancie avec une fonction (ou un type) qui sera 
 
 Ainsi, l'exemple précédent pourrait se réécrire comme suit.
 
-```python
+```pycon
 >>> from collections import defaultdict
 >>> phonebook = defaultdict(list)
 >>> phonebook['Bob'].append('0663621029')
@@ -179,7 +179,7 @@ Chaque fois qu'une clé n'existe pas dans le dictionnaire, `defaultdict` fait ap
 
 Il suffit d'ailleurs d'essayer d'accéder à la valeur associée à une telle clé pour provoquer sa création.
 
-```python
+```pycon
 >>> phonebook['Alex']
 []
 >>> phonebook
@@ -188,7 +188,7 @@ defaultdict(<class 'list'>, {'Bob': ['0663621029', '0714381809'], 'Alice': ['063
 
 Et bien sûr, toute fonction pourrait être utilisée comme argument à `defaultdict`.
 
-```python
+```pycon
 >>> def get_default_color():
 ...     return 'noir'
 ... 
@@ -209,7 +209,7 @@ Les choses ont évolué depuis et le type a un peu perdu de son intérêt.
 Comme les dictionnaires, un `OrderedDict` se construit à partir d'un dictionnaire existant et/ou d'arguments nommés.
 Sans argument, on construit simplement un dictionnaire vide.
 
-```python
+```pycon
 >>> from collections import OrderedDict
 >>> OrderedDict()
 OrderedDict()
@@ -225,7 +225,7 @@ Il reste néanmoins une différence importante entre les dictionnaires ordonnés
 
 Là où deux dictionnaires seront considérés comme égaux s'ils ont les mêmes couples clé/valeur, quel que soit leur ordre, ça ne sera pas le cas pour les `OrderedDict` qui ne seront égaux que si leurs clés sont dans le même ordre.
 
-```python
+```pycon
 >>> {'foo': 0, 'bar': 1} == {'bar': 1, 'foo': 0}
 True
 >>> OrderedDict(foo=0, bar=1) == OrderedDict(bar=1, foo=0)
@@ -236,7 +236,7 @@ True
 
 Ce n'est bien sûr valable que pour l'égalité entre deux dictionnaires ordonnés. L'égalité entre un dictionnaire ordonné et un standard ne tiendra pas compte de l'ordre.
 
-```python
+```pycon
 >>> OrderedDict(foo=0, bar=1) == {'bar': 1, 'foo': 0}
 True
 ```
@@ -248,7 +248,7 @@ Faites donc appel à `OrderedDict` si vous avez besoin d'un tel comportement, si
 Parfois on a plusieurs dictionnaires que l'on aimerait pouvoir considérer comme un seul, sans pour autant nécessiter de copie vers un nouveau dictionnaire qui les intégrerait tous.
 En effet, la copie peut être coûteuse et elle n'a surtout lieu qu'une fois, le dictionnaire copié ne sera pas affecté si les dictionnaires initiaux sont modifiés.
 
-```python
+```pycon
 >>> phonebook_sim = {'Alice': '0633432380', 'Bob': '0663621029'}
 >>> phonebook_tel = {'Alex': '0714381809'}
 >>> phonebook = dict(phonebook_sim) # Copie pour fusionner les deux dictionnaires
@@ -262,7 +262,7 @@ En effet, la copie peut être coûteuse et elle n'a surtout lieu qu'une fois, le
 
 Le type `ChainMap` répond à ce problème puisqu'il permet de chaîner des dictionnaires dans un seul tout.
 
-```python
+```pycon
 >>> from collections import ChainMap
 >>> phonebook_sim = {'Alice': '0633432380', 'Bob': '0663621029'}
 >>> phonebook_tel = {'Alex': '0714381809'}
@@ -273,7 +273,7 @@ ChainMap({'Alice': '0633432380', 'Bob': '0663621029'}, {'Alex': '0714381809'})
 
 Lors de la recherche d'une clé, les dictionnaires seront parcourus successivement pour trouver la valeur.
 
-```python
+```pycon
 >>> phonebook['Bob']
 '0663621029'
 >>> phonebook['Alex']
@@ -282,7 +282,7 @@ Lors de la recherche d'une clé, les dictionnaires seront parcourus successiveme
 
 Si la clé n'existe dans aucun dictionnaire, on obtient une erreur `KeyError` comme habituellement.
 
-```python
+```pycon
 >>> phonebook['Mehdi']
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -295,7 +295,7 @@ KeyError: 'Mehdi'
 
 L'objet `ChainMap` ne contient que des références vers nos dictionnaires, et donc reflète bien les modifications sur ces derniers.
 
-```python
+```pycon
 >>> phonebook_tel['Mehdi'] = '0762253973'
 >>> phonebook['Mehdi']
 '0762253973'
@@ -303,7 +303,7 @@ L'objet `ChainMap` ne contient que des références vers nos dictionnaires, et d
 
 Aussi, il est possible de directement affecter des valeurs au `ChainMap`, celles-ci seront affectées au premier dictionnaire de la chaîne.
 
-```python
+```pycon
 >>> phonebook['Julie'] = '0619096810'
 >>> phonebook_sim
 {'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810'}
@@ -311,7 +311,7 @@ Aussi, il est possible de directement affecter des valeurs au `ChainMap`, celles
 
 Il en est de même pour les clés qui existeraient dans les dictionnaires suivants, elles seraient tout de même assignées au premier (c'est le seul accessible en écriture).
 
-```python
+```pycon
 >>> phonebook['Alex'] = '0734593960'
 >>> phonebook
 ChainMap({'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Alex': '0734593960'}, {'Alex': '0714381809', 'Mehdi': '0762253973'})
@@ -319,7 +319,7 @@ ChainMap({'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Al
 
 On voit ainsi comment se passe la priorité entre les dictionnaires en lecture : la chaîne est parcourue et s'arrête au premier dictionnaire contenant la clé.
 
-```python
+```pycon
 >>> phonebook['Alex']
 '0734593960'
 ```
@@ -330,7 +330,7 @@ La méthode `new_child` et l'attribut `parents` sont utiles pour cela puisqu'ils
 
 Tous deux renvoient un nouvel objet `ChainMap` sans altérer la chaîne courante.
 
-```python
+```pycon
 >>> new_phonebook = phonebook.new_child()
 >>> new_phonebook['Max'] = '0704779572'
 >>> new_phonebook
@@ -341,7 +341,7 @@ ChainMap({'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Al
 
 `new_child` peut s'utiliser sans argument, auquel cas un dictionnaire vide sera ajouté, ou en donnant directement le dictionnaire à ajouter en argument.
 
-```python
+```pycon
 >>> phonebook.new_child({'Max': '0704779572'})
 ChainMap({'Max': '0704779572'}, {'Alice': '0633432380', 'Bob': '0663621029', 'Julie': '0619096810', 'Alex': '0734593960'}, {'Alex': '0714381809', 'Mehdi': '0762253973'})
 ```
@@ -363,7 +363,7 @@ On pourrait par exemple voir un maillon comme un dictionnaire avec 2 clés : `n
 
 Voici ainsi un équivalent en liste chaînée de la liste `[1, 2, 3, 4]`.
 
-```python
+```pycon
 >>> node4 = {'next': None, 'value': 4}
 >>> node3 = {'next': node4, 'value': 3}
 >>> node2 = {'next': node3, 'value': 2}
@@ -378,7 +378,7 @@ Voici ainsi un équivalent en liste chaînée de la liste `[1, 2, 3, 4]`.
 
 Les variables `node1`, `node2` etc. ne sont que temporaires pour la création de notre liste, elles n'existent plus après, seule `values` référence notre chaîne de maillons.
 
-```python
+```pycon
 >>> del node1
 >>> del node2
 >>> del node3
@@ -387,7 +387,7 @@ Les variables `node1`, `node2` etc. ne sont que temporaires pour la création de
 
 Il nous serait alors possible d'itérer sur notre liste chaînée pour accéder à chacune des valeurs.
 
-```python
+```pycon
 >>> node = values # La liste représente le premier maillon
 >>> while node is not None: # None représente la fin de liste
 ...     print(node['value'])
@@ -405,7 +405,7 @@ Mais il n'est pas question ici de recoder une liste chaînée, Python en propose
 Le principe est sinon le même.
 Un *deque* se construit comme une liste, soit vide soit à partir d'un itérable existant.
 
-```python
+```pycon
 >>> deque()
 deque([])
 >>> deque([1, 2, 3, 4])
@@ -414,7 +414,7 @@ deque([1, 2, 3, 4])
 
 Et le type propose les mêmes méthodes que les listes, ce sont juste les algorithmes derrière qui sont différents, et certaines opérations qui sont à privilégier plutôt que d'autres.
 
-```python
+```pycon
 >>> values = deque([1, 2, 3, 4])
 >>> values[0]
 1
@@ -428,7 +428,7 @@ De même pour supprimer un élément au début ou à la fin.
 
 Les *deque* proposent d'ailleurs des méthodes dédiées avec `appendleft` et `popleft`, équivalentes à `append` et `pop` mais pour opérer au début de la liste.
 
-```python
+```pycon
 >>> values.appendleft(0)
 >>> values
 deque([0, 1, 2, 3, 4, 5])
@@ -440,7 +440,7 @@ deque([1, 2, 3, 4, 5])
 
 En revanche, comme seules les extrêmités sont connues, il est coûteux d'aller chercher un élément en milieu de liste, puisqu'il est nécessaire pour cette opération de parcourir tous les maillons jusqu'au bon élément.
 
-```python
+```pycon
 >>> values[2]
 3
 ```
@@ -458,7 +458,7 @@ Pour terminer avec le module `collections`, j'aimerais vous parler des *named tu
 Vous le savez, un tuple représente un ensemble cohérent de données, par exemple deux coordonnées qui identifient un point dans le plan.
 Il est sinon semblable à une liste (bien que non modifiable) et permet d'accéder aux éléments à partir de leur position.
 
-```python
+```pycon
 >>> point = (3, 5)
 >>> point[0]
 3
@@ -466,7 +466,7 @@ Il est sinon semblable à une liste (bien que non modifiable) et permet d'accéd
 
 Et par *unpacking* il est possible d'accéder à ses éléments indépendemment.
 
-```python
+```pycon
 >>> x, y = point
 >>> y
 5
@@ -486,7 +486,7 @@ La fonction renvoie un type, mais il faudra assigner ce retour à une variable p
 Les types en Python sont en fait des objets comme les autres, qui peuvent donc être assignés à des variables.
 Par convention, on utilisera un nom commençant par une majuscule, pour identifier un type.
 
-```python
+```pycon
 >>> from collections import namedtuple
 >>> Point = namedtuple('Point', ('x', 'y'))
 >>> Point
@@ -495,7 +495,7 @@ Par convention, on utilisera un nom commençant par une majuscule, pour identifi
 
 Ensuite, pour instancier un objet `Point`, on appelle le type en lui donnant en arguments les deux coordonnées `x` et `y`.
 
-```python
+```pycon
 >>> point = Point(3, 5)
 >>> point
 Point(x=3, y=5)
@@ -505,14 +505,14 @@ Point(x=3, y=5)
 
 On le voit à sa représentation, il est aussi possible d'instancier l'objet en utilisant des arguments nommés.
 
-```python
+```pycon
 >>> Point(x=10, y=7)
 Point(x=10, y=7)
 ```
 
 Notre objet `point` est toujours un tuple, et il reste possible de l'utiliser comme tel.
 
-```python
+```pycon
 >>> point[0]
 3
 >>> x, y = point

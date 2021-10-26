@@ -30,7 +30,7 @@ def factorielle(n):
 Nous utilisons ici une `ValueError` pour signaler qu'il s'agit d'un problème avec la valeur en elle-même.
 Lors de l'appel, nous obtenons bien une exception `ValueError` en cas de valeur invalide.
 
-```python
+```pycon
 >>> factorielle(5)
 120
 >>> factorielle(-1)
@@ -54,7 +54,7 @@ if n < 0:
     raise ValueError('Le nombre doit être positif')
 ```
 
-```python
+```pycon
 >>> factorielle(-1)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -69,7 +69,7 @@ if n < 0:
     raise ValueError(f'Le nombre doit être positif ({n} est négatif)')
 ```
 
-```python
+```pycon
 >>> factorielle(-1)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -100,7 +100,7 @@ def get_10th(seq):
         print('erreur', e)
 ```
 
-```python
+```pycon
 >>> get_10th([])
 erreur list index out of range
 >>> get_10th({})

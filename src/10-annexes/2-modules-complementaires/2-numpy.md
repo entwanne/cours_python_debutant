@@ -7,7 +7,7 @@ Elle s'installe facilement avec _Pip_ : `pip install numpy` .
 
 Ensuite c'est une bibliothèque qui permet notamment de manipuler des tableaux de données (de même type), et d'effectuer des opérations en lots sur les valeurs de ces tableaux.
 
-```python
+```pycon
 >>> import numpy as np
 >>> array = np.array([[1, 2, 3], [4, 5, 6]])
 >>> array.size  # nombre de valeurs

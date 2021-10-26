@@ -29,7 +29,7 @@ Elle reçoit donc le fichier en argument[^reader_argument] et renvoie un itérab
 
 [^reader_argument]: En réalité tout itérable sur des lignes (chaînes de caractères) est accepté en entrée, un fichier correspond à cette définition.
 
-```python
+```pycon
 >>> import csv
 >>> with open('attaques.csv') as f:
 ...     reader = csv.reader(f)
@@ -46,7 +46,7 @@ Elle reçoit donc le fichier en argument[^reader_argument] et renvoie un itérab
 Comme on le voit notre en-tête est considérée comme une ligne à part entière.
 Il serait néanmoins possible de l'isoler en utilisant par exemple la fonction `next` de Python (je reviendrai plus tard sur cette fonction).
 
-```python
+```pycon
 >>> with open('attaques.csv') as f:
 ...     reader = csv.reader(f)
 ...     header = next(reader)
@@ -64,7 +64,7 @@ en-tête: ['nom', 'type', 'degats']
 Mais encore mieux, le module offre aussi l'utilitaire `DictReader`.
 Celui-ci s'utilise de la même manière que `reader`, mais il consomme directement l'en-tête et produit les lignes sous forme de dictionnaires plutôt que de listes (utilisant les valeurs de l'en-tête comme clés).
 
-```python
+```pycon
 >>> with open('attaques.csv') as f:
 ...     reader = csv.DictReader(f)
 ...     for row in reader:
@@ -81,7 +81,7 @@ Celui-ci s'utilise de la même manière que `reader`, mais il consomme directeme
 On trouve de manière similaire une fonction `writer` recevant un fichier (ouvert en écriture) pour y écrire des données tabulaires au format CSV.
 Cette fonction renvoie un objet possédant une méthode `writerow` qui sera appelée pour l'écriture de chaque ligne.
 
-```python
+```pycon
 >>> with open('monstres.csv', 'w') as f:
 ...     writer = csv.writer(f)
 ...     writer.writerow(['nom', 'type', 'pv']) # en-tête

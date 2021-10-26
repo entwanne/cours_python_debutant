@@ -3,7 +3,7 @@
 Les _f-strings_ ou chaînes de formatage sont une nouveauté apportée par Python 3.6 qui simplifie la création de chaînes de caractères dynamiques (se construisant à partir d'autres valeurs).
 Elles se caractérisent par un préfixe `f` placé avant les guillemets délimitant la chaîne.
 
-```python
+```pycon
 >>> f'abc'
 'abc'
 ```
@@ -19,7 +19,7 @@ Ainsi, `'{} + {} = {}'.format(3, 5, 3 + 5)` deviendra `f'{3} + {5} = {3 + 5}'`. 
 Ici il n'est donc pas question de préciser des positions entre les accolades, mais des expressions.
 Il est ainsi possible de capturer des variables pour les utiliser dans la chaîne.
 
-```python
+```pycon
 >>> a = 3
 >>> b = 5
 >>> f'{a} + {b} = {a+b}'
@@ -28,7 +28,7 @@ Il est ainsi possible de capturer des variables pour les utiliser dans la chaîn
 
 Bien sûr, tous les types de données y sont utilisables.
 
-```python
+```pycon
 >>> name = 'Max'
 >>> f'Salut {name} !'
 'Salut Max !'
@@ -37,7 +37,7 @@ Bien sûr, tous les types de données y sont utilisables.
 Et tous types d'expressions sont valides à l'intérieur de ces accolades.
 Il faut juste faire attention à ne pas s'emmêler les pinceaux avec les guillemets : on ne peut pas placer d'apostrophe dans une chaîne délimitée par des apostrophes par exemple.
 
-```python
+```pycon
 >>> fruits = {'a': 'abricot', 'b': 'banane'}
 >>> f"{fruits['b']}, {len(fruits)}"
 'banane, 2'
@@ -45,7 +45,7 @@ Il faut juste faire attention à ne pas s'emmêler les pinceaux avec les guillem
 
 Entre accolades, on peut aussi placer un `:` et y ajouter toutes les options de formatage disponibles avec `str.format`.
 
-```python
+```pycon
 >>> f'{a} + {b} = {a+b:+}'
 '3 + 5 = +8'
 >>> f'Salut {name:10} !'

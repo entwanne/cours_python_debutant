@@ -5,7 +5,7 @@
 Tout comme les chaînes de caractères, les listes possèdent donc une taille.
 Là encore, il est possible de connaître cette taille à l'aide d'un appel à la fonction `len`.
 
-```python
+```pycon
 >>> len(numbers)
 7
 >>> len(words)
@@ -15,7 +15,7 @@ Là encore, il est possible de connaître cette taille à l'aide d'un appel à l
 Comme pour les chaînes toujours, il est possible d'accéder aux éléments de la liste à l'aide de l'opérateur `[]` associé à une position.
 0 correspondant à la première position, 1 à la deuxième, etc.
 
-```python
+```pycon
 >>> numbers[4]
 6
 >>> print(words[8])
@@ -24,7 +24,7 @@ contenus
 
 Les index négatifs sont aussi acceptés.
 
-```python
+```pycon
 >>> words[-2]
 'sujets'
 ```
@@ -32,7 +32,7 @@ Les index négatifs sont aussi acceptés.
 On peut tester l'égalité entre deux listes à l'aide des opérateurs `==` et `!=`.
 Deux listes sont égales si elles contiennent les mêmes valeurs dans le même ordre.
 
-```python
+```pycon
 >>> [1, 2, 3] == [1, 2, 3]
 True
 >>> [1, 2, 3] == [3, 2, 1]
@@ -44,7 +44,7 @@ True
 Comme les chaînes de caractères, les listes sont aussi concaténables les unes aux autres, permettant de construire une grande liste en aggrégeant des plus petites.
 De même qu'elles sont concaténables par multiplication avec un nombre entier.
 
-```python
+```pycon
 >>> [1, 1, 2, 3] + [5, 8, 13] + [21]
 [1, 1, 2, 3, 5, 8, 13, 21]
 >>> ['ab', 'cd'] * 3
@@ -58,7 +58,7 @@ En plus de ça, les listes possèdent aussi différentes méthodes, par exemple 
 * `index` renvoie la position d'une valeur dans la liste.
   Cette position correspond au premier élément trouvé (si la valeur est présente plusieurs fois), et la méthode produit une erreur si la valeur n'est pas trouvée.
 
-```python
+```pycon
 >>> numbers.index(2)
 2
 >>> numbers.index(3)
@@ -75,7 +75,7 @@ ValueError: 9 is not in list
 
 * `count` compte et renvoie le nombre d'occurrences d'un élément dans la liste (donc 0 si l'élément n'est pas présent).
 
-```python
+```pycon
 >>> numbers.count(3)
 2
 >>> numbers.count(8)
@@ -94,7 +94,7 @@ Nous pouvions redéfinir une variable vers une nouvelle valeur (`a = 10; a += 1`
 
 Sur les listes, nous pouvons par exemple librement remplacer certains éléments par d'autres, grâce à l'opérateur d'indexation (`[]`) couplé à une affectation (`=`).
 
-```python
+```pycon
 >>> words = ['salut', 'les', 'amis']
 >>> words[2] = 'copains'
 >>> words
@@ -105,7 +105,7 @@ Ici c'est bien la valeur même de la liste qui a été modifiée : on a altér�
 
 On peut mettre cet état de fait en évidence si l'on a deux variables qui référencent la même liste.
 
-```python
+```pycon
 >>> numbers = copy = [1, 2, 3, 4]
 >>> numbers[0] = 10
 >>> numbers
@@ -122,7 +122,7 @@ Nos listes étant modifiables, elles proposent aussi certaines opérations pour 
 
 La méthode `append` permet comme son nom l'indique d'ajouter un nouvel élément en fin de liste (à la dernière position), augmentant donc de 1 la taille de la liste.
 
-```python
+```pycon
 >>> letters = ['a', 'b', 'c', 'd']
 >>> len(letters)
 4
@@ -135,7 +135,7 @@ La méthode `append` permet comme son nom l'indique d'ajouter un nouvel élémen
 
 Plus généralement, on trouve la méthode `insert` qui permet d'insérer un élément à une position (un index) particulière dans la liste, décalant ainsi s'il y en a les éléments à sa droite d'un cran.
 
-```python
+```pycon
 >>> letters.insert(0, 'à')
 >>> letters
 ['à', 'a', 'b', 'c', 'd', 'e']
@@ -154,7 +154,7 @@ Comme vous le voyez, les index négatifs sont aussi acceptés.
 Si la position est plus grande que la taille de la liste, la valeur sera insérée la fin.
 De même, la valeur sera insérée au début pour une position négative dépassant la limite.
 
-```python
+```pycon
 >>> letters.insert(20, 'f')
 >>> letters
 ['à', 'a', 'b', 'ĉ', 'c', 'd', 'đ', 'e', 'é', 'f']
@@ -167,7 +167,7 @@ La méthode `pop` sert quant à elle à supprimer un élément de la liste.
 Utilisée sans argument, elle en supprimera le dernier élément.
 La méthode renvoie l'élément qui vient d'être supprimé, ce qui permet de le conserver dans une variable par exemple.
 
-```python
+```pycon
 >>> letters.pop()
 'f'
 >>> deleted = letters.pop()
@@ -179,7 +179,7 @@ La méthode renvoie l'élément qui vient d'être supprimé, ce qui permet de le
 
 Mais la méthode peut aussi être appelée avec une position en argument, pour supprimer une valeur à un index particulier.
 
-```python
+```pycon
 >>> letters.pop(0)
 'å'
 >>> letters
@@ -188,7 +188,7 @@ Mais la méthode peut aussi être appelée avec une position en argument, pour s
 
 On notera aussi l'opérateur `del` permettant lui aussi de supprimer une valeur mais sans la renvoyer.
 
-```python
+```pycon
 >>> del letters[3]
 >>> letters
 ['à', 'a', 'b', 'c', 'd', 'đ', 'e']
@@ -198,7 +198,7 @@ On notera aussi l'opérateur `del` permettant lui aussi de supprimer une valeur 
 | L'opérateur `del` est d'ailleurs un opérateur qui permet de supprimer une variable.
 | `del foo` revient à désaffecter la variable `foo` qui n'existe alors plus dans la suite du programme.
 |
-| ```python
+| ```pycon
 | >>> foo = 'abc'
 | >>> del foo
 | >>> foo
@@ -209,7 +209,7 @@ On notera aussi l'opérateur `del` permettant lui aussi de supprimer une valeur 
 |
 | `del` ne supprime pas la valeur à proprement parler qui peut toujours être référencée par une autre variable.
 |
-| ```python
+| ```pycon
 | >>> foo = bar = [1, 2, 3]
 | >>> del foo
 | >>> bar
@@ -227,7 +227,7 @@ On appelle cela le _slicing_ (ou « découpage »).
 
 La valeur renvoyée sera la liste des éléments compris entre ces deux positions (démarrant à la position de début et s'arrêtant juste avant la position de fin).
 
-```python
+```pycon
 >>> numbers = [1, 1, 2, 3, 5, 8, 13, 21]
 >>> numbers[1:4]
 [1, 2, 3]
@@ -238,14 +238,14 @@ La valeur renvoyée sera la liste des éléments compris entre ces deux position
 On voit bien que `numbers[1:4]` nous renvoie la liste des éléments d'index compris entre 1 et 3 (inclus).
 Ces opérations n'affectent pas la liste d'origine qui reste inchangée.
 
-```python
+```pycon
 >>> numbers
 [1, 1, 2, 3, 5, 8, 13, 21]
 ```
 
 Une fois de plus, il est possible d'utiliser des index négatifs pour se positionner à partir de la fin de la liste.
 
-```python
+```pycon
 >>> numbers[-5:-1]
 [3, 5, 8, 13]
 >>> numbers[1:-2]
@@ -255,7 +255,7 @@ Une fois de plus, il est possible d'utiliser des index négatifs pour se positio
 Une autre facilité est que l'on peut omettre la position de début ou la position de fin.
 Sans position de début on considère que l'on part du début de la liste (index `0`) et sans fin que l'on va jusqu'à la fin (index `len(numbers)`).
 
-```python
+```pycon
 >>> numbers[3:]
 [3, 5, 8, 13, 21]
 >>> numbers[:-3]
@@ -264,7 +264,7 @@ Sans position de début on considère que l'on part du début de la liste (index
 
 Si l'on omet le début et la fin, on récupère une liste contenant tous les éléments de la liste d'origine.
 
-```python
+```pycon
 >>> numbers[:]
 [1, 1, 2, 3, 5, 8, 13, 21]
 ```
@@ -275,7 +275,7 @@ Un pas de 3 signifie que l'on ne considère qu'un élément sur 3.
 
 Ainsi, `[1:8:3]` correspondra aux index 1, 4 et 7 (3 de différence entre chaque index)
 
-```python
+```pycon
 >>> numbers[1:8:3]
 [1, 5, 21]
 ```
@@ -283,14 +283,14 @@ Ainsi, `[1:8:3]` correspondra aux index 1, 4 et 7 (3 de différence entre chaque
 Ou encore `[::2]` permettra d'extraire un élément sur deux de la liste initiale.
 En effet cela permet d'extraire l'élément d'index 0, puis 2, puis 4, etc.
 
-```python
+```pycon
 >>> numbers[::2]
 [1, 2, 5, 13]
 ```
 
 Le pas est calculé à partir de l'index de départ, le résultat sera donc différent avec `[1::2]` qui considérera en premier l'élément d'index 1, puis 3, puis 5, etc.
 
-```python
+```pycon
 >>> numbers[1::2]
 [1, 3, 8, 21]
 ```
@@ -299,7 +299,7 @@ Le pas est calculé à partir de l'index de départ, le résultat sera donc diff
 
 Voilà pour ce qui est des accès en lecture, mais ces opérations sont aussi possibles pour la modification.
 
-```python
+```pycon
 >>> numbers[:2] = [2, 0]
 >>> numbers
 [2, 0, 2, 3, 5, 8, 13, 21]
@@ -307,7 +307,7 @@ Voilà pour ce qui est des accès en lecture, mais ces opérations sont aussi po
 
 La liste que l'on assigne n'a pas besoin de faire la même taille que le nombre d'éléments concernés par le _slicing_, ce qui peut alors modifier la longueur de la liste d'origine.
 
-```python
+```pycon
 >>> numbers[-1:] = [21, 34, 55]
 >>> numbers
 [2, 0, 2, 3, 5, 8, 13, 21, 34, 55]
@@ -318,7 +318,7 @@ La liste que l'on assigne n'a pas besoin de faire la même taille que le nombre 
 
 Et ces opérations concernent aussi l'opérateur `del`.
 
-```python
+```pycon
 >>> del numbers[1:-1]
 >>> numbers
 [2, 55]
@@ -326,7 +326,7 @@ Et ces opérations concernent aussi l'opérateur `del`.
 
 Enfin, l'opération de _slicing_ (en lecture seulement) est aussi disponible sur les chaînes de caractères, renvoyant donc une chaîne composée des caractères aux positions comprises dans l'intervalle..
 
-```python
+```pycon
 >>> 'pouetpouet'[3:-2]
 'etpou'
 ```

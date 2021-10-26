@@ -44,7 +44,7 @@ def calculatrice(a, op, b):
     print('Calcul impossible')
 ```
 
-```python
+```pycon
 >>> calculatrice(3, '+', 0)
 3
 >>> calculatrice(3, '/', 0)

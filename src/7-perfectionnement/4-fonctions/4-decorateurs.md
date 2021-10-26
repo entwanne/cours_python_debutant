@@ -44,7 +44,7 @@ def addition(a, b):
 
 On le voit à l'utilisation, la fonction n'est appelée que si son résultat n'est pas déjà connu.
 
-```python
+```pycon
 >>> addition(3, 5)
 Calcul de 3 + 5...
 8
@@ -88,7 +88,7 @@ def addition(a, b):
 
 Et maintenant, regardez bien ce qu'il se passe quand la taille maximale est atteinte.
 
-```python
+```pycon
 >>> addition(3, 5)
 Calcul de 3 + 5...
 8

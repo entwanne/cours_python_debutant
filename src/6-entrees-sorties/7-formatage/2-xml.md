@@ -43,7 +43,7 @@ import xml.etree.ElementTree as ET
 Ensuite, on va ouvrir un document XML à l'aide de la fonction `parse` de ce module.
 La fonction accepte un chemin de fichier en argument, ou directement un objet-fichier.
 
-```python
+```pycon
 >>> tree = ET.parse('pythachu.xml')
 >>> tree
 <xml.etree.ElementTree.ElementTree object at 0x7f6ff11b5f70>
@@ -54,7 +54,7 @@ La fonction accepte un chemin de fichier en argument, ou directement un objet-fi
 
 Une fois ce document chargé, on peut en récupérer l'élément principal (le nœud racine) à l'aide de la méthode `getroot`.
 
-```python
+```pycon
 >>> root = tree.getroot()
 >>> root
 <Element 'monster' at 0x7f6ff0faaef0>
@@ -62,7 +62,7 @@ Une fois ce document chargé, on peut en récupérer l'élément principal (le n
 
 `root` est un objet de type `Element`. Il possède entre autres un attribut `tag` qui référence le nom de la balise, et un attribut `attrib` qui contient le dictionnaire d'attributs de la balise.
 
-```python
+```pycon
 >>> root.tag
 'monster'
 >>> root.attrib
@@ -71,14 +71,14 @@ Une fois ce document chargé, on peut en récupérer l'élément principal (le n
 
 Notez qu'il existe aussi la fonction `fromstring` pour charger un élément à partir d'une chaîne de caractères.
 
-```python
+```pycon
 >>> ET.fromstring('<foo>bar</foo>')
 <Element 'foo' at 0x7f6ff10e1900>
 ```
 
 Cette fonction lève une erreur `ParseError` si la chaîne ne représente pas un document XML valide (il en est de même avec la fonction `parse`).
 
-```python
+```pycon
 >>> ET.fromstring('<foo>bar</foo')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -90,7 +90,7 @@ xml.etree.ElementTree.ParseError: unclosed token: line 1, column 8
 Les éléments XML sont des objets Python itérables.
 Itérer dessus revient à parcourir les balises filles.
 
-```python
+```pycon
 >>> for elem in root:
 ...     print(elem)
 ... 
@@ -102,7 +102,7 @@ Itérer dessus revient à parcourir les balises filles.
 
 Les éléments possèdent aussi une méthode `find` pour directement trouver une balise fille en fonction de son nom.
 
-```python
+```pycon
 >>> root.find('name')
 <Element 'name' at 0x7f6ff0faaf40>
 >>> root.find('attaques')
@@ -111,14 +111,14 @@ Les éléments possèdent aussi une méthode `find` pour directement trouver une
 
 Quand il existe plusieurs éléments du même nom, la méthode `findall` permet de tous les trouver, elle renvoie une liste d'éléments.
 
-```python
+```pycon
 >>> root.find('attaques').findall('attaque')
 [<Element 'attaque' at 0x7f6ff0fad090>, <Element 'attaque' at 0x7f6ff0fad0e0>]
 ```
 
 Et l'on peut accéder au contenu textuel des éléments à l'aide de leur attribut `text`.
 
-```python
+```pycon
 >>> root.find('name').text
 'Pythachu'
 >>> root.find('base_pv').text
@@ -136,7 +136,7 @@ Il est aussi possible de construire un document XML de toute pièce à l'aide d'
 
 On peut pour cela commencer par créer un élément racine en instanciant un objet `Element`, en fournissant le nom de la balise comme argument.
 
-```python
+```pycon
 >>> root = ET.Element('foo')
 >>> root
 <Element 'foo' at 0x7f2496c4c8b0>
@@ -144,7 +144,7 @@ On peut pour cela commencer par créer un élément racine en instanciant un obj
 
 On peut ensuite facilement ajouter des éléments à un élément parent avec la fonction `SubElement`.
 
-```python
+```pycon
 >>> ET.SubElement(root, 'bar')
 <Element 'bar' at 0x7f2496c4c8b0>
 >>> ET.SubElement(root, 'baz')
@@ -153,7 +153,7 @@ On peut ensuite facilement ajouter des éléments à un élément parent avec la
 
 Et l'on peut parfaitement ajouter des sous-éléments à un sous-élément, etc.
 
-```python
+```pycon
 >>> sub = ET.SubElement(root, 'list')
 >>> ET.SubElement(sub, 'item')
 <Element 'item' at 0x7f2496c619a0>
@@ -163,7 +163,7 @@ Et l'on peut parfaitement ajouter des sous-éléments à un sous-élément, etc.
 
 On peut aussi manipuler directement le dictionnaire d'attributs des éléments pour en ajouter ou en modifier.
 
-```python
+```pycon
 >>> root.attrib['name'] = 'Doc'
 >>> root.attrib
 {'name': 'Doc'}
@@ -177,7 +177,7 @@ root.find('bar').text = 'bonjour'
 
 Enfin, le module `ET` possède une fonction `dump` pour transformer en chaîne de caractères l'élément que l'on vient de créer.
 
-```python
+```pycon
 >>> ET.dump(root)
 <foo name="Doc"><bar>bonjour</bar><baz /><list><item /><item /></list></foo>
 ```
@@ -188,7 +188,7 @@ Enfin, le module `ET` possède une fonction `dump` pour transformer en chaîne d
 
 Il est aussi possible de créer un document (`ElementTree`) et d'appeler sa méthode `write` pour écrire le document dans un fichier.
 
-```python
+```pycon
 >>> ET.ElementTree(root).write('doc.xml')
 ```
 

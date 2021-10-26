@@ -8,7 +8,7 @@ Ces valeurs répondent à ce que l'on appelle [algèbre de Boole](https://zested
 L'opération la plus élémentaire est la négation logique (« NON ») qui se note `not` en Python.
 C'est un opérateur unaire (qui ne prend qu'un seul opérande), qui consiste à calculer l'inverse du booléen : `True` devient `False` et inversement.
 
-```python
+```pycon
 >>> not True
 False
 >>> not False
@@ -27,7 +27,7 @@ Voici donc la table de vérité de l'opérateur `not` :
 
 La négation d'une égalité est alors la même chose que la différence.
 
-```python
+```pycon
 >>> not 'abc' == 'def'
 True
 >>> 'abc' != 'def'
@@ -41,7 +41,7 @@ Avec `a` et `b` deux booléens, l'expression « a ET b » est vraie si et seul
 
 En Python, cet opérateur binaire (à deux opérandes) se note `and`.
 
-```python
+```pycon
 >>> True and True
 True
 >>> True and False
@@ -62,7 +62,7 @@ Et sa table de vérité est la suivante.
 Enfin, l'autre opération que l'on trouve en Python sur les booléens est la disjonction (« OU », soit `or` en Python).
 L'expression « a OU B » étant vraie si `a` est vrai ou que `b` l'est.
 
-```python
+```pycon
 >>> True or False
 True
 >>> False or False
@@ -75,7 +75,7 @@ On note que le « OU » est inclusif, ce qui peut se différencier de l'usage 
 En effet quand on dit « a OU b » on a tendance à imaginer que c'est soit l'un soit l'autre (exclusif) mais pas les deux.
 En informatique on considère que « a OU b » est vraie aussi si `a` et `b` sont vrais.
 
-```python
+```pycon
 >>> True or True
 True
 ```
@@ -92,7 +92,7 @@ Voici donc la table de vérité du `or`.
 Ces opérateurs sont bien sûr composables les uns avec les autres pour former des expressions plus complexes.
 On utilisera généralement des parenthèses pour isoler les différentes opérations et ne pas avoir à se soucier de leur priorité (voir plus loin).
 
-```python
+```pycon
 >>> (True or False) and not (True and False)
 True
 ```
@@ -117,7 +117,7 @@ C'est pourquoi l'expression dans le code qui précède est équivalente à `(use
 
 Aussi, `not` est prioritaire sur `and` qui est lui-même prioritaire sur `or`, comme on peut le voir dans le code suivant.
 
-```python
+```pycon
 >>> not True and False
 False
 >>> True or True and False
@@ -126,7 +126,7 @@ True
 
 Mais ce comportement peut différer d'un langage de programmation à un autre, c'est pourquoi on utilisera toujours des parenthèses autour des sous-expressions booléennes combinant ces différents opérateurs, pour plus de clarté.
 
-```python
+```pycon
 >>> (not True) and False
 False
 >>> True or (True and False)
@@ -137,7 +137,7 @@ True
 
 Bien que nous n'ayons pour le moment utilisé de blocs `if` qu'avec des expressions booléennes, il faut savoir que ceux-ci acceptent n'importe quelle expression, par exemple ici avec un `int`.
 
-```python
+```pycon
 >>> if 5 + 3 * 4:
 ...     print('Ça marche')
 ... 
@@ -166,7 +166,7 @@ On préférera donc généralement utiliser cette version raccourcie plutôt qu'
 Il reste bien sûr possible -- quand cela est nécessaire -- de convertir explicitement une valeur en booléen, en utilisant le type `bool` comme une fonction sur la valeur que l'on souhaite convertir.  
 La conversion se fera selon les mêmes règles que celles décrites au-dessus.
 
-```python
+```pycon
 >>> bool('hello')
 True
 >>> bool('')
@@ -187,7 +187,7 @@ Les opérateurs de comparaison que l'on a vus peuvent s'enchaîner afin de crée
 
 Par exemple, si l'on souhaite tester l'égalité entre trois valeurs `a`, `b` et `c`, on pourra écrire `a == b == c` plutôt que `a == b and b == c`.
 
-```python
+```pycon
 >>> 10 == 10 == 10
 True
 >>> 10 == 10 == 5
@@ -196,7 +196,7 @@ False
 
 Ou encore pour tester une inégalité, `0 < temp < 100` est plus simple à lire que `0 < temp and temp < 100`.
 
-```python
+```pycon
 >>> 0 < 25 < 100
 True
 >>> 0 < -25 < 100

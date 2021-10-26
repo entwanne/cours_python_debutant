@@ -4,7 +4,7 @@ Nous avons déjà vu la commande `print('message')` qui permet d'écrire un mess
 Il s'agit en fait d'une fonction prenant un nombre variable d'arguments et les affichant successivement dans la fenêtre de l'interpréteur.
 Les arguments passés peuvent être de n'importe quel type.
 
-```python
+```pycon
 >>> print(10, 'text', 4.2)
 10 text 4.2
 ```
@@ -12,7 +12,7 @@ Les arguments passés peuvent être de n'importe quel type.
 Par défaut, les valeurs sont séparées par une espace.
 Il est toutefois possible de choisir un autre séparateur en ajoutant un argument `sep='xxx'` après tous les autres.
 
-```python
+```pycon
 >>> print(10, 'text', 4.2, sep=' - ')
 10 - text - 4.2
 ```
@@ -24,7 +24,7 @@ Sachez aussi que l'on peut appeler la fonction `print` sans lui passer aucun arg
 À quoi cela peut bien servir ? Juste à afficher une ligne vide.
 Cela revient à appeler `print` avec une chaîne vide.
 
-```python
+```pycon
 >>> print()
 
 >>> print('')
@@ -33,7 +33,7 @@ Cela revient à appeler `print` avec une chaîne vide.
 
 À l'inverse de `print`, il existe aussi une fonction `input` pour lire une chaîne de caractères depuis le terminal, selon ce qui est entré par l'utilisateur.
 
-```python
+```pycon
 >>> input()
 coucou
 'coucou'
@@ -49,7 +49,7 @@ Cette ligne est ensuite renvoyée, sous forme d'une chaîne de caractères, par 
 
 `input` prend aussi un argument optionnel permettant d'afficher un message juste avant de demander la saisie, comme dans l'exemple suivant.
 
-```python
+```pycon
 >>> name = input('Quel est ton nom ? ')
 Quel est ton nom ? entwanne
 >>> print("Tu t'appelles", name)

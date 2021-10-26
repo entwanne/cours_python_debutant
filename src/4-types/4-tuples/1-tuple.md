@@ -6,7 +6,7 @@ C'est-à-dire des séquences d'un nombre fixe d'éléments : après la définit
 Un tuple est généralement défini par une paire de parenthèses contenant les éléments séparés par des virgules.
 Comme une liste, un tuple peut contenir des éléments de types différents.
 
-```python
+```pycon
 >>> (1, 2, 3)
 (1, 2, 3)
 >>> ('a', 'b', 'c')
@@ -18,7 +18,7 @@ Comme une liste, un tuple peut contenir des éléments de types différents.
 On notera tout de même que les parenthèses sont facultatives, c'est la virgule qui définit réellement un tuple.
 Comme pour les opérations arithmétiques, les parenthèses servent en fait à gérer les priorités et mettre en valeur le tuple.
 
-```python
+```pycon
 >>> 1, 2, 3
 (1, 2, 3)
 >>> 1, 2, 3 * 3
@@ -30,7 +30,7 @@ Comme pour les opérations arithmétiques, les parenthèses servent en fait à g
 Il faut bien penser à cette virgule lorsque l'on cherche à définir un tuple contenant un unique élément.
 En effet, `(1)` étant une notation équivalente à `1`, il est nécessaire d'en ajouter une pour expliciter le tuple.
 
-```python
+```pycon
 >>> (1)
 1
 >>> (1,)
@@ -41,7 +41,7 @@ En effet, `(1)` étant une notation équivalente à `1`, il est nécessaire d'en
 
 Par ailleurs, il est possible de définir un tuple vide à l'aide d'une simple paire de parenthèses (il n'y a dans ce cas pas de confusion avec d'autres utilisations possibles des parenthèses).
 
-```python
+```pycon
 >>> ()
 ()
 ```
@@ -51,7 +51,7 @@ On parle ainsi parfois de couple pour des tuples de 2 éléments, des triplets p
 
 Par exemple il est courant de dire que la méthode `items` des dictionnaires renvoie des couples clé/valeur.
 
-```python
+```pycon
 >>> phonebook = {'Alice': '0633432380', 'Bob': '0663621029', 'Alex': '0714381809'}
 >>> for couple in phonebook.items():
 ...     print(couple)

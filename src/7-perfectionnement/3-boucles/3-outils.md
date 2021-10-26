@@ -14,7 +14,7 @@ On a déjà vu un certain nombre de *builtins* dans les chapitres précédents, 
 Notamment la fonction `enumerate`, qui prend une liste (ou n'importe quel itérable) et permet d'itérer sur ses valeurs tout en leur associant leur index.
 C'est-à-dire que pour chaque valeur on connaîtra la position qu'elle occupe dans la liste.
 
-```python
+```pycon
 >>> values = ['abc', 'def', 'ghi']
 >>> for i, value in enumerate(values):
 ...     print(i, ':', value)
@@ -26,7 +26,7 @@ C'est-à-dire que pour chaque valeur on connaîtra la position qu'elle occupe da
 
 Cela remplace aisément les constructions à base de `range(len(values))` que l'on voit trop souvent et qui sont à éviter.
 
-```python
+```pycon
 >>> for i in range(len(values)):
 ...     print(i, ':', values[i])
 ... 
@@ -39,7 +39,7 @@ On les évite justement parce qu'`enumerate` répond mieux au problème tout en 
 
 On notera au passage que la fonction `enumerate` accepte un deuxième argument pour préciser l'index de départ, qui est par défaut de zéro.
 
-```python
+```pycon
 >>> with open('corbeau.txt') as f:
 ...     for i, line in enumerate(f, 1):
 ...         print(i, ':', line.rstrip())
@@ -68,7 +68,7 @@ On notera au passage que la fonction `enumerate` accepte un deuxième argument p
 
 `reversed` est une fonction très simple, elle permet d'inverser une séquence d'éléments, pour les parcourir dans l'ordre inverse.
 
-```python
+```pycon
 >>> values = ['abc', 'def', 'ghi']
 >>> for value in reversed(values):
 ...     print(value)
@@ -80,7 +80,7 @@ abc
 
 La fonction ne modifie pas la séquence initiale (contrairement à la méthode `reverse` des listes).
 
-```python
+```pycon
 >>> values
 ['abc', 'def', 'ghi']
 ```
@@ -89,7 +89,7 @@ La fonction ne modifie pas la séquence initiale (contrairement à la méthode `
 
 Dans la même veine on a la fonction `sorted`, semblable à la méthode `sort` des listes mais renvoyant ici une copie.
 
-```python
+```pycon
 >>> values = [5, 3, 2, 4, 6, 1, 9, 7, 8]
 >>> sorted(values)
 [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -99,7 +99,7 @@ Dans la même veine on a la fonction `sorted`, semblable à la méthode `sort` d
 
 On notera que le tri se fait en ordre croissant (les plus petits éléments d'abord) par défaut, mais la fonction accepte un argument `reverse` pour trier en ordre décroissant (les plus grands d'abord).
 
-```python
+```pycon
 >>> sorted(values, reverse=True)
 [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
@@ -113,7 +113,7 @@ C'est une fonction qui recevra un élément en paramètre et renverra une valeur
 
 Par exemple, le tri par défaut pour les chaînes de caractères est l'ordre lexicographique (plus ou moins équivalent à l'ordre alphabétique).
 
-```python
+```pycon
 >>> words = ['zèbre', 'autruche', 'cheval', 'oie']
 >>> sorted(words)
 ['autruche', 'cheval', 'oie', 'zèbre']
@@ -121,7 +121,7 @@ Par exemple, le tri par défaut pour les chaînes de caractères est l'ordre lex
 
 On pourrait alors préciser une fonction de tri `key=len` pour les trier par taille.
 
-```python
+```pycon
 >>> sorted(words, key=len)
 ['oie', 'zèbre', 'cheval', 'autruche']
 ```
@@ -131,7 +131,7 @@ Mais il est possible d'utiliser n'importe quelle fonction en tant que clé de tr
 
 Voici un autre exemple avec une fonction pour trier les mots dans l'ordre alphabétique mais en commençant par la dernière lettre du mot.
 
-```python
+```pycon
 >>> def key_func(word):
 ...     return word[::-1] # On renvoie le mot à l'envers
 ...
@@ -143,7 +143,7 @@ Voici un autre exemple avec une fonction pour trier les mots dans l'ordre alphab
 
 Ces deux arguments sont aussi disponibles sur la méthode `sort` des listes.
 
-```python
+```pycon
 >>> words.sort(key=len, reverse=True)
 >>> words
 ['autruche', 'cheval', 'zèbre', 'oie']
@@ -153,7 +153,7 @@ Ces deux arguments sont aussi disponibles sur la méthode `sort` des listes.
 
 On a déjà vu les fonctions `min` et `max` qui permettent respectivement de récupérer le minimum/maximum parmi leurs arguments.
 
-```python
+```pycon
 >>> min(3, 1, 2)
 1
 >>> max(3, 1, 2)
@@ -162,7 +162,7 @@ On a déjà vu les fonctions `min` et `max` qui permettent respectivement de ré
 
 On sait aussi qu'on peut les appeler avec un seul argument (un itérable) et récupérer le minimum/maximum dans cet itérable.
 
-```python
+```pycon
 >>> min({3, 1, 2})
 1
 >>> max([3, 1, 2])
@@ -173,7 +173,7 @@ Mais sachez maintenant que ces fonctions acceptent aussi un argument `key` qui f
 Ainsi il est possible d'expliquer comment doivent être comparées les valeurs.
 On peut alors simplement demander la valeur minimale/minimale d'une liste en comparant les nombres selon leur valeur absolue.
 
-```python
+```pycon
 >>> min([-5, -2, 1, 3], key=abs)
 1
 >>> max([-5, -2, 1, 3], key=abs)
@@ -182,7 +182,7 @@ On peut alors simplement demander la valeur minimale/minimale d'une liste en com
 
 Ces fonctions acceptent aussi un argument `default` dont la valeur est renvoyée (plutôt qu'une erreur) si l'itérable est vide.
 
-```python
+```pycon
 >>> min([])
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -197,7 +197,7 @@ ValueError: min() arg is an empty sequence
 On appelle la fonction en lui fournissant nos itérables en arguments, et l'on itère ensuite sur l'objet qu'elle nous renvoie.  
 Les éléments que l'on obtient alors sont des tuples formés des éléments de nos itérables de départ.
 
-```python
+```pycon
 >>> for elem in zip(words, 'abcd', range(4)):
 ...     print(elem)
 ... 
@@ -209,7 +209,7 @@ Les éléments que l'on obtient alors sont des tuples formés des éléments de 
 
 Il est ainsi possible d'utiliser l'_unpacking_ de Python pour avoir quelque chose de plus explicite.
 
-```python
+```pycon
 >>> for word, letter, number in zip(words, 'abcd', range(4)):
 ...     print(word, letter, number)
 ... 
@@ -223,7 +223,7 @@ oie d 3
 
 Aussi, il s'arrête dès que l'un des itérables se termine, puisqu'il ne peut alors plus produire de tuple contenant un élément de chaque.
 
-```python
+```pycon
 >>> for i, j in zip(range(2, 6), range(10)):
 ...     print(i, j)
 ... 
@@ -244,7 +244,7 @@ Je veux juste vous présenter quelques fonctions qui pourraient vous être bien 
 
 Comme son nom l'indique, `chain` permet de chaîner plusieurs itérables, de façon transparente et quels que soient leurs types.
 
-```python
+```pycon
 >>> from itertools import chain
 >>> for letter in chain('ABC', ['D', 'E'], ('F', 'G')):
 ...     print(letter)
@@ -263,7 +263,7 @@ G
 `zip_longest` est un équivalent à `zip` qui ne s'arrête pas au premier itérable terminé mais qui continue jusqu'au dernier.
 Les valeurs manquantes seront alors complétées par `None`, ou par la valeur précisée au paramètre `fillvalue`.
 
-```python
+```pycon
 >>> from itertools import zip_longest
 >>> for i, j in zip_longest(range(2, 6), range(10)):
 ...     print(i, j)
@@ -291,7 +291,7 @@ D .
 
 `product` calcule le produit cartésien entre plusieurs itérables, c'est-à-dire qu'il produit toutes les combinaisons d'éléments possibles.
 
-```python
+```pycon
 >>> from itertools import product
 >>> for i, c in product(range(5), 'ABC'):
 ...     print(i, c)

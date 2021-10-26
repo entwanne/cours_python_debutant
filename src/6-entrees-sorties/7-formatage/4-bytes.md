@@ -8,14 +8,14 @@ Un objet _bytes_ peut donc être vu comme un tableau de nombres, chaque nombre �
 
 On peut d'ailleurs définir un objet _bytes_ à partir d'un tel tableau.
 
-```python
+```pycon
 >>> bytes([1, 2, 3])
 b'\x01\x02\x03'
 ```
 
 La représentation de notre objet peut sembler perturbante, mais il s'agit bien de notre tableau.
 
-```python
+```pycon
 >>> data = bytes([1, 2, 3])
 >>> data[0]
 1
@@ -23,7 +23,7 @@ La représentation de notre objet peut sembler perturbante, mais il s'agit bien 
 
 Comme les chaînes de caractères, les chaînes d'octets sont immutables.
 
-```python
+```pycon
 >>> data[0] = 10
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -76,7 +76,7 @@ Table: Table ASCII
 
 C'est pourquoi, lors de l'affichage, Python essaie généralement de représenter un objet _bytes_ comme du texte, en s'appuyant sur la table ASCII.
 
-```python
+```pycon
 >>> bytes([65, 66, 67])
 b'ABC'
 ```
@@ -85,21 +85,21 @@ b'ABC'
 
 On le voit ainsi, une chaîne d'octets peut simplement se définir comme une chaîne de caractères préfixée d'un `b`.
 
-```python
+```pycon
 >>> b'foobar'
 b'foobar'
 ```
 
 Cela ne change rien au fait que la chaîne ainsi créée est toujours considérée comme un tableau de nombres.
 
-```python
+```pycon
 >>> b'foobar'[0]
 102
 ```
 
 Bien sûr, seulement les caractères de la table ASCII sont utilisables pour construire une chaîne d'octet, impossible d'y utiliser des caractères spéciaux qui n'ont aucune correspondance.
 
-```python
+```pycon
 >>> b'été'
   File "<stdin>", line 1
 SyntaxError: bytes can only contain ASCII literal characters.
@@ -107,7 +107,7 @@ SyntaxError: bytes can only contain ASCII literal characters.
 
 Et comme on l'a vu plus haut, on peut utiliser la notation `\xNN` pour insérer des octets particuliers, `NN` étant la valeur de l'octet en hexadécimal.
 
-```python
+```pycon
 >>> data = b'\x01\x2A\x61'
 >>> data[1]
 42
@@ -119,7 +119,7 @@ Et comme on l'a vu plus haut, on peut utiliser la notation `\xNN` pour insérer 
 
 Les octets pouvant être interprétés comme des caractères sont affichés comme tel par Python pour faciliter la lisibilité.
 
-```python
+```pycon
 >>> data
 b'\x01*a'
 ```
@@ -127,7 +127,7 @@ b'\x01*a'
 Qui dit similitude avec les chaînes de caractères dit aussi opérations similaires.
 Ainsi il est possible de concaténer des chaînes d'octets et d'y appliquer pratiquement les mêmes méthodes.
 
-```python
+```pycon
 >>> b'abc' + b'def'
 b'abcdef'
 >>> b'foo'.replace(b'o', b'e')
@@ -138,7 +138,7 @@ b'fee'
 
 Mais les deux types ne sont pas compatibles entre-eux.
 
-```python
+```pycon
 >>> b'abc' + 'def'
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -150,21 +150,21 @@ TypeError: can't concat str to bytes
 Il est en revanche possible de convertir l'un vers l'autre.
 Les chaînes de caractères possèdent une méthode `encode` renvoyant une chaîne d'octets.
 
-```python
+```pycon
 >>> 'foobar'.encode()
 b'foobar'
 ```
 
 À l'inverse, les chaînes d'octets ont une méthode `decode` pour les convertir en chaînes de caractères.
 
-```python
+```pycon
 >>> b'foobar'.decode()
 'foobar'
 ```
 
 Je n'utilise ici que des caractères de la table ASCII, mais cela fonctionne aussi avec des caractères « spéciaux ».
 
-```python
+```pycon
 >>> 'été'.encode()
 b'\xc3\xa9t\xc3\xa9'
 >>> b'\xc3\xa9t\xc3\xa9'.decode()
@@ -179,14 +179,14 @@ En Python, on utilise plus couramment des encodages unicode -- qui peuvent repr�
 C'est cet encodage UTF-8 qui a été utilisé par défaut lors des opérations précédentes.
 En effet, les méthodes `encode` et `decode` peuvent prendre un argument optionnel pour spécifier l'encodage vers lequel encode / depuis lequel décoder.
 
-```python
+```pycon
 >>> 'été'.encode('utf-8')
 b'\xc3\xa9t\xc3\xa9'
 ```
 
 On notera que la taille varie entre chaînes de caractères et chaînes d'octets, l'appel à `len` nous renverra 3 dans le premier cas et 5 dans le second. C'est bien parce que l'on compte soit les caractères soit les octets.
 
-```python
+```pycon
 >>> len('été')
 3
 >>> len('été'.encode('utf-8'))
@@ -196,7 +196,7 @@ On notera que la taille varie entre chaînes de caractères et chaînes d'octets
 D'autres encodages existent et ils ont chacun leurs particularités.
 Par exemple l'UTF-32 est un encodage unicode qui représente chaque caractère sur 4 octets.
 
-```python
+```pycon
 >>> 'été'.encode('utf-32')
 b'\xff\xfe\x00\x00\xe9\x00\x00\x00t\x00\x00\x00\xe9\x00\x00\x00'
 >>> 'abc'.encode('utf-32')
@@ -205,14 +205,14 @@ b'\xff\xfe\x00\x00a\x00\x00\x00b\x00\x00\x00c\x00\x00\x00'
 
 Ou encore l'encodage latin-1 (ou iso-8859-1) un encodage encore parfois utilisé sur certains systèmes en Europe (Windows notamment).
 
-```python
+```pycon
 >>> 'été'.encode('latin-1')
 b'\xe9t\xe9'
 ```
 
 Mais latin-1 n'est pas un encodage unicode et ne pourra donc pas représenter tous les caractères.
 
-```python
+```pycon
 >>> '♫'.encode('utf-8')
 b'\xe2\x99\xab'
 >>> '♫'.encode('latin-1')
@@ -223,7 +223,7 @@ UnicodeEncodeError: 'latin-1' codec can't encode character '\u266b' in position 
 
 Une chaîne ayant été encodée avec un certain encodage doit toujours être décodé avec ce même encodage, cela donnerait sinon lieu à des erreurs ou des incohérences.
 
-```python
+```pycon
 >>> 'été'.encode('utf-8').decode('latin-1')
 'Ã©tÃ©'
 >>> 'été'.encode('latin-1').decode('utf-8')
@@ -234,7 +234,7 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe9 in position 0: invalid 
 
 On notera aussi que l'ascii est reconnu comme un encodage à part entière par les méthodes `encode` et `decode`. Bien sûr, seuls les caractères de la table ASCII sont autorisés dans les chaînes.
 
-```python
+```pycon
 >>> 'abcdef'.encode('ascii')
 b'abcdef'
 >>> b'abcdef'.decode('ascii')
@@ -260,7 +260,7 @@ Ainsi, on voudrait parfois pouvoir traiter un fichier comme des données brutes,
 Cela est possible à l'aide du mode binaire, il s'agit d'un caractère `b` ajouté au mode d'ouverture du fichier.
 Ce mode aura pour effet que toutes les opérations sur le fichier traiteront des chaînes d'octets et non des chaînes de caractères.
 
-```python
+```pycon
 >>> with open('output.txt', 'rb') as f:
 ...     f.read()
 ... 
@@ -269,7 +269,7 @@ b'\xe9t\xe9'
 
 Il en est de même en écriture, où les méthodes attendront des chaînes d'octets.
 
-```python
+```pycon
 >>> with open('output.txt', 'wb') as f:
 ...     f.write(b'\x01\x02\x03')
 ... 

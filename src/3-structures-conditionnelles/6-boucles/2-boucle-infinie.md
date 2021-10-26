@@ -4,7 +4,7 @@ Notre boucle `while` s'arrête quand le prédicat devient faux.
 Mais que se passe-t-il alors si celui-ci est toujours vrai ?  
 Notre boucle se retrouve alors à tourner indéfiniment…
 
-```python
+```pycon
 >>> while True:
 ...     print("Vers l'infini et au-delà !")
 ... 

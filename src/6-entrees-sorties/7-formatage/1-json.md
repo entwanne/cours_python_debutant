@@ -42,7 +42,7 @@ Retenez ces noms de fonctions, ils sont courants en Python et communs à beaucou
 `load` est une fonction qui prend en argument un fichier (un objet-fichier ouvert en lecture au préalable) et traite son contenu afin de le renvoyer sous la forme d'un objet Python.
 Par exemple, avec le document `pythachu.json` présenté plus haut, nous aurions ceci.
 
-```python
+```pycon
 >>> import json
 >>> with open('pythachu.json') as f:
 ...     json.load(f)
@@ -54,14 +54,14 @@ La fonction nous a renvoyé la représentation en Python de notre objet.
 
 `loads` est similaire à `load` mais reçoit en argument une chaîne de caractères plutôt qu'un fichier (_loads_ pour _load string_). Elle traite donc le contenu directement depuis la chaîne.
 
-```python
+```pycon
 >>> json.loads('{"name": "Pythard", "base_pv": null}')
 {'name': 'Pythard', 'base_pv': None}
 ```
 
 Ces fonctions lèveront une exception si l'entrée n'est pas dans un format correct.
 
-```python
+```pycon
 >>> json.loads('{42: "foo"}')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -75,7 +75,7 @@ json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes:
 
 `dumps` reçoit en argument un objet Python et renvoie sa sérialisation sous forme d'une chaîne de caractères.
 
-```python
+```pycon
 >>> json.dumps([1, 2, 3, 'foo'])
 '[1, 2, 3, "foo"]'
 ```
@@ -104,7 +104,7 @@ Code: output.json
 
 L'objet passé en argument se doit d'être composé de types convertibles en JSON, une exception sera levée dans le cas contraire.
 
-```python
+```pycon
 >>> json.dumps(1+5j)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

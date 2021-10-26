@@ -32,7 +32,7 @@ Pour ce chapitre, j'utiliserai le fichier `corbeau.txt` avec le contenu suivant�
 Une première manière de découper est d'utiliser l'argument optionnel de `read` qui permet de préciser une taille.
 La longueur du texte renvoyé sera ainsi toujours inférieure ou égale à cette taille (inférieur s'il n'y a plus rien d'autre à lire par exemple), et le curseur avancé d'autant dans le fichier.
 
-```python
+```pycon
 >>> with open('corbeau.txt') as f:
 ...     f.read(100)
 ...     f.read(100)
@@ -68,7 +68,7 @@ Une lecture ligne par ligne nous serait plus utile.
 Et c'est le but de la méthode `readline`.
 Celle-ci s'occupe de repérer où sont les retours à la ligne et ainsi de ne renvoyer qu'une ligne à la fois, en gardant ce qui suit pour un prochain appel.
 
-```python
+```pycon
 >>> with open('corbeau.txt') as f:
 ...     line = f.readline()
 ...     while line:
@@ -100,7 +100,7 @@ On constate tout de même que le retour à la ligne est considéré comme faisan
 On trouve aussi la méthode `readlines` pour lire toutes les lignes d'un coup et les renvoyer dans un tableau.
 Mais on retombe sur le problème initial : cela demande à stocker le fichier en mémoire dans sa totalité.
 
-```python
+```pycon
 >>> with open('corbeau.txt') as f:
 ...     f.readlines()
 ... 

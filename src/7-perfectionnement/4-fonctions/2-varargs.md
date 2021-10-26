@@ -6,7 +6,7 @@ Certaines fonctions que nous utilisons couramment exploitent encore des fonction
 Si je vous demandais par exemple de recoder la fonction `print`, comment procéderiez-vous ?
 Pour rappel, la fonction permet de recevoir un nombre variable d'arguments.
 
-```python
+```pycon
 >>> print()
 
 >>> print(1)
@@ -22,7 +22,7 @@ L'idée derrière ce nom est simplement de récupérer les arguments positionnel
 Et cela se fait avec une syntaxe plutôt simple en Python, il suffit de placer `*args` dans la liste des paramètres de la fonction.
 On obtiendra ainsi un tuple `args` contenant ces arguments.
 
-```python
+```pycon
 >>> def print_args(*args):
 ...     print(args)
 ... 
@@ -40,7 +40,7 @@ C'est le `*` placé avant qui a pour effet de récupérer les arguments et non l
 Avec `*args`, tous les arguments sont ainsi optionnels.
 Mais il est aussi possible de préciser d'autres paramètres avant `*args`, qui ne récupérera alors que le reste des arguments : cela permet alors de conserver des arguments obligatoires.
 
-```python
+```pycon
 >>> def my_sum(first, *args):
 ...     for n in args:
 ...         first += n
@@ -58,7 +58,7 @@ TypeError: my_sum() missing 1 required positional argument: 'first'
 
 Si vous testez un peu, vous remarquerez que cette syntaxe est valide pour les arguments positionnels mais pas les arguments nommés.
 
-```python
+```pycon
 >>> print_args(foo='bar')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -70,7 +70,7 @@ Mais il existe une autre syntaxe pour récupérer les arguments nommés, sous fo
 `kwargs` pour *keyword arguments* (arguments nommés) car il ne pourra récupérer que les arguments qui sont explicitement nommés.
 Là encore le nom du paramètre n'est qu'une convention.
 
-```python
+```pycon
 >>> def print_args(*args, **kwargs):
 ...     print(args, kwargs)
 ... 
@@ -83,7 +83,7 @@ Là encore le nom du paramètre n'est qu'une convention.
 Le paramètre spécial `**kwargs` ne peut se placer que tout à la fin de la liste des paramètres puisqu'il récupère les arguments qui n'ont pas été attrapés par les paramètres précédents.
 `*args` quant à lui peut se placer à peu près où vous le souhaitez (avant `**kwargs`) mais souvenez-vous qu'il attrape tous les arguments positionnels, donc les paramètres situés après ne pourront récupérer que des arguments nommés.
 
-```python
+```pycon
 >>> def print_args(foo, *args, bar, **kwargs):
 ...     print(foo, args, bar, kwargs)
 ...
@@ -100,7 +100,7 @@ L'opérateur `*` utilisé dans la liste des paramètres est appelé _splat_, et 
 
 Il permet en effet aussi de réaliser l'opération inverse, celle de transmettre à une fonction les éléments d'une liste (ou autre itérable) comme arguments positionnels différents.
 
-```python
+```pycon
 >>> def addition(a, b):
 ...     return a + b
 ... 
@@ -116,14 +116,14 @@ Il permet en effet aussi de réaliser l'opération inverse, celle de transmettre
 Et on voit que le _splat_ du côté de l'appel n'est pas lié au _splat_ dans la définition des paramètres puisque notre fonction n'accepte pas d'arguments variadiques ici.
 Mais les deux sont bien sûr compatibles.
 
-```python
+```pycon
 >>> print_args(*[1, 2, 3])
 (1, 2, 3) {}
 ```
 
 Contrairement aux paramètres, rien ne nous empêche ici d'utiliser plusieurs _splats_ pour envoyer des arguments de plusieurs listes, ni d'utiliser des arguments « normaux » en plus de nos listes.
 
-```python
+```pycon
 >>> print_args(1, 2, *[3, 4, 5], 6)
 (1, 2, 3, 4, 5, 6) {}
 >>> print_args(*[1, 2, 3], 4, *[5, 6])
@@ -133,7 +133,7 @@ Contrairement aux paramètres, rien ne nous empêche ici d'utiliser plusieurs _s
 De manière équivalente, `**` est l'opérateur _double-splat_ et peut s'utiliser lors d'un appel pour transmettre le contenu d'un dictionnaire comme arguments nommés.
 Il est alors nécessaire que les clés du dictionnaire soient des chaînes de caractères (un nom de paramètre ne peut pas être autre chose qu'une chaîne).
 
-```python
+```pycon
 >>> print_args(**{'foo': 0, 'bar': 'baz'})
 () {'foo': 0, 'bar': 'baz'}
 ```

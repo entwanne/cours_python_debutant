@@ -14,7 +14,7 @@ Toute valeur Python peut être interprétée comme un booléen (par conversion i
 Il est aussi possible de convertir explicitement une valeur en booléen en faisant appel au type booléen.
 Les règles de conversion sont les mêmes que celles énoncées ci-dessus.
 
-```python
+```pycon
 >>> bool(5)
 True
 >>> bool(0.0)
@@ -56,7 +56,7 @@ Prenons le cas de `and` avec une opération `a and b` :
 * Si `a` vaut `False`, le résultat sera forcément `False`. Donc `and` fait un raccourci et ne regarde même pas `b`. Dans ce cas la valeur renvoyée est `a` (qui peut être interprétée comme `False`).
 * Si `a` vaut `True`, alors `and` renverra simplement `b`, puisque la conversion de `b` en booléen sera le résultat de l'opération.
 
-```python
+```pycon
 >>> [] and 5
 []
 >>> ['foo'] and 5
@@ -69,7 +69,7 @@ True
 
 Le même genre de raccourci existe pour `or`, qui renvoie `a` si `a` vaut `True` et `b` sinon.
 
-```python
+```pycon
 >>> ['foo'] or 5
 ['foo']
 >>> [] or 5
@@ -83,7 +83,7 @@ True
 On notera enfin en termes de conversions que les booléens eux-mêmes sont aussi implicitement convertis en nombres lorsqu'utilisés comme tels.
 On aura ainsi `True` converti en `1` et `False` en `0`.
 
-```python
+```pycon
 >>> False + 2 * True
 2
 ```

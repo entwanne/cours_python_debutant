@@ -6,7 +6,7 @@ Un objet `datetime` représente une date précise (avec année, mois, jour, heur
 Une date avec fuseau horaire représente donc un instant précis, on dit qu'elle est avisée.
 Une date sans fuseau est dite naïve car son interprétation dépend du fuseau horaire courant.
 
-```python
+```pycon
 >>> datetime.datetime(2000, 4, 12, 8, 30, 55)
 datetime.datetime(2000, 4, 12, 8, 30, 55)
 ```
@@ -14,7 +14,7 @@ datetime.datetime(2000, 4, 12, 8, 30, 55)
 La méthode `now` du type `datetime` permet de récupérer l'objet associé à l'instant courant (exprimé dans le fuseau local).
 Par défaut, elle renvoie une date naïve.
 
-```python
+```pycon
 >>> dt = datetime.datetime.now()
 >>> dt
 datetime.datetime(2021, 10, 1, 16, 19, 43, 840744)
@@ -22,7 +22,7 @@ datetime.datetime(2021, 10, 1, 16, 19, 43, 840744)
 
 Il est possible de préciser un fuseau horaire en argument pour obtenir une date avisée selon ce fuseau, par exemple en utilisant `datetime.timezone.utc`.
 
-```python
+```pycon
 >>> dt = datetime.datetime.now(datetime.timezone.utc)
 >>> dt_utc
 datetime.datetime(2021, 10, 1, 14, 19, 43, 840744, tzinfo=datetime.timezone.utc)
@@ -39,7 +39,7 @@ Les `datetime` peuvent être convertis vers d'autres types de dates à l'aide de
 
 * `datetime.fromtimestamp` permet de construire un objet `datetime` depuis un _timestamp_. Un fuseau optionnel peut être donné en argument.
 
-  ```python
+  ```pycon
   >>> datetime.datetime.fromtimestamp(1633093972)
   datetime.datetime(2021, 10, 1, 15, 12, 52)
   >>> datetime.datetime.fromtimestamp(1633093972, datetime.timezone.utc)
@@ -48,7 +48,7 @@ Les `datetime` peuvent être convertis vers d'autres types de dates à l'aide de
 
 * La méthode `timestamp` permet l'opération inverse (que l'objet `datetime` soit naïf ou avisé).
 
-  ```python
+  ```pycon
   >>> dt.timestamp()
   1633097983.840744
   >>> dt_utc.timestamp()
@@ -57,7 +57,7 @@ Les `datetime` peuvent être convertis vers d'autres types de dates à l'aide de
 
 * On peut aussi convertir des `datetime` vers des `struct_time` à l'aide de la méthode `timetuple`.
 
-  ```python
+  ```pycon
   >>> dt.timetuple()
   time.struct_time(tm_year=2021, tm_mon=10, tm_mday=1, tm_hour=16, tm_min=19, tm_sec=43, tm_wday=4, tm_yday=274, tm_isdst=-1)
   >>> dt_utc.timetuple()
@@ -66,7 +66,7 @@ Les `datetime` peuvent être convertis vers d'autres types de dates à l'aide de
 
 Les conversions sont aussi possibles vers et depuis des chaînes de caractères, notamment en format ISO avec les méthodes `isoformat` et `fromisoformat`.
 
-```python
+```pycon
 >>> dt.isoformat()
 '2021-10-01T16:19:43.840744'
 >>> dt_utc.isoformat()
@@ -88,7 +88,7 @@ Cette méthode accepte une chaîne pour représenter le format de sortie, où di
 - `%H`, `%M` et `%S` respectivement pour les heures, minutes et secondes
 - `%z` et `%Z` pour le fuseau horaire (en tant que décalage ou par son nom)
 
-```python
+```pycon
 >>> dt.strftime('Le %A %d %B %Y à %Hh%M')
 'Le vendredi 01 octobre 2021 à 16h19'
 >>> dt_utc.strftime('Le %A %d %B %Y à %Hh%M (%Z)')
@@ -108,7 +108,7 @@ Cette méthode accepte une chaîne pour représenter le format de sortie, où di
 
 On notera que ces options de formatage sont aussi disponibles au sein des _fstrings_ pour représenter des objets `datetime`.
 
-```python
+```pycon
 >>> f'{dt:%d/%m/%Y %H:%M}'
 '01/10/2021 16:19'
 >>> f'{dt_utc:%d/%m/%Y %H:%M%z}'
@@ -117,7 +117,7 @@ On notera que ces options de formatage sont aussi disponibles au sein des _fstri
 
 L'opération inverse est elle aussi possible (mais plus compliquée) avec la méthode `strptime` : on spécifie le chaîne représentant la date et le format attendu en arguments, la méthode nous renvoie alors l'objet `datetime` correspondant.
 
-```python
+```pycon
 >>> datetime.datetime.strptime('01/10/2021 14:19+0000', '%d/%m/%Y %H:%M%z')
 datetime.datetime(2021, 10, 1, 14, 19, tzinfo=datetime.timezone.utc)
 ```
@@ -126,7 +126,7 @@ datetime.datetime(2021, 10, 1, 14, 19, tzinfo=datetime.timezone.utc)
 
 Il est possible de soustraire des objets `datetime` pour obtenir une durée, qui représente le nombre de jours et secondes qui séparent les deux dates.
 
-```python
+```pycon
 >>> dt - datetime.datetime(2000, 4, 12, 8, 30, 55)
 datetime.timedelta(days=7842, seconds=28128, microseconds=840744)
 ```
@@ -134,7 +134,7 @@ datetime.timedelta(days=7842, seconds=28128, microseconds=840744)
 Ces durées se matérialisent par le type `timedelta`. Elles peuvent s'additionner et se soustraire entre-elles.
 Il est aussi possible de les multiplier par des nombres.
 
-```python
+```pycon
 >>> datetime.timedelta(days=1) + datetime.timedelta(days=1)
 datetime.timedelta(days=2)
 >>> datetime.timedelta(days=1) - datetime.timedelta(days=1)
@@ -145,7 +145,7 @@ datetime.timedelta(days=10)
 
 Et bien sûr, on peut additionner une durée à un `datetime` (naïf ou avisé) pour obtenir un nouveau `datetime`.
 
-```python
+```pycon
 >>> dt + datetime.timedelta(days=1)
 datetime.datetime(2021, 10, 2, 16, 19, 43, 840744)
 >>> dt_utc + datetime.timedelta(days=1)
@@ -157,7 +157,7 @@ datetime.datetime(2021, 10, 2, 14, 19, 43, 840744, tzinfo=datetime.timezone.utc)
 On l'a vu : les objets `datetime` peuvent contenir ou non des informations de fuseau horaire, selon l'usage que l'on veut en faire, et les deux types sont généralement gérés par les différentes fonctions.  
 Il est cependant à noter qu'on ne peux pas mélanger dates naïves et avisées au sein des mêmes opérations.
 
-```python
+```pycon
 >>> dt_utc - dt
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -168,7 +168,7 @@ Le module `datetime` ne fournit par défaut que le fuseau horaire UTC (_Temps Un
 
 Mais le type `timezone` permet de construire des fuseaux à décalage fixe par rapport à UTC, en prenant un `timedelta` en argument.
 
-```python
+```pycon
 >>> tz = datetime.timezone(datetime.timedelta(seconds=3600))
 >>> datetime.datetime.now(tz)
 datetime.datetime(2021, 10, 1, 15, 19, 43, 840744, tzinfo=datetime.timezone(datetime.timedelta(seconds=3600)))
@@ -177,7 +177,7 @@ datetime.datetime(2021, 10, 1, 15, 19, 43, 840744, tzinfo=datetime.timezone(date
 On notera aussi que la méthode `astimezone` permet de convertir une date vers un autre fuseau horaire.
 Les dates naïves sont considérées comme appartenant au fuseau local.
 
-```python
+```pycon
 >>> dt.astimezone(tz)
 datetime.datetime(2021, 10, 1, 15, 19, 43, 840744, tzinfo=datetime.timezone(datetime.timedelta(seconds=3600)))
 >>> dt.astimezone(datetime.timezone.utc)
@@ -190,14 +190,14 @@ datetime.datetime(2021, 10, 1, 15, 19, 43, 840744, tzinfo=datetime.timezone(date
 | `astimezone` opère une conversion sur la date pour correspondre au fuseau horaire choisi.
 | Pour simplement ajouter un fuseau horaire à une date sans faire de conversion, vous pouvez utiliser la méthode `replace` avec l'argument nommé `tzinfo`.
 |
-| ```python
+| ```pycon
 | >>> dt.replace(tzinfo=datetime.timezone.utc)
 | datetime.datetime(2021, 10, 1, 16, 19, 43, 840744, tzinfo=datetime.timezone.utc)
 | ```
 
 Depuis Python 3.9, le module `zoneinfo` apporte une collection de fuseaux horaires pour traiter les fuseaux courants.
 
-```python
+```pycon
 >>> from zoneinfo import ZoneInfo
 >>> tz = ZoneInfo('Europe/Paris')
 >>> dt.astimezone(tz)

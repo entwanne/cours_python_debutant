@@ -4,7 +4,7 @@ Les opérations sont semblables à celles des listes.
 
 Il est possible de convertir un itérable en tuple en appelant le type `tuple` comme une fonction.
 
-```python
+```pycon
 >>> tuple([1, 2, 3])
 (1, 2, 3)
 >>> tuple('abcd')
@@ -13,7 +13,7 @@ Il est possible de convertir un itérable en tuple en appelant le type `tuple` c
 
 On peut accéder aux éléments d'un tuple (en lecture uniquement) avec l'opérateur d'indexation `[]`, qui gère les index négatifs et les slices.
 
-```python
+```pycon
 >>> values = (4, 5, 6)
 >>> values[1]
 5
@@ -25,7 +25,7 @@ On peut accéder aux éléments d'un tuple (en lecture uniquement) avec l'opéra
 
 `in` permet de vérifier si une valeur est présente dans le tuple.
 
-```python
+```pycon
 >>> 3 in values
 False
 >>> 4 in values
@@ -34,7 +34,7 @@ True
 
 On peut concaténer deux tuples avec `+`, et multiplier un tuple par un nombre avec `*`.
 
-```python
+```pycon
 >>> (4, 5, 6) + (7, 8, 9)
 (4, 5, 6, 7, 8, 9)
 >>> (4, 5, 6) * 2
@@ -43,7 +43,7 @@ On peut concaténer deux tuples avec `+`, et multiplier un tuple par un nombre a
 
 Les tuples sont ordonnables les uns par rapport aux autres, de la même manière que les listes.
 
-```python
+```pycon
 >>> (1, 2, 3) < (1, 2, 4)
 True
 >>> (1, 2, 3) <= (1, 2, 2)
@@ -52,7 +52,7 @@ False
 
 Les fonctions `len`, `min`, `max`, `all`, `any` etc. sont aussi applicables aux tuples.
 
-```python
+```pycon
 >>> len(values)
 3
 >>> min(values)
@@ -67,7 +67,7 @@ True
 
 Enfin, les tuples sont pourvus de deux méthodes, `index` et `count`, pour respectivement trouver la position d'un élément et compter les occurrences d'un élément.
 
-```python
+```pycon
 >>> values.index(6)
 2
 >>> values.count(6)
