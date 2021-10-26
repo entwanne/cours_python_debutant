@@ -46,15 +46,15 @@ Voici le tableau de l'ensemble des mots-clés de Python :
   ```python
   assert 5 == 4 + 1
   ```
-* `async` : Introduit une fonction asynchrone (`async def`)[^non_aborde].
-* `await` : Attend un résultat asynchrone (depuis une fonction asynchrone)[^non_aborde].
+* `async` : Introduit une fonction asynchrone (`async def`)[^python_35][^non_aborde].
+* `await` : Attend un résultat asynchrone (depuis une fonction asynchrone)[^python_35][^non_aborde].
 * `break` : Permet de sortir immédiatement d'une boucle. En cas de boucles imbriquées, le mot-clé affecte la boucle intérieure uniquement.
   ```python
   while condition:
       ...
       break
   ```
-* `case` : Introduit un motif de filtrage dans un bloc `match`[^non_aborde].
+* `case` : Introduit un motif de filtrage dans un bloc `match`[^python_310][^non_aborde].
 * `class` : Définit une classe en programmation orientée objet[^class].
 * `continue` : Permet de passer à l'itération suivante de la boucle. En cas de boucles imbriquées, le mot-clé affecte la boucle intérieure uniquement.
   ```python
@@ -160,7 +160,7 @@ Voici le tableau de l'ensemble des mots-clés de Python :
   ```python
   lambda x: x**2
   ```
-* `match` : Introduit un bloc de filtrage par motif[^non_aborde].
+* `match` : Introduit un bloc de filtrage par motif[^python_310][^non_aborde].
 * `nonlocal` : Déclare une variable comme non-locale[^nonlocal].
 * `not` : Opération booléenne NON (négation).
   ```python
@@ -205,6 +205,8 @@ Voici le tableau de l'ensemble des mots-clés de Python :
   ```
 * `yield` : Produit une valeur depuis un générateur[^non_aborde].
 
+[^python_35]: Introduit en [Python 3.5](https://zestedesavoir.com/articles/175/sortie-de-python-3-5/).
+[^python_310]: Introduit en [Python 3.10](https://zestedesavoir.com/articles/4041/sortie-de-python-3-10/).
 [^non_aborde]: Non abordé dans ce cours.
 [^class]: Non abordé, mais c'est l'objet du cours [sur la programmation objet en Python](https://zestedesavoir.com/tutoriels/1253/la-programmation-orientee-objet-en-python/).
 [^nonlocal]: Non abordé, mais introduit dans [ce tutoriel sur les scopes](https://zestedesavoir.com/tutoriels/3163/variables-scopes-et-closures-en-python/).

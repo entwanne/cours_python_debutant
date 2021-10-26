@@ -165,7 +165,7 @@ Ces opérateurs sont constitués de caractères spéciaux et ne sont donc pas de
   >>> 3 >= 3
   True
   ```
-* `:=`: Expression d'assignation.
+* `:=`: Expression d'assignation[^python_38].
   ```python
   >>> if x:= 5:
   ...     print(x+1)
@@ -182,7 +182,7 @@ Ces opérateurs sont constitués de caractères spéciaux et ne sont donc pas de
   >>> bin(0b10101 >> 2)
   '0b101'
   ```
-* `@`: Multiplication matricielle.[^non_aborde]
+* `@`: Multiplication matricielle[^python_35][^non_aborde].
 * `,`: La virgule est un peu à part, c'est un séparateur (arguments, listes, etc.) mais aussi l'opérateur qui permet de créer des tuples.
   ```python
   >>> 1,
@@ -191,6 +191,8 @@ Ces opérateurs sont constitués de caractères spéciaux et ne sont donc pas de
   (3, 4, 5)
   ```
 
+[^python_35]: Introduit en [Python 3.5](https://zestedesavoir.com/articles/175/sortie-de-python-3-5/).
+[^python_38]: Introduit en [Python 3.8](https://docs.python.org/fr/3/whatsnew/3.8.html).
 [^non_aborde]: Non abordé dans ce cours.
 
 #### Opérateurs d'assignation
