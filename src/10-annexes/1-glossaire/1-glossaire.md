@@ -11,7 +11,7 @@ Utilisée par des outils tels que _mypy_ pour vérifier la cohérence du code.
 
 ##### assertion
 
-**Préicat** évalué avec le **mot-clé** `assert` qui lève une **exception** s'il est faux.
+**Prédicat** évalué avec le **mot-clé** `assert` qui lève une **exception** s'il est faux.
 
 ##### assignation
 

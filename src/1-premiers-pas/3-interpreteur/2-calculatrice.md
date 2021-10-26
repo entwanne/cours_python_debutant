@@ -24,7 +24,7 @@ Je mets des espaces autour des `+` mais celles-ci sont facultativs. Elles sont n
 6
 ```
 
-Python connaît aussi la soustraction, et les nombres négatifs.
+Python connaît aussi la soustraction et les nombres négatifs.
 
 ```python
 >>> 8 - 5
