@@ -1,4 +1,4 @@
 ### SQLite
 
 * Présentation de `sqlite`
-* <https://zestedesavoir.com/tutoriels/1729/programmation-avec-tkinter/>
+* <https://zestedesavoir.com/tutoriels/1294/des-bases-de-donnees-en-python-avec-sqlite3/>
