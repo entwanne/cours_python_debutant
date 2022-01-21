@@ -6,7 +6,7 @@ Je t'invite à continuer ton apprentissage en te dirigeant vers [la programmatio
 
 Je te conseille aussi de jeter un œil aux [secrets d'un code pythonique](https://zestedesavoir.com/articles/1079/les-secrets-dun-code-pythonique/) afin de bien t'imprégner de la philosophie Python.
 
-De manière plus générale, regarde du côté des [ressources](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/8-resources/) données en annexe pour voir quels sujets pourraient t'intéresser, il y est question d'interfaces graphique, de programmation asynchrone ou encore de bases de données.
+De manière plus générale, regarde du côté des [ressources](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/9-resources/) données en annexe pour voir quels sujets pourraient t'intéresser, il y est question d'interfaces graphique, de programmation asynchrone ou encore de bases de données.
 
 Un zeste de Python… Python in Zest' ♫
 
