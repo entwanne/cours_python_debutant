@@ -68,3 +68,5 @@ C'est le cas de `0.1` qui est en fait égal à `0.100000000000000005...`
 >>> 1.5 * 1.6
 2.4000000000000004
 ```
+
+Vous trouverez plus d'information sur ces erreurs dans [le tutoriel d'@Aabu dédié à l'arithmétique flottante](https://zestedesavoir.com/tutoriels/570/introduction-a-larithmetique-flottante/) que je vous invite à consulter après ce cours.

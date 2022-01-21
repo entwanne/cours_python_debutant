@@ -60,7 +60,7 @@ SyntaxError: invalid syntax
 
 Mais comment alors représenter une chaîne de caractères possédant à la fois des apostrophes et des guillemets (telle que `J'ai dit "salut"`) ?
 La solution se situe au niveau de l'échappement.
-Il suffit de faire précéder un caractère d'un _backslash_ (`\`) pour qu'il ne soit pas interprété par Python comme un caractère de délimitation.
+Il suffit de faire précéder un caractère d'un _backslash_ (ou _antislash_, `\`) pour qu'il ne soit pas interprété par Python comme un caractère de délimitation.
 
 ```pycon
 >>> 'J\'ai dit "salut"'
@@ -74,14 +74,27 @@ Ces échappements, comme les délimiteurs, disparaissent lorsque le texte est af
 J'ai dit "salut"
 ```
 
-D'autres séquences d'échappement sont disponibles, comme `\n` pour représenter un saut de ligne (_n_ comme _newline_, soit nouvelle ligne).
+D'autres séquences d'échappement sont disponibles, comme `\t` pour représenter une tabulation (alinéa) ou `\n` pour un saut de ligne (_n_ comme _newline_, soit _nouvelle ligne_).
 Il n'est en effet pas possible de revenir à la ligne dans une chaîne de caractères, et le `\n` est donc nécessaire pour insérer un saut de ligne.
 
 ```pycon
+>>> print('Elle a dit :\t"Salut"')
+Elle a dit :	"Salut"
 >>> print('Première ligne\nDeuxième ligne')
 Première ligne
 Deuxième ligne
 ```
+
+[[a]]
+| Certains systèmes d'exploitation comme Windows pourraient ne pas bien interpréter le `\n` comme un saut de ligne et demander à ce qu'il soit précédé du caractère « retour-chariot » (`\n`) pour fonctionner.
+|
+| ```pycon
+| >>> print('Une\r\nDeux')
+| Une
+| Deux
+| ```
+|
+| C'est un héritage de l'époque des machines à écrire où il fallait à la fois passer à la ligne suivante (nouvelle ligne) et revenir en début de ligne (retour chariot).
 
 Et enfin, le _backslash_ étant lui-même un caractère spécial, il est nécessaire de l'échapper (donc le doubler) si on veut l'insérer dans une chaîne.
 Comme par exemple pour un chemin de fichier sous Windows :

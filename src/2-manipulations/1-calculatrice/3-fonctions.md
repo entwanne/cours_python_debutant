@@ -43,7 +43,7 @@ Le résultat d'une fonction est donc une valeur comme une autre, ici un nombre, 
 6
 ```
 
-C'est ce que l'on appelle une « expression », cela désigne une ligne de Python qui produit une valeur.  
+C'est ce que l'on appelle une « **expression** », cela désigne une ligne de Python qui produit une valeur.  
 Cela peut-être une simple valeur (`42`), une opération (`3 * 5`) ou un appel de fonction (`abs(-2)`) : tous ces exemples sont des expressions, qui peuvent donc se composer les unes avec les autres dans de plus grandes expressions.
 
 ```pycon
@@ -51,7 +51,7 @@ Cela peut-être une simple valeur (`42`), une opération (`3 * 5`) ou un appel d
 29
 ```
 
-La valeur que l'on envoie à la fonction est appelée un argument. `abs(-5)` se lit « appel de la fonction `abs` avec l'argument `-5` », et `5` est la valeur de retour de la fonction.
+La valeur que l'on envoie à la fonction est appelée un **argument**. `abs(-5)` se lit « appel de la fonction `abs` avec l'argument `-5` », et `5` est la **valeur de retour** de la fonction.
 
 Un argument est aussi une expression, et l'on peut donc faire un appel de fonction sur une opération et non juste sur une valeur littérale.
 

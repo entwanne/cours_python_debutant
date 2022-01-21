@@ -48,7 +48,7 @@ Voilà pour l'exécution depuis l'éditeur de texte, mais si vous êtes un adept
 Pour cela, il suffit de lancer un terminal dans le répertoire où se trouve votre fichier de code (ou de se rendre dans le bon répertoire avec la commande `cd`) puis de lancer `python calc.py` (ou `python3` suivant la version par défaut).
 
 ```sh
-/tmp % python calc.py
+% python calc.py
 13
 21
 ```
@@ -61,7 +61,7 @@ Pour cela, il suffit de lancer un terminal dans le répertoire où se trouve vot
 Sous Linux vous pouvez aussi rendre votre programme exécutable en lui donnant les droits d'exécution (`chmod +x calc.py`) et en plaçant le _shebang_ `#!/usr/bin/env python` (ou `python3`) en en-tête du fichier.
 
 ```sh
-/tmp % ./calc.py
+% ./calc.py
 13
 21
 ```

@@ -50,7 +50,7 @@ Code: addition.py
 Mais attention, notre code plantera méchamment si nous ne fournissons pas suffisamment d'arguments.
 
 ```shell
-antoine@entwanne-mini /tmp % python addition.py 1
+% python addition.py 1
 Traceback (most recent call last):
   File "addition.py", line 4, in <module>
     b = int(sys.argv[2])
