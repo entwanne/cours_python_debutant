@@ -57,11 +57,3 @@ Pour cela, il suffit de lancer un terminal dans le répertoire où se trouve vot
 | Attention sous Windows, pensez à utiliser un terminal persistant pour éviter que celui-ci ne se ferme à la fin du programme ou lorsqu'une erreur est rencontrée.
 |
 | Évitez donc d'exécuter vos fichiers en double-cliquant dessus et préférez ouvrir un Powershell dans lequel vous appellerez Python comme ci-dessus.
-
-Sous Linux vous pouvez aussi rendre votre programme exécutable en lui donnant les droits d'exécution (`chmod +x calc.py`) et en plaçant le _shebang_ `#!/usr/bin/env python` (ou `python3`) en en-tête du fichier.
-
-```sh
-% ./calc.py
-13
-21
-```
