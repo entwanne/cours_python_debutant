@@ -117,6 +117,18 @@ On peut mettre cet état de fait en évidence si l'on a deux variables qui réf�
 [[a]]
 | C'est d'ailleurs un comportement qui est souvent perçu comme une erreur par les débutants, mais il faut bien comprendre que `numbers` et `copy` sont deux étiquettes sur une même liste.
 | Ainsi, une modification de `numbers` est également une modification de `copy`.
+|
+| ```python
+| >>> numbers = copy = [1, 2, 3, 4]
+| ```
+|
+| ![Deux étiquettes sur une même liste.](img/list_multiple_ref.png)
+|
+| ```python linenostart=2
+| >>> numbers[0] = 10
+| ```
+|
+| ![Les deux étiquettes sont affectées.](img/list_multiple_ref_edit.png)
 
 Nos listes étant modifiables, elles proposent aussi certaines opérations pour insérer ou supprimer des éléments.
 

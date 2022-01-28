@@ -75,6 +75,8 @@ Le code précédent étant en fait équivalent à :
 [[1, 2, 3, 4], [1, 2, 3, 4]]
 ```
 
+![Étiquettes dupliquées entre les lignes.](img/list_multiple_dim_ref.png)
+
 Ce comportement de duplication des références n'est pas propre aux listes multi-dimensionnelles.  
 Une code tel que `[0] * 10` duplique aussi 10 fois la référence à la valeur `0`, mais cela ne pose pas de problème particulier car les nombres ne sont pas des valeurs modifiables.
 Le comportement apparaît donc problématique dans le cas des sous-listes en raison de leur mutabilité.
