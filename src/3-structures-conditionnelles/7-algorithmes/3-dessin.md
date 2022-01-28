@@ -71,7 +71,7 @@ Il s'agit d'un triangle équilatéral défini par sa hauteur. Voici par exemple 
 Code: Triangle de hauteur 10
 
 [[i]]
-| Chaque ligne du triangle fait ainsi toujours deux caractères de plus que la précédente : `*` donne suite à `* *` puis `*   *`, etc.
+| Chaque ligne du triangle fait ainsi toujours deux caractères de plus que la précédente : `*` donne suite à `* *` puis `*   *`, etc.
 
 Et comme vous le voyez, les lignes devront être centrées pour avoir un joli résultat.
 

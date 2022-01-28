@@ -40,6 +40,11 @@ Trouvé : 5
 Et oui, la condition est certes vraie pour 3 mais elle l'est aussi pour 5.
 Ainsi, on définit une première fois `found = 3` mais on l'écrase ensuite pour lui assigner 5, et on perd toute trace du 3.
 
+[[e]]
+| Attention aussi, la variable `found` n'est ici définie que dans le cas où l'on rentre dans la condition.  
+| Ainsi, si notre liste ne contient pas de nombre impair, la variable `found` ne sera pas définie.
+| On pourrait résoudre ce problème en ajoutant `found = -1` avant notre boucle, donnant une valeur par défaut à la variable.
+
 Il serait bien de pouvoir conserver toutes les valeurs qui correspondent à notre recherche.
 On n'aurait pas un type de donnée pour contenir un nombre indéterminé de valeurs ? La liste bien entendu !
 
@@ -101,7 +106,7 @@ l
 o
 ```
 
-Plus généralement on parle d'itérables pour désigner les types que l'on peut parcourir avec un bloc `for`, c'est-à-dire sur lesquels on peut itérer.
+Plus généralement on parle d'**itérables** pour désigner les types que l'on peut parcourir avec un bloc `for`.
 
 Un nouveau type de données va nous être bien utile ici, c'est le `range`.
 Un `range` représente un intervalle entre deux nombres entiers, on peut le voir comme la liste des nombres entre ces deux bornes.

@@ -47,8 +47,10 @@ Mais les listes n'ont pas de limite et l'on pourrait alors voir d'autres subdivi
 
 #### Problème de la multiplication
 
-Je vous parlais de l'opérateur de multiplication des listes pour les concaténer, il faut y faire très attention dans le cas de listes à plusieurs dimensions.
+[[q]]
+| Je vous parlais de l'opérateur de multiplication des listes pour les concaténer, mais que se passe-t-il si on l'utiliste sur des listes à plusieurs dimensions ?
 
+Et bien ça ne fonctionne pas comme prévu !  
 En effet cet opérateur ne crée pas de copies mais duplique les références à une même valeur.
 La même sous-liste est alors répétée plusieurs fois dans la liste, provoquant des comportements intattendus en cas de modifications.
 

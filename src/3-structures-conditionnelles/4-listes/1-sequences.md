@@ -16,7 +16,7 @@ numbers = [5, 3, 2, 8, 6, 7, 3]
 
 On utilise donc des crochets pour délimiter la liste, et des virgules pour séparer les valeurs les unes des autres.
 
-Chaque case de la liste est associée à une position (ou index). Ainsi la case en première position contient la valeur 5, celle en deuxième position contient la valeur 3, etc.
+Chaque case de la liste est associée à une position (ou **index**). Ainsi la case en première position contient la valeur 5, celle en deuxième position contient la valeur 3, etc.
 L'ordre des éléments dans une liste est donc important, et celui-ci est libre (mes valeurs n'ont par exemple pas besoin d'être rangées en ordre croissant).
 
 ```pycon

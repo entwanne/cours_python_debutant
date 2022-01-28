@@ -221,6 +221,8 @@ On notera aussi l'opérateur `del` permettant lui aussi de supprimer une valeur 
 Nous avons vu pour l'instant comment accéder facilement à un élément d'une liste à partir de son index, grâce à l'opérateur d'indexation (`[]`).
 Mais cet opérateur est plus puissant que cela et permet des utilisations plus avancées.
 
+##### Obtenir une partie d'une liste
+
 Il est en effet possible d'extraire plusieurs éléments en un seul appel, à l'aide d'une syntaxe particulière.
 Il s'agit de préciser entre les crochets une position de début et une position de fin, séparées par un signe `:`.
 On appelle cela le _slicing_ (ou « découpage »).
@@ -295,7 +297,7 @@ Le pas est calculé à partir de l'index de départ, le résultat sera donc diff
 [1, 3, 8, 21]
 ```
 
---------------------
+##### Modifier une partie d'une liste
 
 Voilà pour ce qui est des accès en lecture, mais ces opérations sont aussi possibles pour la modification.
 
