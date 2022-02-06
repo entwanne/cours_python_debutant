@@ -116,6 +116,15 @@ Ainsi, l'opérateur ET (`&`) calcule le nombre résultat de l'application d'un E
 '0b101000'
 ```
 
+$$
+\begin{array}{rcccccc}
+    & \color{blue}1 & \color{blue}0 & \color{blue}1 & \color{blue}0 & \color{blue}1 & \color{blue}0 \\
+ \& & \color{red}1 & \color{red}1 & \color{red}1 & \color{red}0 & \color{red}0 & \color{red}0  \\
+    \hline
+  = & 1 & \color{blue}0 & 1 & 0 & \color{red}0 & 0
+\end{array}
+$$
+
 J'utilise ici des représentations binaires pour que le calcul soit plus lisible, mais l'opérateur s'applique simplement sur des entiers et renvoie un entier.
 
 ```pycon
@@ -128,9 +137,33 @@ De la même manière, on a les opérateurs OU-inclusif (`|`) et OU-exclusif/XOR 
 ```pycon
 >>> bin(0b101010 | 0b111000)
 '0b111010'
+```
+
+$$
+\begin{array}{rcccccc}
+       & \color{blue}1 & \color{blue}0 & \color{blue}1 & \color{blue}0 & \color{blue}1 & \color{blue}0 \\
+ \vert & \color{red}1 & \color{red}1 & \color{red}1 & \color{red}0 & \color{red}0 & \color{red}0  \\
+       \hline
+     = & 1 & \color{red}1 & 1 & 0 & \color{blue}1 & 0
+\end{array}
+$$
+
+```pycon
 >>> bin(0b101010 ^ 0b111000)
 '0b10010'
 ```
+
+$$
+\begin{array}{rcccccc}
+        & \color{blue}1 & \color{blue}0 & \color{blue}1 & \color{blue}0 & \color{blue}1 & \color{blue}0 \\
+ \hat{} & \color{red}1 & \color{red}1 & \color{red}1 & \color{red}0 & \color{red}0 & \color{red}0  \\
+        \hline
+      = & \color{violet}0 & \color{red}1 & \color{violet}0 & 0 & \color{blue}1 & 0
+\end{array}
+$$
+
+[[i]]
+| Notez que le premiez zéro n'apparaît pas dans le résultat renvoyé par Python pour le XOR, mais `0b10010` et `0b010010` sont bien deux représentations du même nombre (18).
 
 D'autres opérations bit-à-bit sont encore possibles (`~`, `<<`, `>>`), vous pourrez en apprendre plus sur [cette page dédiée aux opérateurs](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/1-glossaire/#3-3-operateurs).
 

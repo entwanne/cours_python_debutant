@@ -86,7 +86,7 @@ Deuxième ligne
 ```
 
 [[a]]
-| Certains systèmes d'exploitation comme Windows pourraient ne pas bien interpréter le `\n` comme un saut de ligne et demander à ce qu'il soit précédé du caractère « retour-chariot » (`\n`) pour fonctionner.
+| Certains systèmes d'exploitation comme Windows pourraient ne pas bien interpréter le `\n` comme un saut de ligne et demander à ce qu'il soit précédé du caractère « retour-chariot » (`\r`) pour fonctionner.
 |
 | ```pycon
 | >>> print('Une\r\nDeux')
