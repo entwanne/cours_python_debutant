@@ -204,8 +204,9 @@ Sachez que c'est un format assez complet, qui comporte des mécanismes de valida
 Tous ces termes peuvent vous amener à des ressources complémentaires sur le format XML.
 
 Il est aussi à noter que plusieurs types de parseurs existent pour analyser des documents XML.
-L'approche de construction d'un document tel que le fait `etree` n'est pas la seule.  
-Il existe par exemple l'approche SAX qui consiste à ne pas construire le document mais à le parcourir et à appeler des fonctions définies par l'utilisateur pour chaque ouverture/fermeture de balise, ce qui permet de ne pas occuper de place en mémoire.
+L'approche de construction d'un document tel que nous l'avons fait ici ([DOM](https://fr.wikipedia.org/wiki/Document_Object_Model) n'est pas la seule.  
+Il existe par exemple l'[approche SAX](https://fr.wikipedia.org/wiki/Simple_API_for_XML) qui consiste à ne pas construire le document mais à le parcourir et à appeler des fonctions définies par l'utilisateur pour chaque ouverture/fermeture de balise, ce qui permet de ne pas occuper de place en mémoire.
+Voyez par exemple [cet article](https://zestedesavoir.com/articles/152/la-puissance-cachee-des-coroutines/) qui utilise la fonction `iterparse` d'`etree` pour analyser un document (l'article nécessite de comprendre [les générateurs](https://zestedesavoir.com/tutoriels/954/notions-de-python-avancees/3-further/1-generators/)).
 
 Enfin, sachez qu'il existe en Python une bibliothèque externe, [`lxml`](https://lxml.de/), qui simplifie l'usage des documents XML.
 

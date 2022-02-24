@@ -116,3 +116,7 @@ Welcome to Python 3.9's help utility!
 
 help>
 ```
+
+[[i]]
+| Actuellement nos modules ne sont accessibles que si les fichiers Python sont disposés dans le même répertoire.
+| Nous verrons dans un prochain chapitre comment permettre une arborescence plus complexe à l'aide des paquets.
