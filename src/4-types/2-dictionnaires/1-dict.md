@@ -6,7 +6,7 @@ C'est-à-dire qu'ils contiennent d'autres valeurs auxquelles on peut accéder av
 Mais plutôt qu'associer une valeur à un index, ils vont l'associer à une clé quelconque, par exemple une chaîne de caractères.
 Il s'agit donc d'un ensemble de couples clé-valeur.
 
-Un dictionnaire se définit avec des accolades, entre lesquelles les couples sont séparés par des virgules. Un couple clé-valeur est de la forme `cle: valeur`.
+Un dictionnaire se définit avec des accolades, entre lesquelles les couples sont séparés par des virgules. Un couple clé-valeur est de la forme `clé: valeur`.
 
 Voilà à quoi pourrait ressembler le répertoire téléphonique donné en introduction :
 

@@ -54,7 +54,7 @@ Et bien sûr, cela fonctionne avec toute expression s'évaluant comme un tuple, 
 1
 ```
 
-Parfois, certains éléments du tuple ne nous intéressent pas lors de l'unpacking, une convention dans ces cas là est d'utiliser la variable `_` pour affecter les résultats inintéressants.
+Parfois, certains éléments du tuple ne nous intéressent pas lors de l'unpacking, une convention dans ces cas-là est d'utiliser la variable `_` pour affecter les résultats inintéressants.
 
 ```python
 def compute(x):

@@ -28,7 +28,7 @@ L'ordre des éléments dans une liste est donc important, et celui-ci est libre 
 
 On note que la case en septième (dernière) position contient aussi la valeur 3. Une même valeur peut être présente dans la liste à plusieurs positions.
 
-La liste peut être vue comme une généralisation des chaînes de caractères : là où la chaîne est une séquance de caractères, la liste peut contenir des valeurs de tous types.
+La liste peut être vue comme une généralisation des chaînes de caractères : là où la chaîne est une séquence de caractères, la liste peut contenir des valeurs de tous types.
 L'exemple précédent ne montre qu'une liste composée de nombres entiers (`int`), mais n'importe quelle valeur peut être contenue dans une liste.
 
 ```pycon
@@ -101,4 +101,4 @@ Seule la dernière virgule, puisque suivie d'aucune valeur, est facultative.
 Je la laisse par commodité et pour ne pas faire de différences entre les lignes.
 
 Une liste se définit aussi par le nombre d'éléments qu'elle contient, sa taille.
-Cette taille sera amenée à évoluer au cours du déroulement du programme, la liste pouvant gagner ou perdre des élémentss suivant certaines opérations.
+Cette taille sera amenée à évoluer au cours du déroulement du programme, la liste pouvant gagner ou perdre des éléments suivant certaines opérations.

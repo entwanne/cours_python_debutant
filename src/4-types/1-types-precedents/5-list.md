@@ -12,7 +12,7 @@ Une chaîne de caractères étant une séquence, elle peut être convertie en li
 ['h', 'e', 'l', 'l', 'o']
 ```
 
-Cela peut justement permettre de récupérer l'équivalent modifiable d'une chaîne de caractère.
+Cela peut justement permettre de récupérer l'équivalent modifiable d'une chaîne de caractères.
 
 ```pycon
 >>> txt = list('hello')
@@ -47,7 +47,7 @@ False
 True
 ```
 
-Contraîrement aux chaînes de caractères, l'opérateur `in` n'ira pas chercher de sous-liste dans une liste.
+Contrairement aux chaînes de caractères, l'opérateur `in` n'ira pas chercher de sous-liste dans une liste.
 
 ```pycon
 >>> [1, 2] in [1, 2, 3]
@@ -57,7 +57,7 @@ True
 ```
 
 Au niveau de la multiplication d'une liste par un nombre, il faut bien faire attention aux cas de références multiples.
-Quand on multiplie ainsi une liste, on ne copie pas les éléments qu'elle contient mais on ne fait que les dupliquer. On a donc plusieurs fois un même objet dans la liste.
+Quand on multiplie ainsi une liste, on ne copie pas les éléments qu'elle contient, mais on ne fait que les dupliquer. On a donc plusieurs fois un même objet dans la liste.
 
 Ce n'est pas gênant pour des valeurs non modifiables (nombres, chaînes), mais si une liste contient d'autres listes cela peut vite devenir problématique.
 

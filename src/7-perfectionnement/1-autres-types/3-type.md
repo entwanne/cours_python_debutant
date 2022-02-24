@@ -84,7 +84,7 @@ Il faut cependant faire attention aussi aux appels à `isinstance` et les utilis
 | Le *duck-typing* (*typage canard*) est une philosophie dans la reconnaissance des types des valeurs.
 | Elle repose sur la phrase « Si cela a un bec, marche comme un canard et cancanne comme un canard, alors je peux considérer que c'est un canard ».
 |
-| Appliqué au Python, cela veut dire par exemple qu'on préfère savoir qu'un objet se comporte comme une liste (que les mêmes opérations y sont applicables) plutôt que de vérifier que ce soit réellemment une liste. On dit aussi que les valeurs doivent avoir la même interface qu'une liste.  
+| Appliqué au Python, cela veut dire par exemple qu'on préfère savoir qu'un objet se comporte comme une liste (que les mêmes opérations y sont applicables) plutôt que de vérifier que ce soit réellement une liste. On dit aussi que les valeurs doivent avoir la même interface qu'une liste.  
 | Cela laisse la possibilité aux développeurs d'utiliser les types de leur choix tout en gardant une compatibilité avec les fonctions existantes.
 |
 | C'est tout le principe des itérables : les fonctions de Python n'attendent jamais précisément une liste mais juste un objet sur lequel on puisse itérer. Que ce soit une liste, un *tuple*, une chaîne de caractères ou encore un fichier, peu importe.

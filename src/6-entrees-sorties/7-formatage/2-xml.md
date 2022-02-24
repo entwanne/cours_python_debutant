@@ -183,7 +183,7 @@ Enfin, le module `ET` possède une fonction `dump` pour transformer en chaîne d
 ```
 
 [[i]]
-| Notez que les balises type `<baz />` sont des balises auto-fermantes.  
+| Notez que les balises telles que `<baz />` sont des balises auto-fermantes.  
 | `<baz/>` est équivalent à `<baz></baz>`, c'est simplement une balise qui ne contient ni enfants ni texte.
 
 Il est aussi possible de créer un document (`ElementTree`) et d'appeler sa méthode `write` pour écrire le document dans un fichier.

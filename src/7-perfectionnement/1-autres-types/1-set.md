@@ -17,7 +17,7 @@ Si l'on essaie d'insérer des doublons, on voit que ceux-ci ne sont pas pris en 
 {0, 1, 2, 3, 4, 5}
 ```
 
-Une autre particularité commune aux ensembles et aux dictionnaires est que les valeurs d'un ensemble doivent être hashables, impossible donc d'y stocker des listes.
+Une autre particularité commune aux ensembles et aux dictionnaires est que les valeurs d'un ensemble doivent être *hashables*, impossible donc d'y stocker des listes.
 
 ```pycon
 >>> {[]}
@@ -80,7 +80,7 @@ Ou autrement dit la différence entre l'union et l'intersection.
 {0, 1, 2, 5}
 ```
 
-J'ai représenté ici les ensembles comme des collections d'éléments ordonnés mais il n'en est rien, aucune relation d'ordre n'existe dans un ensemble.
+J'ai représenté ici les ensembles comme des collections d'éléments ordonnés, mais il n'en est rien, aucune relation d'ordre n'existe dans un ensemble.
 
 Ainsi, deux ensembles sont égaux s'ils contiennent exactement les mêmes valeurs, et différents dans le cas contraire.
 
@@ -236,7 +236,7 @@ Enfin, on retrouve les méthodes `clear` et `copy`, comme sur les listes et les 
 
 #### `frozenset`
 
-Un ensemble étant une collection de données mutable, il n'est pas hashable et ne peut donc pas être utilisé comme clé de dictionnaire.
+Un ensemble étant une collection de données mutable, il n'est pas *hashable* et ne peut donc pas être utilisé comme clé de dictionnaire.
 Ainsi, un autre type existe pour représenter un ensemble immutable de données : le `frozenset`.
 
 Un `frozenset` se définit en appelant explicitement le type avec n'importe quel itérable en argument.

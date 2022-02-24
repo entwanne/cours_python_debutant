@@ -1,6 +1,6 @@
 ### Clés de dictionnaires
 
-Jusqu'ici, je n'ai présenté que des chaînes de caractères comme clés de dictionnaire, par soucis de simplicité.
+Jusqu'ici, je n'ai présenté que des chaînes de caractères comme clés de dictionnaire, par souci de simplicité.
 
 Mais ce ne sont pas les seuls types de clés possibles, les booléens ou les nombres sont aussi des clés valides.
 

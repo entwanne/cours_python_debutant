@@ -107,7 +107,7 @@ Ces représentations sont d'ailleurs parfaitement valides pour être entrées en
 Puis qu'on en est à parler des bases, tout nombre peut ainsi être considéré comme une succession de bits (tel que la représentation renvoyée par `bin`).
 Un bit étant soit 0 soit 1, on peut même parler de tableau de booléens.
 
-Différents opérateurs -- à rapprocher des opérateurs booléens -- tirent partie de cette particularité pour offrir des opérations bit-à-bit sur les nombres.
+Différents opérateurs -- à rapprocher des opérateurs booléens -- tirent parti de cette particularité pour offrir des opérations bit-à-bit sur les nombres.
 
 Ainsi, l'opérateur ET (`&`) calcule le nombre résultat de l'application d'un ET binaire (`and`) entre chaque bit de deux nombres.
 
@@ -227,7 +227,7 @@ Pour certains nombres, trop grands/petits pour être représentés correctement 
 2e-10
 ```
 
-Enfin, il est aussi possible avec les flottants de représenter les infinis (positif et négatif), mais il ne sont pas directement accessibles.
+Enfin, il est aussi possible avec les flottants de représenter les infinis (positif et négatif), mais ils ne sont pas directement accessibles.
 On peut accéder à l'infini positif à l'aide de l'expression `float('inf')`.
 
 ```pycon
@@ -272,7 +272,7 @@ Les complexes sont un sur-ensemble des flottants, et les mêmes opérations sont
 (-3+4j)
 ```
 
-Par ailleurs, on trouve sur ces nombres des attributs `real` et `imag` pour accéder aux parties réelle/imaginaire, et une méthode `conjugate` pour calculer le conjugué.
+Par ailleurs, on trouve sur ces nombres des attributs `real` et `imag` pour accéder aux parties réelle et imaginaire, et une méthode `conjugate` pour calculer le conjugué.
 
 ```pycon
 >>> c = 1+2j

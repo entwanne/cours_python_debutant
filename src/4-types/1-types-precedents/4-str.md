@@ -102,7 +102,7 @@ False
 
 #### Principales méthodes
 
-Les méthode `lstrip`, `rstrip` et `strip` permettent respectivement de renvoyer une nouvelle chaîne en supprimant les espaces au début, à la fin ou des deux côtés.
+Les méthodes `lstrip`, `rstrip` et `strip` permettent respectivement de renvoyer une nouvelle chaîne en supprimant les espaces au début, à la fin ou des deux côtés.
 
 ```pycon
 >>> '  foo bar  '.lstrip()
@@ -213,7 +213,7 @@ True
 
 #### Méthodes avancées
 
-La méthode `replace` permet de renvoyer une copie de la chaîne en remplaçant un caratère (ou une sous-chaîne) par un autre.
+La méthode `replace` permet de renvoyer une copie de la chaîne en remplaçant un caractère (ou une sous-chaîne) par un autre.
 
 ```pycon
 >>> 'hello world'.replace('o', 'a')

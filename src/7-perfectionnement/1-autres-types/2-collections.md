@@ -400,7 +400,7 @@ Il nous serait alors possible d'itérer sur notre liste chaînée pour accéder 
 ```
 
 Mais il n'est pas question ici de recoder une liste chaînée, Python en propose déjà une avec le type `deque` du module `collections`.  
-*deque* pour *double-end queue*, c'est-à-dire une queue (liste chaînée) dont les deux extrêmités sont connues (le premier et le dernier maillon) et les liaisons sont doubles (chaque maillon référence le précédent et le suivant), contrairement à notre implémentation où seul le premier maillon était connu et les liaisons étaient simples (référence vers le maillon suivant uniquement).
+*deque* pour *double-end queue*, c'est-à-dire une queue (liste chaînée) dont les deux extrémités sont connues (le premier et le dernier maillon) et les liaisons sont doubles (chaque maillon référence le précédent et le suivant), contrairement à notre implémentation où seul le premier maillon était connu et les liaisons étaient simples (référence vers le maillon suivant uniquement).
 
 Le principe est sinon le même.
 Un *deque* se construit comme une liste, soit vide soit à partir d'un itérable existant.
@@ -423,7 +423,7 @@ Et le type propose les mêmes méthodes que les listes, ce sont juste les algori
 deque([1, 2, 3, 4, 5])
 ```
 
-Par exemple, contrairement aux tableaux (`list`) il est très facile (peu coûteux) d'ajouter des éléments au début ou à la fin, puisqu'il suffit d'insérer un nouveau maillon à l'extrêmité et de changer la référence.
+Par exemple, contrairement aux tableaux (`list`) il est très facile (peu coûteux) d'ajouter des éléments au début ou à la fin, puisqu'il suffit d'insérer un nouveau maillon à l'extrémité et de changer la référence.
 De même pour supprimer un élément au début ou à la fin.
 
 Les *deque* proposent d'ailleurs des méthodes dédiées avec `appendleft` et `popleft`, équivalentes à `append` et `pop` mais pour opérer au début de la liste.
@@ -438,7 +438,7 @@ deque([0, 1, 2, 3, 4, 5])
 deque([1, 2, 3, 4, 5])
 ```
 
-En revanche, comme seules les extrêmités sont connues, il est coûteux d'aller chercher un élément en milieu de liste, puisqu'il est nécessaire pour cette opération de parcourir tous les maillons jusqu'au bon élément.
+En revanche, comme seules les extrémités sont connues, il est coûteux d'aller chercher un élément en milieu de liste, puisqu'il est nécessaire pour cette opération de parcourir tous les maillons jusqu'au bon élément.
 
 ```pycon
 >>> values[2]
@@ -449,7 +449,7 @@ Pour accéder à cette valeur, il a fallu parcourir 3 maillons. Il aurait fallu 
 Là où pour un tableau l'accès à chaque élément est direct puisque son emplacement mémoire est connu : il se calcule facilement à partir de la position du premier élément, les éléments étant contigüs en mémoire.
 
 Ainsi, ne faites appel aux listes chaînées que pour des opérations qui nécessiteraient de souvent ajouter et/ou supprimer des données en début/fin de séquence, c'est là leur intérêt par rapport aux tableaux.  
-Ne les utilisez pas si vous devez accéder régulièrement à des éléments situés loin des extrêmités, les performances pourraient être désastreuses.
+Ne les utilisez pas si vous devez accéder régulièrement à des éléments situés loin des extrémités, les performances pourraient être désastreuses.
 
 #### `namedtuple`
 

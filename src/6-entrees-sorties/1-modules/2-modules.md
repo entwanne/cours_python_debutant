@@ -39,7 +39,7 @@ Je suis le module bar
 ```
 
 Mais revenons-en à notre premier module, `foo`.
-C'est bien beau de l'avoir importé mais on aimerait pouvoir en exécuter les fonctions.
+C'est bien beau de l'avoir importé, mais on aimerait pouvoir en exécuter les fonctions.
 Si vous avez tenté d'appeler `addition` ou `soustraction` vous avez remarqué que les fonctions n'existaient pas et obtenu une erreur `NameError`.
 
 C'est parce que les fonctions existent mais dans l'espace de noms (_namespace_) du module `foo`.

@@ -14,7 +14,7 @@ brûlure,flamme,40
 ```
 Code: attaques.csv
 
-Une première ligne (l'en-tête) identifie les noms des colonnes, elle est facultative mais il faudra en tenir compte lors de l'analyse du fichier.
+Une première ligne (l'en-tête) identifie les noms des colonnes, elle est facultative, mais il faudra en tenir compte lors de l'analyse du fichier.
 
 Comme en XML, toutes les données du document sont considérées comme du texte, les nombres devront donc être convertis manuellement.
 

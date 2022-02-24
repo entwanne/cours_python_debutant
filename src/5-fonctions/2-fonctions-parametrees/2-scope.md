@@ -59,7 +59,7 @@ Ce qui implique que le comportement de la fonction change si la valeur de la var
 ```
 
 Mais les espaces de noms extérieur et intérieur à la fonction sont bien deux scopes distincts.
-Deux variables de même nom peuvent exister dans des scopes différents sans qu'elles n'interfèrent entre-elles.
+Deux variables de même nom peuvent exister dans des scopes différents sans qu'elles n'interfèrent entre elles.
 
 ```pycon
 >>> x = 0

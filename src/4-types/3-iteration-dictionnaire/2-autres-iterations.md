@@ -1,7 +1,7 @@
 ### Autres manières d'itérer
 
 On sait itérer sur les clés et récupérer la valeur associée à chaque clé, mais est-ce qu'il n'y a pas plus simple ?
-En effet, imaginons que nous ne soyons intéressé que par les valeurs du dictionnaire, pourquoi s'encombrer avec les clés ?
+En effet, imaginons que nous ne soyons intéressés que par les valeurs du dictionnaire, pourquoi s'encombrer avec les clés ?
 
 Les dictionnaires possèdent pour cela une méthode `values` renvoyant l'ensemble des valeurs du dictionnaire, sans les clés.
 

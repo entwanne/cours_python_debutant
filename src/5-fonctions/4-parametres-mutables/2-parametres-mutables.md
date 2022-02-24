@@ -53,7 +53,7 @@ def append_zero(values):
 Modifier ainsi les valeurs passées en paramètres provoque ce que l'on appelle des effets de bord, c'est-à-dire que l'exécution de la fonction affecte un état extérieur, elle n'est pas reproductible dans les mêmes conditions.  
 On dit aussi qu'elle n'est pas « pure » (contrairement à une fonction purement mathématique qui ne ferait que calculer un nouveau résultat à partir des paramètres).
 
-Parfois, ces effets de bord sont désirables mais ils ne le sont pas toujours.
+Parfois, ces effets de bord sont désirables, mais ils ne le sont pas toujours.
 Dans les cas où on veut les éviter, on privilégiera alors des types immutables (tuples par exemple) ou l'on créera des copies des objets reçus en paramètres.
 
 ```python

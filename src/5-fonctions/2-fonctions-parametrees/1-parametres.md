@@ -48,7 +48,7 @@ On précise ainsi les valeurs dans les parenthèses qui suivent le nom de la fon
 5 × 10 = 50
 ```
 
-Le comportement est le même pour les fonctions à plusieurs paramètres, les valeurs leurs sont attribuées dans l'ordre des arguments : le premier paramètre prend la valeur du premier argument, etc.  
+Le comportement est le même pour les fonctions à plusieurs paramètres, les valeurs leur sont attribuées dans l'ordre des arguments : le premier paramètre prend la valeur du premier argument, etc.  
 Chaque argument correspond ainsi à un paramètre (et inversement).
 
 ```pycon
