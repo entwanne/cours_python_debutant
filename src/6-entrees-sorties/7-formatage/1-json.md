@@ -33,7 +33,7 @@ Un document JSON ne peut comporter des valeurs que de 7 types :
 
 #### Module `json`
 
-Ce format est exploitable en Python avec le module `json` de la bibliothèque standard.
+Ce format est exploitable en Python avec [le module `json`](https://docs.python.org/fr/3/library/json.html) de la bibliothèque standard.
 Le module fournit principalement 4 fonctions : `load`, `loads`, `dump` et `dumps`.
 Retenez ces noms de fonctions, ils sont courants en Python et communs à beaucoup de modules de sérialisation.
 

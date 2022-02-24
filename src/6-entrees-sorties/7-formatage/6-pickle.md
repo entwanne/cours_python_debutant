@@ -8,7 +8,7 @@ Sachez juste que le format gère de nombreux objets Python, pour peu que leur ty
 
 #### Module `pickle`
 
-Le module utilise l'interface dont je vous avais parlé plus tôt pour `json`, et propose donc les fonctions `load`, `loads`, `dump` et `dumps`.
+[Le module `pickle`](https://docs.python.org/fr/3/library/pickle.html) utilise l'interface dont je vous avais parlé plus tôt pour `json`, et propose donc les fonctions `load`, `loads`, `dump` et `dumps`.
 
 ##### Écriture
 

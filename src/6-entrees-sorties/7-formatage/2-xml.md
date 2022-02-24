@@ -29,8 +29,8 @@ Un document XML ne comprend que le texte et pas d'autres types de valeurs, il vo
 L'analyse d'un document XML n'est pas aussi simple que celle d'un JSON.
 Il n'y a pas un unique module pour le faire, et pas de fonction `load` / `dump`, juste des fonctions pour opérer sur le document et aller extraire des informations à un endroit précis.
 
-Il existe plusieurs modules Python dédiés à l'analyse des documents XML, tous regroupés dans le module `xml`.
-Nous ne nous intéresserons ici qu'au module `xml.etree`.
+Il existe plusieurs modules Python dédiés à l'analyse des documents XML, tous regroupés dans le [module `xml`](https://docs.python.org/fr/3/library/xml.html).
+Nous ne nous intéresserons ici qu'au [module `xml.etree`](https://docs.python.org/fr/3/library/xml.etree.elementtree.html).
 
 Pour commencer, on va importer le module `xml.etree.ElementTree` qu'il est courant de simplement appeler `ET`.
 

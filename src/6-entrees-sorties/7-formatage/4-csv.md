@@ -20,7 +20,7 @@ Comme en XML, toutes les données du document sont considérées comme du texte,
 
 #### Module `csv`
 
-Le module `csv` de la bibliothèque standard offre ce qu'il faut pour traiter un document CSV.
+[Le module `csv`](https://docs.python.org/fr/3/library/csv.html) de la bibliothèque standard offre ce qu'il faut pour traiter un document CSV.
 
 ##### Lecture
 
