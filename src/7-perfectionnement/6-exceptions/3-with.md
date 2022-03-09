@@ -9,7 +9,9 @@ with open('hello.txt') as f:
 ```
 
 Dans le code précédent, même si la ligne 2 échoue (si le fichier ne contient pas un nombre), le fichier sera correctement fermé (Python appellera `f.close()` pour nous).  
-Car c'est ce que garantit le bloc `with` : assurer que le code de libération de la ressource sera toujours appelé.
+Car c'est ce que garantit le bloc `with` : assurer que le code de libération de la ressource sera toujours appelé[^context_manager].
+
+[^context_manager]: Un gestionnaire de contexte se compose en fait d'une fonction pour initialiser la ressource et d'une autre pour la libérer, comme expliqué dans [ce cours](https://zestedesavoir.com/tutoriels/954/notions-de-python-avancees/3-further/2-context-managers/), qui nécessite des notions de [programmation objet](https://zestedesavoir.com/tutoriels/1253/la-programmation-orientee-objet-en-python/) en Python.
 
 En cela, il s'apperente à un `try` / `finally`, puisqu'il s'agit d'exécuter une action pour acquérir la ressource (avant le `try`) puis pour la libérer (dans le `finally`).  
 Mais on n'a pas à faire d'appel explicite à `f.close()` pour fermer notre fichier, tout cela est fait de façon transparente.
