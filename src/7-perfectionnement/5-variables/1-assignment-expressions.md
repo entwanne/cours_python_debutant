@@ -1,6 +1,6 @@
 ### Expressions d'assignation
 
-On a vu que pas mal d'nstructions que l'on utilisait pouvaient être remplacées par des expressions.
+On a vu que pas mal d'instructions que l'on utilisait pouvaient être remplacées par des expressions.
 Qu'en est-il des assignations de variables ?
 
 Il existe aussi des expressions d'assignation, apportées par la version 3.8 de Python, ce qui est assez récent.
@@ -96,4 +96,4 @@ Mais on peut placer l'expression entre parenthèses pour lever la confusion et l
 'bar'
 ```
 
-On remarque d'ailleurs bien dans cette exemple que l'assignation est une expression, puisque la ligne `(foo := 'bar')` a été évaluée comme valant `'bar'`.
+On remarque d'ailleurs bien dans cet exemple que l'assignation est une expression, puisque la ligne `(foo := 'bar')` a été évaluée comme valant `'bar'`.

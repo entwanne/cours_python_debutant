@@ -2,7 +2,7 @@
 
 Je vais être assez bref sur ce sujet car je ne souhaite pas vous inonder d'informations compliquées, mais je pense qu'il est temps de parler un peu des scopes.
 
-On a vu plus tôt que les fonctions définissaient un espace de noms (un scope) : les variable définies dans une fonction n'existent pas à l'extérieur.
+On a vu plus tôt que les fonctions définissaient un espace de noms (un **scope**) : les variable définies dans une fonction n'existent pas à l'extérieur.
 L'inverse n'est pas vrai, les mécanismes de Python permettent d'accéder depuis une fonction à une variable définie à l'extérieur.
 
 ```pycon

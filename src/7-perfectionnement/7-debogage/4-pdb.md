@@ -232,7 +232,7 @@ On peut alors exécuter `pp` sur la condition de notre boucle pour voir ce qui c
 True
 ```
 
-Malgré les points de vie du joueur 1 négatifs, cette condition est tout de même considérée comme vraie.
+Bien que les points de vie du joueur 1 soient négatifs, cette condition est tout de même considérée comme vraie.
 La source de notre bug se trouve donc ici.
 
 Et effectivement, si nous analysons notre condition de plus près, nous pouvons voir qu'elle est équivalente à `(player1['pv']) and (player2['pv'] > 0)`.  
@@ -352,7 +352,7 @@ Là on voit bien l'erreur `KeyError` qui se produit et la ligne fautive est poin
 On se rend alors compte qu'on a utilisé dans notre JSON la clé `'damages'` plutôt que `'damage'` pour l'attaque _jet-de-flotte_. Encore une fois l'erreur venait donc de nos données.  
 On peut directement quitter le programme pour aller corriger notre fichier `data.json`.
 
-Par acquis de conscience, on le relance ensuite dans les mêmes conditions pour vérifier que tout se passe bien.
+Par acquit de conscience, on le relance ensuite dans les mêmes conditions pour vérifier que tout se passe bien.
 
 ```python
 Attaque de Pythard: (charge/jet-de-flotte) jet-de-flotte
@@ -381,4 +381,4 @@ Il nous suffira de retirer la ligne `breakpoint()` dans le programme pour le sup
 [[i]]
 | La fonction `breakpoint` peut aussi directement s'utiliser depuis des fonctions de test, et ainsi être invoquée lors de l'exécution des tests.
 
-Pour plus d'informations sur les commandes comprises par Pdb, je vous invite à consulte [sa page de documentation](https://docs.python.org/fr/3/library/pdb.html).
+Pour plus d'informations sur les commandes comprises par Pdb, je vous invite à consulter [sa page de documentation](https://docs.python.org/fr/3/library/pdb.html).
