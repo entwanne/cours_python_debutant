@@ -17,7 +17,7 @@ Certains langages vous demandent d'initialiser le générateur pseudo-aléatoire
 >>> import random
 ```
 
-Le module propose de nombreuses fonctions mais nous n'allons nous intéresser qu'à certaines d'entre-elles.
+Le module propose de nombreuses fonctions, mais nous n'allons nous intéresser qu'à certaines d'entre elles.
 
 #### Nombres aléatoires
 

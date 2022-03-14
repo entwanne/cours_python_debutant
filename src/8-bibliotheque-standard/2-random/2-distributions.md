@@ -28,7 +28,7 @@ Suivant les arrondis, la borne supérieure peut être inclue ou non dans l'inter
 
 [^infini]: Pas exactement puisque la représentation d'un flottant est finie, mais vous comprenez l'idée.
 
-On a l'habitute de présenter une distribution par sa densité de probabilité, la fonction qui montre quelles zones de l'intervalle ont plus de chances d'être sollicitées.  
+On a l'habitude de présenter une distribution par sa densité de probabilité, la fonction qui montre quelles zones de l'intervalle ont plus de chances d'être sollicitées.  
 Dans le cas d'une distribution uniforme, cette densité est constante.
 
 ![Densité de probabilité d'une distribution uniforme.](img/random_uniform.png)
@@ -71,7 +71,7 @@ Sa densité de probabilité prend la forme d'une cloche centrée autour de la mo
 #### Pondération
 
 Un autre point important à propos des tirages aléatoires concerne la pondération.
-En effet, les tirages discrets que nous avons effectué jusqu'ici étaient tous uniformes : chaque valeur avait autant de chance que les autres de tomber.
+En effet, les tirages discrets que nous avons effectués jusqu'ici étaient tous uniformes : chaque valeur avait autant de chance que les autres de tomber.
 
 Avec `random.randint(1, 6)`, chaque valeur a une probabilité de $\frac{1}{6}$ d'être tirée.
 On peut d'ailleurs le vérifier en simulant un très grand nombre de tirages et en calculant le nombre d'occurrences de chaque valeur pour en déterminer la fréquence.  

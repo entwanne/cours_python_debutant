@@ -1,6 +1,6 @@
 ### Gestion des nombres
 
-On a vite fait de passer sur les nombres car on peut croire que l'on en a fait le tour une fois que l'on a vu les types `int`, `float` et `complex` qui semblent en effet couvrir toutes les catégories de nombres que l'on connaît.  
+On a vite fait de passer sur les nombres, car on peut croire que l'on en a fait le tour une fois que l'on a vu les types `int`, `float` et `complex` qui semblent en effet couvrir toutes les catégories de nombres que l'on connaît.  
 Si c'est vrai pour ce qui est des nombres entiers, les types dédiés aux réels et aux complexes n'en sont que des approximations.
 
 #### Nombres décimaux
@@ -135,7 +135,7 @@ Mais qu'attendre du résultat d'une telle opération ?
 On le sait, une opération entre un entier et un flottant renvoie un flottant, car c'est lui qui est le plus à même de stocker le résultat.
 En effet, `2 * 3.4` ne pourra pas être représenté dans un entier.
 
-Il existe en fait une hiéarchie entre les types numériques qui définit quel type doit être renvoyé lors d'une telle opération.
+Il existe en fait une hiérarchie entre les types numériques qui définit quel type doit être renvoyé lors d'une telle opération.
 Il s'agira toujours du type le plus haut dans la hiérarchie.
 
 Cette hiérarchie reprend les notions d'ensembles de nombres en mathématiques : il y a les nombres complexes tout en haut, puis les réels, les rationnels, les relatifs et enfin les entiers naturels.  
@@ -214,7 +214,7 @@ Le module étend donc le domaine de définition de certaines fonctions de `math`
 Toutes ces fonctions sont à retrouver dans la [documentation du module `cmath`](https://docs.python.org/fr/3/library/cmath.html).
 
 Mais à propos de nombres, on trouve aussi le module `statistics` qui comme son nom l'indique fournit des outils de statistiques.
-On trouvera ainsi des fonctions pour calculer la moyen (`mean`), la médiane (`median`), la variance (`variance`) ou encore l'écart type (`stdev`) d'une série de données.
+On trouvera ainsi des fonctions pour calculer la moyenne (`mean`), la médiane (`median`), la variance (`variance`) ou encore l'écart type (`stdev`) d'une série de données.
 
 ```pycon
 >>> data = [1, 2, 2, 3, 4, 5, 5, 6, 7]

@@ -24,7 +24,7 @@ Dans le tableau suivant, les opérations de rang inférieur seront exécutées p
 | Rang | Opérateur             | Description                                      |
 +======+=======================+==================================================+
 |  1   | `(...)`, `[...]`,     | Expressions entre parenthèses, crochets (listes) |
-|      | `{...}`               | ou accolades (dictionaires, ensembles)           |
+|      | `{...}`               | ou accolades (dictionnaires, ensembles)          |
 +------+-----------------------+--------------------------------------------------+
 |  2   | `x(...)`, `x[...]`,   | Appels, accès aux éléments et attributs          |
 |      | `x.attr`              |                                                  |
