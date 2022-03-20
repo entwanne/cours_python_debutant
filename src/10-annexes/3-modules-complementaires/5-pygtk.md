@@ -44,7 +44,7 @@ Gtk.main()
 Consultez aussi [le site officiel](https://pygobject.readthedocs.io/) pour aller plus loin avec _PyGtk_.
 
 [[i]]
-| Bon à savoir : la bibliothèque standard de Python embarque le module [`tkinter`](https://docs.python.org/fr/3/library/tkinter.html) pour créer des programme fenêtrés, mais qui n'est pas forcément le module le plus abordable pour cela.  
+| Bon à savoir : la bibliothèque standard de Python embarque le module [`tkinter`](https://docs.python.org/fr/3/library/tkinter.html) pour créer des programmes fenêtrés, mais qui n'est pas forcément le module le plus abordable pour cela.  
 | Sur certains systèmes (Debian/Ubuntu par exemple) il n'est pas présent par défaut et il faut installer le paquet _APT_ `python3-tk`.
 |
 | Voir [Programmation avec tkinter](https://zestedesavoir.com/tutoriels/1729/programmation-avec-tkinter/) de @Dan737 ou [ce tutoriel](http://pascal.ortiz.free.fr/contents/tkinter/tkinter/index.html) de @**pascal.ortiz** pour en apprendre plus sur _tkinter_.

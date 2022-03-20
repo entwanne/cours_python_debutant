@@ -382,7 +382,7 @@ _Python Enhancement Proposal_, soit _Proposition d'amélioration pour Python_, c
 
 ##### pythonique
 
-Qualificatif de ce qui est idomatique en Python, qui correspond à la philosophie du langage.
+Qualificatif de ce qui est idiomatique en Python, qui correspond à la philosophie du langage.
 Voir [cet article](https://zestedesavoir.com/articles/1079/les-secrets-dun-code-pythonique/) à propos du code pythonique.
 
 ##### représentation

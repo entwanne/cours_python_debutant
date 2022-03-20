@@ -3,7 +3,7 @@
 Un _linter_ est un programme qui permet de vérifier le style des fichiers de code, et notamment qu'ils respectent [les règles énoncées par la PEP8](https://www.python.org/dev/peps/pep-0008/).
 
 La PEP8 est à l'origine une description du style que doivent adopter les développements au sein de Python lui-même, qui s'est popularisée et est maintenant considérée comme un standard pour tous les projets Python.  
-Il ne faut cependant pas la voir comme un énoncé de règles strictes, comme dirait un célèbre pirate « c'est plus un guide qu'un véritable réglement ».
+Il ne faut cependant pas la voir comme un énoncé de règles strictes, comme dirait un célèbre pirate « c'est plus un guide qu'un véritable règlement ».
 
 #### Flake8
 
