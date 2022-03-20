@@ -5,6 +5,8 @@ Un _linter_ est un programme qui permet de vérifier le style des fichiers de co
 La PEP8 est à l'origine une description du style que doivent adopter les développements au sein de Python lui-même, qui s'est popularisée et est maintenant considérée comme un standard pour tous les projets Python.  
 Il ne faut cependant pas la voir comme un énoncé de règles strictes, comme dirait un célèbre pirate « c'est plus un guide qu'un véritable règlement ».
 
+Pour en savoir plus sur les règles de style d'un code Python en général, je vous invite à consulter mon article dédié aux [secrets d'un code pythonique](https://zestedesavoir.com/articles/1079/les-secrets-dun-code-pythonique/).
+
 #### Flake8
 
 _Flake8_ est donc un outil en ligne de commande permettant de vérifier la conformité avec la PEP8, relevant toutes les _infractions_ trouvées dans les fichiers de code (mauvais espacements, lignes trops longues, etc.).
