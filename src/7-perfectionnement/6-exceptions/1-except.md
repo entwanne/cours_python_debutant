@@ -10,7 +10,7 @@ def get_10th(seq):
         return None
 ```
 
-```python
+```pycon
 >>> get_10th('abcdefghijkl')
 'k'
 >>> get_10th('abcd')
@@ -30,7 +30,7 @@ def get_10th(seq):
         return None
 ```
 
-```python
+```pycon
 >>> get_10th({5: 'a', 10: 'b'})
 'b'
 >>> get_10th({})
@@ -55,7 +55,7 @@ En effet, une exception n'est rien d'autre qu'un objet Python, qui possède donc
 Pour récupérer l'objet de cette exception, il suffit de placer un `as nom_de_la_variable` derrière le `except` afin de l'affecter à une variable `nom_de_la_variable`.  
 Variable que l'on a tendance à appeler `error` / `exception`, ou plus simplement `err`, `exc` ou `e`.
 
-```python
+```pycon
 >>> seq = []
 >>> try:
 ...     seq[10]
@@ -68,7 +68,7 @@ list index out of range
 On voit qu'ici dans le cas d'une `IndexError`, l'exception contient un message nous expliquant la raison de l'erreur (l'index choisi est en dehors des bornes).  
 Ce message est un argument de l'exception, il est accessible via son attribut `args`.
 
-```python
+```pycon
 >>> try:
 ...     seq[10]
 ... except IndexError as e:
@@ -82,7 +82,7 @@ list index out of range
 
 Dans le cas d'une `KeyError` (clé invalide sur un dictionnaire), l'argument de l'erreur est simplement la clé.
 
-```python
+```pycon
 >>> dic = {}
 >>> try:
 ...     dic['abc']
@@ -104,7 +104,7 @@ def get_10th(seq):
         return e.args
 ```
 
-```python
+```pycon
 >>> get_10th([])
 ('list index out of range',)
 >>> get_10th({})

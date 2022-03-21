@@ -8,7 +8,7 @@ Python dispose aussi de modules pour interagir avec le système, notamment les m
 
 On trouve notamment des attributs `platform`, `version` et `version_info` pour connaître l'OS utilisé et la version de Python.
 
-```python
+```pycon
 >>> import sys
 >>> sys.platform
 'linux'
@@ -22,7 +22,7 @@ sys.version_info(major=3, minor=9, micro=7, releaselevel='final', serial=0)
 
 On peut aussi accéder au chemin de l'exécutable Python (`executable`), ainsi qu'à la liste des arguments du programme (`argv`).
 
-```python
+```pycon
 >>> sys.executable
 '/usr/bin/python'
 >>> sys.argv
@@ -31,7 +31,7 @@ On peut aussi accéder au chemin de l'exécutable Python (`executable`), ainsi q
 
 Le module met à disposition les fichiers `stdin`, `stdout` et `stderr` qui sont liés respectivement à l'entrée standard, la sortie standard et la sortie d'erreur.
 
-```python
+```pycon
 >>> sys.stdin.readline()
 hello
 'hello\n'
@@ -46,7 +46,7 @@ error
 Le dictionnaire `modules` référence tous les modules importés au sein de l'interpréteur.
 C'est un mécanisme de cache au sein de Python pour éviter de charger plusieurs fois un même module.
 
-```python
+```pycon
 >>> sys.modules
 {'sys': <module 'sys' (built-in)>, 'builtins': <module 'builtins' (built-in)>, ...}
 >>> sys.modules['sys']
@@ -58,7 +58,7 @@ C'est un mécanisme de cache au sein de Python pour éviter de charger plusieurs
 Quand je vous parlais de récursivité, j'évoquais une limite au nombre de récursions autorisées par l'interpréteur Python.
 Cette limite peut être connue via un appel à la fonction `getrecursionlimit` du module `sys`.
 
-```python
+```pycon
 >>> sys.getrecursionlimit()
 1000
 ```
@@ -66,7 +66,7 @@ Cette limite peut être connue via un appel à la fonction `getrecursionlimit` d
 Enfin, nous l'avons déjà rencontrée, la fonction `exit` permet de couper le programme en cours d'exécution.
 Utilisée sans argument, la fonction coupe le programme normalement avec un code de retour de 0 (signifiant que tout s'est bien passé).
 
-```python
+```pycon
 >>> sys.exit()
 % echo $?
 0
@@ -74,7 +74,7 @@ Utilisée sans argument, la fonction coupe le programme normalement avec un code
 
 Avec un nombre en argument, c'est ce nombre qui sera utilisé comme code de retour (un code de retour différent de 0 signifie que le programme s'est terminé sur une erreur).
 
-```python
+```pycon
 >>> sys.exit(12)
 % echo $?
 12
@@ -82,7 +82,7 @@ Avec un nombre en argument, c'est ce nombre qui sera utilisé comme code de reto
 
 Avec une chaîne de caractères en argument, la chaîne sera écrite sur la sortie d'erreur et le code de retour sera 1.
 
-```python
+```pycon
 >>> sys.exit('error')
 error
 % echo $?
@@ -99,7 +99,7 @@ On trouve ainsi une fonction `copy` qui permet de copier un fichier à un autre 
 La fonction prend en arguments le chemin source et sa destination, les chaînes de caractères et les objets `Path` sont acceptés.  
 Elle renvoie le chemin du fichier copié.
 
-```python
+```pycon
 >>> from pathlib import Path
 >>> import shutil
 >>> shutil.copy(Path('hello.txt'), 'new.txt')
@@ -110,7 +110,7 @@ Elle renvoie le chemin du fichier copié.
 
 Il est aussi possible de préciser un répertoire en second argument pour copier le fichier (en conservant son nom) vers ce répertoire.
 
-```python
+```pycon
 >>> shutil.copy('hello.txt', 'subdir')
 'subdir/hello.txt'
 >>> Path('subdir/hello.txt').read_text()
@@ -120,7 +120,7 @@ Il est aussi possible de préciser un répertoire en second argument pour copier
 Pour copier des arborescences de fichiers (fichiers et répertoires), `shutil` propose une fonction `copytree` sur le même principe que `copy`.
 La fonction copie récursivement le répertoire source et les fichiers qu'il contient vers la destination.
 
-```python
+```pycon
 >>> shutil.copytree('subdir', 'newdir')
 'newdir'
 >>> list(Path('newdir').iterdir())
@@ -129,7 +129,7 @@ La fonction copie récursivement le répertoire source et les fichiers qu'il con
 
 De la même manière, on trouve une fonction `move` pour déplacer un fichier ou un répertoire vers une destination.
 
-```python
+```pycon
 >>> shutil.move('new.txt', 'moved.txt')
 'moved.txt'
 >>> Path('moved.txt').read_text()
@@ -146,7 +146,7 @@ False
 
 Et le module offre aussi une fonction `rmtree` pour supprimer récursivement un répertoire.
 
-```python
+```pycon
 >>> shutil.rmtree('moveddir')
 >>> Path('moveddir').exists()
 False
@@ -155,7 +155,7 @@ False
 Enfin, dans un tout autre genre, la fonction `get_terminal_size` permet de connaître la taille (en lignes de caractères et en colonnes) du terminal.
 La fonction renvoie un tuple nommé avec deux champs `columns` et `lines`.
 
-```python
+```pycon
 >>> shutil.get_terminal_size()
 os.terminal_size(columns=136, lines=66)
 ```
@@ -176,7 +176,7 @@ La plupart des fonctions exposées dans `os` sont d'ailleurs abstraites dans d'a
 
 Le module propose aussi une fonction `chdir` (pour _change directory_) qui prend un chemin (relatif ou absolu) en argument et permet de changer le répertoire courant.
 
-```python
+```pycon
 >>> Path.cwd()
 PosixPath('/home/antoine')
 >>> os.chdir('..')
@@ -189,7 +189,7 @@ PosixPath('/home')
 
 Parmi les autres outils présents dans le module, on trouve par exemple la fonction `cpu_count` qui permet de savoir combien de cœurs sont disponibles sur la machine.
 
-```python
+```pycon
 >>> os.cpu_count()
 8
 ```
@@ -212,7 +212,7 @@ Depuis le shell, on peut spécifier des variables d'environnement supplémentair
 En Python, l'environnement est accessible via le dictionnaire `environ` du module `os`.
 Ce dictionnaire associe les valeurs des variables d'environnement à leurs noms.
 
-```python
+```pycon
 >>> import os
 >>> os.environ
 environ({..., 'OUTPUT': '/tmp/out', 'MAX_VALUE': '256'})
@@ -220,7 +220,7 @@ environ({..., 'OUTPUT': '/tmp/out', 'MAX_VALUE': '256'})
 
 On le voit, les valeurs des variables d'environnement sont toujours des chaînes de caractères, il peut alors être nécessaire de les convertir.
 
-```python
+```pycon
 >>> os.environ['MAX_VALUE']
 '256'
 >>> int(os.environ['MAX_VALUE'])
@@ -229,14 +229,14 @@ On le voit, les valeurs des variables d'environnement sont toujours des chaînes
 
 Le module dispose aussi d'une fonction `getenv` pour récupérer une variable d'environnement.
 
-```python
+```pycon
 >>> os.getenv('OUTPUT')
 '/tmp/out'
 ```
 
 La fonction renvoie `None` si la variable d'environnement n'est pas définie, mais il est possible de lui spécifier un argument `default` pour choisir cette valeur par défaut.
 
-```python
+```pycon
 >>> os.getenv('NOTFOUND')
 >>> os.getenv('NOTFOUND', 'no')
 'no'
@@ -244,7 +244,7 @@ La fonction renvoie `None` si la variable d'environnement n'est pas définie, ma
 
 Le dictionnaire `environ` est bien sûr éditable, ce qui permet de faire évoluer l'environnement du programme.
 
-```python
+```pycon
 >>> os.environ['MAX_VALUE'] = str(int(os.environ['MAX_VALUE']) * 2)
 >>> os.getenv('MAX_VALUE')
 '512'
@@ -252,7 +252,7 @@ Le dictionnaire `environ` est bien sûr éditable, ce qui permet de faire évolu
 
 Afin de traiter l'environnement comme des chaînes d'octets, on trouve aussi le dictionnaire `environb` et la fonction `getenvb` qui remplissent le même rôle que `environ` et `getenv`.
 
-```python
+```pycon
 >>> os.environb
 environ({..., b'OUTPUT': b'/tmp/out', b'MAX_VALUE': b'512'})
 >>> os.getenvb(b'MAX_VALUE')

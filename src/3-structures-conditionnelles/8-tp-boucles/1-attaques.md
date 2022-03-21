@@ -18,7 +18,7 @@ Ainsi, il suffira d'itérer sur cette liste pour proposer chaque attaque au joue
 En plus de ça, on pourra identifier l'attaque par son index (sa position dans la liste) et donc directement savoir quelle est l'attaque sélectionnée.
 En effet, si l'utilisateur entre `2`, on peut savoir que ça correspond au nombre 2 (conversion en nombre avec `int`) soit à l'index 1 (puisqu'on commence toujours à l'index 0), et donc on peut exécuter l'attaque « tonnerre » sans avoir un bloc conditionnel par attaque.
 
-```python
+```pycon
 >>> attack_idx = int(input('Quelle attaque ? ')) - 1
 Quelle attaque ? 2
 >>> attack_names[attack_idx]
@@ -28,7 +28,7 @@ Quelle attaque ? 2
 On peut aussi ajouter une boucle `while` pour vérifier la validité de la saisie : si l'utilisateur entre un numéro d'attaque incorrect, il serait bon de lui demander à nouveau de choisir une attaque plutôt que de couper le programme.  
 On utilisera pour ça la méthode `isdigit` des chaînes de caractères qui renvoie un booléen indiquant si la chaîne représente un nombre ou non (ce qui permet d'effectuer la conversion sans erreur), on testera aussi si ce nombre est dans le bon intervalle.
 
-```python
+```pycon
 >>> 'abc'.isdigit()
 False
 >>> '123'.isdigit()

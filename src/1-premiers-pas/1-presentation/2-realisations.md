@@ -14,7 +14,7 @@ Zeste de Savoir lui-même tourne grâce à Python : avec Django plus précisém
 Python est aussi très représenté dans le monde scientifique, avec des applications dans l'intelligence artificielle et le _machine learning_.
 Il a par exemple été impliqué dans la photographie du trou noir M87 en 2019[^blackhole] ou le vol de l'hélicoptère Ingenuity sur Mars en 2021[^ingenuity].
 
-![Trou noir M87](https://numpy.org/images/content_images/cs/blackhole.jpg)
+![Trou noir M87](img/blackhole.jpg)
 Figure: Trou noir M87 (_crédits: Event Horizon Telescope Collaboration_)
 
 Le langage est aussi beaucoup utilisé dans le développement lui-même, pour la réalisation de scripts : des petits programmes rapides pour réaliser des tâches précises.

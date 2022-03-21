@@ -26,41 +26,8 @@ C'est à peu près le même fonctionnement si vous utilisez Geany comme éditeur
 
 #### En-têtes de fichier
 
-Cependant il est aussi possible d'ajouter des lignes d'en-tête à notre fichier.
-Il s'agit d'instructions spéciales que l'on place au tout début du fichier, avant les premières lignes de code.
+Dans certains cas d'usage, si par la suite vous rencontrez des problèmes avec des caractères accentués par exemple, il peut être utile de définir des en-têtes à notre fichier Python.
 
-[[i]]
-| Ces en-têtes sont facultatives et concernent des cas particuliers qui sont décrits dans les paragraphes qui suivent.
-| Elles pourront simplement vous être utiles si par la suite vous vous trouvez dans l'un des cas concernés.
-|
-| Aussi, pour simplifier les exemples donnés dans la suite du cours, je n'y ferai jamais figurer ces en-têtes.
+Ce sont des données associées au fichier qui permettront à Python et au système d'exploitation d'interpréter correctement son contenu.
 
-##### Shebang
-
-La première dont je veux vous parler est ce qu'on appelle le _shebang_.
-C'est une instruction qui permet à certains systèmes (Linux notamment) de reconnaître un fichier exécutable comme un programme Python (ou plus précisément de savoir avec quoi lancer cet exécutable).  
-Celle-ci n'est utile que pour le ou les fichiers principaux d'un projet Python, ceux qui seront amenés à être exécutés directement.
-
-Le _shebang_ est une ligne qui prend la forme suivante, vous verrez parfois `python3` à la place de `python`.
-
-```python
-#!/usr/bin/env python
-```
-
-##### Encodage
-
-La seconde est la déclaration de l'encodage du fichier, qui permet à Python de savoir comment le décoder.
-En effet notre ordinateur est rudimentaire et ne sait pas ce qu'est du texte, de son point de vue il ne manipule que des nombres.
-
-Un encodage c'est une règle qui lui décrit comment convertir chaque caractère utilisé dans le fichier (notamment les caractères spéciaux et les lettres accentuées) en nombres.  
-Aujourd'hui l'encodage le plus courant est UTF-8, et c'est celui que je vous recommande d'utiliser pour vos fichiers.
-Il est utilisé par défaut par Python, ainsi que dans IDLE et Geany.
-
-Mais certains systèmes d'exploitation (Windows pour ne pas le citer) pourraient ne pas l'utiliser par défaut, et si c'est le cas de votre éditeur de texte, alors il faudra préciser à Python quel encodage utiliser pour lire le fichier.  
-Cela se fait à l'aide d'une ligne telle que :
-
-```python
-# coding: xxx
-```
-
-Ou `xxx` serait remplacé par l'encodage utilisé dans le fichier (`utf-8`, `latin-1`, `windows_1252`, etc.).
+Je vous indique alors [cette section en annexe](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/2-notes-diverses/#1-1-entetes) qui vous en dira plus.

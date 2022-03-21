@@ -1,8 +1,8 @@
 ### Découpage en modules
 
 Une première étape dans l'avancement de notre TP va être de le découper en modules.
-En effet, nous l'avons précédemment découpé en fonctions, mais ces fonctions cohabitent toutes ensembles dans un joyeux bordel.  
-Nous pouvons donc aller plus loin et réunir ces fonctions en unité logiques dans un paquet.
+En effet, nous l'avons précédemment découpé en fonctions, mais ces fonctions cohabitent toutes ensemble dans un joyeux bordel.  
+Nous pouvons donc aller plus loin et réunir ces fonctions en unités logiques dans un paquet.
 
 Je vous propose pour cela un paquet `tp` contenant des modules pour les différentes parties de notre jeu : définitions des données, gestion des joueurs, gestion des entrées utilisateur.
 On gardera aussi un module `game` pour les fonctions principales du jeu.

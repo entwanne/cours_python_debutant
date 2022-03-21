@@ -7,7 +7,7 @@ Nous en découvrirons encore bien d'autres dans la suite de ce cours.
 
 La méthode `strip` vue précédemment retire les espaces aux extrêmités de la chaîne, mais n'affecte pas ceux qui se trouvent au milieu.
 
-```python
+```pycon
 >>> ' hello   world '.strip()
 'hello   world'
 ```
@@ -15,7 +15,7 @@ La méthode `strip` vue précédemment retire les espaces aux extrêmités de la
 Il est possible d'appliquer la méthode sur une variable si celle-ci est assignée à une chaîne de caractères.
 Ou sur toute autre expression s'évaluant comme une chaîne de caractères, des parenthèses pouvant alors être nécessaires pour changer la priorité de l'opération.
 
-```python
+```pycon
 >>> text = ' hello   world '
 >>> text.strip()
 'hello   world'
@@ -29,7 +29,7 @@ Ou sur toute autre expression s'évaluant comme une chaîne de caractères, des 
 Cette méthode, tout comme les autres qui suivent, renvoie une nouvelle chaîne de caractères modifiée.
 Elle n'affecte jamais directement la chaîne sur laquelle elle est appliquée.
 
-```python
+```pycon
 >>> text.strip()
 'hello   world'
 >>> text
@@ -40,7 +40,7 @@ Elle n'affecte jamais directement la chaîne sur laquelle elle est appliquée.
 
 `capitalize` est une méthode qui permet de passer en majuscule le premier caractère de la chaîne (si c'est une lettre) et en minuscules tous les autres.
 
-```python
+```pycon
 >>> 'coucou'.capitalize()
 'Coucou'
 >>> 'COUCOU'.capitalize()
@@ -49,7 +49,7 @@ Elle n'affecte jamais directement la chaîne sur laquelle elle est appliquée.
 
 Semblable à `capitalize`, `title` effectue ce traitement sur tous les mots de la chaîne de caractères.
 
-```python
+```pycon
 >>> 'bonjour à tous'.capitalize()
 'Bonjour à tous'
 >>> 'bonjour à tous'.title()
@@ -60,7 +60,7 @@ Semblable à `capitalize`, `title` effectue ce traitement sur tous les mots de l
 
 Il s'agit ici de passer la chaîne entière en majuscules ou en minuscules.
 
-```python
+```pycon
 >>> 'CoUcOu'.upper()
 'COUCOU'
 >>> 'CoUcOu'.lower()
@@ -72,7 +72,7 @@ Il s'agit ici de passer la chaîne entière en majuscules ou en minuscules.
 La méthode `index` permet de trouver un caractère dans la chaîne et d'en renvoyer la position.
 Il s'agit donc du comportement réciproque de l'opérateur `[ ]`.
 
-```python
+```pycon
 >>> text = 'abcdef'
 >>> text.index('d')
 3
@@ -82,14 +82,14 @@ Il s'agit donc du comportement réciproque de l'opérateur `[ ]`.
 
 À noter que si le caractère est présent plusieurs fois dans la chaîne, c'est la première position trouvée qui est renvoyée.
 
-```python
+```pycon
 >>> 'abcabc'.index('b')
 1
 ```
 
 Et une erreur survient si le caractère n'est pas trouvé.
 
-```python
+```pycon
 >>> 'abcdef'.index('g')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

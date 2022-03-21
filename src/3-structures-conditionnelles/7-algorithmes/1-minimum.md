@@ -44,9 +44,11 @@ print('Le minimum est', minimum)
 En plus d'être plus efficace (on ne réalise ici que N comparaisons pour une liste de taille N), le code est bien plus concis est lisible.
 
 Même si la différence de performances ne saute pas aux yeux, parce que nos listes sont de tailles modestes, cela peut devenir problématique quand on commence à beaucoup l'utiliser ou l'appliquer à des données en plus grande quantité.  
-Cette notion de nombre d'opérations effectuées en fonction du nombre d'éléments en entrée est ce que l'on appelle la complexité algorithmique.
+Cette notion de nombre d'opérations effectuées en fonction du nombre d'éléments en entrée est ce que l'on appelle la complexité algorithmique[^complexite].
 
 On dit de notre premier algorithme qu'il a une complexité quadratique (N² opérations pour N éléments), et du second qu'il a une complexité linéaire (N opérations).
 
 [[i]]
 | Cet algorithme n'est présenté que comme un exercice, dans la vie de tous les jours il serait bien sûr inutile puisque Python possède déjà une fonction `min` qui fait le boulot.
+
+[^complexite]: Pour en apprendre davantage sur la complexité algorithmique, je vous invite à consulter [ce tutoriel](https://zestedesavoir.com/tutoriels/621/algorithmique-pour-lapprenti-programmeur/399_presentation-de-la-notion-de-complexite-algorithmique/2020_la-notion-de-complexite/).

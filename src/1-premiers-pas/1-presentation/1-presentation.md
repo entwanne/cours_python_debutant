@@ -27,9 +27,9 @@ hello()
 ```
 Code: Un programme tout simple pour dire bonjour en Python
 
-Comme on peut l'apercevoir dans l'exemple, Python est un langage qui se base sur l'indentation.
-Il s'agit des espaces que l'on voit en début de lignes et qui permettent de délimiter les portions logiques du code.  
-L'indentation, souvent recommandée dans les autres langages pour aérer le code et le rendre plus agréable à lire, est une nécessité en Python.
+[[i]]
+| Comme vous pouvez le remarquer dans cet exemple, plusieurs lignes commencent par des espaces.  
+| C'est ce qui permet en Python de séparer les différentes portions de code tout en l'aérant, on appelle celà l'**indentation**, mais on y reviendra. :)
 
 ![Illustration piles incluses](img/batteries_included.jpg)
 Figure: « Piles incluses » -- _Crédits: [Frank Stajano](https://commons.wikimedia.org/wiki/File:Python_batteries_included.jpg)_

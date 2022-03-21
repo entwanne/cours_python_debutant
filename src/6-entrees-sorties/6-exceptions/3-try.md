@@ -6,7 +6,7 @@ Ces deux mots-clés vont de paire pour intercepter les erreurs.
 Dans le bloc `try` on place le code qui peut échouer, et le bloc `except` sera exécuté si et seulement si une exception survient.
 Il aura pour effet d'attraper cette exception et donc éviter que le programme ne plante, en proposant un traitement adapté.
 
-```python
+```pycon
 >>> try:
 ...     result = 1 / 0
 ... except:
@@ -31,7 +31,7 @@ def division(a, b):
 | _NaN_, pour _Not a Number_ (_Pas un Nombre_), est une valeur particulière de la norme des nombres flottants évoquant un résultat qui ne serait pas un nombre.  
 | On y accède en Python via la variable `nan` du module `math`, ou avec un simple `float('nan')`.
 
-```python
+```pycon
 >>> division(3, 5)
 0.6
 >>> division(4, 2)
@@ -55,7 +55,7 @@ def division(a, b):
 
 Si l'exécution s'arrêtait juste après le `except`, nous ne passerions pas dans le `print` et le `return`.
 
-```python
+```pycon
 >>> division(1, 2)
 Résultat : 0.5
 0.5
@@ -66,7 +66,7 @@ nan
 
 Aussi, nous utilisons `except` sans lui préciser aucun argument, il attrapera donc toute exception qui surviendrait, quel qu'en soit son type.
 
-```python
+```pycon
 >>> division('x', 'y')
 Résultat : nan
 nan
@@ -86,7 +86,7 @@ def division(a, b):
 
 Notre fonction interceptera maintenant les erreurs de division par zéro, et uniquement celles-ci.
 
-```python
+```pycon
 >>> division(1, 2)
 0.5
 >>> division(1, 0)
@@ -122,7 +122,7 @@ def get_score(path):
 
 Maintenant voilà ce que l'on obtient avec un fichier `score.txt` contenant `42` et un fichier `hello.txt` quelconque.
 
-```python
+```pycon
 >>> get_score('score.txt')
 42
 >>> get_score('hello.txt')
@@ -148,7 +148,7 @@ def get_score(path):
 Dans l'exemple précédent, la conversion du contenu du fichier en nombre a toujours lieu dans le `try` donc l'erreur sur `hello.txt` sera bien traitée.
 Mais l'ouverture du fichier se situe en dehors, nous ne gérons donc pas l'erreur `OSError` sur `not_found.txt`.
 
-```python
+```pycon
 >>> get_score('score.txt')
 42
 >>> get_score('hello.txt')

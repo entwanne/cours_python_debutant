@@ -20,7 +20,7 @@ def calculatrice(a, op, b):
     print('Calcul impossible')
 ```
 
-```python
+```pycon
 >>> calculatrice(3, '/', 2)
 1.5
 >>> calculatrice(3, '/', 0)
@@ -31,7 +31,7 @@ Pour notre problématique de sauvegarde, il faudrait donc être en mesure de tes
 Une telle fonctionnalité est disponible dans le module `pathlib`.
 Ce module propose un type `Path` représentant un chemin sur le système de fichiers, et bénéficiant naturellement d'une méthode `exists` renvoyant un booléen pour tester si le chemin existe ou non.
 
-```python
+```pycon
 >>> from pathlib import Path
 >>> p = Path('hello.txt')
 >>> p.exists()

@@ -1,7 +1,7 @@
 ### Environnements virtuels
 
 En utilisant _Pip_ comme nous venons de le faire, les paquets sont installés au niveau du système ou de l'utilisateur.
-C'est accomodant parce que le paquet est alors disponible partout et utilisable par tous les projets, mais cela peut parfois poser problème.
+C'est accommodant parce que le paquet est alors disponible partout et utilisable par tous les projets, mais cela peut parfois poser problème.
 
 En effet, une seule version d'un paquet peut être disponible à la fois, ce qui fait que tous les projets doivent partager cette même version.
 Impossible alors pour un projet de bénéficier des évolutions récentes d'un module complémentaire si un autre projet dépend d'une version plus ancienne.

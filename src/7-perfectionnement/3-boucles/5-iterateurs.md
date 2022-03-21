@@ -8,7 +8,7 @@ On a vu qu'il existait un grand nombre d'itérables, tels que les chaînes de ca
 Il y en a d'autres encore et l'on en a vu plus récemment dans ce chapitre : les retours des fonctions `enumerate` ou `zip` sont aussi des itérables.
 Mais si on les regarde de plus près, on voit qu'ils sont un peu particuliers.
 
-```python
+```pycon
 >>> enumerate('abcde')
 <enumerate object at 0x7f30749e0240>
 >>> zip('abc', 'def')
@@ -18,7 +18,7 @@ Mais si on les regarde de plus près, on voit qu'ils sont un peu particuliers.
 Ou plutôt on ne voit pas grand chose justement, ces objets sont assez intrigants.
 On sait qu'ils sont itérables, on l'a vu plus tôt, et on peut donc se servir de cette propriété pour les transformer en liste si c'est ce qui nous intéresse.
 
-```python
+```pycon
 >>> list(enumerate('abcde'))
 [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd'), (4, 'e')]
 >>> list(zip('abc', 'def'))
@@ -27,7 +27,7 @@ On sait qu'ils sont itérables, on l'a vu plus tôt, et on peut donc se servir d
 
 Mais ce qui est plus étonnant c'est qu'on ne peut itérer dessus qu'une seule fois.
 
-```python
+```pycon
 >>> values = enumerate('abcde')
 >>> for v in values:
 ...     print(v)
@@ -44,7 +44,7 @@ Mais ce qui est plus étonnant c'est qu'on ne peut itérer dessus qu'une seule f
 
 On constate le même comportement avec la conversion en liste.
 
-```python
+```pycon
 >>> values = zip('abc', 'def')
 >>> list(values)
 [('a', 'd'), ('b', 'e'), ('c', 'f')]
@@ -63,7 +63,7 @@ La fonction `next` en Python permet de récupérer la prochaine valeur d'un ité
 Elle prend l'itérateur en argument et renvoie la valeur pointée par le curseur tout en le faisant avancer.
 Puisque l'itérateur avance, le retour de la fonction sera différent à chaque appel.
 
-```python
+```pycon
 >>> values = enumerate('abcde')
 >>> next(values)
 (0, 'a')
@@ -75,7 +75,7 @@ Puisque l'itérateur avance, le retour de la fonction sera différent à chaque 
 
 En fin de parcours, l'itérateur lève une exception `StopIteration` pour signaler que l'itération est terminée.
 
-```python
+```pycon
 >>> next(values)
 (3, 'd')
 >>> next(values)
@@ -91,7 +91,7 @@ C'est pourquoi il n'est pas possible de faire deux `for` à la suite sur un mêm
 
 Mais ils se basent sur des itérables réutilisables que sont les chaînes de caractères, listes ou autres : on peut donc à nouveau appeler `enumerate` pour obtenir un itérateur tout neuf et recommencer à boucler.
 
-```python
+```pycon
 >>> values = 'abcde'
 >>> for v in enumerate(values):
 ...     print(v)
@@ -120,7 +120,7 @@ Parce que leurs fonctionnalités sont couvertes par les listes en intension et p
 
 `map` prend en arguments une fonction et un itérable, et applique la fonction à chaque élément de l'itérable, renvoyant un itérateur sur les résultats.
 
-```python
+```pycon
 >>> values = [1.3, 2.5, 3.8, 4.2]
 >>> map(round, values)
 <map object at 0x7f4ae2db16a0>
@@ -130,7 +130,7 @@ Parce que leurs fonctionnalités sont couvertes par les listes en intension et p
 
 Cela revient donc à utiliser la liste en intension suivante.
 
-```python
+```pycon
 >>> [round(v) for v in values]
 [1, 2, 4, 4]
 ```
@@ -138,7 +138,7 @@ Cela revient donc à utiliser la liste en intension suivante.
 `filter` est le pendant pour le filtrage des éléments.
 Ici le premier argument est une fonction utilisée comme prédicat : l'élément est conservé si le prédicat et vrai et ignoré sinon.
 
-```python
+```pycon
 >>> def greater_than_two(n):
 ...     return n >= 2
 ... 
@@ -148,7 +148,7 @@ Ici le premier argument est une fonction utilisée comme prédicat : l'élémen
 
 Ici, la liste en intension équivalente serait la suivante.
 
-```python
+```pycon
 >>> [v for v in values if v >= 2]
 [2.5, 3.8, 4.2]
 ```
@@ -158,7 +158,7 @@ Elles restent parfois utilisées quand on n'attend rien de plus qu'un itérateur
 
 C'est le cas de `str.join` qui attend un itérable de chaînes de caractères et nécessite donc que les données soient converties en chaînes, ce que permet `map`.
 
-```python
+```pycon
 >>> ', '.join(map(str, values))
 '1.3, 2.5, 3.8, 4.2'
 ```
@@ -176,7 +176,7 @@ Ces itérateurs infinis sont tirés du module `itertools`.
 
 Le plus simple d'entre tous c'est `count`, qui permet de compter de 1 en 1.
 
-```python
+```pycon
 >>> from itertools import count
 >>> numbers = count()
 >>> next(numbers)
@@ -189,7 +189,7 @@ Le plus simple d'entre tous c'est `count`, qui permet de compter de 1 en 1.
 
 À quoi cela peut-il servir ? C'est très pratique pour générer des identifiants uniques puisque chaque appel à `next` renverra un nombre différent.
 
-```python
+```pycon
 >>> id_seq = count()
 >>> def new_event():
 ...     return {'id': next(id_seq), 'type': 'monstre', 'message': 'Un pythachu sauvage apparaît'}
@@ -203,7 +203,7 @@ Le plus simple d'entre tous c'est `count`, qui permet de compter de 1 en 1.
 
 Cela peut être aussi utile mathématiquement, pour simplement calculer un seuil à partir duquel une propriété est vraie.
 
-```python
+```pycon
 >>> for i in count():
 ...     if 2**i > 1000:
 ...         break
@@ -216,7 +216,7 @@ On sait ainsi que $2^{10}$ est la première puissance de 2 à être supérieur �
 
 On notera que `count` peut prendre deux arguments : le premier est le nombre de départ (0 par défaut) et le second est le pas (1 par défaut).
 
-```python
+```pycon
 >>> numbers = count(1, 2)
 >>> next(numbers)
 1
@@ -228,7 +228,7 @@ On notera que `count` peut prendre deux arguments : le premier est le nombre de
 
 Un autre itérateur infini est `repeat`, qui répète simplement en boucle le même élément.
 
-```python
+```pycon
 >>> from itertools import repeat
 >>> values = repeat('hello')
 >>> next(values)
@@ -239,7 +239,7 @@ Un autre itérateur infini est `repeat`, qui répète simplement en boucle le m�
 
 On pourra le voir utilisé dans des `zip` pour simuler une séquence de même longueur qu'une autre.
 
-```python
+```pycon
 >>> def additions(seq1, seq2):
 ...     for i, j in zip(seq1, seq2):
 ...         print(f'{i} + {j} = {i+j}')
@@ -259,14 +259,14 @@ On pourra le voir utilisé dans des `zip` pour simuler une séquence de même lo
 
 `repeat` peut aussi prendre un argument qui indique le nombre de répétitions à effectuer, auquel cas il ne sera plus infini.
 
-```python
+```pycon
 >>> list(repeat('hello', 5))
 ['hello', 'hello', 'hello', 'hello', 'hello']
 ```
 
 Dans le même genre on trouve enfin `cycle` pour boucler (indéfiniment) sur un même itérable.
 
-```python
+```pycon
 >>> from itertools import cycle
 >>> values = cycle(['hello', 'world'])
 >>> next(values)
@@ -279,7 +279,7 @@ Dans le même genre on trouve enfin `cycle` pour boucler (indéfiniment) sur un 
 
 C'est aussi un cas d'utilisation pour avoir un itérable que l'on voudrait au moins aussi grand qu'un autre.
 
-```python
+```pycon
 >>> additions(range(10), cycle([3, 5, 8]))
 0 + 3 = 3
 1 + 5 = 6
@@ -298,7 +298,7 @@ C'est aussi un cas d'utilisation pour avoir un itérable que l'on voudrait au mo
 Pour terminer ce chapitre je voudrais vous parler d'`iter`, une fonction qui renvoie un simple itérateur sur l'itérable donné en argument.
 Un nouvel itérateur est construit et renvoyé à chaque appel sur l'itérable.
 
-```python
+```pycon
 >>> values = [0, 1, 2, 3, 4]
 >>> iter(values)
 <list_iterator object at 0x7f3074a28850>
@@ -309,7 +309,7 @@ Un nouvel itérateur est construit et renvoyé à chaque appel sur l'itérable.
 Ces itérateurs sont semblables à nos objets `enumerate`, on peut appeler `next` dessus et récupérer la valeur suivante.
 Ils sont donc utiles si l'on souhaite parcourir manuellement un itérable à coups de `next`.
 
-```python
+```pycon
 >>> it = iter(values)
 >>> next(it)
 0
@@ -322,7 +322,7 @@ Ils sont donc utiles si l'on souhaite parcourir manuellement un itérable à cou
 Et bien sûr on peut aussi les parcourir avec un `for`.
 Attention encore, l'itérateur avance pendant le parcours, et le `for` continuera donc l'itération à partir d'où il se trouve.
 
-```python
+```pycon
 >>> for v in it:
 ...     print(v)
 ... 
@@ -336,7 +336,7 @@ Attention encore, l'itérateur avance pendant le parcours, et le `for` continuer
 Les itérateurs étant des itérables, il est possible de les donner à leur tour à `iter`.
 La fonction renverra alors simplement le même itérateur.
 
-```python
+```pycon
 >>> it
 <list_iterator object at 0x7f3074a21070>
 >>> iter(it)

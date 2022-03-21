@@ -1,7 +1,6 @@
 ### Ligne de commande
 
-Pour l'instant nous appelons nos programmes depuis la ligne de commande en tapant `python program.py`.
-Mais nous savons aussi que nous pouvons [définir un _shebang_ et rendre notre fichier exécutable](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/1-premiers-pas/4-fichiers/#ex%C3%A9cution-depuis-le-terminal) sous Linux pour le lancer en tapant `./program.py`.
+Pour l'instant nous appelons nos programmes depuis la ligne de commande en tapant `python program.py` (mais nous savons aussi [comment utiliser `./program.py` sous Linux](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/2-notes-diverses/#shebang)).
 
 Dans les deux cas, cela fait appel à l'interpréteur Python en lui donnant le chemin de notre programme en argument.
 Mais il est possible de renseigner d'autres arguments lors du lancement et ceux-ci seront transmis à notre programme.
@@ -50,7 +49,7 @@ Code: addition.py
 Mais attention, notre code plantera méchamment si nous ne fournissons pas suffisamment d'arguments.
 
 ```shell
-antoine@entwanne-mini /tmp % python addition.py 1
+% python addition.py 1
 Traceback (most recent call last):
   File "addition.py", line 4, in <module>
     b = int(sys.argv[2])
@@ -115,7 +114,7 @@ En fait, chaque sortie correspond à un fichier ouvert par défaut par le progra
 Pour la sortie standard, il s'agit de `sys.stdout`. (_standard output_).
 On peut l'utiliser comme tout autre fichier ouvert en écriture.
 
-```python
+```pycon
 >>> import sys
 >>> sys.stdout.write('hello\n')
 hello
@@ -128,7 +127,7 @@ Le 6 qui apparaît n'est que le retour de l'appel à `write` (6 caractères ont 
 
 Et de façon similaire, on a `sys.stderr` qui correspond à la sortie d'erreur.
 
-```python
+```pycon
 >>> print('error', file=sys.stderr)
 error
 ```

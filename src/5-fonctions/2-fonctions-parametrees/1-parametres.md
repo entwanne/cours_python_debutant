@@ -23,7 +23,7 @@ def hello(firstname, lastname):
 Lors de l'appel de la fonction, on utilisera les arguments pour donner leurs valeurs aux paramètres.
 On précise ainsi les valeurs dans les parenthèses qui suivent le nom de la fonction.
 
-```python
+```pycon
 >>> table_multiplication(3)
 3 × 1 = 3
 3 × 2 = 6
@@ -48,10 +48,10 @@ On précise ainsi les valeurs dans les parenthèses qui suivent le nom de la fon
 5 × 10 = 50
 ```
 
-Le comportement est le même pour les fonctions à plusieurs paramètres, les valeurs leurs sont attribuées dans l'ordre des arguments : le premier paramètre prend la valeur du premier argument, etc.  
+Le comportement est le même pour les fonctions à plusieurs paramètres, les valeurs leur sont attribuées dans l'ordre des arguments : le premier paramètre prend la valeur du premier argument, etc.  
 Chaque argument correspond ainsi à un paramètre (et inversement).
 
-```python
+```pycon
 >>> hello('Père', 'Noël')
 Hello Père Noël !
 >>> hello('Blanche', 'Neige')
@@ -60,7 +60,7 @@ Hello Blanche Neige !
 
 Une erreur survient s'il n'y a pas assez d'arguments pour compléter tous les paramètres.
 
-```python
+```pycon
 >>> hello()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -73,7 +73,7 @@ TypeError: hello() missing 1 required positional argument: 'lastname'
 
 Au contraire, une autre erreur est levée s'il y a trop d'arguments par rapport au nombre de paramètres.
 
-```python
+```pycon
 >>> hello('Homer', 'Jay', 'Simpson')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -90,7 +90,7 @@ def print_div(a, b):
         print(a / b)
 ```
 
-```python
+```pycon
 >>> print_div(5, 2)
 2.5
 >>> print_div(1, 0)

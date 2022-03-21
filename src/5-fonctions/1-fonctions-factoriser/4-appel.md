@@ -2,7 +2,7 @@
 
 On appelle notre fonction comme toute autre fonction (sans arguments pour le moment), en faisant suivre son nom d'une paire de parenthèses.
 
-```python
+```pycon
 >>> toto()
 Hello
 World!
@@ -12,7 +12,7 @@ Le code contenu dans le bloc de notre fonction est alors exécuté, c'est pourqu
 
 Tout le code de la fonction sera à nouveau exécuté à chaque nouvel appel, chaque appel étant indépendant des autres.
 
-```python
+```pycon
 >>> toto()
 Hello
 World!
@@ -24,7 +24,7 @@ World!
 Ce sont les parenthèses qui demandent à Python d'appeler la fonction et d'en exécuter le contenu.
 Sans elles, l'interpréteur ne ferait qu'évaluer l'expression `toto` pour nous indiquer qu'elle correspond à une fonction.
 
-```python
+```pycon
 >>> toto
 <function toto at 0x7fea64fcf1f0>
 ```

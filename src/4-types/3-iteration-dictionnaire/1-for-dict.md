@@ -5,7 +5,7 @@ Mais itérer sur un dictionnaire, qu'est-ce que ça veut dire ?
 En fait un dictionnaire peut être vu comme un ensemble de clés.
 Itérer sur un dictionnaire revient donc à itérer sur ces clés.
 
-```python
+```pycon
 >>> phonebook = {'Alice': '0633432380', 'Bob': '0663621029', 'Alex': '0714381809'}
 >>> for name in phonebook:
 ...     print(name)
@@ -17,7 +17,7 @@ Alex
 
 Et à partir d'une clé, il est facilement possible d'accéder à la valeur associée, grâce à l'opérateur `[]`.
 
-```python
+```pycon
 >>> for name in phonebook:
 ...     print(name, ':', phonebook[name])
 ...
@@ -32,7 +32,7 @@ Alex : 0714381809
 
 Le fait qu'un dictionnaire soit itérable le rend donc convertible en liste (en appelant `list`) ce qui aura pour effet de renvoyer la liste des clés.
 
-```python
+```pycon
 >>> list(phonebook)
 ['Alice', 'Bob', 'Alex']
 ```

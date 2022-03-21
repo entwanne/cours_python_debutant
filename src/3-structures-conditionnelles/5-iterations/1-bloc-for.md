@@ -18,7 +18,7 @@ for element in values:
 
 `for` introduit un bloc, la ligne se termine donc par un `:` et est suivie d'un bloc indenté.
 
-```python
+```pycon
 >>> numbers = [1, 1, 2, 3, 5, 8, 13]
 >>> for elem in numbers:
 ...     print('Nombre actuel :', elem)
@@ -36,7 +36,7 @@ On peut voir l'itération comme un curseur qui se déplace le long de notre list
 
 `elem` est à l'intérieur de la boucle une variable tout ce qu'il y a de plus standard, on peut l'utiliser dans toutes nos opérations usuelles.
 
-```python
+```pycon
 >>> for elem in numbers:
 ...     result = 2 * elem + 1
 ...     print(result)
@@ -54,7 +54,7 @@ Comme toute variable, il nous est aussi possible de la redéfinir, mais attentio
 Donc redéfinir la variable n'aura aucun effet sur la liste qui restera inchangée.
 Et le redéfinition n'est que temporaire, puisque la variable sera assignée à une nouvelle valeur de la liste à la prochaine itération.
 
-```python
+```pycon
 >>> for elem in numbers:
 ...     elem += 1
 ...     print(elem)

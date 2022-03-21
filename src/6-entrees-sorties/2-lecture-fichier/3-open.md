@@ -13,7 +13,7 @@ Ici, comme notre fichier se trouve dans le répertoire courant, il nous suffira 
 
 Pour un fichier dans le répertoire parent, nous aurions par exemple écrit `open('../hello.txt')`, ou `open('subdirectory/hello.txt')` pour un répertoire enfant (`open('..\hello.txt')` ou `open('subdirectory\hello.txt')` sous Windows).
 
-```python
+```pycon
 >>> open('hello.txt')
 <_io.TextIOWrapper name='hello.txt' mode='r' encoding='UTF-8'>
 ```
@@ -27,7 +27,7 @@ Ici, `r` signifie que nous ouvrons le fichier en lecture seule (*read*), nous ve
 
 La fonction open prend un deuxième argument optionnel pour spécifier ce mode. Il vaut `'r'` par défaut, d'où le comportement que nous observons.
 
-```python
+```pycon
 >>> open('hello.txt', 'r')
 <_io.TextIOWrapper name='hello.txt' mode='r' encoding='UTF-8'>
 ```
@@ -36,7 +36,7 @@ La fonction open prend un deuxième argument optionnel pour spécifier ce mode. 
 Il se peut aussi que l'ouverture échoue : si le fichier est introuvable ou que les droits sont insuffisants par exemple (pas la permission d'accéder au fichier appartenant à un autre utilisateur).
 Dans ce cas, une erreur sera levée par la fonction `open` et le fichier ne sera pas ouvert.
 
-```python
+```pycon
 >>> open('notfound.txt')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

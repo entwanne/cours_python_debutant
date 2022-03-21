@@ -7,10 +7,10 @@ Nos tests vont donc se résumer aux fonctions qui n'intéragissent pas avec l'ut
 Pour les autres fonctions, il faudra pour l'instant se contenter de tests manuels en exécutant le code du TP.
 
 Pour la fonction `apply_attack`, nous voulons nous assurer que les dégâts correspondant à l'attaque sont bien soustraits aux points de vie du joueur adverse.
-Nous souhaitons aussi vérifier que les points de vie ne descendent jamais en-dessous de zéro.
+Nous souhaitons aussi vérifier que les points de vie ne descendent jamais en dessous de zéro.
 
 Pour ce qui est de `get_winner`, on cherche à contrôler que c'est le joueur avec le plus de points de vie qui est identifié comme gagnant.
-Le cas de l'égalité entre joueurs ne nous intéresse pas vraiment car il ne peut pas se produire en jeu, mais on peut toujours le vérifier pour s'assurer que la fonction est cohérente (renvoie toujours le deuxième joueur par exemple).
+Le cas de l'égalité entre joueurs ne nous intéresse pas vraiment, car il ne peut pas se produire en jeu, mais on peut toujours le vérifier pour s'assurer que la fonction est cohérente (renvoie toujours le deuxième joueur par exemple).
 
 #### Solution
 

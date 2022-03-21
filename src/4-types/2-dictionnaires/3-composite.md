@@ -1,6 +1,6 @@
 ### Données composites
 
-Une autre cas d'utilisation des dictionnaires est celui d'agréger dans un même objet plusieurs valeurs liées les unes aux autres, plutôt que dans des variables différentes.
+Un autre cas d'utilisation des dictionnaires est celui d'agréger dans un même objet plusieurs valeurs liées les unes aux autres, plutôt que dans des variables différentes.
 Pensez par exemple à la représentation des monstres dans notre TP : on a un nom d'un côté, un nombre de PV de l'autre et aussi une liste d'attaques.
 
 À la place, on pourrait utiliser un dictionnaire par monstre, en y faisant figurer toutes ses données.
@@ -13,7 +13,7 @@ Pensez par exemple à la représentation des monstres dans notre TP : on a un n
 }
 ```
 
-Car en effet, tous les types de données sont acceptés en tant que valeurs, et toutes les valeurs n'ont pas besoin d'être du même type.
+En effet, tous les types de données sont acceptés en tant que valeurs, et toutes les valeurs n'ont pas besoin d'être du même type.
 
 Mais on peut faire encore mieux.
 En usant de listes et de dictionnaires, on construit facilement des structures arborescentes pour représenter toutes nos données.
@@ -61,7 +61,7 @@ joueurs = [
 Ainsi, on représente dans des variables différentes la structure de nos données.
 Pour avoir d'un côté la définition des monstres et des attaques, et de l'autre les monstres en jeu.
 
-```python
+```pycon
 >>> print(joueurs[0]['nom'], ':', joueurs[0]['monstre'])
 Joueur 1 : Pythachu
 >>> print('Attaques :', monstres[joueurs[0]['monstre']]['attaques'])

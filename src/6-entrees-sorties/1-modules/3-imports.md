@@ -6,7 +6,7 @@ Déjà, on a vu le simple `import foo` qui crée un nouvel objet `foo` représen
 
 Il est possible lors de l'import de choisir un autre nom que `foo` pour l'objet créé (par exemple pour opter pour un nom plus court) à l'aide du mot-clé `as` suivi du nom souhaité.
 
-```python
+```pycon
 >>> import foo as oof
 >>> foo
 Traceback (most recent call last):
@@ -20,7 +20,7 @@ NameError: name 'foo' is not defined
 
 Une autre syntaxe permet d'importer directement les objets que l'on veut depuis le module, sans créer d'objet pour le module, il s'agit de `from ... import ...`.
 
-```python
+```pycon
 >>> from foo import addition
 >>> addition
 <function addition at 0x7feb439c34c0>
@@ -40,7 +40,7 @@ Comme on le voit, cette syntaxe permet de rendre accessible la fonction `additio
 
 Il est aussi possible de préciser plusieurs objets à importer en les séparant par des virgules.
 
-```python
+```pycon
 >>> from foo import addition, soustraction
 >>> addition(3, 5)
 8

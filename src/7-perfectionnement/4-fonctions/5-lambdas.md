@@ -4,7 +4,7 @@ Les conditions peuvent être des expressions, les boucles (`for`) peuvent être 
 
 Je dis bien les définitions car les fonctions en elles-mêmes, nous l'avons vu précédemment, sont déjà des valeurs et donc des expressions à part entière.
 
-```python
+```pycon
 >>> def add_one(n):
 ...     return n + 1
 ... 
@@ -21,14 +21,14 @@ La solution se trouve du côté des fonctions lambdas (ou « fonctions anonymes
 Ce mot-clé, suivi d'un `:` et d'une expression permet de définir une fonction sans nom, l'expression étant le code de la fonction.  
 Une fonction lambda ne peut alors être composée que d'une unique expression.
 
-```python
+```pycon
 >>> lambda: 42
 <function <lambda> at 0x7f616ffe93a0>
 ```
 
 Il s'agit d'une fonction à part entière, et si nous l'appelons nous obtenons bien 42 comme réponse.
 
-```python
+```pycon
 >>> (lambda: 42)()
 42
 ```
@@ -38,7 +38,7 @@ Il s'agit d'une fonction à part entière, et si nous l'appelons nous obtenons b
 
 La lambda est une expression et peut donc être assignée à une variable.
 
-```python
+```pycon
 >>> get_42 = lambda: 42
 >>> get_42
 <function <lambda> at 0x7f616ffe9430>
@@ -48,7 +48,7 @@ La lambda est une expression et peut donc être assignée à une variable.
 
 Tout comme les fonctions, les lambdas peuvent recevoir des paramètres en tous genres, il suffit pour cela de préciser la liste des paramètres avant le signe `:`.
 
-```python
+```pycon
 >>> addition = lambda a, b: a + b
 >>> addition(3, 5)
 8
@@ -60,7 +60,7 @@ Avec une lambda, il n'est pas nécessaire de définir une fonction au préalable
 
 Voici par exemple un tri de mots ne tenant pas compte de la casse (différence entre lettres minuscules et capitales), en s'appuyant sur la conversion en minuscules des chaînes.
 
-```python
+```pycon
 >>> words = ['poire', 'Ananas', 'banane', 'abricot', 'FRAISE']
 >>> sorted(words, key=lambda w: w.lower())
 ['abricot', 'Ananas', 'banane', 'FRAISE', 'poire']

@@ -15,7 +15,7 @@ Code: calc.py
 On peut l'exécuter avec l'option `-i` et continuer à utiliser l'interpréteur à la suite du fichier.
 
 ```sh
-/tmp % python -i calc.py
+% python -i calc.py
 13
 21
 >>> 1 / 2

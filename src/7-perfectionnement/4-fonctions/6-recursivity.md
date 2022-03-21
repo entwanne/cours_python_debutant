@@ -30,7 +30,7 @@ def my_sum(numbers):
 Mais on remarque tout de suite un problème, on ne sait pas quand ça va s'arrêter. Cette fonction va-t-elle même s'arrêter ?
 En l'occurrence oui, mais en provoquant une erreur.
 
-```python
+```pycon
 >>> my_sum([1, 2, 3, 4, 5])
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -49,7 +49,7 @@ On devrait donc, dans le cas où l'on rencontre une liste vide, renvoyer directe
 
 Nous pouvons ajouter cette condition à notre fonction récursive et constater que le comportement est alors bon.
 
-```python
+```pycon
 >>> def my_sum(numbers):
 ...     if not numbers:
 ...         return 0
@@ -78,7 +78,7 @@ def my_len(s):
 
 Là encore, nous avons oublié de prévoir la condition de fin (renvoyer 0 sur une chaîne vide), et patatra !
 
-```python
+```pycon
 >>> my_len('abcdef')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -124,7 +124,7 @@ def even(n): # pair
 
 Qui se comportent bien comme on veut pour calculer la parité des nombres.
 
-```python
+```pycon
 >>> odd(5)
 True
 >>> even(5)

@@ -23,10 +23,20 @@ Voici sans plus attendre la solution de notre jeu qui en est maintenant vraiment
 [[s]]
 | ```python
 | name1 = input('Entrez le nom du 1er joueur : ').capitalize()
-| pv1 = int(input('Et son nombre de PV : '))
+| 
+| pv1_str = input('Et son nombre de PV : ')
+| while not pv1_str.isdigit():
+|     print('Nombre de PV invalide (doit être un nombre positif)')
+|     pv1_str = input('Entrez à nouveau : ')
+| pv1 = int(pv1_str)
 | 
 | name2 = input('Entrez le nom du 2ème joueur : ').capitalize()
-| pv2 = int(input('Et son nombre de PV : '))
+| 
+| pv2_str = input('Et son nombre de PV : ')
+| while not pv2_str.isdigit():
+|     print('Nombre de PV invalide (doit être un nombre positif)')
+|     pv2_str = input('Entrez à nouveau : ')
+| pv2 = int(pv2_str)
 | 
 | print()
 | print(name1, 'affronte', name2)

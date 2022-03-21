@@ -9,7 +9,7 @@ Il s'agit d'un objet de type `TextIOWrapper`, c'est ainsi que Python identifie u
 Cet objet possède différentes méthodes, et notamment la méthode `read`.
 Utilisée sans argument, elle renvoie le contenu complet du fichier sous forme d'une chaîne de caractères.
 
-```python
+```pycon
 >>> f = open('hello.txt')
 >>> f.read()
 'Hello World!\n'
@@ -27,7 +27,7 @@ Ainsi, l'état d'un fichier évolue au fur et à mesure qu'on le parcourt.
 À l'ouverture, le curseur se trouvait naturellement au début du fichier. Mais une fois le contenu lu, celui-ci s'est déplacé -- comme sur une bande d'enregistrement qui défilerait -- et se trouve maintenant à la fin.
 Ne vous étonnez donc pas si vous tentez un nouveau `read` sur le même fichier et obtenez une chaîne vide.
 
-```python
+```pycon
 >>> f.read()
 ''
 ```
@@ -38,7 +38,7 @@ Une seule lecture suffit généralement à traiter le contenu du fichier, mais i
 Il existe pour cela la méthode `seek` prenant une position dans le fichier pour y déplacer le curseur.
 `0` correspond au début du fichier.
 
-```python
+```pycon
 >>> f.seek(0)
 0
 >>> f.read()
@@ -47,7 +47,7 @@ Il existe pour cela la méthode `seek` prenant une position dans le fichier pour
 
 Mais une autre position dans le fichier serait aussi valide.
 
-```python
+```pycon
 >>> f.seek(6)
 6
 >>> f.read()
@@ -65,7 +65,7 @@ Ainsi, nous prendrons l'habitude de libérer notre ressource dès que nous auron
 
 Cela se fait par exemple avec un appel à la méthode `close` sur le fichier.
 
-```python
+```pycon
 >>> f.close()
 ```
 
@@ -74,7 +74,7 @@ La méthode ne renvoie rien, tout s'est bien passé, la ressource est maintenant
 Si nous essayons à nouveau de réaliser une opération sur notre fichier (`read`, `seek`), nous obtiendrons une erreur comme quoi le fichier est fermé.
 Python n'a en effet plus de référence vers le fichier et il faudrait l'ouvrir à nouveau (avec un appel à `open`) pour retravailler dessus.
 
-```python
+```pycon
 >>> f.read()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -97,14 +97,14 @@ def get_file_number(filename):
 
 À l'usage, sur un fichier `number.txt` contenant le texte `42`, elle fonctionne très bien.
 
-```python
+```pycon
 >>> get_file_number('number.txt')
 42
 ```
 
 Mais si on tente de l'exécuter avec notre fichier `hello.txt` (qui ne contient pas un nombre) on obtient logiquement une erreur.
 
-```python
+```pycon
 >>> get_file_number('hello.txt')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -149,7 +149,7 @@ def get_file_number(filename):
 
 Et on observe le même comportement que précédemment à l'utilisation.
 
-```python
+```pycon
 >>> get_file_number('number.txt')
 42
 >>> get_file_number('hello.txt')

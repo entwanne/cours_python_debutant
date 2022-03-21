@@ -2,10 +2,10 @@
 
 Je vais être assez bref sur ce sujet car je ne souhaite pas vous inonder d'informations compliquées, mais je pense qu'il est temps de parler un peu des scopes.
 
-On a vu plus tôt que les fonctions définissaient un espace de noms (un scope) : les variable définies dans une fonction n'existent pas à l'extérieur.
+On a vu plus tôt que les fonctions définissaient un espace de noms (un **scope**) : les variable définies dans une fonction n'existent pas à l'extérieur.
 L'inverse n'est pas vrai, les mécanismes de Python permettent d'accéder depuis une fonction à une variable définie à l'extérieur.
 
-```python
+```pycon
 >>> x = 5
 >>>
 >>> def get_x():
@@ -17,7 +17,7 @@ x vaut 5
 
 On a vu aussi qu'il était possible depuis une fonction de définir une variable locale du même nom qu'une variable extérieur, sans que cela ne provoque d'erreur ou d'interférence.
 
-```python
+```pycon
 >>> def set_x():
 ...     x = 12
 ...     print('x vaut', x)
@@ -30,7 +30,7 @@ x vaut 12
 
 On a vu enfin que cela pouvait poser problème si l'on tente d'accéder à une variable extérieure avant de la redéfinir, Python croyant avoir affaire à une variable locale qui n'a pas encore été définie.
 
-```python
+```pycon
 >>> def set_x():
 ...     print('x vaut', x)
 ...     x = 12
@@ -54,7 +54,7 @@ La déclarer c'est indiquer à Python que la variable existe quelque part et lui
 Ici, on va utiliser le mot-clé `global` pour indiquer que la variable existe dans le scope global du module.
 Après, il nous sera possible de l'utiliser comme une variable locale, et donc même de la redéfinir.
 
-```python
+```pycon
 >>> def set_x():
 ...     global x
 ...     x = 12
@@ -73,7 +73,7 @@ Bien sûr, l'instruction `global x` doit être exécutée dans la fonction avant
 `global` peut aussi être utilisé avec une variable n'existant pas encore dans le scope global.
 Mais cela signifie à Python que c'est dans ce scope qu'il faudra la définir.
 
-```python
+```pycon
 >>> def set_y():
 ...     global y
 ...     y = 17
@@ -89,7 +89,7 @@ Mais cela signifie à Python que c'est dans ce scope qu'il faudra la définir.
 
 On notera aussi que le mot-clé `global` n'est utile que pour redéfinir une variable globale, il n'est pas nécessaire pour y accéder ni même pour la modifier.
 
-```python
+```pycon
 >>> items = []
 >>>
 >>> def add_item(value):
@@ -109,7 +109,7 @@ On notera aussi que le mot-clé `global` n'est utile que pour redéfinir une var
 En Python les fonctions sont des valeurs de premier ordre, c'est-à-dire des valeurs à part entière comme le sont les nombres ou les chaînes de caractères.
 Il est donc possible de les manipuler, de les mettre dans des variables, d'utiliser ces variables comme des fonctions etc.
 
-```python
+```pycon
 >>> func = print
 >>> func('toto')
 toto
@@ -117,7 +117,7 @@ toto
 
 Et donc naturellement, il est aussi possible de renvoyer des fonctions depuis des fonctions.
 
-```python
+```pycon
 >>> def get_print():
 ...     return print
 ...
@@ -131,7 +131,7 @@ tata
 Mais mieux encore, il est possible de définir des fonctions au sein d'autres fonctions.
 Ces fonctions seront comme toutes les variables locales, perdues si elles ne sont pas renvoyées par la fonction mère.
 
-```python
+```pycon
 >>> def get_print():
 ...     def special_print(*args):
 ...         print(':', *args)
@@ -156,7 +156,7 @@ def add_by(a):
 
 Cet exemple permet de générer des fonctions pour additionner par un nombre en particulier.
 
-```python
+```pycon
 >>> add_by_3 = add_by(3)
 >>> add_by_3(5)
 8

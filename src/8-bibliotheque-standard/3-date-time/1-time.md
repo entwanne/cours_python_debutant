@@ -7,7 +7,7 @@ Il existe plusieurs manières de représenter le temps en informatique, selon qu
 La plus simple d'entre toutes, c'est le _timestamp_ qui représente un instant selon le nombre de secondes écoulées depuis une date de référence appelée _epoch_ (généralement le 1er janvier 1970 à minuit UTC, norme Unix).
 On y accède via la fonction `time` du module `time` qui nous renvoie un nombre flottant (incluant donc les fractions de secondes).
 
-```python
+```pycon
 >>> import time
 >>> time.time()
 1633091908.9014919
@@ -20,7 +20,7 @@ On y accède via la fonction `time` du module `time` qui nous renvoie un nombre 
 
 Si une plus grande précision est nécessaire, la fonction `time_ns` permet de récupérer le _timestamp_ sous la forme d'un nombre entier de nanosecondes écoulées.
 
-```python
+```pycon
 >>> time.time_ns()
 1633093266497388151
 ```
@@ -41,7 +41,7 @@ C'est une mauvaise pratique car ceux-ci ne sont pas monotones : étant alignés
 Pour un tel cas d'usage, il faut alors plutôt faire appel à la fonction `monotonic` (ou `monotonic_ns`) qui est une horloge monotonique.
 Le nombre ainsi renvoyé est aussi un nombre de secondes (ou de nanosecondes) mais la date de référence est indéterminée, ils ne sont alors utiles que pour calculer des durées.
 
-```python
+```pycon
 >>> start = time.monotonic()
 >>> ... # différentes opérations
 >>> time.monotonic() - start
@@ -55,7 +55,7 @@ C'est ce que fait l'objet `struct_time` du module `time`.
 
 On peut obtenir un objet `struct_time` en appelant la fonction `localtime` par exemple.
 
-```python
+```pycon
 >>> time.localtime()
 time.struct_time(tm_year=2021, tm_mon=10, tm_mday=1, tm_hour=15, tm_min=12, tm_sec=52, tm_wday=4, tm_yday=274, tm_isdst=1)
 >>> date = time.localtime()
@@ -70,7 +70,7 @@ Mais un tel objet est alors dépendant du fuseau horaire (le fuseau local pour `
 
 La fonction `gmtime` permet de récupérer le `struct_time` correspondant au temps courant dans le fuseau horaire UTC.
 
-```python
+```pycon
 >>> time.gmtime()
 time.struct_time(tm_year=2021, tm_mon=10, tm_mday=1, tm_hour=13, tm_min=15, tm_sec=3, tm_wday=4, tm_yday=274, tm_isdst=0)
 ```
@@ -81,21 +81,21 @@ Le module `time` met aussi à disposition quelques utilitaires.
 
 Ainsi, il est possible de mettre le programme en pause pendant une certaine durée (en secondes) à l'aide de la fonction `sleep`.
 
-```python
+```pycon
 >>> time.sleep(3)
 ```
 
 On trouve aussi certaines fonctions pour faire des conversions entre les types précédents.
 Ainsi la fonction `mktime` permet de transformer un objet `struct_time` (dans le fuseau courant) en un _timestamp_.
 
-```python
+```pycon
 >>> time.mktime(date)
 1633093972.0
 ```
 
 Aussi, `localtime` et `gmtime` peuvent prendre un _timestamp_ en argument et renvoyer la date associée (respectivement dans le fuseau local ou en UTC).
 
-```python
+```pycon
 >>> time.localtime(1633093972.0)
 time.struct_time(tm_year=2021, tm_mon=10, tm_mday=1, tm_hour=15, tm_min=12, tm_sec=52, tm_wday=4, tm_yday=274, tm_isdst=1)
 >>> time.gmtime(1633093972.0)
@@ -104,7 +104,7 @@ time.struct_time(tm_year=2021, tm_mon=10, tm_mday=1, tm_hour=13, tm_min=12, tm_s
 
 Enfin, on trouve d'autres fonctions de calcul du temps dans le module, comme `process_time` (et `process_time_ns`) qui sert à calculer le nombre de secondes de travail effectif (excluant les pauses) du programme, ainsi que `perf_counter` (et `perf_counter_ns`) spécialement dédiée aux calculs de performance du programme avec une résolution adaptée (les dates de référence de ces différentes fonctions sont indéterminées).
 
-```python
+```pycon
 >>> start = time.process_time()
 >>> time.sleep(3)
 >>> time.process_time() - start

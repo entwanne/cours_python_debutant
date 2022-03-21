@@ -13,7 +13,7 @@ Mais en pratique, une chaîne de caractères s'apparente plutôt à une séquenc
 
 Ainsi, la fonction `ord` permet simplement de récupérer le code associé à un caractère, et la fonction `chr` le caractère associé à un code.
 
-```python
+```pycon
 >>> ord('x')
 120
 >>> chr(120)
@@ -28,7 +28,7 @@ Ces fonctions peuvent permettre de jongler un peu avec la table unicode pour ré
 
 Par exemple pour récupérer n'importe quelle carte à jouer en connaissant [la manière dont elles sont stockées](https://fr.wikipedia.org/wiki/Table_des_caract%C3%A8res_Unicode/U1F0A0) :
 
-```python
+```pycon
 >>> card_base = ord('🂠')
 >>> chr(card_base + 0x20 + 0x05) # 5 de carreau
 '🃅'
@@ -38,7 +38,7 @@ Par exemple pour récupérer n'importe quelle carte à jouer en connaissant [la 
 
 `ord` échoue naturellement si on lui passe une chaîne de plusieurs caractères, et `chr` si on lui donne un code en dehors des bornes définies par unicode.
 
-```python
+```pycon
 >>> ord('salut')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -56,7 +56,7 @@ La fonction `format` permet d'obtenir la représentation formatée de n'importe 
 Vous ne la connaissez pas mais c'est elle qui intervient dans le mécanisme des chaînes de formatage (_f-string_) pour transformer les valeurs et leur appliquer le format demandé.  
 Elle prend ainsi en arguments la valeur et le format (les options de formatage) à lui appliquer.
 
-```python
+```pycon
 >>> format(42, '05X')
 '0002A'
 >>> format(123.4, 'e')
@@ -67,7 +67,7 @@ Elle prend ainsi en arguments la valeur et le format (les options de formatage) 
 
 Appelée sans format, elle opère juste la conversion en chaîne de caractères de la valeur donnée et devient ainsi équivalente à `str`.
 
-```python
+```pycon
 >>> format(25)
 '25'
 ```
@@ -80,7 +80,7 @@ Appelée sans format, elle opère juste la conversion en chaîne de caractères 
 Python est un langage dynamique et permet en cela d'exécuter du code à la volée au sein du programme.  
 C'est l'objectif de la fonction `eval` qui prend en argument une chaîne de caractères représentant une expression Python, l'interprète et en renvoie le résultat.
 
-```python
+```pycon
 >>> eval('1 + 3')
 4
 >>> x = 5
@@ -91,7 +91,7 @@ C'est l'objectif de la fonction `eval` qui prend en argument une chaîne de cara
 Cela offre donc la possibilité d'exécuter du code dynamiquement et donc de dépasser les fonctionnalités de base du langage.
 Par exemple pour créer en un coup une imbrication de 20 listes.
 
-```python
+```pycon
 >>> eval('['*20 + 'None' + ']'*20)
 [[[[[[[[[[[[[[[[[[[[None]]]]]]]]]]]]]]]]]]]]
 ```
@@ -109,7 +109,7 @@ Mais les opérateurs sont des symboles et on ne peut pas les manipuler en tant q
 En revanche, le module `operator` fournit pour chaque opérateur de Python un équivalent sous forme de fonction.  
 On y trouve ainsi des fonctions `add`, `sub`, `pow` ou encore `eq`.
 
-```python
+```pycon
 >>> import operator
 >>> operator.add(3, 5)
 8
@@ -127,7 +127,7 @@ Quelques subtilités à noter :
 
 * Il y a deux fonctions de division (`truediv` et `floordiv`) pour les deux opérateurs correspondant (respectivement `/` et `//`).
 
-    ```python
+    ```pycon
     >>> operator.truediv(10, 4)
     2.5
     >>> operator.floordiv(10, 4)
@@ -136,7 +136,7 @@ Quelques subtilités à noter :
 
 * `operator.concat` (concaténation) est équivalent à `operator.add`, ces deux opérations se représentant par l'opérateur `+`, mais s'attend à ce que ses arguments soient des séquences.
 
-    ```python
+    ```pycon
     >>> operator.concat('foo', 'bar')
     'foobar'
     >>> operator.add('foo', 'bar')
@@ -149,7 +149,7 @@ Quelques subtilités à noter :
 
 * Les opérateurs `&` et `|` deviennent `and_` et `or_`, suffixés d'un `_` pour ne pas générer de conflit avec les mots-clés `and` et `or`. De même que `not` devient `not_`.
 
-    ```python
+    ```pycon
     >>> operator.and_(3, 1)
     1
     >>> operator.or_(3, 1)
@@ -160,7 +160,7 @@ Quelques subtilités à noter :
 
 * Pour chaque fonction `xxx` d'un opérateur arithmétique on trouve une fonction `ixxx` pour l'opérateur en-place (par-exemple `iadd` pour `+=`).
 
-    ```python
+    ```pycon
     >>> values = []
     >>> operator.iadd(values, [42])
     [42]
@@ -171,7 +171,7 @@ Quelques subtilités à noter :
 * Les opérateurs `foo[key]`, `foo[key] = value` et `del foo[key]` sont appelés `getitem`, `setitem` et `delitem`.
   `getitem` renvoie la valeur demandée, `setitem` et `delitem` renvoient `None`.
 
-    ```python
+    ```pycon
     >>> operator.setitem(values, 0, 21)
     >>> operator.getitem(values, 0)
     21
@@ -182,7 +182,7 @@ Quelques subtilités à noter :
 
 * On trouve une fonction spéciale `itemgetter` qui permet de générer un opérateur renvoyant la valeur associée à une clé dans un conteneur.
 
-    ```python
+    ```pycon
     >>> get_3rd = operator.itemgetter(3)
     >>> get_3rd('abcdef')
     'd'

@@ -8,7 +8,7 @@ Toute valeur possède un type qui définit les opérations qui lui sont applicab
 Certaines valeurs peuvent être converties d'un type vers un autre.
 Pour cela, les types s'utilisent comme des fonctions, où la valeur à convertir est donnée en argument.
 
-```python
+```pycon
 >>> int('123')
 123
 >>> float(42)
@@ -23,7 +23,7 @@ Pour cela, les types s'utilisent comme des fonctions, où la valeur à convertir
 
 Les opérateurs d'égalité (`==`) et de différence (`!=`) sont applicables à tous les types.
 
-```python
+```pycon
 >>> 2 == 2
 True
 >>> 1.5 == 3.7
@@ -36,7 +36,7 @@ True
 
 Ces opérations sont de plus compatibles entre valeurs de types différents.
 
-```python
+```pycon
 >>> 2 == 2.0
 True
 >>> 2 == 2.5

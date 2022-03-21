@@ -13,7 +13,7 @@ Mais les listes peuvent contenir toutes sortes de données, même des plus compl
 
 Pour accéder aux éléments des sous-listes, on pourra simplement chaîner les opérateurs `[]`.
 
-```python
+```pycon
 >>> items[2][1][0]
 4
 >>> items[2][0] = 5
@@ -47,12 +47,14 @@ Mais les listes n'ont pas de limite et l'on pourrait alors voir d'autres subdivi
 
 #### Problème de la multiplication
 
-Je vous parlais de l'opérateur de multiplication des listes pour les concaténer, il faut y faire très attention dans le cas de listes à plusieurs dimensions.
+[[q]]
+| Je vous parlais de l'opérateur de multiplication des listes pour les concaténer, mais que se passe-t-il si on l'utilise sur des listes à plusieurs dimensions ?
 
+Eh bien ça ne fonctionne pas comme prévu !  
 En effet cet opérateur ne crée pas de copies mais duplique les références à une même valeur.
-La même sous-liste est alors répétée plusieurs fois dans la liste, provoquant des comportements intattendus en cas de modifications.
+La même sous-liste est alors répétée plusieurs fois dans la liste, provoquant des comportements inattendus en cas de modifications.
 
-```python
+```pycon
 >>> grid = [[1, 2, 3]] * 2
 >>> grid
 [[1, 2, 3], [1, 2, 3]]
@@ -63,7 +65,7 @@ La même sous-liste est alors répétée plusieurs fois dans la liste, provoquan
 
 Le code précédent étant en fait équivalent à :
 
-```python
+```pycon
 >>> line = [1, 2, 3]
 >>> grid = [line, line]
 >>> grid
@@ -73,13 +75,15 @@ Le code précédent étant en fait équivalent à :
 [[1, 2, 3, 4], [1, 2, 3, 4]]
 ```
 
+![Étiquettes dupliquées entre les lignes.](img/list_multiple_dim_ref.png)
+
 Ce comportement de duplication des références n'est pas propre aux listes multi-dimensionnelles.  
-Une code tel que `[0] * 10` duplique aussi 10 fois la référence à la valeur `0`, mais cela ne pose pas de problème particulier car les nombres ne sont pas des valeurs modifiables.
+Un code tel que `[0] * 10` duplique aussi 10 fois la référence à la valeur `0`, mais cela ne pose pas de problème particulier car les nombres ne sont pas des valeurs modifiables.
 Le comportement apparaît donc problématique dans le cas des sous-listes en raison de leur mutabilité.
 
 Nous verrons dans le chapitre prochain comment contrer ce problème en construisant nos listes itérativement, en attendant je vous conseille de simplement ne pas utiliser la multiplication dans des cas comme celui-ci.
 
-```python
+```pycon
 >>> grid = [[1, 2, 3], [1, 2, 3]]
 >>> grid[0].append(4)
 >>> grid

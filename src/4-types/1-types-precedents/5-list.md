@@ -7,14 +7,14 @@ Contrairement aux types précédents, les listes sont des objets modifiables (le
 
 Une chaîne de caractères étant une séquence, elle peut être convertie en liste de caractères en faisant appel à `list`.
 
-```python
+```pycon
 >>> list('hello')
 ['h', 'e', 'l', 'l', 'o']
 ```
 
-Cela peut justement permettre de récupérer l'équivalent modifiable d'une chaîne de caractère.
+Cela peut justement permettre de récupérer l'équivalent modifiable d'une chaîne de caractères.
 
-```python
+```pycon
 >>> txt = list('hello')
 >>> txt[1] = 'a'
 >>> ''.join(txt)
@@ -27,7 +27,7 @@ On retrouve pour les listes les opérations d'indexation (`[]`), de concaténati
 
 L'indexation permet cependant de modifier une liste en assignant une valeur à une position et d'en supprimer avec `del`.
 
-```python
+```pycon
 >>> values = [3, 4, 5]
 >>> values[0]
 3
@@ -47,9 +47,9 @@ False
 True
 ```
 
-Contraîrement aux chaînes de caractères, l'opérateur `in` n'ira pas chercher de sous-liste dans une liste.
+Contrairement aux chaînes de caractères, l'opérateur `in` n'ira pas chercher de sous-liste dans une liste.
 
-```python
+```pycon
 >>> [1, 2] in [1, 2, 3]
 False
 >>> [1, 2] in [[1, 2], [3, 4]]
@@ -57,11 +57,11 @@ True
 ```
 
 Au niveau de la multiplication d'une liste par un nombre, il faut bien faire attention aux cas de références multiples.
-Quand on multiplie ainsi une liste, on ne copie pas les éléments qu'elle contient mais on ne fait que les dupliquer. On a donc plusieurs fois un même objet dans la liste.
+Quand on multiplie ainsi une liste, on ne copie pas les éléments qu'elle contient, mais on ne fait que les dupliquer. On a donc plusieurs fois un même objet dans la liste.
 
 Ce n'est pas gênant pour des valeurs non modifiables (nombres, chaînes), mais si une liste contient d'autres listes cela peut vite devenir problématique.
 
-```python
+```pycon
 >>> table = [[0, 0, 0]] * 2
 >>> table
 [[0, 0, 0], [0, 0, 0]]
@@ -74,7 +74,7 @@ Les opérateurs d'ordre (`<`, `>`) sont aussi utilisables entre deux listes, leu
 
 C'est-à-dire qu'on commence par comparer les premiers éléments des deux listes : s'ils sont différents, alors la liste dont l'élément est le plus grand est considérée comme supérieure.
 
-```python
+```pycon
 >>> [3, 0, 0] > [1, 9, 9]
 True
 >>> [3, 0, 0] < [1, 9, 9]
@@ -90,7 +90,7 @@ True
 Mais s'ils sont égaux, l'opération continue en passant aux éléments suivants, et ainsi de suite jusqu'à l'épuisement de l'une des listes.
 Une liste qui est épuisée avant l'autre est considérée comme inférieure. Ainsi `[1, 2, 3]` est inférieure à `[1, 2, 3, 4]`.
 
-```python
+```pycon
 >>> [1, 2, 3] < [1, 2, 4]
 True
 >>> [1, 2, 3] < [1, 2, 2]
@@ -107,7 +107,7 @@ True
 
 Dans le cas où les éléments des deux listes ne sont pas ordonnables, on obtient une erreur de type signifiant que la comparaison est impossible.
 
-```python
+```pycon
 >>> [1, 2] < [1, 'a']
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -116,7 +116,7 @@ TypeError: '<' not supported between instances of 'int' and 'str'
 
 Et on retrouve bien sûr les opérateurs d'inégalités `<=` et `>=`.
 
-```python
+```pycon
 >>> [3, 2, 1] > [3, 2, 1]
 False
 >>> [3, 2, 1] >= [3, 2, 1]
@@ -130,14 +130,14 @@ True
 D'autres opérateurs prennent la forme de fonctions.
 C'est le cas de `len` pour récupérer la taille d'une liste.
 
-```python
+```pycon
 >>> len(['a', 'b', 'c'])
 3
 ```
 
 On a aussi les fonctions `min` et `max` pour récupérer le plus petit ou le plus grand élément d'une liste.
 
-```python
+```pycon
 >>> min([3, 1, 2])
 1
 >>> max(['z', 'c', 'a', 'y'])
@@ -146,7 +146,7 @@ On a aussi les fonctions `min` et `max` pour récupérer le plus petit ou le plu
 
 `sum` est une fonction qui opère sur une liste de nombres et en calcule la somme.
 
-```python
+```pycon
 >>> sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 55
 ```
@@ -156,7 +156,7 @@ Enfin je voulais aussi vous présenter les fonctions `all` et `any`, qui agissen
 
 Ainsi, `all([a, b, c, d])` est équivalent à `a and b and c and d` et `any([a, b, c, d])` à `a or b or c or d`.
 
-```python
+```pycon
 >>> all([1, 2, 3, 4])
 True
 >>> all([1, 2, 3, 4])
@@ -172,7 +172,7 @@ False
 Attention cependant au comportement sur les listes vides : `all` s'attend à ce que tous les éléments soient vrais ; mais si la liste ne contient aucun élément, alors techniquement ils sont bien tous vrais.
 De même pour `any` qui veut au moins un élément vrai, ce qui ne peut pas être le cas s'il n'y a aucun élément.
 
-```python
+```pycon
 >>> all([])
 True
 >>> any([])
@@ -185,7 +185,7 @@ Venons-en maintenant à quelques méthodes sur les listes.
 
 Comme sur les chaînes, on a une méthode `index` pour rechercher le premier index d'un élément.
 
-```python
+```pycon
 >>> values = ['a', 'b', 'c', 'd']
 >>> values.index('c')
 2
@@ -193,7 +193,7 @@ Comme sur les chaînes, on a une méthode `index` pour rechercher le premier ind
 
 Les méthodes `append`, `insert`, `pop` et `clear` permettent de modifier la liste en ajoutant / insérant / supprimant un élément, ou en la vidant.
 
-```python
+```pycon
 >>> values.append('e') 
 >>> values.insert(3, 'ç')
 >>> values.pop(1)
@@ -207,7 +207,7 @@ Les méthodes `append`, `insert`, `pop` et `clear` permettent de modifier la lis
 
 Les listes ont aussi une méthode `remove` pour supprimer un élément en fonction de sa valeur plutôt que son index.
 
-```python
+```pycon
 >>> values = ['a', 'b', 'c', 'd']
 >>> values.remove('c')
 >>> values
@@ -216,7 +216,7 @@ Les listes ont aussi une méthode `remove` pour supprimer un élément en foncti
 
 La méthode `extend` permet d'ajouter une liste d'éléments à la fin, ce qui revient à concaténer la liste donnée en argument dans la liste actuelle.
 
-```python
+```pycon
 >>> values.extend(['c', 'e', 'f'])
 >>> values
 ['a', 'b', 'd', 'c', 'e', 'f']
@@ -225,7 +225,7 @@ La méthode `extend` permet d'ajouter une liste d'éléments à la fin, ce qui r
 Quelques méthodes permettent de faire varier l'ordre des éléments dans la liste.
 C'est le cas de `reverse` qui inverse l'ordre des éléments.
 
-```python
+```pycon
 >>> values.reverse()
 >>> values
 ['f', 'e', 'c', 'd', 'b', 'a']
@@ -233,7 +233,7 @@ C'est le cas de `reverse` qui inverse l'ordre des éléments.
 
 `sort` permet quant à elle de trier les éléments du plus petit au plus grand.
 
-```python
+```pycon
 >>> values.sort()
 >>> values
 ['a', 'b', 'c', 'd', 'e', 'f']
@@ -241,7 +241,7 @@ C'est le cas de `reverse` qui inverse l'ordre des éléments.
 
 Il est possible de passer un booléen comme argument nommé `reverse` pour trier les éléments dans l'autre sens.
 
-```python
+```pycon
 >>> values.sort(reverse=True)
 >>> values
 ['f', 'e', 'd', 'c', 'b', 'a']
@@ -251,7 +251,7 @@ Enfin, on a vu plus haut les problèmes que pouvaient causer les multiples réf�
 Parfois, on veut simplement deux listes contenant les mêmes valeurs mais indépendantes l'une de l'autre, et l'on doit pour cela en réaliser une copie.
 Les listes possèdent pour cela une méthode `copy`.
 
-```python
+```pycon
 >>> other_values = values.copy()
 >>> values.append('g')
 >>> values
@@ -262,7 +262,7 @@ Les listes possèdent pour cela une méthode `copy`.
 
 Ce même comportement est aussi possible en appelant `list` sur une liste existante, ou en utilisant un _slicing_ vide.
 
-```python
+```pycon
 >>> list(values)
 ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 >>> values[:]
@@ -274,7 +274,7 @@ Ce même comportement est aussi possible en appelant `list` sur une liste exista
 
 Ainsi, avec le code qui suit, nous aurons encore des références communes entre les deux listes.
 
-```python
+```pycon
 >>> values = [['a', 'b', 'c'], ['d', 'e', 'f']]
 >>> other_values = values.copy()
 >>> values[1].append('g')
@@ -286,7 +286,7 @@ Nous verrons par la suite comment réaliser une copie en profondeur et éviter c
 
 Mais cela ne concerne bien sûr que les dimensions imbriquées : `values` et `other_values` restent deux listes distinctes.
 
-```python
+```pycon
 >>> values.append(['h', 'i', 'j'])
 >>> values
 [['a', 'b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j']]
@@ -301,7 +301,7 @@ Celui-ci permet de tester si deux valeurs sont un seul et même objet, et non si
 
 Il permet ainsi de savoir si deux variables pointent vers une même liste ou vers deux listes distinctes.
 
-```python
+```pycon
 >>> values = [1, 2, 3]
 >>> other_values = values
 >>> other_values is values
@@ -315,7 +315,7 @@ True
 
 À l'inverse, on trouve l'opérateur `is not` pour tester la non-identité.
 
-```python
+```pycon
 >>> other_values is not values
 True
 ```

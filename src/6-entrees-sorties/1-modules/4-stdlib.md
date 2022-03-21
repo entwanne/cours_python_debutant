@@ -8,7 +8,7 @@ Ainsi on a par exemple un module `math` pour toutes les fonctions mathématiques
 
 On importe donc le module comme on le faisait précédemment.
 
-```python
+```pycon
 >>> import math
 ```
 
@@ -21,7 +21,7 @@ Le module a beau ne pas se trouver dans le répertoire d'exécution, Python arri
 Comme annoncé, nous retrouvons dans ce module différentes constantes mathématiques.
 Il s'agit de nombres flottants, avec donc la précision qui est la leur.
 
-```python
+```pycon
 >>> math.pi
 3.141592653589793
 >>> math.e
@@ -34,7 +34,7 @@ Cette dernière représente l'infini, un nombre flottant supérieur à tout autr
 
 Question fonctions il ne sera pas possible de tout énumérer mais en voici quelques exemples.
 
-```python
+```pycon
 >>> math.sqrt(2) # Racine carrée
 1.4142135623730951
 >>> math.floor(1.5) # Arrondi à l'inférieur
@@ -65,7 +65,7 @@ Cette fonction permet de comparer deux nombres flottants avec une certaine marge
 Pour rappel, il y a une certaine imprécision dans le stockage des flottants, et l'opérateur `==` est donc déconseillé.
 `isclose` prend simplement les deux nombres en paramètres et renvoie un booléen indiquant s'ils sont « égaux » (disons très proches) ou non.
 
-```python
+```pycon
 >>> 0.1 + 0.2 == 0.3
 False
 >>> math.isclose(0.1 + 0.2, 0.3)

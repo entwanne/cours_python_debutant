@@ -6,7 +6,7 @@ Voilà pour ce qui est des tirages dit discrets (on a un ensemble de valeurs con
 
 Par exemple, très simple, la fonction `random` va renvoyer un nombre flottant entre 0 et 1 (1 étant exclu de l'intervalle).
 
-```python
+```pycon
 >>> random.random()
 0.9294919627802888
 >>> random.random()
@@ -17,7 +17,7 @@ Le tirage de ce nombre est uniforme, grossièrement cela veut dire qu'on a autan
 
 Une fonction est spécifiquement dédiée au tirage uniforme entre deux nombres flottants, il s'agit de la fonction `uniform`.
 
-```python
+```pycon
 >>> random.uniform(0, 10)
 1.4017486291855232
 >>> random.uniform(0, 10)
@@ -28,7 +28,7 @@ Suivant les arrondis, la borne supérieure peut être inclue ou non dans l'inter
 
 [^infini]: Pas exactement puisque la représentation d'un flottant est finie, mais vous comprenez l'idée.
 
-On a l'habitute de présenter une distribution par sa densité de probabilité, la fonction qui montre quelles zones de l'intervalle ont plus de chances d'être sollicitées.  
+On a l'habitude de présenter une distribution par sa densité de probabilité, la fonction qui montre quelles zones de l'intervalle ont plus de chances d'être sollicitées.  
 Dans le cas d'une distribution uniforme, cette densité est constante.
 
 ![Densité de probabilité d'une distribution uniforme.](img/random_uniform.png)
@@ -42,14 +42,14 @@ On parle de distribution triangulaire car sa densité représente un triangle en
 
 Ainsi, les valeurs autour du sommet du triangle auront plus de probabilité d'être tirées que celles aux extrémités.
 
-```python
+```pycon
 >>> random.triangular(0, 10)
 4.0479535343895865
 ```
 
 Un troisième argument optionnel, le mode, permet de spécifier la valeur du sommet du triangle (par défaut il s'agit du milieu de l'intervalle, 5 dans notre exemple).
 
-```python
+```pycon
 >>> random.triangular(0, 10, 2)
 2.4400405218007473
 ```
@@ -57,7 +57,7 @@ Un troisième argument optionnel, le mode, permet de spécifier la valeur du som
 On trouve aussi la distribution normale, qui représente la distribution naturelle autour d'une moyenne avec un certain écart type.
 La moyenne et l'écart type sont les deux arguments de la fonction `normalvariate`.
 
-```python
+```pycon
 >>> random.normalvariate(5, 1)
 4.655500829738334
 >>> random.normalvariate(5, 1)
@@ -71,13 +71,13 @@ Sa densité de probabilité prend la forme d'une cloche centrée autour de la mo
 #### Pondération
 
 Un autre point important à propos des tirages aléatoires concerne la pondération.
-En effet, les tirages discrets que nous avons effectué jusqu'ici étaient tous uniformes : chaque valeur avait autant de chance que les autres de tomber.
+En effet, les tirages discrets que nous avons effectués jusqu'ici étaient tous uniformes : chaque valeur avait autant de chance que les autres de tomber.
 
 Avec `random.randint(1, 6)`, chaque valeur a une probabilité de $\frac{1}{6}$ d'être tirée.
 On peut d'ailleurs le vérifier en simulant un très grand nombre de tirages et en calculant le nombre d'occurrences de chaque valeur pour en déterminer la fréquence.  
 Si le tirage est bien uniforme, chaque valeur est censée être équitablement présente.
 
-```python
+```pycon
 >>> from collections import Counter
 >>> occurrences = Counter()
 >>> N = 10000
@@ -109,7 +109,7 @@ choices = [1, 2, 3, 4, 4, 5, 5, 6, 6, 6]
 
 Ici, 6 a une probabilité de 0,3 ($\frac{3}{10}$) d'être tiré, 4 et 5 en ont une de 0,2 et les autres sont de 0,1.
 
-```python
+```pycon
 >>> occurrences = Counter()
 >>> for _ in range(N):
 ...     val = random.choice(choices)
@@ -132,14 +132,14 @@ Heureusement, Python a pensé à nous et propose une fonction qui prend directem
 
 Par défaut la fonction est sembable à `choice`, attribuant le même poids à chaque valeur, sauf qu'elle renvoie la valeur tirée sous forme d'une liste.
 
-```python
+```pycon
 >>> random.choices(range(1, 7))
 [6]
 ```
 
 C'est parce qu'il est possible de lui demander de tirer plusieurs valeurs (avec remise) en utilisant le paramètre `k`.
 
-```python
+```pycon
 >>> random.choices(range(1, 7), k=3)
 [1, 1, 6]
 ```
@@ -147,7 +147,7 @@ C'est parce qu'il est possible de lui demander de tirer plusieurs valeurs (avec 
 Mais l'intérêt de cette fonction se situe dans son deuxième argument qui est une liste de poids, correspondant donc aux valeurs données en premier argument.
 Notre tirage de tout à l'heure pourrait se réécrire de la façon suivante :
 
-```python
+```pycon
 >>> weights = [0.1, 0.1, 0.1, 0.2, 0.2, 0.3]
 >>> random.choices(range(1, 7), weights)
 [5]
@@ -157,7 +157,7 @@ Notre tirage de tout à l'heure pourrait se réécrire de la façon suivante :
 
 Encore une fois, on peut le vérifier en calculant les fréquences d'apparition.
 
-```python
+```pycon
 >>> occurrences = Counter()
 >>> for _ in range(N):
 ...     val = random.choices(range(1, 7), weights)[0] # Attention, choices renvoie une liste
@@ -176,7 +176,7 @@ Encore une fois, on peut le vérifier en calculant les fréquences d'apparition.
 
 J'ai utilisé ici des fréquences comme poids, mais il est possible d'utiliser n'importe quels nombres, Python calculera la fréquence en fonction de la somme des poids.
 
-```python
+```pycon
 >>> weights = [1, 1, 1, 2, 2, 3]
 >>> random.choices(range(1, 7), weights)
 [2]
@@ -190,7 +190,7 @@ Un nombre est tiré entre 0 et 1, et c'est la valeur située juste à droite de 
 
 Notre tirage précédent peut alors s'écrire comme suit.
 
-```python
+```pycon
 >>> cum_weights = [0.1, 0.2, 0.3, 0.5, 0.7, 1]
 >>> random.choices(range(1, 7), cum_weights=cum_weights)
 [5]

@@ -6,7 +6,7 @@ L'autre règle est que le nom ne peut pas commencer par un chiffre.
 
 C'est-à-dire que le nom de peut pas contenir d'espaces ou de caractères spéciaux, contrevenir à ces règles produira des erreurs de syntaxe.
 
-```python
+```pycon
 >>> 0x = 1
   File "<stdin>", line 1
     0x = 1
@@ -43,7 +43,7 @@ Il est ainsi impossible de nommer une variable avec l'un des noms présent dans 
 | `async`  | `elif`     | `if`      | `or`       | `yield`  |
 +----------+------------+-----------+------------+----------+
 
-```python
+```pycon
 Type "help", "copyright", "credits" or "license" for more information.
 >>> def = 10
   File "<stdin>", line 1
@@ -76,7 +76,7 @@ On verra ça par la suite avec les assignations multiples où `_` pourra servir 
 
 La variable `_` a aussi un sens spécial dans l'interpréteur interactif : elle garde la trace de la dernière expression calculée et affichée.
 
-```python
+```pycon
 >>> 1 + 2
 3
 >>> _

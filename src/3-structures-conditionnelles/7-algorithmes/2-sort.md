@@ -26,7 +26,7 @@ Il faut savoir que d'autres algorithmes plus performants existent tels que le tr
 Python implémente lui-même son propre algorithme de tri inspiré des tris précédents, le _Tim sort_ (du nom de Tim Peters, contributeur de Python).
 Ce tri est accessible par la fonction `sorted`.
 
-```python
+```pycon
 >>> numbers = [3, 2, 5, 8, 4, 7, 9, 1, 6]
 >>> sorted(numbers)
 [1, 2, 3, 4, 5, 6, 7, 8, 9]

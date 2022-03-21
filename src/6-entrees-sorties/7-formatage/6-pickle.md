@@ -8,7 +8,7 @@ Sachez juste que le format gère de nombreux objets Python, pour peu que leur ty
 
 #### Module `pickle`
 
-Le module utilise l'interface dont je vous avais parlé plus tôt pour `json`, et propose donc les fonctions `load`, `loads`, `dump` et `dumps`.
+[Le module `pickle`](https://docs.python.org/fr/3/library/pickle.html) utilise l'interface dont je vous avais parlé plus tôt pour `json`, et propose donc les fonctions `load`, `loads`, `dump` et `dumps`.
 
 ##### Écriture
 
@@ -41,7 +41,7 @@ with open('game.dat', 'wb') as f:
 
 La méthode `dumps` prend simplement un objet et renvoie une chaîne d'octets qui sera compatible avec `loads`.
 
-```python
+```pycon
 >>> pickle.dumps([1, 2, 3])
 b'\x80\x04\x95\x0b\x00\x00\x00\x00\x00\x00\x00]\x94(K\x01K\x02K\x03e.'
 >>> pickle.dumps(2+1j)
@@ -52,7 +52,7 @@ b'\x80\x04\x95.\x00\x00\x00\x00\x00\x00\x00\x8c\x08builtins\x94\x8c\x07complex\x
 
 La méthode `loads` prend donc en argument une chaîne d'octets, reconsruit l'objet Python représenté et le renvoie.
 
-```python
+```pycon
 >>> pickle.loads(b'\x80\x04\x95\x0b\x00\x00\x00\x00\x00\x00\x00]\x94(K\x01K\x02K\x03e.')
 [1, 2, 3]
 >>> pickle.loads(b'\x80\x04\x95.\x00\x00\x00\x00\x00\x00\x00\x8c\x08builtins\x94\x8c\x07complex\x94\x93\x94G@\x00\x00\x00\x00\x00\x00\x00G?\xf0\x00\x00\x00\x00\x00\x00\x86\x94R\x94.')
@@ -61,7 +61,7 @@ La méthode `loads` prend donc en argument une chaîne d'octets, reconsruit l'ob
 
 `load` prend elle un fichier et renvoie aussi l'objet qui y est contenu. Comme pour `dump`, il est possible d'appeler `load` plusieurs fois de suite sur un même fichier (pour y lire les différents objets écrits).
 
-```python
+```pycon
 >>> with open('game.dat', 'rb') as f:
 ...     print('monstres :', pickle.load(f))
 ...     print('attaques :', pickle.load(f))

@@ -7,7 +7,7 @@ Souvenez-vous : cela correspond à la division posée que l'on apprenait à l'�
 
 ![Division euclidienne](img/division.png)
 
-```python
+```pycon
 >>> 13 // 5
 2
 >>> 13 % 5
@@ -16,7 +16,7 @@ Souvenez-vous : cela correspond à la division posée que l'on apprenait à l'�
 
 On peut vérifier notre résutlat en multipliant le quotient par le diviseur et en lui ajoutant le reste.
 
-```python
+```pycon
 >>> 2 * 5 + 3
 13
 ```
@@ -26,7 +26,7 @@ Ces opérations renvoient des nombres entiers quand elles sont appliquées à de
 Une autre opération mathématique courante est l'exponentiation, autrement dit la mise en puissance.
 Cette opération se note `**`, avec le nombre à gauche et la puissance à droite.
 
-```python
+```pycon
 >>> 5 ** 2 # 5 à la puissance 2 soit 5 au carré
 25
 >>> 1.5 ** 3 # 1.5 au cube
@@ -35,7 +35,7 @@ Cette opération se note `**`, avec le nombre à gauche et la puissance à droit
 
 Et pour les connaisseurs il est aussi possible d'utiliser des puissances flottantes, comme `0.5` pour calculer une racine carrée.
 
-```python
+```pycon
 >>> 2 ** 0.5
 1.4142135623730951
 ```
@@ -66,7 +66,7 @@ Si elles importent peu pour l'addition et la multiplication (`(1+2)+3` et `1+(2+
 
 Les opérations de priorités 3 et 4 (addition, soustraction, mutliplication, divisions) sont toutes associatives à gauche, c'est-à-dire que les opérations de gauche sont exécutées en priorité, de façon à ce que `1 - 2 + 3` soit égal à `(1-2) + 3`.
 
-```python
+```pycon
 >>> 1 - 2 + 3
 2
 >>> (1 - 2) + 3
@@ -91,7 +91,7 @@ Les opérations de priorités 3 et 4 (addition, soustraction, mutliplication, di
 
 À l'inverse, l'opération d'exponentiation (`**`) st associative à droite, donc les opérations sont exécutées de drotie à gauche.
 
-```python
+```pycon
 >>> 2 ** 3 ** 4
 2417851639229258349412352
 >>> 2 ** (3 ** 4)

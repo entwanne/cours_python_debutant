@@ -9,7 +9,9 @@ with open('hello.txt') as f:
 ```
 
 Dans le code précédent, même si la ligne 2 échoue (si le fichier ne contient pas un nombre), le fichier sera correctement fermé (Python appellera `f.close()` pour nous).  
-Car c'est ce que garantit le bloc `with` : assurer que le code de libération de la ressource sera toujours appelé.
+Car c'est ce que garantit le bloc `with` : assurer que le code de libération de la ressource sera toujours appelé[^context_manager].
+
+[^context_manager]: Un gestionnaire de contexte se compose en fait d'une fonction pour initialiser la ressource et d'une autre pour la libérer, comme expliqué dans [ce cours](https://zestedesavoir.com/tutoriels/954/notions-de-python-avancees/3-further/2-context-managers/), qui nécessite des notions de [programmation objet](https://zestedesavoir.com/tutoriels/1253/la-programmation-orientee-objet-en-python/) en Python.
 
 En cela, il s'apperente à un `try` / `finally`, puisqu'il s'agit d'exécuter une action pour acquérir la ressource (avant le `try`) puis pour la libérer (dans le `finally`).  
 Mais on n'a pas à faire d'appel explicite à `f.close()` pour fermer notre fichier, tout cela est fait de façon transparente.
@@ -31,7 +33,7 @@ En plus de ça, le bloc `with` peut aussi influer sur la remontée d'exceptions,
 C'est ce que permet facilement le gestionnaire de contexte `suppress` du module `contextlib` de la bibliothèque standard.  
 Il s'utilise en précisant les types d'erreurs que l'on veut voir supprimés.
 
-```python
+```pycon
 >>> from contextlib import suppress
 >>> with suppress(ValueError):
 ...     print(int('abc'))
@@ -40,7 +42,7 @@ Il s'utilise en précisant les types d'erreurs que l'on veut voir supprimés.
 
 Plusieurs types peuvent être donnés en arguments pour tous les supprimer.
 
-```python
+```pycon
 >>> with suppress(ValueError, TypeError):
 ...     print(1 + 'b')
 ...
@@ -48,7 +50,7 @@ Plusieurs types peuvent être donnés en arguments pour tous les supprimer.
 
 Il ne permet pas de traitement plus avancé que ça, et se limite bien sûr à n'attraper que les erreurs des types spécifiés.
 
-```python
+```pycon
 >>> with suppress(ValueError):
 ...     print(1 + 'b')
 ...

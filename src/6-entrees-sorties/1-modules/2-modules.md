@@ -17,7 +17,7 @@ Code: foo.py
 Pour charger le code d'un module (le code du fichier associé) et avoir accès à ses définitions, il est nécessaire de l'importer.
 On utilise pour cela le mot-clé `import` de Python suivi du nom du module (`foo` dans notre exemple).
 
-```python
+```pycon
 >>> import foo
 ```
 
@@ -33,20 +33,20 @@ Code: bar.py
 
 On constate bien que son code est exécuté à l'import.
 
-```python
+```pycon
 >>> import bar
 Je suis le module bar
 ```
 
 Mais revenons-en à notre premier module, `foo`.
-C'est bien beau de l'avoir importé mais on aimerait pouvoir en exécuter les fonctions.
+C'est bien beau de l'avoir importé, mais on aimerait pouvoir en exécuter les fonctions.
 Si vous avez tenté d'appeler `addition` ou `soustraction` vous avez remarqué que les fonctions n'existaient pas et obtenu une erreur `NameError`.
 
 C'est parce que les fonctions existent mais dans l'espace de noms (_namespace_) du module `foo`.
 Il faut alors les préfixer de `foo.` pour y accéder : `foo.addition` ou `foo.soustraction`.
 L'opérateur `.` signifiant « accède au nom contenu dans ».
 
-```python
+```pycon
 >>> foo.addition(3, 5)
 8
 >>> foo.soustraction(12, 42)
@@ -55,7 +55,7 @@ L'opérateur `.` signifiant « accède au nom contenu dans ».
 
 `foo` en lui-même est un objet d'un nouveau type représentant le module importé.
 
-```python
+```pycon
 >>> foo
 <module 'foo' from '/.../foo.py'>
 ```
@@ -65,7 +65,7 @@ L'opérateur `.` signifiant « accède au nom contenu dans ».
 Une fonction de Python est très utile pour se documenter sur un module, il s'agit de la fonction `help`.
 On appelle la fonction depuis l'interpréteur interactif en lui donnant l'objet-module en argument (il faut donc l'avoir importé au préalable).
 
-```python
+```pycon
 >>> help(foo)
 ```
 
@@ -93,7 +93,7 @@ C'est très succinct pour le moment, nous verrons par la suite comment étayer t
 
 Notez que la fonction `help` n'est pas utile uniquement pour les modules, elle permet aussi de se documenter sur une fonction ou un type.
 
-```python
+```pycon
 >>> help(abs)
 
 >>> help(int)
@@ -107,7 +107,7 @@ Par exemple `help('keywords')` pour obtenir la liste des mots-clés de Python.
 
 Enfin, on peut utiliser la fonction sans argument pour entrer dans une interface d'aide où chaque ligne entrée sera exécutée comme un nouvel appel à la fonction `help`.
 
-```python
+```pycon
 >>> help()
 
 Welcome to Python 3.9's help utility!
@@ -116,3 +116,7 @@ Welcome to Python 3.9's help utility!
 
 help>
 ```
+
+[[i]]
+| Actuellement nos modules ne sont accessibles que si les fichiers Python sont disposés dans le même répertoire.
+| Nous verrons dans un prochain chapitre comment permettre une arborescence plus complexe à l'aide des paquets.

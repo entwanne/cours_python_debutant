@@ -13,11 +13,11 @@ En pratique ça fonctionne bien, mais attention : deux générateurs qui seraie
 
 Certains langages vous demandent d'initialiser le générateur pseudo-aléatoire avant de commencer à faire des tirages, mais Python le fait pour nous lors de l'import du module `random`, et est donc directement utilisable.
 
-```python
+```pycon
 >>> import random
 ```
 
-Le module propose de nombreuses fonctions mais nous n'allons nous intéresser qu'à certaines d'entre-elles.
+Le module propose de nombreuses fonctions, mais nous n'allons nous intéresser qu'à certaines d'entre elles.
 
 #### Nombres aléatoires
 
@@ -29,7 +29,7 @@ Elle renvoie un nombre aléatoire compris dans cet intervalle (pour rappel, la v
 
 Voici par exemple des tirages de nombres entre 1 et 6 (inclus).
 
-```python
+```pycon
 >>> random.randrange(1, 7)
 5
 >>> random.randrange(1, 7)
@@ -40,7 +40,7 @@ Voici par exemple des tirages de nombres entre 1 et 6 (inclus).
 
 Ce qui est d'ailleurs strictement équivalent à :
 
-```python
+```pycon
 >>> random.randrange(6) + 1
 3
 >>> random.randrange(6) + 1
@@ -51,7 +51,7 @@ Ce qui est d'ailleurs strictement équivalent à :
 
 Si l'on ne souhaitait tirer que des valeurs de dé impaires, on pourrait ajouter un pas à notre appel.
 
-```python
+```pycon
 >>> random.randrange(1, 7, 2)
 5
 >>> random.randrange(1, 7, 2)
@@ -63,7 +63,7 @@ Si l'on ne souhaitait tirer que des valeurs de dé impaires, on pourrait ajouter
 La fonction `randint` est un peu similaire si ce n'est qu'elle prend deux arguments (ni plus ni moins) et qu'elle retourne un nombre de cet intervalle, bornes incluses.
 Ainsi, notre tirage de dé se ferait comme suit.
 
-```python
+```pycon
 >>> random.randint(1, 6)
 6
 >>> random.randint(1, 6)
@@ -76,7 +76,7 @@ Mais tirer un nombre aléatoire ce n'est pas tout, et le module propose d'autres
 
 Par exemple, la fonction `choice` permet de sélectionner aléatoirement un élément dans une liste.
 
-```python
+```pycon
 >>> actions = ['manger', 'dormir', 'aller au ciné']
 >>> random.choice(actions)
 'manger'
@@ -89,14 +89,14 @@ Ainsi, `random.choice(range(1, 7))` est équivalent à `random.randrange(1, 7)`.
 
 [^list_like]: C'est-à-dire ayant une taille et permettant d'accéder à n'importe quel élément à partir de son index.
 
-```python
+```pycon
 >>> random.choice(range(1, 7))
 3
 ```
 
 Si vous souhaitez tirer plusieurs valeurs sans remise, `choice` ne sera pas adaptée, vous risqueriez de tirer plusieurs fois la même.
 
-```python
+```pycon
 >>> random.choice(actions)
 'manger'
 >>> random.choice(actions)
@@ -105,14 +105,14 @@ Si vous souhaitez tirer plusieurs valeurs sans remise, `choice` ne sera pas adap
 
 Dans ce cas orientez-vous vers `sample`, qui prend en argument le nombre de valeurs à tirer en plus de la liste.
 
-```python
+```pycon
 >>> random.sample(actions, 2)
 ['dormir', 'manger']
 ```
 
 Enfin, la fonction `shuffle` permet de simplement trier aléatoire la liste (elle modifie la liste reçue en paramètre).
 
-```python
+```pycon
 >>> random.shuffle(actions)
 >>> actions
 ['aller au ciné', 'manger', 'dormir']
@@ -123,7 +123,7 @@ Enfin, la fonction `shuffle` permet de simplement trier aléatoire la liste (ell
 
 C'est utile pour mélanger un paquet de cartes ou d'autres opérations du genre, et avoir ensuite un tirage sans remise.
 
-```python
+```pycon
 >>> cards = ['as de pique', '3 de trèfle', '7 de carreau', 'dame de cœur']
 >>> random.shuffle(cards)
 >>> cards.pop()

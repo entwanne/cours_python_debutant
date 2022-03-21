@@ -19,7 +19,7 @@ Code: `operations/soustraction.py`
 Nous voilà maintenant avec un nouveau paquet `operations`.
 Ce paquet forme un espace de noms supplémentaire autour de nos modules, et nous devons donc les préfixer de `operations.` pour les importer.
 
-```python
+```pycon
 >>> from operations import addition
 >>> # on a importé le module addition
 >>> addition.addition(1, 2)
@@ -53,7 +53,7 @@ Code: `operations/soustraction.py`
 
 Et tout fonctionne comme prévu :
 
-```python
+```pycon
 >>> from operations.soustraction import soustraction
 >>> soustraction(8, 5)
 3

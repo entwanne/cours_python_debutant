@@ -6,7 +6,7 @@ Mais pour rappel, les listes ne sont pas les seuls objets itérables.
 Outre les autres exemples que l'on a déjà vus, il est aussi possible d'itérer sur des fichiers.
 Et cela correspond évidemment à une itération ligne par ligne sur le fichier.
 
-```python
+```pycon
 >>> with open('corbeau.txt') as f:
 ...     for line in f:
 ...         line
@@ -49,7 +49,7 @@ with open('corbeau.txt') as f:
 
 Cette fonction s'abstrait complètement du type réel de l'objet et fonctionnerait très bien avec une liste de chaînes de caractères en argument.
 
-```python
+```pycon
 >>> print_text(['abc', 'def', 'ghi'])
 1 : abc
 2 : def

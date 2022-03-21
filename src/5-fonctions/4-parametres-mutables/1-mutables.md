@@ -6,7 +6,7 @@ Les types mutables que nous avons étudiés sont les listes et les dictionnaires
 Cela signifie qu'une fois ces objets instanciés, il est possible d'en modifier la valeur.
 Ce qui n'est pas la même chose que réassigner une variable car cela affecte toutes les références vers l'objet.
 
-```python
+```pycon
 >>> a = b = {}
 >>> a[0] = True
 >>> a
@@ -18,7 +18,7 @@ Ce qui n'est pas la même chose que réassigner une variable car cela affecte to
 Cela n'est pas possible avec un nombre, une chaîne de caractères ou un tuple, qui ne peuvent pas être modifiés en tant que tels.
 Et la réassignation d'une variable la fait pointer vers une nouvelle valeur, sans affecter les autres références à l'ancienne valeur.
 
-```python
+```pycon
 >>> a = b = 3
 >>> a = 5
 >>> a

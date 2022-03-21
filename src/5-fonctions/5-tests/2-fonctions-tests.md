@@ -5,13 +5,13 @@
 Il existe en Python un mot-clé, `assert`, qui permet de tester une expression booléenne.  
 Si cette expression s'évalue à `True`, il ne se passe rien.
 
-```python
+```pycon
 >>> assert 1 == 1
 ```
 
 Mais si l'expression s'évalue à `False`, alors une erreur de type `AssertionError` est levée.
 
-```python
+```pycon
 >>> assert 1 == 2
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -44,7 +44,7 @@ def test_my_sum():
 
 Puis on l'exécute.
 
-```python
+```pycon
 >>> test_my_sum()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -55,7 +55,7 @@ AssertionError
 Voilà déjà une première erreur, sur la première assertion (_line 2_).
 Et en effet, si on regarde de plus près, on voit que la fonction ne renvoie rien.
 
-```python
+```pycon
 >>> my_sum([1, 2, 3])
 ```
 
@@ -70,7 +70,7 @@ def my_sum(numbers):
     return result
 ```
 
-```python
+```pycon
 >>> test_my_sum()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -81,7 +81,7 @@ AssertionError
 Toujours une erreur sur la même assertion, quel est le soucis cette fois ?
 Nous verrons plus loin quelques outils d'aide au débugage, on va pour le moment regarder « manuellement ».
 
-```python
+```pycon
 >>> my_sum([1, 2, 3])
 3
 >>> my_sum([1, 2, 3, 4])
@@ -110,7 +110,7 @@ def my_sum(numbers):
     return result
 ```
 
-```python
+```pycon
 >>> test_my_sum()
 ```
 
@@ -155,7 +155,7 @@ def test_my_sum():
 
 C'est l'heure du test !
 
-```python
+```pycon
 >>> test_my_sum()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -166,7 +166,7 @@ AssertionError
 
 Ah, la deuxième assertion (_line 3_) des tests sur les flottants ne fonctionne pas.
 
-```python
+```pycon
 >>> my_sum([0.1, 0.2, 0.3])
 0.6000000000000001
 ```
@@ -187,7 +187,7 @@ Mais c'est aussi quelque chose à quoi il faudra faire attention, les problèmes
 
 On relance une nouvelle fois nos tests.
 
-```python
+```pycon
 >>> test_my_sum()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -220,7 +220,7 @@ def my_sum(numbers):
 
 Et maintenant, ça marche.
 
-```python
+```pycon
 >>> test_my_sum()
 ```
 
@@ -239,6 +239,6 @@ def my_sum(numbers):
     return result
 ```
 
-```python
+```pycon
 >>> test_my_sum()
 ```

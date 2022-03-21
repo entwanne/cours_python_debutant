@@ -7,8 +7,11 @@ Voici donc quelques autres formats que vous pourriez croiser et qui se prêtent 
 
 ##### toml
 
-Le format _toml_ est un format simple adapté à des fichiers de configuration.
-Il permet de représenter des couples clé/valeur typés regroupés en sections.
+Le format _toml_ est un format simple adapté à des fichiers de configuration, dérivé du format INI.  
+Il permet ainsi de représenter des couples clé/valeur regroupés en sections mais ajoute la gestion des types des valeurs.
+
+Le type d'une valeur sera alors dépendant de la syntaxe utilisée pour la définir, de la même manière que le fait le format JSON.
+Ainsi dans l'exemple suivant `width` et `height` seront des valeurs de type `int` alors que `save` sera une chaîne de caractères.
 
 ```toml
 [window]

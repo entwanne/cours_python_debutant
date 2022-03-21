@@ -6,7 +6,7 @@ La chaîne de caractère est le type utilisé pour représenter du texte, on peu
 
 Toute valeur Python est convertible en chaîne de caractères, en faisant appel à `str`.
 
-```python
+```pycon
 >>> str(True)
 'True'
 >>> str(4)
@@ -25,7 +25,7 @@ C'est ainsi que `print` procède d'ailleurs pour afficher n'importe quelle valeu
 
 La longueur d'une chaîne peut être obtenue par un appel à la fonction `len`.
 
-```python
+```pycon
 >>> len('foo')
 3
 >>> len('hello world')
@@ -39,7 +39,7 @@ La longueur d'une chaîne peut être obtenue par un appel à la fonction `len`.
 On peut accéder aux différents caractères de la chaîne à l'aide de l'opérateur d'indexation `[]` accompagné d'un index (une position dans la chaîne, à partir de 0).
 Cet index peut être négatif pour parcourir la chaîne depuis la fin.
 
-```python
+```pycon
 >>> 'hello world'[1]
 'e'
 >>> 'hello world'[-3]
@@ -48,7 +48,7 @@ Cet index peut être négatif pour parcourir la chaîne depuis la fin.
 
 On peut préciser un intervalle d'index grâce au _slicing_ avec la syntaxe `debut:fin:pas` où chaque élément est optionnel.
 
-```python
+```pycon
 >>> 'hello world'[3:]
 'lo world'
 >>> 'hello world'[:-4]
@@ -61,14 +61,14 @@ On peut préciser un intervalle d'index grâce au _slicing_ avec la syntaxe `deb
 
 Il est possible de concaténer (mettre à la suite) plusieurs chaînes de caractères avec l'opérateur `+`.
 
-```python
+```pycon
 >>> 'hello' + ' ' + 'world' + '!'
 'hello world!'
 ```
 
 On peut aussi « multiplier » une chaîne par un nombre entier _n_ pur obtenir _n_ concaténations de cette même chaîne.
 
-```python
+```pycon
 >>> 'hello ' * 3
 'hello hello hello '
 ```
@@ -79,7 +79,7 @@ Les chaînes de caractères sont ordonnées les unes par rapport aux autres, il 
 
 La comparaison est faite en fonction de l'ordre lexicographique, une extension de l'ordre alphabétique.
 
-```python
+```pycon
 >>> 'abc' < 'def'
 True
 >>> 'abc' > 'def'
@@ -91,7 +91,7 @@ False
 L'opérateur `in` permet de tester si une chaîne contient un caractère ou une sous-chaîne (ou vu autrement, si cette sous-chaîne appartient à la chaîne).
 L'opération renvoie un booléen.
 
-```python
+```pycon
 >>> 'h' in 'hello'
 True
 >>> 'lo' in 'hello'
@@ -102,9 +102,9 @@ False
 
 #### Principales méthodes
 
-Les méthode `lstrip`, `rstrip` et `strip` permettent respectivement de renvoyer une nouvelle chaîne en supprimant les espaces au début, à la fin ou des deux côtés.
+Les méthodes `lstrip`, `rstrip` et `strip` permettent respectivement de renvoyer une nouvelle chaîne en supprimant les espaces au début, à la fin ou des deux côtés.
 
-```python
+```pycon
 >>> '  foo bar  '.lstrip()
 'foo bar  '
 >>> '  foo bar  '.rstrip()
@@ -115,7 +115,7 @@ Les méthode `lstrip`, `rstrip` et `strip` permettent respectivement de renvoyer
 
 Elles acceptent un argument optionnel pour supprimer des caractères en particulier plutôt que des espaces.
 
-```python
+```pycon
 >>> '...hello...'.strip('.')
 'hello'
 >>> '.-hello-..'.strip('.-')
@@ -128,7 +128,7 @@ Elles acceptent un argument optionnel pour supprimer des caractères en particul
 
 Les méthodes `upper`, `lower`, `capitalize` et `title` permettent d'obtenir une nouvelle chaîne en changeant la casse des caractères.
 
-```python
+```pycon
 >>> 'HeLlO wOrLd!'.upper()
 'HELLO WORLD!'
 >>> 'HeLlO wOrLd!'.lower()
@@ -143,7 +143,7 @@ Les méthodes `upper`, `lower`, `capitalize` et `title` permettent d'obtenir une
 
 `index` produit une erreur si le caractère n'est pas trouvé, `find` renvoie `-1`.
 
-```python
+```pycon
 >>> 'hello world'.index('o')
 4
 >>> 'hello world'.find('h')
@@ -162,7 +162,7 @@ ValueError: substring not found
 
 Il est possible de compter le nombre d'occurrences d'un caractère (ou d'une sous-chaîne) avec la méthode `count`.
 
-```python
+```pycon
 >>> 'hello world'.count('o')
 2
 >>> 'toto'.count('to')
@@ -172,7 +172,7 @@ Il est possible de compter le nombre d'occurrences d'un caractère (ou d'une sou
 On peut tester spécifiquement si une chaîne commence ou termine par une autre avec les méthodes `startswith` et `endswith`.
 Ces méthodes renvoient un booléen.
 
-```python
+```pycon
 >>> 'hello world'.startswith('hello')
 True
 >>> 'hello world'.endswith('hello')
@@ -187,7 +187,7 @@ True
 | Depuis Python 3.9, les chaînes de caractères possèdent aussi des méthodes `removeprefix` et `removesuffix` qui permettent de retirer une sous-chaîne au début ou à la fin de notre chaîne.  
 | Ces méthodes ne produisent pas d'erreur si la sous-chaîne n'est pas trouvée et renvoient juste la chaîne telle quelle.
 
-```python
+```pycon
 >>> 'helloworld'.removeprefix('hello')
 'world'
 >>> 'helloworld'.removesuffix('world')
@@ -198,7 +198,7 @@ True
 
 Différents tests sont possibles sur les chaînes de caractères pour savoir si elles sont composées de caractères alphanumériques (`isalnum`), alphabétiques (`isalpha`), numériques (`isdigit`) et d'autres encore.
 
-```python
+```pycon
 >>> 'salut123'.isalnum()
 True
 >>> 'salut 123'.isalnum()
@@ -213,9 +213,9 @@ True
 
 #### Méthodes avancées
 
-La méthode `replace` permet de renvoyer une copie de la chaîne en remplaçant un caratère (ou une sous-chaîne) par un autre.
+La méthode `replace` permet de renvoyer une copie de la chaîne en remplaçant un caractère (ou une sous-chaîne) par un autre.
 
-```python
+```pycon
 >>> 'hello world'.replace('o', 'a')
 'hella warld'
 >>> 'hello world'.replace('ll', 'xx')
@@ -227,7 +227,7 @@ La méthode `replace` permet de renvoyer une copie de la chaîne en remplaçant 
 On peut découper une chaîne de caractères vers une liste de chaînes à partir d'un séparateur (caractère ou sous-chaîne) avec la méthode `split`.
 Par défaut, le séparateur est l'espace.
 
-```python
+```pycon
 >>> 'hello world'.split()
 ['hello', 'world']
 >>> 'abc:def:ghi'.split(':')
@@ -238,7 +238,7 @@ Par défaut, le séparateur est l'espace.
 
 Ce séparateur ne peut pas être une chaîne vide.
 
-```python
+```pycon
 >>> 'hello'.split('')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -247,7 +247,7 @@ ValueError: empty separator
 
 Enfin, il est possible d'unir les chaînes de caractère d'une liste autour d'un séparateur en utilisant la méthode `join` sur ce séparateur.
 
-```python
+```pycon
 >>> ' '.join(['hello', 'world'])
 'hello world'
 >>> ':'.join(['abc', 'def', 'ghi'])
@@ -256,7 +256,7 @@ Enfin, il est possible d'unir les chaînes de caractère d'une liste autour d'un
 
 La chaîne vide est ici acceptée pour concaténer directement les chaînes.
 
-```python
+```pycon
 >>> ''.join(['h', 'e', 'l', 'l', 'o'])
 'hello'
 ```

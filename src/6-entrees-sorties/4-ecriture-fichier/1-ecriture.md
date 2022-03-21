@@ -11,7 +11,7 @@ Il n'y a pas un unique mode d'écriture, car plusieurs options sont possibles, m
 
 Commençons par ouvrir notre fichier `hello.txt`.
 
-```python
+```pycon
 >>> f = open('hello.txt', 'w')
 >>> f
 <_io.TextIOWrapper name='hello.txt' mode='w' encoding='UTF-8'>
@@ -19,7 +19,7 @@ Commençons par ouvrir notre fichier `hello.txt`.
 
 Comme le mode l'indique, il ne nous est pas possible de lire le contenu du fichier, l'opération produirait une erreur.
 
-```python
+```pycon
 >>> f.read()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -28,7 +28,7 @@ io.UnsupportedOperation: not readable
 
 Mais il nous est alors possible d'écrire dans le fichier, à l'aide de la méthode `write`.
 
-```python
+```pycon
 >>> f.write('Salut')
 5
 ```
@@ -42,7 +42,7 @@ Cette mémoire est généralement vidée (et donc le contenu du fichier écrit s
 
 Ce dernier cas correspond à la méthode `flush` qui permet donc de valider toutes les opérations d'écriture en cours.
 
-```python
+```pycon
 >>> f.flush()
 ```
 
@@ -74,7 +74,7 @@ Ce code ne provoque pas d'erreur et crée un nouveau fichier `newfile.txt` conte
 Vous avez peut-être effectué plusieurs appels successifs à `write` en espérant écrire plusieurs lignes dans un fichier.
 Mais ça ne fonctionne pas comme ça, vous avez juste obtenu des lettres à la suite.
 
-```python
+```pycon
 >>> with open('alphabet.txt', 'w') as f:
 ...     f.write('abc')
 ...     f.write('def')
@@ -92,7 +92,7 @@ Mais ça ne fonctionne pas comme ça, vous avez juste obtenu des lettres à la s
 En fait, si vous vous souvenez de la lecture des fichiers, les lignes étaient chaque fois terminées d'un caractère pour marquer le saut de ligne, `'\n'`.
 C'est aussi ce caractère que nous devons utiliser pour passer des lignes dans notre fichier.
 
-```python
+```pycon
 >>> with open('alphabet.txt', 'w') as f:
 ...     f.write('abc\n')
 ...     f.write('def\n')
@@ -126,7 +126,7 @@ with open('alphabet.txt', 'w') as f:
 
 Notez que les fichiers possèdent déjà une méthode `writelines` pour répondre à ce problème, qui est donc l'inverse de `readlines` (`writelines` prend en argument le même type de valeur que ce que renvoie `readlines`).
 
-```python
+```pycon
 >>> with open('alphabet.txt', 'w') as f:
 ...     f.writelines(['abc\n', 'def\n', 'ghi\n'])
 ...
@@ -141,7 +141,7 @@ Notez que les fichiers possèdent déjà une méthode `writelines` pour répondr
 Enfin, sachez qu'il est aussi possible d'utiliser la fonction `print` pour écrire dans des fichiers.
 Par défaut cette fonction écrit son résultat sur le terminal (qui est vu comme un fichier par le système), mais il est possible de choisir une autre sortie (un autre fichier) avec l'argument nommé `file`.
 
-```python
+```pycon
 >>> with open('hello.txt', 'w') as f:
 ...     print('Hello', 'World!', file=f)
 ...
@@ -155,7 +155,7 @@ La fonction procède de la même manière que sur le terminal et espace donc les
 
 Cela permet aussi facilement d'écrire vers un fichier des objets autres que des chaînes de caractères, ce qui n'est pas possible avec des appels à `write` (à moins de convertir préalablement les valeurs).
 
-```python
+```pycon
 >>> with open('types', 'w') as f:
 ...     print(42, {'a': True}, [1.5], file=f)
 ...
@@ -167,7 +167,7 @@ Cela permet aussi facilement d'écrire vers un fichier des objets autres que des
 
 Ce saut de ligne ajouté à la fin est le comportement par défaut de `print` mais il est possible de le changer à l'aide de l'argument nommé `end`, qui prend une chaîne de caractères comme marqueur de fin de ligne.
 
-```python
+```pycon
 >>> print('hello', 'world', end='!\n')
 hello world!
 >>> print('hello', 'world', end='!')
@@ -180,7 +180,7 @@ hello world!>>>
 
 Dans un fichier cela donnerait les résultats que l'on pouvait avoir précédemment avec `write`.
 
-```python
+```pycon
 >>> with open('hello.txt', 'w') as f:
 ...     print('Hello', file=f, end=' ')
 ...     print('World!', file=f)
@@ -193,7 +193,7 @@ Dans un fichier cela donnerait les résultats que l'on pouvait avoir précédemm
 
 Cela est bien sûr compatible avec l'argument `sep` pour préciser le séparateur de valeurs.
 
-```python
+```pycon
 >>> with open('hello.txt', 'w') as f:
 ...     print('Hello', 'World', file=f, sep=' - ', end='!\n')
 ...

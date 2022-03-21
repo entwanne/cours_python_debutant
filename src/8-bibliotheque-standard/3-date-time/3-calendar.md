@@ -2,7 +2,7 @@
 
 Le module `calendar` est un module qui sert principalement à afficher de simples calendriers dans le terminal.
 
-```python
+```pycon
 >>> import calendar
 >>> calendar.prmonth(2021, 10)
     octobre 2021
@@ -28,7 +28,7 @@ Le module apporte aussi différents attributs pour connaître les noms de jours 
 * `month_name` est le tableau des noms de mois
 * `month_abbr` est celui des noms de mois abrégés
 
-```python
+```pycon
 >>> calendar.day_name[0]
 'lundi'
 >>> calendar.day_abbr[1]
@@ -43,7 +43,7 @@ Le module apporte aussi différents attributs pour connaître les noms de jours 
 
 Enfin, on trouve aussi dans ce module une fonction `timegm` qui permet de convertir un objet `struct_time` en _timestamp_.
 
-```python
+```pycon
 >>> calendar.timegm(time.gmtime())
 1633102464
 ```

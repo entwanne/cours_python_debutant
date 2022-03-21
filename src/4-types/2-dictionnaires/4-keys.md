@@ -1,6 +1,6 @@
 ### Clés de dictionnaires
 
-Jusqu'ici, je n'ai présenté que des chaînes de caractères comme clés de dictionnaire, par soucis de simplicité.
+Jusqu'ici, je n'ai présenté que des chaînes de caractères comme clés de dictionnaire, par souci de simplicité.
 
 Mais ce ne sont pas les seuls types de clés possibles, les booléens ou les nombres sont aussi des clés valides.
 
@@ -21,7 +21,7 @@ diviseurs = {
 
 Qui s'utilisent de la même manière lors de l'indexation.
 
-```python
+```pycon
 >>> choices[True]
 'OK'
 >>> choices[False] = 'erreur'
@@ -40,7 +40,7 @@ Qui s'utilisent de la même manière lors de l'indexation.
 En revanche, tout type de données n'est pas accepté comme clé de dictionnaire.
 Vous avez vu vous en rendre compte si vous avez essayé d'y placer une liste ou un dictionnaire.
 
-```python
+```pycon
 >>> {[]: 0}
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

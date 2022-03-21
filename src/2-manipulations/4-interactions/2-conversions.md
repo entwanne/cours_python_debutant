@@ -9,7 +9,7 @@ Les nombres entiers correspondent ainsi au type `int` (pour _integer_, entier), 
 
 Chacun de ces types peut être vu et utilisé comme une fonction permettant de convertir des données vers ce type.
 
-```python
+```pycon
 >>> int(4.2)
 4
 >>> float(4)
@@ -23,7 +23,7 @@ Chacun de ces types peut être vu et utilisé comme une fonction permettant de c
 On voit dans ce dernier exemple que `'10'` et `10` sont des valeurs de types différents, la première est une chaîne de caractères et la seconde un nombre.
 Il ne s'agit donc pas de la même chose, on ne peut pas exécuter les mêmes opérations sur les deux.
 
-```python
+```pycon
 >>> 10 + 1
 11
 >>> 10 + '1'
@@ -36,7 +36,7 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 Ainsi, pour en revenir à la demande initiale, afin traiter une entrée de l'utilisateur comme un nombre, il convient donc de convertir en `int` le retour d'`input`.
 
-```python
+```pycon
 >>> n = int(input('Choisis un nombre : '))
 Choisis un nombre : 5
 >>> print('Le double de', n, 'vaut', n * 2)
@@ -46,7 +46,7 @@ Le double de 5 vaut 10
 Cependant, toute valeur n'est pas convertible d'un type vers un autre, par exemple la chaîne de caractères `'toto'` ne correspond à aucun nombre.
 Lorsque la conversion est impossible, on verra survenir lors de l'appel une erreur explicitant le problème.
 
-```python
+```pycon
 >>> int('toto')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

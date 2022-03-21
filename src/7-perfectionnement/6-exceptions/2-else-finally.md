@@ -17,7 +17,7 @@ def get_10th(seq):
         print("pas d'erreur")
 ```
 
-```python
+```pycon
 >>> get_10th([])
 erreur d'index
 >>> get_10th({})
@@ -45,7 +45,7 @@ def dict_pop(dic, key, default=None):
     return value
 ```
 
-```python
+```pycon
 >>> dic = {'a': 42}
 >>> dict_pop(dic, 'a')
 42
@@ -70,7 +70,7 @@ def get_10th(seq):
         print("traitement final")
 ```
 
-```python
+```pycon
 >>> get_10th([])
 erreur d'index
 traitement final
@@ -114,7 +114,7 @@ Code: number.txt
 
 On constate bien que l'appel à `close` se fait dans tous les cas, même si une erreur survient.
 
-```python
+```pycon
 >>> read_int('number.txt')
 Fermeture
 123
@@ -141,7 +141,7 @@ def get_10th(seq):
     print("Fin de la fonction")
 ```
 
-```python
+```pycon
 >>> get_10th([])
 erreur d'index
 traitement final

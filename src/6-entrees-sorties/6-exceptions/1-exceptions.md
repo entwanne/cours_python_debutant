@@ -3,10 +3,10 @@
 On a déjà rencontré des exceptions, ce sont les erreurs qui se produisent quand une opération échoue (conversion impossible, élément inexistant dans un dictionnaire, ouverture d'un fichier introuvable, etc.).
 L'erreur survient alors sous la forme d'une exception avec un type particulier (`ValueError`, `TypeError`, `KeyError`, etc.).
 
-Le soucis c'est que cela coupe l'exécution da la fonction et du programme (hors interpréteur interactif).
+Le souci c'est que cela coupe l'exécution de la fonction et du programme (hors interpréteur interactif).
 
 Imaginons que nous souhaitions au chargement de notre jeu regarder si une sauvegarde existe.
-On esseraierait alors d'ouvrir le fichier de sauvegarde, et s'il n'existe pas on obtiendrait une exception.
+On essaierait alors d'ouvrir le fichier de sauvegarde, et s'il n'existe pas on obtiendrait une exception.
 
 ```python
 with open('game.sav') as save:
@@ -44,7 +44,7 @@ def calculatrice(a, op, b):
     print('Calcul impossible')
 ```
 
-```python
+```pycon
 >>> calculatrice(3, '+', 0)
 3
 >>> calculatrice(3, '/', 0)

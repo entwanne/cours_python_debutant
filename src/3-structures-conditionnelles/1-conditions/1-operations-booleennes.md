@@ -5,7 +5,7 @@ Nous avons vu différents opérateurs arithmétiques mais il est maintenant temp
 
 Cet opérateur appliqué à deux valeurs renvoie un état vrai (`True`) ou faux (`False`) indiquant si les valeurs sont égales ou non.
 
-```python
+```pycon
 >>> 1 == 1
 True
 >>> 1 == 2
@@ -16,7 +16,7 @@ True
 
 Le test d'égalité fonctionne pour tous les types de données et quelles que soient les expressions.
 
-```python
+```pycon
 >>> 3 + 5 == 2 * 4
 True
 >>> word = 'abc'
@@ -31,7 +31,7 @@ False
 | Si vous vous souvenez, on avait vu que les nombres flottants pouvaient comporter des erreurs d'arrondis.  
 | Il peut ainsi arriver qu'une égalité entre flottants que l'on pense vraie ne le soit en fait pas, en raison de ces arrondis.
 |
-| ```python
+| ```pycon
 | >>> 0.1 + 0.2 == 0.3
 | False
 | >>> 0.1 + 0.2 == 0.30000000000000004
@@ -42,7 +42,7 @@ False
 
 Il est aussi possible de comparer des valeurs de types différents, mais le résultat sera souvent faux car des valeurs de types différents sont généralement considérées comme différentes (exception faite pour les nombres entiers et flottants).
 
-```python
+```pycon
 >>> word == 2
 False
 >>> '2' == 2

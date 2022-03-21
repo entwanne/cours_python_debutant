@@ -9,7 +9,7 @@ En Python, on assigne une variable sur une valeur à l'aide de l'opérateur `=`.
 À gauche on écrit le nom de la variable, une suite de lettres sans espace.
 La valeur peut être n'importe quelle expression comme vu précédemment.
 
-```python
+```pycon
 >>> result = round(8 / 3) + 2
 ```
 
@@ -25,7 +25,7 @@ On dit simplement qu'il s'agit d'une instruction.
 Le nom de la variable définie devient quant à lui une valeur comme une autre, qui peut être utilisée dans différentes opérations.  
 Dans chaque expression, le nom de variable est évalué par Python et remplacé par sa valeur, permettant donc d'exécuter la suite du calcul.
 
-```python
+```pycon
 >>> result
 5
 >>> result + 1
@@ -36,7 +36,7 @@ Dans chaque expression, le nom de variable est évalué par Python et remplacé 
 
 Et par extension, il est donc possible de définir une variable à l'aide de la valeur d'une autre variable :
 
-```python
+```pycon
 >>> result2 = result - 1
 >>> result2
 4

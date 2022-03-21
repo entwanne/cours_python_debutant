@@ -7,7 +7,7 @@ Elle s'installe facilement avec _Pip_ : `pip install numpy` .
 
 Ensuite c'est une bibliothèque qui permet notamment de manipuler des tableaux de données (de même type), et d'effectuer des opérations en lots sur les valeurs de ces tableaux.
 
-```python
+```pycon
 >>> import numpy as np
 >>> array = np.array([[1, 2, 3], [4, 5, 6]])
 >>> array.size  # nombre de valeurs
@@ -34,4 +34,5 @@ array([[11, 13, 15],
 
 Pour aller plus loin, rendez-vous [sur la documentation de la bibliothèque _Numpy_](https://numpy.org/doc/stable/).
 
-Intéressez-vous aussi aux bibliothèques [_SciPy_](https://www.scipy.org/scipylib/index.html) (calculs numériques, calculs formels) et [_pandas_](https://pandas.pydata.org/) (analyse de données) construites autour de _Numpy_ qui s'utilisent conjointement avec elle.
+Intéressez-vous aussi aux bibliothèques [_SciPy_](https://www.scipy.org/scipylib/index.html) (calculs numériques, calculs formels) et [_pandas_](https://pandas.pydata.org/) (analyse de données) construites autour de _Numpy_ qui s'utilisent conjointement avec elle.  
+La [_matplotlib_](https://matplotlib.org/), une bibliothèque de visualisation et de dessin de graphiques en Python est aussi couramment utilisée avec _Numpy_, [un cours](https://zestedesavoir.com/tutoriels/469/introduction-aux-graphiques-en-python-avec-matplotlib-pyplot/) est même disponible sur Zeste de Savoir à son sujet.

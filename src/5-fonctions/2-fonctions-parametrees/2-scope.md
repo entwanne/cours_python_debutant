@@ -3,7 +3,7 @@
 Chaque fonction comporte son propre espace de noms (ou scope), c'est-à-dire une entité qui contient toutes les définitions de variables.
 Ainsi, une variable définie à l'intérieur d'une fonction n'existe que dans celle-ci.
 
-```python
+```pycon
 >>> def f():
 ...     a = 5
 ...     print(a)
@@ -16,7 +16,7 @@ NameError: name 'a' is not defined
 
 Que ce soit avant ou après l'appel de la fonction, la variable `a` n'existe pas dans l'espace de noms principal (ou global).
 
-```python
+```pycon
 >>> f()
 5
 >>> a
@@ -26,7 +26,7 @@ NameError: name 'a' is not defined
 ```
 Il en est de même pour les paramètres qui sont au final des variables comme les autres au sein de la fonction.
 
-```python
+```pycon
 >>> def f(x):
 ...     print(x)
 ... 
@@ -40,7 +40,7 @@ NameError: name 'x' is not defined
 
 Il est en revanche possible pour une fonction d'accéder aux variables définies à l'extérieur de celle-ci.
 
-```python
+```pycon
 >>> value = 42
 >>> 
 >>> def f():
@@ -52,16 +52,16 @@ Il est en revanche possible pour une fonction d'accéder aux variables définies
 
 Ce qui implique que le comportement de la fonction change si la valeur de la variable est modifiée.
 
-```python
+```pycon
 >>> value = 13
 >>> f()
 13
 ```
 
 Mais les espaces de noms extérieur et intérieur à la fonction sont bien deux scopes distincts.
-Deux variables de même nom peuvent exister dans des scopes différents sans qu'elles n'interfèrent entre-elles.
+Deux variables de même nom peuvent exister dans des scopes différents sans qu'elles n'interfèrent entre elles.
 
-```python
+```pycon
 >>> x = 0
 >>> 
 >>> def f():
@@ -82,7 +82,7 @@ Cela peut poser problème si l'on essaie dans une fonction d'accéder à une var
 En effet, Python ne saura pas si l'on souhaite récupérer une variable extérieure portant ce nom (puisqu'elle n'aura pas encore été définie dans le scope local) ou en définir une nouvelle.
 Il lèvera donc une erreur pour éviter toute ambigüité.
 
-```python
+```pycon
 >>> def f():
 ...     print(x)
 ...     x = 1

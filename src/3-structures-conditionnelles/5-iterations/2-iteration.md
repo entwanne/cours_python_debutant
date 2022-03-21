@@ -13,7 +13,7 @@ Disons par exemple que nous voulions trouver un nombre impair dans une liste de 
 Dans le bloc de notre boucle, nous testerons si la valeur actuelle est impaire, et la conserverons dans une variable si tel est le cas.  
 Ainsi, à la fin de la boucle, cette variable définie uniquement sous condition sera toujours assignée à notre valeur.
 
-```python
+```pycon
 >>> numbers = [8, 2, 6, 3, 4, 0]
 >>> for number in numbers:
 ...     if number % 2 == 1:
@@ -27,7 +27,7 @@ Vous pouvez changer l'ordre des éléments de la liste, le résultat est toujour
 
 On a par contre un petit soucis si notre liste contient plusieurs éléments impairs.
 
-```python
+```pycon
 >>> numbers = [8, 2, 6, 3, 4, 0, 5]
 >>> for number in numbers:
 ...     if number % 2 == 1:
@@ -40,10 +40,15 @@ Trouvé : 5
 Et oui, la condition est certes vraie pour 3 mais elle l'est aussi pour 5.
 Ainsi, on définit une première fois `found = 3` mais on l'écrase ensuite pour lui assigner 5, et on perd toute trace du 3.
 
+[[e]]
+| Attention aussi, la variable `found` n'est ici définie que dans le cas où l'on rentre dans la condition.  
+| Ainsi, si notre liste ne contient pas de nombre impair, la variable `found` ne sera pas définie.
+| On pourrait résoudre ce problème en ajoutant `found = -1` avant notre boucle, donnant une valeur par défaut à la variable.
+
 Il serait bien de pouvoir conserver toutes les valeurs qui correspondent à notre recherche.
 On n'aurait pas un type de donnée pour contenir un nombre indéterminé de valeurs ? La liste bien entendu !
 
-```python
+```pycon
 >>> found = []
 >>> for number in numbers:
 ...     if number % 2 == 1:
@@ -63,7 +68,7 @@ Mais ce qu'on peut facilement déterminer, c'est s'il est le plus grand nombre j
 En effet, on peut conserver dans une variable le plus grand nombre trouvé, et le mettre à jour chaque fois qu'on tombe sur un nombre qui lui est supérieur.
 À la fin du parcours, on est sûr que notre variable contient le plus grand nombre de la liste.
 
-```python
+```pycon
 >>> numbers = [3, 2, 5, 8, 4, 7, 9, 1, 6]
 >>> max_number = 0
 >>> for number in numbers:
@@ -81,7 +86,7 @@ Le plus grand nombre trouvé jusqu'ici est 9
 
 On notera que cette opération existe déjà en Python et est réalisée par la fonction `max`.
 
-```python
+```pycon
 >>> max(numbers)
 9
 ```
@@ -90,7 +95,7 @@ On notera que cette opération existe déjà en Python et est réalisée par la 
 
 Les listes ne sont pas le seul type de données que l'on peut utiliser dans une boucle `for`, cela fonctionne aussi avec des chaînes de caractères par exemple, pour les parcourir caractère par caractère.
 
-```python
+```pycon
 >>> for char in 'Hello':
 ...     print(char)
 ... 
@@ -101,7 +106,7 @@ l
 o
 ```
 
-Plus généralement on parle d'itérables pour désigner les types que l'on peut parcourir avec un bloc `for`, c'est-à-dire sur lesquels on peut itérer.
+Plus généralement on parle d'**itérables** pour désigner les types que l'on peut parcourir avec un bloc `for`.
 
 Un nouveau type de données va nous être bien utile ici, c'est le `range`.
 Un `range` représente un intervalle entre deux nombres entiers, on peut le voir comme la liste des nombres entre ces deux bornes.
@@ -109,7 +114,7 @@ Un `range` représente un intervalle entre deux nombres entiers, on peut le voir
 L'intervalle formé entre 1 et 10 se note par exemple `range(1, 10)`.
 Il faut savoir que c'est un intervalle fermé à gauche mais ouvert à droite, il contient ainsi 1 mais pas 10 (il s'arrête à 9).
 
-```python
+```pycon
 >>> for n in range(1, 10):
 ...     print(n)
 ... 
@@ -128,7 +133,7 @@ Avec ça, nous pouvons donc avoir une boucle itérant sur des nombres.
 Et encore une fois `n` est ici une variable redéfinie à chaque tour de boucle.
 On peut utiliser sa valeur dans nos calculs, comme ici pour la table de multiplication par 3.
 
-```python
+```pycon
 >>> for n in range(1, 11):
 ...     print('3 ×', n, '=', 3 * n)
 ... 
@@ -150,7 +155,7 @@ On peut utiliser sa valeur dans nos calculs, comme ici pour la table de multipli
 
 Le premier argument donné à `range` est optionnel, et vaut 0 s'il est omis. Ainsi, `range(5)` est équivalent à `range(0, 5)`.
 
-```python
+```pycon
 >>> for n in range(5):
 ...     print(n)
 ... 
@@ -163,7 +168,7 @@ Le premier argument donné à `range` est optionnel, et vaut 0 s'il est omis. Ai
 
 Et comme pour le _slicing_, les intervalles possèdent un pas optionnel, qui représente le nombre de valeurs à passer entre chaque élément. Un intervalle de 0 à 10 avec un pas de 2 représentera donc tous les nombres pairs de cet intervalle.
 
-```python
+```pycon
 >>> for n in range(0, 10, 2):
 ...     print(n)
 ... 
@@ -179,7 +184,7 @@ Et comme pour le _slicing_, les intervalles possèdent un pas optionnel, qui rep
 À l'aide de `range` et de la méthode `append` des listes, on peut alors facilement construire une liste itérativement, en ajoutant un nouvel élément à chaque tour de boucle.
 Par exemple ici une liste de cinq zéros (équivalente à `[0] * 5`).
 
-```python
+```pycon
 >>> zeros = []
 >>> for _ in range(5):
 ...     zeros.append(0)
@@ -194,7 +199,7 @@ Par exemple ici une liste de cinq zéros (équivalente à `[0] * 5`).
 
 Ou la liste des carrés des 10 premiers entiers naturels.
 
-```python
+```pycon
 >>> squares = []
 >>> for i in range(10):
 ...     squares.append(i**2)
@@ -205,7 +210,7 @@ Ou la liste des carrés des 10 premiers entiers naturels.
 
 C'est aussi la solution à notre problème de multiplication des listes multi-dimensionnelles, puisque nous avons maintenant un moyen d'instancier séparément chacune des sous-listes !
 
-```python
+```pycon
 >>> grid = []
 >>> for _ in range(2):
 ...     grid.append([1, 2, 3])
@@ -224,7 +229,7 @@ Ce qui va permettre d'avoir un traitement répétitif dans une autre répétitio
 
 Pour revenir à l'exemple des tables de mutliplication, on peut ainsi représenter toutes les tables de 1 à 3.
 
-```python
+```pycon
 >>> for a in range(1, 4):
 ...     for b in range(1, 11):
 ...         print(a, '×', b, '=', a * b)
@@ -269,7 +274,7 @@ On remarque que le second `print` est en dehors de la deuxième boucle, il est a
 
 Les boucles imbriquées nous permettent aussi de réaliser toutes sortes de combinaisons entre plusieurs ensembles de données.
 
-```python
+```pycon
 >>> names = ['Jeanne', 'Paul', 'Max']
 >>> fruits = ['pommes', 'poires', 'cerises', 'fraises']
 >>> 
@@ -293,7 +298,7 @@ Max aime les fraises
 
 Et bien sûr, on peut ajouter toutes sortes de conditions au sein de nos boucles.
 
-```python
+```pycon
 >>> for name in names:
 ...     for fruit in fruits:
 ...         if name == 'Paul' and (fruit == 'pommes' or fruit == 'cerises'):

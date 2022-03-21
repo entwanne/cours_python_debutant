@@ -3,7 +3,7 @@
 L'idée première, c'est d'éviter de se répéter, de dupliquer du code.
 En effet, il y a plusieurs portions du code de notre TP qui pourraient être mises en commun et qui nous ferait gagner en clarté.
 
-Un code dupliqué, c'est un code plus diffile à maintenir.
+Un code dupliqué, c'est un code plus difficile à maintenir.
 Déjà, il est plus long à lire et il faut garder plus d'éléments de contexte en tête pour le comprendre.
 Mais ça alourdit aussi les étapes de réécriture et/ou de correction.
 
