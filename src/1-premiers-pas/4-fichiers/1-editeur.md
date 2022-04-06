@@ -2,7 +2,7 @@
 
 Pour ouvrir un fichier avec IDLE, il suffit de cliquer sur le menu _File_ > _New File_ (ou utiliser le raccourci ||Ctrl+N||).
 Il est aussi possible d'ouvrir un fichier existant avec _Open File_ (||Ctrl+O||).
-Cele ouvrira une nouvelle fenêtre à côté de l'interpréteur interactif.
+Cela ouvrira une nouvelle fenêtre à côté de l'interpréteur interactif.
 
 Vous vous retrouvez alors face à une fenêtre blanche, où il est possible d'entrer du texte, ou plutôt du code Python.
 On peut par exemple écrire le contenu suivant :
