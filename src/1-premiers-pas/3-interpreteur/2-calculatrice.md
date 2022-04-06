@@ -17,7 +17,7 @@ Plus fort encore, on peut lui demander d'additionner plusieurs nombres !
 6
 ```
 
-Je mets des espaces autour des `+` mais celles-ci sont facultativs. Elles sont néanmoins préférables pour une bonne lisibilité du code.
+Je mets des espaces autour des `+` mais celles-ci sont facultatives. Elles sont néanmoins préférables pour une bonne lisibilité du code.
 
 ```pycon
 >>> 1+2+3
@@ -46,7 +46,7 @@ Mais il faut parler dans son langage, l'opérateur pour la multiplication est `*
 ```
 
 Et bien sûr, les priorités entre les opérations sont gérées.
-Quand en mathémtiques on écrit « 1 + 2 × 3 », la multiplication est prioritaire sur l'addition, donc elle est exécutée en premier, d'où le résultat de « 7 ».
+Quand en mathématiques on écrit « 1 + 2 × 3 », la multiplication est prioritaire sur l'addition, donc elle est exécutée en premier, d'où le résultat de « 7 ».
 Il en est de même en Python :
 
 ```pycon

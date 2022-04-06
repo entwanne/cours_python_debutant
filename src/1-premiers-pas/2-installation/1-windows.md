@@ -29,7 +29,7 @@ Téléchargez le fichier `.exe` pointé et exécutez-le.
 [^versions]: Ces informations sont données pour le cas général. Dans d'autres cas précis (version ancienne de Windows, système 32 bits), référez-vous aux recommandations données par la page de téléchargement.
 
 [[a]]
-| Téléchargez toujours l'inistallateur depuis le site officiel de Python plutôt qu'une autre source, afin d'éviter tout programme frauduleux.
+| Téléchargez toujours l'installateur depuis le site officiel de Python plutôt qu'une autre source, afin d'éviter tout programme frauduleux.
 
 ![Installation de Python](img/win_installer.png)
 
