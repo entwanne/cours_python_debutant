@@ -59,7 +59,7 @@ Il est ainsi conseillé d'éviter les lettres majuscules et accentuées dans les
 Par exemple, pour un nom de variable composé de plusieurs mots, on préfèrera `points_vie` à `pointsVie`.  
 Mais on préférera souvent utiliser l'anglais pour garder une cohérence avec les mots-clés du langage et faciliter les collaborations, notre variable se nommerait donc plutôt `health_points`.
 
-Aussi, il est déconseillé de nommer une variable d'une même nom qu'une fonction de Python, comme `abs`, `min` ou `max`.
+Aussi, il est déconseillé de nommer une variable d'un même nom qu'une fonction de Python, comme `abs`, `min` ou `max`.
 
 On évitera enfin les noms `l`, `O` ou `I` qui portent à confusion car ne sont pas bien distingables de 1 ou 0 avec certaines polices de caractères.
 
