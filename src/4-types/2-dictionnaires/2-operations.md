@@ -70,7 +70,7 @@ True
 
 #### Méthodes principales
 
-Une première méthode intéressant est la méthode `get`.
+Une première méthode intéressante est la méthode `get`.
 Elle agit comme l'opérateur `[]` mais sans produire d'erreur si la clé n'est pas trouvée.
 
 ```pycon

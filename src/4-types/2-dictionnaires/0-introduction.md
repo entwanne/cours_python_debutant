@@ -2,7 +2,7 @@
 
 Les listes permettent de stocker un ensemble d'éléments en associant chaque élément à un index numérique.
 
-Mais cela n'est pas adapté à toutes les données, toutes ne représentent une séquence de valeurs.
+Mais cela n'est pas adapté à toutes les données, toutes ne représentent pas une séquence de valeurs.
 
 Comment par exemple représenter un répertoire téléphonique ? Avec une liste de listes où chaque sous-liste serait composée de deux éléments : un nom et un numéro ?
 

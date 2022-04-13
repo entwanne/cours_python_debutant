@@ -66,7 +66,7 @@ Il est possible de concaténer (mettre à la suite) plusieurs chaînes de caract
 'hello world!'
 ```
 
-On peut aussi « multiplier » une chaîne par un nombre entier _n_ pur obtenir _n_ concaténations de cette même chaîne.
+On peut aussi « multiplier » une chaîne par un nombre entier _n_ pour obtenir _n_ concaténations de cette même chaîne.
 
 ```pycon
 >>> 'hello ' * 3

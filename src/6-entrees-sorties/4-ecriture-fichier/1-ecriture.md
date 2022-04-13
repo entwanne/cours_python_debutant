@@ -5,7 +5,7 @@ Vous vous en doutez, il va ici être question d'un nouveau mode afin de pouvoir 
 
 Il n'y a pas un unique mode d'écriture, car plusieurs options sont possibles, mais nous allons commencer avec le mode `'w'` (pour *write*).
 
-[[[i]]
+[[i]]
 | Dans les exemples qui suivront je n'utiliserai pas de bloc `with` pour simplifier les opérations dans l'interpréteur interactif.  
 | Il s'agit là d'une exception, gardez en tête de toujours utiliser un bloc `with` par défaut dans vos codes.
 
