@@ -89,7 +89,15 @@ StopIteration
 On ne peut alors pas revenir en arrière : une fois notre itérateur parcouru il est entièrement consumé.
 C'est pourquoi il n'est pas possible de faire deux `for` à la suite sur un même objet `enumerate` ou `zip`, ils sont à usage unique.
 
-Mais ils se basent sur des itérables réutilisables que sont les chaînes de caractères, listes ou autres : on peut donc à nouveau appeler `enumerate` pour obtenir un itérateur tout neuf et recommencer à boucler.
+[[i]]
+| À noter que la fonction `next` accepte un second argument qui est la valeur à renvoyer dans le cas où l'itérateur est consumé plutôt que lever une exception.
+|
+| ```pycon
+| >>> next(values, '')
+| ''
+| ```
+
+Mais ces objets se basent sur des itérables réutilisables que sont les chaînes de caractères, listes ou autres : on peut donc à nouveau appeler `enumerate` pour obtenir un itérateur tout neuf et recommencer à boucler.
 
 ```pycon
 >>> values = 'abcde'
