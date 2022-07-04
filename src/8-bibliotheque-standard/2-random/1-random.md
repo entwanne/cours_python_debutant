@@ -2,7 +2,7 @@
 
 La bibliothèque standard de Python comprend un module `random` dédié aux opérations aléatoires.
 
-Nous sommes sur un ordinateur est l'aléatoire n'est pas réellement possible[^impossible] mais il existe une astuce.
+Nous sommes sur un ordinateur et l'aléatoire n'est pas réellement possible[^impossible] mais il existe une astuce.
 Cette astuce ce sont les générateurs pseudo-aléatoires.
 
 [^impossible]: À moins d'utiliser un périphérique dédié.

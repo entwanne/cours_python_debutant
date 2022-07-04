@@ -44,7 +44,7 @@ print()
 
 #### Solution
 
-Rien de bien méchant, je présence ici le fichier `tp/ia.py` uniquement qui est le seul à changer.
+Rien de bien méchant, je présente ici le fichier `tp/ia.py` uniquement qui est le seul à changer.
 
 [[s]]
 | ```python
