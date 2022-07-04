@@ -104,6 +104,21 @@ On notera aussi que le mot-clé `global` n'est utile que pour redéfinir une var
 [3, 5, 8]
 ```
 
+Il faut bien sûr pour cela que la valeur en question soit modifiable (comme une liste dans l'exemple ci-dessus), ça ne pourrait pas fonctionner avec un nombre ou une chaîne de caractères par exemple.  
+Mais il reste dans ces cas-là possible de passer par un conteneur intermédiaire modifiable tel qu'un dictionnaire.
+
+```pycon
+>>> values = {'number': 12, 'string': 'salut'}
+>>>
+>>> def reset(number, string):
+...     values['number'] = number
+...     values['string'] = string
+...
+>>> reset(-8, 'pouet')
+>>> values
+{'number': -8, 'string': 'pouet'}
+```
+
 #### Fonctions imbriquées
 
 En Python les fonctions sont des valeurs de premier ordre, c'est-à-dire des valeurs à part entière comme le sont les nombres ou les chaînes de caractères.
