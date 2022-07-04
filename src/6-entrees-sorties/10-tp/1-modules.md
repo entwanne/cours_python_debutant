@@ -12,7 +12,7 @@ On gardera aussi un module `game` pour les fonctions principales du jeu.
 Un découpage possible est le suivant.
 
 J'ai utilisé un module `definitions` pour stocker les dictionnaires `monsters` et `attacks`.
-Ce module est assimilable à une base de données, il n'y a que lui à faire évoluer pour ajouter de nouveaux monstres ou de nouvelles atatques.
+Ce module est assimilable à une base de données, il n'y a que lui à faire évoluer pour ajouter de nouveaux monstres ou de nouvelles attaques.
 
 En plus de ça, un module `prompt` reprend la fonction `get_choice_input` et un module `get_players` est dédié à l'instanciation des joueurs.
 
