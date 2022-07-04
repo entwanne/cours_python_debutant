@@ -89,7 +89,7 @@ Les opérations de priorités 3 et 4 (addition, soustraction, mutliplication, di
 0.16666666666666666
 ```
 
-À l'inverse, l'opération d'exponentiation (`**`) st associative à droite, donc les opérations sont exécutées de drotie à gauche.
+À l'inverse, l'opération d'exponentiation (`**`) est associative à droite, donc les opérations sont exécutées de drotie à gauche.
 
 ```pycon
 >>> 2 ** 3 ** 4
