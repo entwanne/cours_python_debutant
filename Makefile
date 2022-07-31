@@ -2,7 +2,7 @@ PDF = zeste_de_python.pdf
 ZIP = zeste_de_python.zip
 SRC = $(shell find src -name "*.md" | sort -V)
 IMG_ZIP = images.zip
-IMG_SRC = $(shell ls img/*.jpg img/*.png)
+IMG_SRC = $(shell ls img/*.jpg img/*.png img/*.gif)
 
 FLAGS = --top-level-division=part --toc --pdf-engine=xelatex
 
