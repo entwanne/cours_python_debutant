@@ -6,5 +6,3 @@
 
 * `os.fork`
 * Copy-on-write & Python
-
-* subprocess
