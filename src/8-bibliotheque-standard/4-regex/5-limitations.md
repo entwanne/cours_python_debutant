@@ -42,7 +42,7 @@ Mais le moteur de _regex_ de Python permet d'aller au-delà de certaines limitat
     ```
 
 Cependant, même avec ces fonctionnalités supplémentaires certaines choses restent impossibles.
-Par exemple on ne peut pas écrire de motif pour reconnaître N occurreces de « a » suivies de N occurrences de « b ».  
+Par exemple on ne peut pas écrire de motif pour reconnaître N occurrences de « a » suivies de N occurrences de « b ».  
 De même qu'une expression arithmétique (`3 * (1 + 2 * 5)`), par sa nature récursive, ne peut pas être reconnue par une _regex_, même étendue.
 
 On notera enfin que les fonctionnalités étendues présentées ici ne sont pas standards et ne seront pas reconnues par les moteurs de _regex_ « purs »[^re2], je vous recommande donc de les éviter autant que possible (ainsi que pour des questions de lisibilité et de performances) et de préférer des algorithmes plus classiques pour résoudre vos problèmes complexes.

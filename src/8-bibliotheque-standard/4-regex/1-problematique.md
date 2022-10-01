@@ -13,7 +13,7 @@ Mais comment pourrions-nous procéder pour des problèmes plus complexes comme �
 
 Une solution évidente serait de tenter une conversion `float(my_string)` et voir si elle réussit ou elle échoue.[^faux_positifs]
 
-[^faux_positifs]: Ce qui ne remplit pas à 100% la demande puisque reconnaît les formes `.3`, `1e10` et même `inf` qui ne nous intéressent pas ici.
+[^faux_positifs]: Ce qui ne remplit pas à 100% la demande puisque l'expression reconnaît les formes `.3`, `1e10` et même `inf` qui ne nous intéressent pas ici.
 
 Mais intéressons-nous ici à une autre solution qui consisterait à analyser notre chaîne caractère par caractère afin d'identifier si oui ou non elle correspond à un nombre.
 La chaîne pourrait commencer par un `+` ou un `-`, suivraient une série de chiffres potentiellement suivis d'un `.` et d'une nouvelle série de chiffres.

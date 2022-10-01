@@ -301,7 +301,7 @@ Cette option permet simplement d'ignorer la casse des caractères de la chaîne 
 ##### `re.ASCII` (`re.A`)
 
 Par défaut les _regex_ en Python expriment des motifs unicode, c'est-à-dire qu'elles gèrent les caractères accentués et spéciaux.  
-Comme on l'a vu, le motif `\w` permet par exemple de reconnaître des chiffres et des lettres quelle que soit leur forme (différents alphabets, différentes dyacritiques).
+Comme on l'a vu, le motif `\w` permet par exemple de reconnaître des chiffres et des lettres quelle que soit leur forme (différents alphabets, différentes diacritiques).
 
 Mais il est possible de restreindre ces motifs à la seule table des caractères ASCII (cf [le tableau dans le chapitre dédié aux _bytes_](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/#5-5-bytes)) avec l'option `ASCII` et ainsi n'accepter par exemple que les lettres de l'alphabet latin.
 
@@ -326,7 +326,7 @@ Il est possible de changer ce comportement à l'aide de l'option `DOTALL`.
 
 ##### `re.MULTILINE` (`re.M`)
 
-Enfin, l'option `MULTILINE` est une option qui permet de gérer différemment les textes sur plusieurs lignes donnés en argument aux fonctions du module `re`.
+Enfin, l'option `MULTILINE` est une option qui permet de gérer différemment les textes sur plusieurs lignes.
 
 Par défaut, une chaîne de caractères contenant des retours à la ligne (`\n`) est gérée comme les autres chaînes, sans traitement particulier pour les sauts de ligne.  
 Cette option permet de différencier les lignes les unes des autres et d'avoir un traitement différencié.
@@ -350,7 +350,7 @@ Ainsi les marqueurs `^` et `$` n'identifieront plus seulement le début et la fi
 ##### Composition d'options
 
 Les options ne sont pas exclusives et peuvent être composées les unes avec les autres.  
-On utilise pour cela la notation d'union afin d'assembler différentes options entre-elles.
+On utilise pour cela la notation d'union afin d'assembler différentes options entre elles.
 
 ```pycon
 >>> re.findall(r'^[a-z]\w+', 'abc\nDEF\nghî', re.ASCII | re.MULTILINE | re.IGNORECASE)
