@@ -16,7 +16,7 @@ On va y aller pas à pas pour construire une expression correspondant à notre b
 Nous allons tout d'abord importer le module `re` et nous intéresser à la fonction `re.fullmatch`.
 C'est une fonction qui reçoit l'expression rationnelle (en premier argument) et le texte à analyser (en second) et qui renvoie un objet résultat ou `None` suivant si le texte correspond à l'expression ou non.
 
-L'expression rationnelle peut-être une chaîne de caractères toute simple (par exemple `'123'`) et la fonction va alors simplement vérifier que les caractères correspondent un à un.
+L'expression rationnelle peut être une chaîne de caractères toute simple (par exemple `'123'`) et la fonction va alors simplement vérifier que les caractères correspondent un à un.
 
 ```pycon
 >>> import re
@@ -41,7 +41,7 @@ Par exemple le caractère `.` utilisé dans une _regex_ signifie « n'importe q
 >>> re.fullmatch('12.', '134')
 ```
 
-Un autre caractère particulier est le `+` qui indique que le motif qui précède peut-être répété indéfiniment.
+Un autre caractère particulier est le `+` qui indique que le motif qui précède peut être répété indéfiniment.
 La _regex_ `'a+'` permet ainsi de reconnaître les suites de caractères `a` (minuscule, on note au passage que les _regex_ sont sensibles à la casse par défaut).
 
 ```pycon
