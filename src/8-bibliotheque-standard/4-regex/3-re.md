@@ -16,7 +16,7 @@ On va y aller pas à pas pour construire une expression correspondant à notre b
 Nous allons tout d'abord importer le module `re` et nous intéresser à la fonction `re.fullmatch`.
 C'est une fonction qui reçoit l'expression rationnelle (en premier argument) et le texte à analyser (en second) et qui renvoie un objet résultat ou `None` suivant si le texte correspond à l'expression ou non.
 
-L'expression rationnelle peut-être une chaîne de caractères toute simple (par exemple `'123'`) et la fonction va alors simplement vérifier que les caractères correspondent un à un.
+L'expression rationnelle peut être une chaîne de caractères toute simple (par exemple `'123'`) et la fonction va alors simplement vérifier que les caractères correspondent un à un.
 
 ```pycon
 >>> import re
@@ -98,7 +98,7 @@ Nous avons maintenant toutes les clefs en main pour recoder notre fonction `is_n
 En effet, dans notre nombre nous voulons pouvoir identifier un caractère `.`, mais nous savons que ce caractère est un motif particulier dans une _regex_ qui fait office de joker.
 
 Comment alors faire en sorte de n'identifier que le caractère `.` et lui seul ?
-Il nous faut pour celà l'échapper, en le faisant précéder d'un _antislash_ (`\`).
+Il nous faut pour cela l'échapper, en le faisant précéder d'un _antislash_ (`\`).
 
 ```python
 >>> re.fullmatch('\.', '.')
@@ -237,7 +237,7 @@ Elle évite ainsi de parcourir le texte en entier dès le début et de constuire
 
 ##### `re.sub`
 
-Cette fonction permet d'opérer des remplacements (ou comme son nom l'indique des substitions) sur un texte, remplaçant chaque occurrence du motif par la valeur précisée.  
+Cette fonction permet d'opérer des remplacements (ou comme son nom l'indique des substitutions) sur un texte, remplaçant chaque occurrence du motif par la valeur précisée.  
 Elle prend donc en arguments la _regex_, la valeur par laquelle remplacer le motif, et le texte sur lequel opérer.
 Et elle renvoie le texte après substitution.
 
@@ -273,7 +273,7 @@ Si le motif n'est pas trouvé, alors le texte est renvoyé inchangé.
 
 ##### `re.compile`
 
-On notera enfin la présénce de la fonction `re.compile` qui permet de créer un objet _regex_.
+On notera enfin la présence de la fonction `re.compile` qui permet de créer un objet _regex_.
 Cette fonction reçoit l'expression rationnelle sous forme d'une chaîne et renvoie un objet avec des méthodes `fullmatch`, `search`, `finditer`, `split`, etc.
 
 Cea peut être plus pratique si l'on est amené à réutiliser plusieurs fois une même expression.

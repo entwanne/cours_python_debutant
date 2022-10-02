@@ -17,7 +17,7 @@ Si l'on atteint l'état final (à droite) alors c'est que le motif est reconnu d
 ![Animation automate](img/automate_gif.gif)
 Figure: Animation de l'automate pour tester la chaine `-123.45`
 
-Il existe plusieurs types d'automates, les automates finis étant les plus simples d'entre-eux.
+Il existe plusieurs types d'automates, les automates finis étant les plus simples d'entre eux.
 On dit d'un langage formé de mots reconnaissables par un automate fini qu'il est rationnel, d'où le terme d'expression rationnelle.
 
 Le graphe ci-dessus représente donc une expression rationnelle pour reconnaître les chaînes représentant des nombres. Mais nous allons tout de suite voir une manière plus formelle de la décrire.
