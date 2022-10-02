@@ -280,6 +280,25 @@ La séquence `\s` identifie un caractère d'espacement, et `\S` un autre caract�
 <re.Match object; span=(0, 1), match='x'>
 ```
 
+##### Motif de remplacement
+
+Nous avons vu la fonction `re.sub` qui permet de trouver et remplacer toutes les occurrences d'un motif dans un texte.  
+La chaîne de remplacement passée à `sub` peut elle aussi contenir des séquences spéciales, pour faire référence aux groupes capturés dans le texte.
+
+Ainsi `\1` dans la chaîne de remplacement correspondra au premier groupe capturé, `\2` au second, etc.
+
+```pycon
+>>> re.sub(r'([0-9]+)', r'-\1', '3 + 5 = 8')
+'-3 + -5 = -8'
+```
+
+Il est aussi possible d'utiliser la syntaxe `\g<N>` selon vos préférences.
+
+```pycon
+>>> re.sub(r'([0-9]+)', r'-\g<1>', '3 + 5 = 8')
+'-3 + -5 = -8'
+```
+
 ----------
 
 D'autres motifs et séquences d'échappement ne sont pas abordés ici et je vous invite à les retrouver dans [la documentation du mode `re`](https://docs.python.org/fr/3/library/re.html).
