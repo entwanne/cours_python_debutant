@@ -25,7 +25,7 @@ def is_number(my_string):
     first_char = next(it, '')
 
     # On ignore le préfixe + ou -
-    if first_char in ('+', '-'):
+    if first_char in {'+', '-'}:
         first_char = next(it, '')
 
     # On vérifie que la chaîne commence par un chiffre

@@ -54,7 +54,7 @@ La _regex_ `'a+'` permet ainsi de reconnaître les suites de caractères `a` (mi
 ```
 
 [[i]]
-| Il est parfaitement possible de combiner nos motifs spéciaux, ainsi `.+` identifie une suite de n'importe quels caractères : `'123'`, `'aaa'`, `'abcd'`, etc.
+| Il est tout à fait possible de combiner nos motifs spéciaux, ainsi `.+` identifie une suite de n'importe quels caractères : `'123'`, `'aaa'`, `'abcd'`, etc.
 |
 | ```pycon
 | >>> re.fullmatch('.+', '123')
@@ -111,7 +111,7 @@ Reprenons maintenant le graphe de notre automate et décomposons-le.
 ![Automate](img/automate.png)
 Figure: Automate `is_number` -- image générée par [regexper](https://regexper.com/)
 
-Il commence par un état _Start of line_, c'est-à-dire le début de la ligne.
+Il commence par un état `Start of line`, c'est-à-dire le début de la ligne.
 `re.fullmatch` s'occupe déjà de rechercher un motif au début du texte donné, donc nous n'avons pas à en tenir compte ici.
 
 L'état suivant est optionnel puisqu'il existe un chemin qui le contourne, il teste si le caractère est un `+` ou un `-`.  
@@ -128,7 +128,7 @@ Les deux états qui suivent peuvent-être court-circuités pour arriver directem
 Le premier état est un simple point (`\.`) et le second est une nouvelle suite de chiffres (`[0-9]+`).
 Le groupe s'exprime donc sous la forme `(\.[0-9]+)?`.
 
-Enfin, l'état _End of line_ est lui aussi déjà géré par la fonction `fullmatch`.
+Enfin, l'état `End of line` est lui aussi déjà géré par la fonction `fullmatch`.
 
 En mettant tous ces extraits bout à bout, on forme la _regex_ finale qui identifie nos nombres : `[+-]?[0-9]+(\.[0-9]+)?`.
 
@@ -251,6 +251,17 @@ Si le motif n'est pas trouvé, alors le texte est renvoyé inchangé.
 ```pycon
 >>> re.sub('[0-9]+', '?', "C'est bientôt le week-end")
 "C'est bientôt le week-end"
+```
+
+La valeur par laquelle remplacer le motif peut aussi prendre la forme d'une fonction.
+C'est alors cette fonction qui sera appelée pour chaque occurrence du motif, avec l'objet _match_ en argument, et qui devra renvoyer le texte par lequel le remplacer.
+
+```pycon
+>>> def replace_func(match_obj):
+...     return f'_{match_obj[0]}_'
+... 
+>>> re.sub('[0-9]+', replace_func, "Nous sommes le 31 mars 2022 et il fait 10°C")
+'Nous sommes le _31_ mars _2022_ et il fait _10_°C'
 ```
 
 ##### `re.split`
