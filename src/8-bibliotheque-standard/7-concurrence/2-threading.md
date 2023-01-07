@@ -153,32 +153,105 @@ En revanche, gardez à l'esprit qu'on ne prévoit pas quel fil va être exécut�
 import threading
 import time
 
-values = list(range(10))
+values = list(range(100))
+result = []
 
 
 def worker(n):
     while values:
-        time.sleep(1)
-        print(f'[{n}] values: {values}')
+        result.append(values[0])
+        print(n, values[0])
         del values[0]
 
 
-thr1 = threading.Thread(target=worker, args=[1])
-thr2 = threading.Thread(target=worker, args=[2])
-thr1.start()
-thr2.start()
-thr1.join()
-thr2.join()
+threads = [
+    threading.Thread(target=worker, args=[n])
+    for n in range(3)
+]
+for thr in threads:
+    thr.start()
+for thr in threads:
+    thr.join()
+
+print(result)
 ```
 
-À l'exécution on a des chances de rencontrer une erreur ligne 11 comme quoi la liste est vide : en effet comme la fonction met un certain temps à s'exécuter, l'état de la liste a pu changer entre les lignes 8 et 11.  
+À l'exécution on a des chances de rencontrer une erreur ligne 12 comme quoi la liste est vide, et des doublons dans la liste `result` ligne 24 : en effet comme la fonction met un certain temps à s'exécuter, l'état de la liste a pu changer plusieurs fois entre les lignes 9 et 12. Rien n'assure que la liste contient toujours des éléments une fois la ligne 12 atteinte, ni que le premier élément est le même qu'à la ligne précédente.  
 On parle de problèmes de concurrence (ou _race-condition_) pour qualifier de tels bugs, et on dit d'un programme qui les gère correctement qu'il est _thread-safe_.
+
+**ILLUSTRATION DU PROBLÈME**
 
 Il y a plusieurs manières de gérer ce genre de problème.
 
-* opérations atomiques/thread-safe (values.pop avec except)
-* mutex
-    * dead-lock
+Premièrement on peut ajouter un `try/except` autour du `del` pour éviter de provoquer une erreur en cas de liste vide, c'est un cas simple à gérer et qui ne pose pas de plus gros problème de concurrence au-delà de ça (le traitement s'arrête de toute façon en cas de liste vide).
+
+```python linenostart=8
+def worker(n):
+    while values:
+        try:
+            result.append(values[0])
+            print(n, values[0])
+            del values[0]
+        except IndexError:
+            break
+```
+
+Le problème des doublons est plus gênant car il s'agit clairement d'une erreur dans le comportement du programme.
+D'autres solutions s'offrent alors à nous.
+
+La plus simple, quand cela est possible, est d'utiliser des opérations qui sont elles-mêmes _thread-safe_ pour le problème rencontré, voire des opérations atomiques.  
+Une opération atomique est une opération indivisible, qui ne peut pas être interrompue en cours de route et donc dont on a l'assurance qu'elle ne rencontrera pas de problème de concurrence.
+C'est par exemple le cas [de la méthode `pop` des listes](https://docs.python.org/fr/3/faq/library.html#what-kinds-of-global-value-mutation-are-thread-safe) pour récupérer une valeur de la liste tout en la supprimant.
+
+On pourrait ainsi réécrire le code précédent en utilisant un unique appel à `pop` plutôt qu'une récupération de l'élément suivie d'un `del`.
+Cet appel lève toujours une exception `IndexError` en cas de liste vide qu'il nous faut encore ignorer.
+
+```python linenostart=8
+def worker(n):
+    while values:
+        try:
+            item = values.pop(0)
+        except IndexError:
+            break
+        print(n, item)
+        result.append(item)
+```
+
+Le problème des doublons est bien résolu mais on remarque en revanche que l'ordre des éléments dans `result` n'est pas conservé par rapport à `values`.
+En effet bien que les opérations `pop` et `append` en elles-mêmes soient atomiques, le fil peut-être suspendu par Python entre ces deux opérations, faisant qu'un autre fil ajoutera une valeur plus tôt.
+
+**ILLUSTRATION DU PROBLÈME**
+
+Pour résoudre ceci, on peut alors faire appel à un verrou logiciel.
+C'est un mécanisme de programmation concurrente qui permet de s'assurer qu'un bloc de code n'est exécuté que par un et un seul fil en même temps.  
+Ce fil se charge en effet de prendre possession d'un verrou en début de bloc (si ce verrou est disponible, sinon il attend) puis de le libérer en fin de bloc (permettant à un autre fil de l'obtenir etc.).
+
+En Python dans le cas du _threading_ ils prennent la forme d'un objet `threading.Lock` et s'utilisent avec un bloc `with`.
+Le verrou a besoin d'être partagé entre tous les _threads_ et donc d'être défini en dehors de la fonction `worker`.
+
+[[i]]
+| On parle aussi de _mutex_ pour ces verrous, signifiant _mutual exclusion_ soit exclusion mutuelle.
+
+```python linenostart=4
+values = list(range(100))
+result = []
+lock = threading.Lock()
+
+
+def worker(n):
+    while values:
+        with lock:
+            try:
+                item = values.pop(0)
+            except IndexError:
+                break
+            print(n, item)
+            result.append(item)
+```
+
+**ILLUSTRATION DE LA SOLUTION**
+
+* dead-lock
 
 [[i]]
 | Au niveau du système d'exploitation les _threads_ sont un mécanisme de programmation parallèle, pouvant s'exécuter sur différents cœurs du processeur.  
