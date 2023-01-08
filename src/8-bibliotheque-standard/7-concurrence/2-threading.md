@@ -146,14 +146,17 @@ Received !dlroW olleH
 Received sdaerht sed esilitu'J
 ```
 
-Il faut aussi noter qu'il n'y a pas de limite sur le nombre de fils que l'on peut exécuter en même temps dans un programme.  
+Il faut aussi noter qu'il n'y a pas de limite sur le nombre de fils que l'on peut exécuter en même temps dans un programme.
+
+#### Problèmes de concurrence
+
 En revanche, gardez à l'esprit qu'on ne prévoit pas quel fil va être exécuté à quel moment, il faut donc concevoir nos programmes de façon à ce que les variations dans l'ordre d'exécution ne le fassent pas planter.
 
 ```python
 import threading
 import time
 
-values = list(range(100))
+values = list(range(10))
 result = []
 
 
@@ -164,22 +167,45 @@ def worker(n):
         del values[0]
 
 
-threads = [
-    threading.Thread(target=worker, args=[n])
-    for n in range(3)
-]
-for thr in threads:
-    thr.start()
-for thr in threads:
-    thr.join()
+thr1 = threading.Thread(target=worker, args=[1])
+thr2 = threading.Thread(target=worker, args=[2])
+thr1.start()
+thr2.start()
+thr1.join()
+thr2.join()
 
 print(result)
 ```
 
-À l'exécution on a des chances de rencontrer une erreur ligne 12 comme quoi la liste est vide, et des doublons dans la liste `result` ligne 24 : en effet comme la fonction met un certain temps à s'exécuter, l'état de la liste a pu changer plusieurs fois entre les lignes 9 et 12. Rien n'assure que la liste contient toujours des éléments une fois la ligne 12 atteinte, ni que le premier élément est le même qu'à la ligne précédente.  
+À l'exécution on a des chances de rencontrer une erreur ligne 12 comme quoi la liste est vide, et des doublons dans la liste `result` ligne 22 : en effet comme la fonction met un certain temps à s'exécuter, l'état de la liste a pu changer plusieurs fois entre les lignes 9 et 12. Rien n'assure que la liste contient toujours des éléments une fois la ligne 12 atteinte, ni que le premier élément est le même qu'à la ligne précédente.
+
+```
+1 0
+1 1
+1 2
+1 3
+2 1
+1 4
+2 5
+2 7
+2 8
+2 9
+1 6
+Exception in thread Thread-1 (worker):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "thread_safety.py", line 12, in worker
+    del values[0]
+IndexError: list assignment index out of range
+[0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
 On parle de problèmes de concurrence (ou _race-condition_) pour qualifier de tels bugs, et on dit d'un programme qui les gère correctement qu'il est _thread-safe_.
 
-**ILLUSTRATION DU PROBLÈME**
+![Déroulé de l'exécution par fil initiale.](img/thread_safety_indexerror.png)
 
 Il y a plusieurs manières de gérer ce genre de problème.
 
@@ -196,8 +222,25 @@ def worker(n):
             break
 ```
 
+```
+1 0
+1 1
+1 2
+1 3
+1 4
+1 5
+2 5
+1 6
+1 8
+2 7
+1 9
+[0, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9]
+```
+
 Le problème des doublons est plus gênant car il s'agit clairement d'une erreur dans le comportement du programme.
 D'autres solutions s'offrent alors à nous.
+
+![Déroulé de l'exécution par fil avec `except`.](img/thread_safety_doublons.png)
 
 La plus simple, quand cela est possible, est d'utiliser des opérations qui sont elles-mêmes _thread-safe_ pour le problème rencontré, voire des opérations atomiques.  
 Une opération atomique est une opération indivisible, qui ne peut pas être interrompue en cours de route et donc dont on a l'assurance qu'elle ne rencontrera pas de problème de concurrence.
@@ -217,10 +260,24 @@ def worker(n):
         result.append(item)
 ```
 
+```
+1 0
+1 1
+1 2
+1 4
+1 5
+2 3
+2 6
+1 7
+1 9
+2 8
+[0, 1, 2, 4, 3, 5, 6, 7, 9, 8]
+```
+
 Le problème des doublons est bien résolu mais on remarque en revanche que l'ordre des éléments dans `result` n'est pas conservé par rapport à `values`.
 En effet bien que les opérations `pop` et `append` en elles-mêmes soient atomiques, le fil peut-être suspendu par Python entre ces deux opérations, faisant qu'un autre fil ajoutera une valeur plus tôt.
 
-**ILLUSTRATION DU PROBLÈME**
+![Déroulé de l'exécution par fil avec `pop`.](img/thread_safety_disorder.png)
 
 Pour résoudre ceci, on peut alors faire appel à un verrou logiciel.
 C'est un mécanisme de programmation concurrente qui permet de s'assurer qu'un bloc de code n'est exécuté que par un et un seul fil en même temps.  
@@ -233,7 +290,7 @@ Le verrou a besoin d'être partagé entre tous les _threads_ et donc d'être dé
 | On parle aussi de _mutex_ pour ces verrous, signifiant _mutual exclusion_ soit exclusion mutuelle.
 
 ```python linenostart=4
-values = list(range(100))
+values = list(range(10))
 result = []
 lock = threading.Lock()
 
@@ -249,7 +306,23 @@ def worker(n):
             result.append(item)
 ```
 
-**ILLUSTRATION DE LA SOLUTION**
+```
+1 0
+1 1
+1 2
+1 3
+1 4
+1 5
+1 6
+2 7
+2 8
+2 9
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+On voit aussi cependant que c'est souvent le même fil qui conserve la main.
+
+![Déroulé de l'exécution par fil avec verrou.](img/thread_safety_lock.png)
 
 * dead-lock
 
