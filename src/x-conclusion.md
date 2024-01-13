@@ -2,7 +2,9 @@
 
 Après la lecture de ce cours, ta quête du Python est loin d'être terminée.
 Tu connais maintenant les fondamentaux du langage, mais il y a encore tant à voir !  
-Je t'invite à continuer ton apprentissage en te dirigeant vers [la programmation orientée objet en Python](https://zestedesavoir.com/tutoriels/1253/la-programmation-orientee-objet-en-python/), pour découvrir comment mettre en place tes propres types de données.
+Je t'invite à continuer ton apprentissage en te dirigeant vers le cours [python pratique]() pour découvrir notamment comment explorer tes fichiers et répertoires, programmer en réseau ou manipuler des bases de données.
+
+Tu peux aussi te diriger vers [la programmation orientée objet en Python](https://zestedesavoir.com/tutoriels/1253/la-programmation-orientee-objet-en-python/) pour apprendre comment créer tes propres types de données.
 
 Je te conseille aussi de jeter un œil aux [secrets d'un code pythonique](https://zestedesavoir.com/articles/1079/les-secrets-dun-code-pythonique/) afin de bien t'imprégner de la philosophie Python.
 
