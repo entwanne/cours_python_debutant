@@ -237,8 +237,8 @@ Aussi, il s'arrête dès que l'un des itérables se termine, puisqu'il ne peut a
 
 En plus des outils *built-in* pour manipuler les itérables, la bibliothèque standard fournit aussi une mine d'or : le module [`itertools`](https://docs.python.org/fr/3/library/itertools.html).
 
-Je ne détaillerai pas tout ce que contient le module, la documentation fera cela beaucoup mieux que moi.
-Je veux juste vous présenter quelques fonctions qui pourraient vous être bien utiles.
+Je ne détaillerai pas tout ce que contient le module, nous reviendrons dessus par la suite en explorant la bibliothèque standard et la documentation fera cela beaucoup mieux que moi.
+Je veux juste vous présenter ici quelques fonctions qui pourraient vous être bien utiles.
 
 ##### `chain`
 
@@ -321,12 +321,3 @@ for i in range(5):
     for c in 'ABC':
         print(i, c)
 ```
-
-Le module propose d'autres fonctions combinatoires que je vous invite à regarder.
-
-##### Recettes
-
-En plus de donner des explications et exemples pour chacune de ses fonctions, la documentation du module `itertools` [fournit aussi quelques « recettes »](https://docs.python.org/fr/3/library/itertools.html#itertools-recipes).
-
-Il s'agit de fonctions qui répondent à des besoins trop particuliers pour être vraiment intégrées au module.
-Les recettes sont là pour que vous les repreniez dans votre code et que vous les adaptiez à votre convenance.

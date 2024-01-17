@@ -265,42 +265,6 @@ On pourra le voir utilisé dans des `zip` pour simuler une séquence de même lo
 9 + 5 = 14
 ```
 
-`repeat` peut aussi prendre un argument qui indique le nombre de répétitions à effectuer, auquel cas il ne sera plus infini.
-
-```pycon
->>> list(repeat('hello', 5))
-['hello', 'hello', 'hello', 'hello', 'hello']
-```
-
-Dans le même genre on trouve enfin `cycle` pour boucler (indéfiniment) sur un même itérable.
-
-```pycon
->>> from itertools import cycle
->>> values = cycle(['hello', 'world'])
->>> next(values)
-'hello'
->>> next(values)
-'world'
->>> next(values)
-'hello'
-```
-
-C'est aussi un cas d'utilisation pour avoir un itérable que l'on voudrait au moins aussi grand qu'un autre.
-
-```pycon
->>> additions(range(10), cycle([3, 5, 8]))
-0 + 3 = 3
-1 + 5 = 6
-2 + 8 = 10
-3 + 3 = 6
-4 + 5 = 9
-5 + 8 = 13
-6 + 3 = 9
-7 + 5 = 12
-8 + 8 = 16
-9 + 3 = 12
-```
-
 #### Fonction `iter`
 
 Pour terminer ce chapitre je voudrais vous parler d'`iter`, une fonction qui renvoie un simple itérateur sur l'itérable donné en argument.
