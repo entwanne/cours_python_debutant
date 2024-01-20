@@ -1,4 +1,4 @@
-### Functools
+### Module functools
 
 Préccédemment dans [la section dédiée aux décorateurs](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/4-fonctions/#4-4-decorateurs) du chapitre de rappel sur les fonctions j'abordais le module [`functools`](](https://docs.python.org/fr/3/library/functools.html)) pour les décorateurs `cache` et `lru_cache` qu'il comportait.  
 Il est maintenant temps de revenir sur ce module pour voir ce qu'il peut nous apporter d'autre.
@@ -108,7 +108,7 @@ DEBUG:
 
 #### `reduce`
 
-Vous vous souvenez des fonctions _builtin_ `map` et `filter` que [nous avons vues plus tôt](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/#fonctions-map-et-filter) ?
+Vous vous souvenez des fonctions _built-in_ `map` et `filter` que [nous avons vues plus tôt](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/#fonctions-map-et-filter) ?
 Ce duo s'utilise pour transformer et filtrer les éléments d'un itérable, à la manière des listes en intension.
 
 ```pycon
