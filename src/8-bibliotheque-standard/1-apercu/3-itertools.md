@@ -1,4 +1,4 @@
-### Itertools
+### Module itertools
 
 Nous l'avons vu plus tôt lors du [retour sur les boucles](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/#module-itertools) : [`itertools`](https://docs.python.org/fr/3/library/itertools.html) est un module de la bibliothèque standard qui fournit de nombreux outils pour manipuler des itérables.
 
@@ -102,7 +102,7 @@ Plusieurs fonctions du module permettent de réaliser différentes combinaisons 
 
 ##### `zip_longest`
 
-Une première manière de combiner des itérables consiste à les parcourir simultanément, c'est ce que fait `zip_longest` (ainsi que `zip` dans les _builtins_) qui produit des tuples contenant un élément de chaque argument.
+Une première manière de combiner des itérables consiste à les parcourir simultanément, c'est ce que fait `zip_longest` (ainsi que `zip` dans les _built-ins_) qui produit des tuples contenant un élément de chaque argument.
 
 ```pycon
 >>> for item in itertools.zip_longest([1, 2, 3], [4, 5], [6]):
