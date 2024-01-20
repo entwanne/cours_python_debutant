@@ -93,13 +93,46 @@ CacheInfo(hits=1, misses=1, maxsize=None, currsize=1)
 
 #### `partial`
 
+`partial` permet l'application partielle d'une fonction, c'est-à-dire de stocker des arguments pour un appel futur.
+Elle renvoie alors un nouvel objet qui s'utilise comme une fonction, et peut être appelé à son tour (avec des arguments — qui s'ajouteront à ceux stockés — ou non).
+
+```pycon
+>>> debug = functools.partial(print, 'DEBUG:')
+>>> debug('test')
+DEBUG: test
+>>> debug('foo')
+DEBUG: foo
+>>> debug()
+DEBUG:
+```
+
 #### `reduce`
 
-- + rappel sur map/filter
+Vous vous souvenez des fonctions _builtin_ `map` et `filter` que [nous avons vues plus tôt](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/#fonctions-map-et-filter) ?
+Ce duo s'utilise pour transformer et filtrer les éléments d'un itérable, à la manière des listes en intension.
 
-Vous vous souvenez des fonctions `map` et `filter` ?
+```pycon
+>>> numbers = map(int, '9248135')
+>>> numbers = filter(lambda x: x > 2, numbers)
+>>> list(numbers)
+[9, 4, 8, 3, 5]
+```
 
-- `reduce` était autrefois une builtin
-- équivalente à `accumulate` d'`itertools` mais ne renvoyant que le dernier résultat
+Mais il s'agissait auparavant d'un trio puisque s'ajoutait aussi (en Python 2) la fonction `reduce`, elle est aujourd'hui déplacée dans le module `functools`.
 
-#### `singledispatch`
+C'est une fonction qui permet d'appliquer une opération sur les éléments successifs d'un itérable, opération qui prend en arguments le précédent résultat et l'élement courant.  
+`functools.reduce(op, seq)` est ainsi équivalent à `op(op(op(seq[0], seq[1]), seq[2]), seq[3])...`.
+
+On comprend alors son nom de `reduce` puisqu'elle permet de réduire un ensemble de valeurs en une seule.
+
+Utilisée avec l'opération `operator.add` elle peut par exemple calculer la somme des valeurs de l'itérable. Ou leur produit avec `operator.mul`.
+
+```pycon
+>>> import operator
+>>> functools.reduce(operator.add, [1, 2, 3, 4])
+10
+>>> functools.reduce(operator.mul, [1, 2, 3, 4])
+24
+```
+
+Elle ressemble à la fonction `accumulate` d'`itertools` vue dans la section précédente, sauf qu'elle ne renvoie ici que le dernier résultat et non les résultats intermédiaires.
