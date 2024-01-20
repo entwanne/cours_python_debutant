@@ -1,6 +1,6 @@
 ### Functools
 
-Préccédemment dans [la section dédiée aux décorateurs](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/4-fonctions/#4-4-decorateurs) du chapitre de rappel sur les fonctions j'abordais le module `functools` pour les décorateurs `cache` et `lru_cache` qu'il comportait.  
+Préccédemment dans [la section dédiée aux décorateurs](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/4-fonctions/#4-4-decorateurs) du chapitre de rappel sur les fonctions j'abordais le module [`functools`](](https://docs.python.org/fr/3/library/functools.html)) pour les décorateurs `cache` et `lru_cache` qu'il comportait.  
 Il est maintenant temps de revenir sur ce module pour voir ce qu'il peut nous apporter d'autre.
 
 #### `lru_cache` / `cache`
@@ -136,3 +136,7 @@ Utilisée avec l'opération `operator.add` elle peut par exemple calculer la som
 ```
 
 Elle ressemble à la fonction `accumulate` d'`itertools` vue dans la section précédente, sauf qu'elle ne renvoie ici que le dernier résultat et non les résultats intermédiaires.
+
+-----
+
+Retrouvez plus d'informations, de fonctions et d'exemples dans [la documentation du module](https://docs.python.org/fr/3/library/itertools.html).
