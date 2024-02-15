@@ -6,7 +6,7 @@ Une variable, c'est juste un nom que l'on associe à une valeur, afin d'indiquer
 On peut voir la variable comme une simple étiquette qui sera collée sur notre valeur pour indiquer comment elle se nomme.
 
 En Python, on assigne une variable sur une valeur à l'aide de l'opérateur `=`.
-À gauche on écrit le nom de la variable, une suite de lettres sans espace.
+À gauche, on écrit le nom de la variable, une suite de lettres sans espace.
 La valeur peut être n'importe quelle expression comme vu précédemment.
 
 ```pycon

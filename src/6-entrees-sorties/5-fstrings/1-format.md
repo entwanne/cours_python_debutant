@@ -10,7 +10,7 @@ Par exemple il ne nous est pas possible de choisir combien de chiffres après la
 Tout cela relève du formatage, et il existe une méthode dédiée : la méthode `format` des chaînes de caractères.
 C'est une méthode qui permet de générer une nouvelle chaîne à partir d'un patron (la chaîne d'origine) et d'arguments.
 
-Pour cela, une syntaxe particulière est utilisée dans le chaîne faisant office de patron pour définir où seront insérés les arguments (on parle de _placeholders_).
+Pour cela, une syntaxe particulière est utilisée dans la chaîne faisant office de patron pour définir où seront insérés les arguments (on parle de _placeholders_).
 Cette syntaxe, c'est `{}`.  
 Lors d'un appel à `format` sur une chaîne de caractères, les `{}` seront repérés dans la chaîne et remplacés par les arguments.
 
@@ -180,7 +180,7 @@ Ces options de formatage ne sont pas exhaustives, et vous les trouverez plus en 
 
 Vous pouvez aussi obtenir plus d'aide sur le formatage à l'aide de l'appel `help('FORMATTING')` depuis l'interpréteur interactif.
 
-#### Operateur `%`
+#### Opérateur `%`
 
 Une autre méthode de formatage plus ancienne existe aussi en Python, elle utilise l'opérateur `%`.
 
@@ -197,7 +197,7 @@ En pratique, on a donc quelque chose de la sorte :
 'Bob dit à Alice: tu me dois 20€'
 ```
 
-On trouve aussi la possibilité de préciser des options telle que la largeur de champ ou la précision, en les insérant entre le `%` et le caractère représentant le type.
+On trouve aussi la possibilité de préciser des options telles que la largeur de champ ou la précision, en les insérant entre le `%` et le caractère représentant le type.
 
 ```pycon
 >>> '%10s répond: il ne me reste que %.2f€' % ('Alice', 18.5)

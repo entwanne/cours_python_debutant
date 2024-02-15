@@ -3,7 +3,7 @@
 On a déjà rencontré des exceptions, ce sont les erreurs qui se produisent quand une opération échoue (conversion impossible, élément inexistant dans un dictionnaire, ouverture d'un fichier introuvable, etc.).
 L'erreur survient alors sous la forme d'une exception avec un type particulier (`ValueError`, `TypeError`, `KeyError`, etc.).
 
-Le souci c'est que cela coupe l'exécution de la fonction et du programme (hors interpréteur interactif).
+Le souci est que cela coupe l'exécution de la fonction et du programme (hors interpréteur interactif).
 
 Imaginons que nous souhaitions au chargement de notre jeu regarder si une sauvegarde existe.
 On essaierait alors d'ouvrir le fichier de sauvegarde, et s'il n'existe pas on obtiendrait une exception.

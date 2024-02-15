@@ -95,7 +95,7 @@ True
 #### Priorités des opérateurs
 
 La priorité entre opérateurs ne concerne pas que les opérations arithmétiques, les opérateurs de comparaison sont eux aussi concernés.
-Tous ces opérateurs possèdent la même priorité, qui se situe juste en-dessous de l'addition.
+Tous ces opérateurs possèdent la même priorité, qui se situe juste en dessous de l'addition.
 Ainsi, toutes les opérations arithmétiques sont prioritaires sur les opérations de comparaison.
 
 On a donc `3 + 5 == 2 * 4` qui est équivalent à `(3 + 5) == (2 * 4)`.

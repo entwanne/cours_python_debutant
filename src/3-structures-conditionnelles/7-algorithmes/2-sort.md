@@ -1,6 +1,6 @@
 ### Tri d'une liste
 
-Maintenant que l'on sait identifier le plus petit élément d'une liste on peut passer à un problème un peu plus compliqué, celui du tri d'une liste.
+Maintenant que l'on sait identifier le plus petit élément d'une liste, on peut passer à un problème un peu plus compliqué, celui du tri d'une liste.
 C'est un problème algorithmique très classique qui consiste à ranger dans l'ordre les éléments d'une liste.
 
 Une approche simple consiste à trouver le minimum pour le retirer de la liste et l'ajouter à une nouvelle liste d'éléments triés.

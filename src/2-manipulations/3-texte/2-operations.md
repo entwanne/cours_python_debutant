@@ -25,7 +25,7 @@ On appelle cette opération une concaténation.
 'Hello World!'
 ```
 
-Les délimitateurs ne faisant pas partie de la chaîne, il est bien sûr possible de mixer des chaînes délimitées par des apostrophes avec d'autres délimitées par des guillemets.
+Les délimiteurs ne faisant pas partie de la chaîne, il est bien sûr possible de mixer des chaînes délimitées par des apostrophes avec d'autres délimitées par des guillemets.
 
 ```pycon
 >>> 'abc' + "def"
@@ -63,10 +63,10 @@ Toutes les facilités vues jusqu'ici avec les opérateurs d'assignation restent 
 Salut tomtom et nana
 ```
 
-Mais nous découvrons aussi d'autres opérateurs que nous n'avions pas vus jusque là, pour des opérations spécifiques à ce nouveau type de données.  
+Mais nous découvrons aussi d'autres opérateurs que nous n'avions pas vus jusque-là, pour des opérations spécifiques à ce nouveau type de données.  
 Les chaînes de caractères formant une séquence d'éléments (des caractères), il est possible d'accéder de façon directe à chacun de ces éléments.
 
-Cela se fait à l'aide de crochets (`[ ]`) en indiquant entre-eux la position du caractère voulu, par exemple `msg[3]`.  
+Cela se fait à l'aide de crochets (`[ ]`) en indiquant entre eux la position du caractère voulu, par exemple `msg[3]`.  
 Il faut savoir que généralement en informatique on compte à partir de 0.
 Le premier caractère d'une chaîne se trouve donc à la position 0 de la séquence, le deuxième caractère à la position 1, etc. jusqu'au n-ième caractère à la position *n-1*.
 
@@ -100,7 +100,7 @@ IndexError: string index out of range
 ```
 
 On observe qu'au-delà on obtient une erreur `IndexError`, soit un index invalide.
-On peut en revanche utiliser des index négatifs pour prendre la chaîne en sens inverse : -1 correspond au dernier caractère, -2 à l'avant dernier, jusqu'à `-len(msg)` pour le premier.
+On peut en revanche utiliser des index négatifs pour prendre la chaîne en sens inverse : -1 correspond au dernier caractère, -2 à l'avant-dernier, jusqu'à `-len(msg)` pour le premier.
 Chaque caractère a ainsi deux positions possibles dans la chaîne.
 
 ```pycon

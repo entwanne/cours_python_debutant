@@ -15,7 +15,7 @@ Cette option permet simplement d'ignorer la casse des caractères de la chaîne 
 ##### `re.ASCII` (`re.A`)
 
 Par défaut les _regex_ en Python expriment des motifs unicode, c'est-à-dire qu'elles gèrent les caractères accentués et spéciaux.  
-Comme on l'a vu, le motif `\w` permet par exemple de reconnaître des chiffres et des lettres quelle que soit leur forme (différents alphabets, différentes diacritiques).
+Comme on l'a vu, le motif `\w` permet par exemple de reconnaître des chiffres et des lettres quelle que soit leur forme (différents alphabets, différents diacritiques).
 
 Mais il est possible de restreindre ces motifs à la seule table des caractères ASCII (cf [le tableau dans le chapitre dédié aux _bytes_](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/#5-5-bytes)) avec l'option `ASCII` et ainsi n'accepter par exemple que les lettres de l'alphabet latin.
 
@@ -29,7 +29,7 @@ Mais il est possible de restreindre ces motifs à la seule table des caractères
 
 ##### `re.DOTALL` (`re.S`)
 
-On a vu précédemment que le motif joker (`*`) ne reconnaissait pas le caractère de retour à la ligne dans le mode par défaut.
+On a vu précédemment que le motif joker (`.`) ne reconnaissait pas le caractère de retour à la ligne dans le mode par défaut.
 Il est possible de changer ce comportement à l'aide de l'option `DOTALL`.
 
 ```pycon
@@ -43,7 +43,7 @@ Il est possible de changer ce comportement à l'aide de l'option `DOTALL`.
 Enfin, l'option `MULTILINE` est une option qui permet de gérer différemment les textes sur plusieurs lignes.
 
 Par défaut, une chaîne de caractères contenant des retours à la ligne (`\n`) est gérée comme les autres chaînes, sans traitement particulier pour les sauts de ligne.  
-Cette option permet de différencier les lignes les unes des autres et d'avoir un traitement différencié.
+Cette option permet de différencier les lignes les unes des autres et d'avoir un traitement adapté.
 Ainsi les marqueurs `^` et `$` n'identifieront plus seulement le début et la fin du texte mais aussi le début et la fin de chaque ligne.
 
 ```pycon

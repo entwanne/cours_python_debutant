@@ -37,7 +37,7 @@ Les opérations du type `x = x + y` sont d'ailleurs tellement courantes que Pyth
 `x += 1` est ainsi équivalent à `x = x + 1`.
 On appelle cette opération une incrémentation, car on ajoute un incrément au nombre actuel.
 
-Et cela ne se limite pas à l'addition mais comprend aussi les autres opérateurs arithémtiques qui bénéficient tous de leur propre opérateur d'affectation : `-=`, `*=`, `/=`, `//=`, `%=` et `**=`.
+Et cela ne se limite pas à l'addition mais comprend aussi les autres opérateurs arithmétiques qui bénéficient tous de leur propre opérateur d'affectation : `-=`, `*=`, `/=`, `//=`, `%=` et `**=`.
 L'opération de soustraction-assignation (`-=`) s'appelle une décrémentation.
 
 ```pycon

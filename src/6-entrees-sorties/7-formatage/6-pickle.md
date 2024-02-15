@@ -50,7 +50,7 @@ b'\x80\x04\x95.\x00\x00\x00\x00\x00\x00\x00\x8c\x08builtins\x94\x8c\x07complex\x
 
 ##### Lecture
 
-La méthode `loads` prend donc en argument une chaîne d'octets, reconsruit l'objet Python représenté et le renvoie.
+La méthode `loads` prend donc en argument une chaîne d'octets, reconstruit l'objet Python représenté et le renvoie.
 
 ```pycon
 >>> pickle.loads(b'\x80\x04\x95\x0b\x00\x00\x00\x00\x00\x00\x00]\x94(K\x01K\x02K\x03e.')

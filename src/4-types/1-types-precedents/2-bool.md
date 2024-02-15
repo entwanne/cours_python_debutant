@@ -80,7 +80,7 @@ Le même genre de raccourci existe pour `or`, qui renvoie `a` si `a` vaut `True`
 True
 ```
 
-On notera enfin en termes de conversions que les booléens eux-mêmes sont aussi implicitement convertis en nombres lorsqu'utilisés comme tels.
+On notera enfin en termes de conversions que les booléens eux-mêmes sont aussi implicitement convertis en nombres lorsque utilisés comme tels.
 On aura ainsi `True` converti en `1` et `False` en `0`.
 
 ```pycon

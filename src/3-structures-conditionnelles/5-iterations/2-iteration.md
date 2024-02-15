@@ -25,7 +25,7 @@ Trouvé : 3
 
 Vous pouvez changer l'ordre des éléments de la liste, le résultat est toujours le même.
 
-On a par contre un petit soucis si notre liste contient plusieurs éléments impairs.
+On a par contre un petit souci si notre liste contient plusieurs éléments impairs.
 
 ```pycon
 >>> numbers = [8, 2, 6, 3, 4, 0, 5]
@@ -106,7 +106,7 @@ l
 o
 ```
 
-Plus généralement on parle d'**itérables** pour désigner les types que l'on peut parcourir avec un bloc `for`.
+Plus généralement, on parle d'**itérables** pour désigner les types que l'on peut parcourir avec un bloc `for`.
 
 Un nouveau type de données va nous être bien utile ici, c'est le `range`.
 Un `range` représente un intervalle entre deux nombres entiers, on peut le voir comme la liste des nombres entre ces deux bornes.
@@ -195,7 +195,7 @@ Par exemple ici une liste de cinq zéros (équivalente à `[0] * 5`).
 
 [[i]]
 | Pour rappel, `_` est le nom de variable usuel pour une valeur que l'on n'utilise pas.
-| On n'a en effet pas besoin ici de savoir quelle est la valeur de l'itération en cours, tout ce qui nous importe est de faire deux itérations.
+| On n'a en effet pas besoin ici de savoir quelle est la valeur de l'itération en cours, tout ce qui nous importe est de faire cinq itérations.
 
 Ou la liste des carrés des 10 premiers entiers naturels.
 
@@ -208,7 +208,7 @@ Ou la liste des carrés des 10 premiers entiers naturels.
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
-C'est aussi la solution à notre problème de multiplication des listes multi-dimensionnelles, puisque nous avons maintenant un moyen d'instancier séparément chacune des sous-listes !
+C'est aussi la solution à notre problème de multiplication des listes multidimensionnelles, puisque nous avons maintenant un moyen d'instancier séparément chacune des sous-listes !
 
 ```pycon
 >>> grid = []
@@ -227,13 +227,13 @@ C'est aussi la solution à notre problème de multiplication des listes multi-di
 De la même manière que pour les conditions, les boucles peuvent être imbriquées les unes aux autres.
 Ce qui va permettre d'avoir un traitement répétitif dans une autre répétition.
 
-Pour revenir à l'exemple des tables de mutliplication, on peut ainsi représenter toutes les tables de 1 à 3.
+Pour revenir à l'exemple des tables de multiplication, on peut ainsi représenter toutes les tables de 1 à 3.
 
 ```pycon
 >>> for a in range(1, 4):
 ...     for b in range(1, 11):
 ...         print(a, '×', b, '=', a * b)
-...     print'---')
+...     print('---')
 ... 
 1 × 1 = 1
 1 × 2 = 2

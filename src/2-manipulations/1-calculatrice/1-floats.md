@@ -1,6 +1,6 @@
 ### Des nombres à virgule
 
-Nous nous sommes intéressés aux principaux opérateurs arithmétiques à l'exception de l'un d'entre-eux : l'opérateur de division (`/`).
+Nous nous sommes intéressés aux principaux opérateurs arithmétiques à l'exception de l'un d'entre eux : l'opérateur de division (`/`).
 Il est un peu différent des autres parce que la division entre deux nombres entiers n'est pas nécessairement un nombre entier.
 
 En effet, que vaut « 5 divisé par 2 » (`5 / 2`) ? Aucun des nombres que l'on sait représenter n'est égal à ce résultat.
@@ -38,7 +38,7 @@ Les opérations que nous avons vues sur les nombres entiers s'appliquent aussi a
 24.1
 ```
 
-Et ces deux types de nombres sont compatibles entre-eux, il est par exemple possible d'additionner un entier et un flottant.
+Et ces deux types de nombres sont compatibles entre eux, il est par exemple possible d'additionner un entier et un flottant.
 Là aussi le résultat sera un flottant, pour éviter toute perte d'information de la partie fractionnaire.
 
 ```pycon

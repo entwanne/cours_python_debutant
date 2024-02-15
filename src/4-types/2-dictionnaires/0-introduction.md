@@ -6,7 +6,7 @@ Mais cela n'est pas adapté à toutes les données, toutes ne représentent pas 
 
 Comment par exemple représenter un répertoire téléphonique ? Avec une liste de listes où chaque sous-liste serait composée de deux éléments : un nom et un numéro ?
 
-Par exemple on pourrait avoir
+Par exemple, on pourrait avoir :
 
 ```python
 phonebook = [['Alice', '0633432380'], ['Bob', '0663621029'], ['Alex', '0714381809']]

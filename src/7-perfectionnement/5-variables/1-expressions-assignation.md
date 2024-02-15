@@ -54,7 +54,7 @@ Pour reprendre l'exemple précédent, on pourrait alors le réécrire comme suit
 
 Dans cet exemple, `url := config.get('url', '').strip()` assigne la variable `url` puis la teste pour savoir si on entre dans le bloc conditionnel ou non.
 
-L'opérateur `:=` est l'un des moins prioritaires de Python, ainsi il sera souvent nécessaire de placer l'expression entre paranthèses pour la prioriser.
+L'opérateur `:=` est l'un des moins prioritaires de Python, ainsi il sera souvent nécessaire de placer l'expression entre parenthèses pour la prioriser.
 
 ```pycon
 >>> if (x := round(3.5)) > 0:

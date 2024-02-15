@@ -1,7 +1,7 @@
 ### Et sinon ?
 
 Nous avons vu quoi faire quand une condition était vraie, mais ce n'est pas le seul cas qui nous intéresse.
-Une condtion est en effet soit vraie soit fausse, et un traitement particulier doit pouvoir être apporté à ce deuxième cas de figure.
+Une condition est en effet soit vraie soit fausse, et un traitement particulier doit pouvoir être apporté à ce deuxième cas de figure.
 
 Python fournit pour cela le bloc `else` (« sinon ») qui se place directement après un bloc `if`.
 Aucune expression n'est nécessaire derrière le mot-clé `else` (pas de condition à préciser), le signe `:` reste néanmoins obligatoire pour introduire le bloc.
@@ -29,7 +29,7 @@ Le programme précédent se lit comme suit :
 >
 > Dans tous les cas, afficher « Relancez le programme […] ».
 
-Avec nos blocs conditionnels nous avons chaque fois deux issues : soit la condition du `if` est vraie et nous entrons dans son bloc, soit elle est fausse et c'est le bloc `else` qui est exécuté.
+Avec nos blocs conditionnels, nous avons chaque fois deux issues : soit la condition du `if` est vraie et nous entrons dans son bloc, soit elle est fausse et c'est le bloc `else` qui est exécuté.
 Il est en fait possible d'avoir plus d'options que cela en combinant plusieurs conditions, c'est-à-dire en testant une seconde condition quand la première est fausse.
 Plutôt que d'avoir un simple « si / sinon » nous pourrions avoir « si / sinon si / sinon ».
 

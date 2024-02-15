@@ -17,7 +17,7 @@ Il est toutefois possible de choisir un autre séparateur en ajoutant un argumen
 10 - text - 4.2
 ```
 
-Contrairement aux autres arguments, il est ici nécessaire de préciser un nom (`sep`) pour que Python fasse la différence avec les autres valeurs : il ne doit pas considérer `' - '` comme une valeur à afficher en plus des autres mais comme le séparateur entre ces valeurs.
+Contrairement aux autres arguments, il est ici nécessaire de préciser un nom (`sep`) pour que Python fasse la différence avec les autres valeurs : il ne doit pas considérer `' - '` comme une valeur à afficher en plus des autres, mais comme le séparateur entre ces valeurs.
 On parle alors d'argument nommé.
 
 Sachez aussi que l'on peut appeler la fonction `print` sans lui passer aucun argument.
@@ -43,7 +43,7 @@ Après avoir entré la commande `input()`, on est invité à écrire une ligne d
 Cette ligne est ensuite renvoyée, sous forme d'une chaîne de caractères, par la fonction `input`.
 
 [[i]]
-| Le texte qui s'affiche sous la ligne `>>> intput()` dans l'exemple au-dessus est donc le texte entré dans le terminal par l'utilisateur.
+| Le texte qui s'affiche sous la ligne `>>> input()` dans l'exemple au-dessus est donc le texte entré dans le terminal par l'utilisateur.
 | Je vous invite alors à essayer ces exemples chez vous pour bien voir comment ils se comportent.
 | Vous pouvez y entrer ce que bon vous semble.
 
@@ -57,5 +57,5 @@ Tu t'appelles entwanne
 ```
 
 On comprend ainsi tout l'intérêt des variables.
-Jusqu'ici nous ne manipulions que des données connues du programme et les variables pouvaient sembler futiles.
+Jusqu'ici, nous ne manipulions que des données connues du programme et les variables pouvaient sembler futiles.
 Mais elles vont maintenant nous servir à stocker et traiter des données venant de l'extérieur, inconnues au lancement du programme.

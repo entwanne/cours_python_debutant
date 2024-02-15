@@ -24,7 +24,7 @@ PosixPath('/')
 PosixPath('../subdir/file.py')
 ```
 
-L'intérêt des objets `Path` est qu'ils sont composables entre-eux, à l'aide de l'opérateur `/` (qui représente la séparation entre répertoires).
+L'intérêt des objets `Path` est qu'ils sont composables entre eux, à l'aide de l'opérateur `/` (qui représente la séparation entre répertoires).
 
 ```pycon
 >>> Path('a') / Path('b') / Path('c')

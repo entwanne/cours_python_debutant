@@ -34,7 +34,7 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 '101'
 ```
 
-Ainsi, pour en revenir à la demande initiale, afin traiter une entrée de l'utilisateur comme un nombre, il convient donc de convertir en `int` le retour d'`input`.
+Ainsi, pour en revenir à la demande initiale, afin traiter une entrée de l'utilisateur comme un nombre, il convient alors de convertir en `int` le retour d'`input`.
 
 ```pycon
 >>> n = int(input('Choisis un nombre : '))

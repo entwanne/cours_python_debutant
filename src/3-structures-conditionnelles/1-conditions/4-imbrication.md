@@ -6,11 +6,11 @@ Les exemples présents dans les sections qui précèdent montraient des structur
 
 Mais dans un programme il est généralement nécessaire de tester différentes conditions et donc d'avoir plusieurs structures conditionnelles, c'est-à-dire plusieurs `if`.
 
-Dans un fichier, on placera donc les blocs conditionnels les uns à la suite des autres, et Python comprendra qu'il s'agit d'une nouvelle structure chaque fois qu'il verra un `if`.
+Dans un fichier, on placera ainsi les blocs conditionnels les uns à la suite des autres, et Python comprendra qu'il s'agit d'une nouvelle structure chaque fois qu'il verra un `if`.
 
 ```python
 user = input("Entrez le nom d'utilisateur: ")
-password = intput("Entrez le mot de passe: ")
+password = input("Entrez le mot de passe: ")
 
 if user == 'admin':
     print("Le compte administrateur est désactivé")

@@ -14,7 +14,7 @@ On trouve d'ailleurs de nombreuses références à cette troupe dans la document
 La version 1.0 de Python arriva en 1994 et ressemblait déjà beaucoup au Python d'aujourd'hui que je vais vous enseigner dans ce cours.  
 Suivront les versions majeures 2.0 en 2000 et 3.0 en 2008, avec bien sûr de nombreuses versions mineures intermédiaires.
 Elles ajouteront à Python de nouvelles influences, telles que les langages de programmation [Haskell](https://fr.wikipedia.org/wiki/Haskell) ou [SETL](https://fr.wikipedia.org/wiki/SETL).  
-La version 3 fit grand bruit puisqu'elle choisit de casser la rétro-compatibilité pour corriger des erreurs de conception des versions précédentes, il fallut une dizaine d'années pour achever la transition de Python 2 vers Python 3.
+La version 3 fit grand bruit puisqu'elle choisit de casser la rétrocompatibilité pour corriger des erreurs de conception des versions précédentes, il fallut une dizaine d'années pour achever la transition de Python 2 vers Python 3.
 
 En 2001 est créée la _Python Software Foundation_ (ou _PSF_) dans le but de promouvoir et de protéger le langage, supervisant son développement et récoltant les fonds pour son financement.  
 La fondation œuvre aussi pour organiser des conférences tout autour du monde à propos de Python, les _PyCon_.

@@ -22,7 +22,7 @@ None
 Dans certains traitements, il est parfois utile de savoir si l'on a affaire à `None` ou à une autre valeur.
 Pour vérifier ça, on serait tenté de tester si notre valeur est égale à `None` avec un `==`.
 
-Mais `None` est une valeur unique en Python, il n'en existe qu'un (on parle de _singleton_) et on préférera donc utiliser l'opérateur d'idendité : `is`.
+Mais `None` est une valeur unique en Python, il n'en existe qu'un (on parle de _singleton_) et on préférera donc utiliser l'opérateur d'identité : `is`.
 
 ```pycon
 >>> None is None

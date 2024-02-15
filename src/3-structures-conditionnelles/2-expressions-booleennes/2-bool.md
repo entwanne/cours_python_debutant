@@ -34,7 +34,7 @@ True
 True
 ```
 
-Mais il est aussi possible de combiner plusieurs booléens entre-eux, de différentes manières.
+Mais il est aussi possible de combiner plusieurs booléens entre eux, de différentes manières.
 
 La première est la conjonction (« ET ») qui permet de tester si deux valeurs sont vraies.
 Avec `a` et `b` deux booléens, l'expression « a ET b » est vraie si et seulement si `a` est vrai et que `b` l'est aussi.

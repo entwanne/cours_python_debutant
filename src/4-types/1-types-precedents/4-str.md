@@ -123,7 +123,7 @@ Elles acceptent un argument optionnel pour supprimer des caractères en particul
 ```
 
 [[a]]
-| Attention, l'argument donné à `strip` spécifie un ensemble de caractères à supprimer et nom une chaîne précise.
+| Attention, l'argument donné à `strip` spécifie un ensemble de caractères à supprimer et non une chaîne précise.
 | `s.strip('.-')` et `s.strip('-.')` sont équivalents.
 
 Les méthodes `upper`, `lower`, `capitalize` et `title` permettent d'obtenir une nouvelle chaîne en changeant la casse des caractères.

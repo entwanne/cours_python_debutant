@@ -1,11 +1,11 @@
 ### Exécution du fichier
 
-Maintenant que nous avons écrit notre premier programme nous pouvons donc passer à la prochaine étape : l'exécuter !  
+Maintenant que nous avons écrit notre premier programme, nous pouvons donc passer à la prochaine étape : l'exécuter !  
 Dans IDLE, cela se fait à l'aide du menu _Run_ > _Run Module_ (ou de la touche ||F5||).
 De même dans Geany avec la commande _Execute_ (||F5||).
 
-On exécute donc le fichier à l'aide de l'interpréteur… et rien ne se passe.
-Enfin plus précisément on ne voit rien de particulier.
+On exécute alors le fichier à l'aide de l'interpréteur… et rien ne se passe.
+Enfin plus précisément, on ne voit rien de particulier.
 
 ![Exécution du fichier dans IDLE.](img/idle_exec_file.png)
 

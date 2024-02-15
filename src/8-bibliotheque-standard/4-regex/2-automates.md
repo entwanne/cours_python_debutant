@@ -1,7 +1,7 @@
 ### Une histoire d'automates
 
 Ce processus que nous venons de réaliser avance pas à pas dans notre chaîne de caractères, identifiant à chaque étape s'il peut continuer ou s'il doit s'arrêter.
-On peut le représenter comme un ensemble d'états (les caracèteres ou motifs attendus dans la chaîne) reliés par des transitions/liens selon quand il est possible de passer d'un état à l'autre.
+On peut le représenter comme un ensemble d'états (les caractères ou motifs attendus dans la chaîne) reliés par des transitions/liens selon quand il est possible de passer d'un état à l'autre.
 
 Voici ainsi une représentation schématique de notre fonction `is_number`, on l'appelle un automate fini.
 

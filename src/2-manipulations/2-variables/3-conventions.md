@@ -4,7 +4,7 @@ Un nom de variable ne peut pas être composé de n'importe quels caractères.
 Il ne doit contenir que des lettres (minuscules ou majuscules), des chiffres et des _underscores_ (caractère `_`).
 L'autre règle est que le nom ne peut pas commencer par un chiffre.
 
-C'est-à-dire que le nom de peut pas contenir d'espaces ou de caractères spéciaux, contrevenir à ces règles produira des erreurs de syntaxe.
+C'est-à-dire que le nom ne peut pas contenir d'espaces ou de caractères spéciaux, contrevenir à ces règles produira des erreurs de syntaxe.
 
 ```pycon
 >>> 0x = 1
@@ -25,7 +25,7 @@ SyntaxError: invalid syntax
 ```
 
 Certains noms sont aussi réservés, car ils correspondent à des mots-clés Python.
-Il est ainsi impossible de nommer une variable avec l'un des noms présent dans le tableau suivant.
+Il est ainsi impossible de nommer une variable avec l'un des noms présents dans le tableau suivant.
 
 +----------+------------+-----------+------------+----------+
 | `False`  | `await`    | `else`    | `import`   | `pass`   |
@@ -61,7 +61,7 @@ Mais on préférera souvent utiliser l'anglais pour garder une cohérence avec l
 
 Aussi, il est déconseillé de nommer une variable d'un même nom qu'une fonction de Python, comme `abs`, `min` ou `max`.
 
-On évitera enfin les noms `l`, `O` ou `I` qui portent à confusion car ne sont pas bien distingables de 1 ou 0 avec certaines polices de caractères.
+On évitera enfin les noms `l`, `O` ou `I` qui portent à confusion car ne sont pas bien distinguables de 1 ou 0 avec certaines polices de caractères.
 
 [[i]]
 | Les différentes règles de style à appliquer en Python sont décrites dans la [PEP8](https://www.python.org/dev/peps/pep-0008/).

@@ -2,7 +2,7 @@
 
 Pour gérer les exceptions on va utiliser un nouveau type de bloc, ou plutôt un couple de blocs, introduits par les mots-clés `try` et `except` (littéralement « essaie » et « à l'exception de »).
 
-Ces deux mots-clés vont de paire pour intercepter les erreurs.  
+Ces deux mots-clés vont de pair pour intercepter les erreurs.  
 Dans le bloc `try` on place le code qui peut échouer, et le bloc `except` sera exécuté si et seulement si une exception survient.
 Il aura pour effet d'attraper cette exception et donc éviter que le programme ne plante, en proposant un traitement adapté.
 
@@ -183,7 +183,7 @@ def get_score(path):
 ```
 
 La fonction de cet exemple gère mal les exceptions : `score` ne sera jamais définie si une erreur est survenue, et donc le `return` échouera car accèdera à une variable inexistante.  
-Quant aux variables `f` et `content` on ne sait pas si elles existent car cela dépend de l'endroit précis où est survenu l'erreur.
+Quant aux variables `f` et `content` on ne sait pas si elles existent car cela dépend de l'endroit précis où est survenue l'erreur.
 Pour une erreur à l'ouverture du fichier `content` ne sera pas définie, mais s'il s'agit d'une erreur lors de la conversion alors `content` contiendra sa bonne valeur.
 
 Pour s'assurer que ces variables existent, il nous faut alors les définir dans tous les cas.
@@ -210,7 +210,7 @@ def get_score(path):
 On peut voir l'exécution d'un programme informatique comme le parcours d'un arbre, de branche en branche, de façon à passer par toutes les feuilles.
 Les embranchements étant faits de conditions, de boucles et d'appels de fonctions. Notamment d'appels de fonctions.  
 
-À chaque instant du programme, l'instruction en cours d'exécution représente une curseur le long d'une branche : l'appel d'une fonction fait aller ce curseur plus loin dans l'arbre tandis qu'un retour le fait revenir sur ses pas.  
+À chaque instant du programme, l'instruction en cours d'exécution représente un curseur le long d'une branche : l'appel d'une fonction fait aller ce curseur plus loin dans l'arbre tandis qu'un retour le fait revenir sur ses pas.  
 Ainsi, il existe toujours un chemin depuis la racine du programme (le tronc) jusque la position actuelle du curseur.
 
 Ce chemin représente la pile d'appels courante (_stacktrace_), les fonctions qu'il a fallu parcourir pour arriver jusqu'à ce point du programme.

@@ -41,7 +41,7 @@ False
 True
 ```
 
-Comme les chaînes de caractères, les listes sont aussi concaténables les unes aux autres, permettant de construire une grande liste en aggrégeant des plus petites.
+Comme les chaînes de caractères, les listes sont aussi concaténables les unes aux autres, permettant de construire une grande liste en agrégeant des plus petites.
 De même qu'elles sont concaténables par multiplication avec un nombre entier.
 
 ```pycon
@@ -267,7 +267,7 @@ Une fois de plus, il est possible d'utiliser des index négatifs pour se positio
 ```
 
 Une autre facilité est que l'on peut omettre la position de début ou la position de fin.
-Sans position de début on considère que l'on part du début de la liste (index `0`) et sans fin que l'on va jusqu'à la fin (index `len(numbers)`).
+Sans position de début, on considère que l'on part du début de la liste (index `0`), et sans fin, que l'on va jusqu'à la fin (index `len(numbers)`).
 
 ```pycon
 >>> numbers[3:]

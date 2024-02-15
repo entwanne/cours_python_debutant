@@ -21,7 +21,7 @@ Pour vérifier ça on va tester notre fonction, c'est-à-dire l'appeler avec dif
 On pourrait tester une fois pour toutes les cas qui nous passent par la tête, considérer la fonction comme bonne si elle valide tout et ne plus y toucher, mais c'est une technique qui risquerait de laisser passer beaucoup de bugs.
 En effet, un code est amené à évoluer. Et si nous touchons au code de notre fonction (ou d'une autre fonction qu'elle appellerait), il faudrait nous assurer que son comportement est toujours le bon, qu'il n'y a pas eu de régressions.
 
-Pour cela, on préfère avoir une suite de tests que l'on ré-appliquera à chaque nouvelle modification, afin de vérifier que nous n'avons rien cassé (que le comportement est toujours celui attendu).
+Pour cela, on préfère avoir une suite de tests que l'on réappliquera à chaque nouvelle modification, afin de vérifier que nous n'avons rien cassé (que le comportement est toujours celui attendu).
 Il faudra donc écrire les scénarios de tests les plus précis et complets possibles pour qu'ils couvrent bien tout ce que doit réaliser la fonction.
 
 Des bugs peuvent se glisser à toutes les phases du développement, et il est donc préférable de ne pas attendre la fin du développement d'une fonctionnalité pour la tester.

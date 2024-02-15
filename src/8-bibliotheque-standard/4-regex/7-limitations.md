@@ -33,7 +33,7 @@ Mais le moteur de _regex_ de Python permet d'aller au-delà de certaines limitat
     >>> # trouve les motifs doublés
     >>> re.findall(r'(\w+)(\1)', 'toto tutu tati')
     [('to', 'to'), ('tu', 'tu')]
-    >>> reconnaît N occurrences de "a" suivies d'un "b" et de N nouvelles occurences de "a"
+    >>> # reconnaît N occurrences de "a" suivies d'un "b" et de N nouvelles occurences de "a"
     >>> re.fullmatch(r'(a+)b(\1)', 'aba')
     <re.Match object; span=(0, 3), match='aba'>
     >>> re.fullmatch(r'(a+)b(\1)', 'aaabaaa')

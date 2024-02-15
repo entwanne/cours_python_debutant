@@ -18,7 +18,7 @@ Et son nombre de PV : 40
 ```
 
 Vous le voyez, j'ai ajouté un cadre autour du message à afficher.
-On peut faire ça facilement à l'aide des opérateurs `+` et `*` que nous avons vus pour les chaînes de caractères.  
+On peut faire ça simplement à l'aide des opérateurs `+` et `*` que nous avons vus pour les chaînes de caractères.  
 La fonction `len` vous sera utile aussi pour que la largeur du cadre s'adapte à la taille du texte.
 
 On peut voir que j'ai passé en majuscule la première lettre des noms, saurez-vous retrouver la méthode qui permet ça ?

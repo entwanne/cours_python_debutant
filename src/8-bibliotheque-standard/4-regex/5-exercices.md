@@ -2,7 +2,7 @@
 
 Je vous propose maintenant de nous entraîner à construire des _regex_ pour résoudre différents problèmes.
 
-Pour vois aider, vous pouvez utiliser des sites web tels que [regex101](https://regex101.com/) ou [regexr](https://regexr.com/) pour tester et voir en temps réel comment sont interprétées vos _regex_.
+Pour vous aider, vous pouvez utiliser des sites web tels que [regex101](https://regex101.com/) ou [regexr](https://regexr.com/) afin de tester et voir en temps réel comment sont interprétées vos _regex_.
 
 ##### Reconnaître un nombre pair
 
@@ -82,8 +82,8 @@ Ensuite on aimerait passer en majuscules tous les mots (lettres/chiffres/_unders
 | ...     return match_obj[0].upper()
 | ... 
 | >>> pattern = re.compile(r'\w*[tT]\w*')
-| >>> pattern.sub(upperize, "Quand tu traverses la pièce, en silence que tu passes devant mmoi")
-| 'Quand TU TRAVERSES la pièce, en silence que TU passes DEVANT mmoi'
+| >>> pattern.sub(upperize, "Quand tu traverses la pièce, en silence que tu passes devant moi")
+| 'Quand TU TRAVERSES la pièce, en silence que TU passes DEVANT moi'
 | ```
 
 ##### Identifier un palindrome

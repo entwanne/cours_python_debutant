@@ -4,7 +4,7 @@ Revenons-en à notre dernier TP.
 Il serait intéressant dans un premier temps de séparer les tests du reste du code.
 Ils n'ont en effet pas de raison particulière d'être placés là.
 
-Dans un fichiers `tests.py`, on va donc placer toutes les fonctions `test_*`.
+Dans un fichier `tests.py`, on va donc placer toutes les fonctions `test_*`.
 Mais ce module `tests` n'aura par défaut pas accès aux fonctions à tester, il va donc nous falloir les importer.
 Au début du module `tests`, on placera donc les lignes d'import suivantes.
 
