@@ -7,7 +7,7 @@ On peut voir la variable comme une simple étiquette qui sera collée sur notre 
 
 En Python, on assigne une variable sur une valeur à l'aide de l'opérateur `=`.
 À gauche, on écrit le nom de la variable, une suite de lettres sans espace.
-La valeur peut être n'importe quelle expression comme vu précédemment.
+À droite on peut avoir n'importe quelle expression comme vu précédemment.
 
 ```pycon
 >>> result = round(8 / 3) + 2

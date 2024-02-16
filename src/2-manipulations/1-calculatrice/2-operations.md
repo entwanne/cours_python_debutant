@@ -45,8 +45,6 @@ Et pour les connaisseurs il est aussi possible d'utiliser des puissances flottan
 Comme nous l'avons vu, les opérateurs ont chacun leur priorité, et celle-ci peut être changée à l'aide de parenthèses.  
 Ainsi, l'exponentiation est prioritaire sur la multiplication et la division, elles-mêmes prioritaires sur l'addition et la soustraction.
 
-+--------------------------------+
-| -> Priorité des opérateurs <-  |
 +----------+---------------------+
 | Priorité |      Opérateur      |
 +==========+=====================+
@@ -58,6 +56,7 @@ Ainsi, l'exponentiation est prioritaire sur la multiplication et la division, el
 +----------+---------------------+
 |        4 | `+`, `-`            |
 +----------+---------------------+
+Table: Priorité des opérateurs
 
 Et chaque opérateur a aussi ses propres règles d'associativité.
 Ce sont des règles qui indiquent si, pour des opérations de même priorité, elles doivent s'exécuter de gauche à droite ou de droite à gauche.

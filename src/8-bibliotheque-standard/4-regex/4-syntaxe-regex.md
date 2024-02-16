@@ -266,7 +266,7 @@ Là encore, `\W` (notez la majuscule) identifie le motif inverse, soit les carac
 <re.Match object; span=(0, 2), match='.?'>
 ```
 
-La séquence `\s` identifie un caractère d'espacement, et `\S` un autre caractère.
+La séquence `\s` identifie un caractère d'espacement, et `\S` un caractère qui n'est pas un espacement.
 
 ```pycon
 >>> re.fullmatch(r'\s', ' ')

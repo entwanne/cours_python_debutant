@@ -11,7 +11,7 @@ Figure: Automate `is_number` -- image générée par [regexper](https://regexper
 Cette représentation nous montre que pour qu'une chaîne soit reconnue comme valide, il faut pouvoir trouver un chemin reliant l'état `Start of line` à l'état `End of line` en parcourant les caractères de la chaîne.
 Chaque état traversé consomme un caractère et un état peut être traversé plusieurs fois si les transitions le permettent, formant ainsi une boucle.
 
-Un automate fini est un modèle de calcul qui parcourt des données séquentiellement (notre chaîne caractère par caractère) afin d'identifier des motifs, le tout sans utiliser de mémoire.
+Un automate fini est un modèle de calcul qui parcourt des données séquentiellement (notre chaîne caractère par caractère) afin d'identifier des motifs, le tout sans utiliser de mémoire pour se souvenir des caractères précédents.
 
 L'ensemble des motifs (ou mots) qui peuvent être identifiés par un automate forme ce qu'on appelle un langage.
 Dans notre exemple le langage est formé des représentations de nombres de la forme `123` et `4.56` pouvant être préfixés d'un `+` ou d'un `-`.  

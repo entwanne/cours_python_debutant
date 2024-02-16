@@ -28,14 +28,15 @@ def is_number(my_string):
     if first_char in {'+', '-'}:
         first_char = next(it, '')
 
-    # On vérifie que la chaîne commence par un chiffre
+    # On vérifie que la chaîne contient au moins un caractère et commence par un chiffre
     if not first_char.isdigit():
         return False
 
     for char in it:
         if char == '.':
             # Si on tombe sur un point, on sort de la boucle pour traiter la partie décimale
-            # On vérifie cependant que la partie décimale commence par un chiffre
+            # On vérifie cependant que la partie décimale contient au moins un caractère
+            # et commence par un chiffre
             next_char = next(it, '')
             if not next_char.isdigit():
                 return False
