@@ -53,7 +53,11 @@ Pour cela, il suffit de lancer un terminal dans le répertoire où se trouve vot
 21
 ```
 
+[[i]]
+| Sous Windows, il est préférable d'utiliser la commande `py` plutôt que `python`.  
+| Elle est en effet présente par défaut dans les répertoires d'installation et ne nécessite donc pas de manipuler la configuration des chemins du système.
+
 [[a]]
-| Attention sous Windows, pensez à utiliser un terminal persistant pour éviter que celui-ci ne se ferme à la fin du programme ou lorsqu'une erreur est rencontrée.
+| Attention aussi sous Windows, pensez à utiliser un terminal persistant pour éviter que celui-ci ne se ferme à la fin du programme ou lorsqu'une erreur est rencontrée.
 |
 | Évitez donc d'exécuter vos fichiers en double-cliquant dessus et préférez ouvrir un Powershell dans lequel vous appellerez Python comme ci-dessus.

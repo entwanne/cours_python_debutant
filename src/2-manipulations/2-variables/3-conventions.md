@@ -59,6 +59,23 @@ Il est ainsi conseillé d'éviter les lettres majuscules et accentuées dans les
 Par exemple, pour un nom de variable composé de plusieurs mots, on préfèrera `points_vie` à `pointsVie`.  
 Mais on préférera souvent utiliser l'anglais pour garder une cohérence avec les mots-clés du langage et faciliter les collaborations, notre variable se nommerait donc plutôt `health_points`.
 
+Les lettres majuscules sont par contre conventionnelles pour des variables définies dans le fichier et dont la valeur ne change jamais.
+Par exemple une variable `MAX_POINTS_VIE` qui contient le nombre maximum absolu de points de vie possible.
+On parle alors habituellement de constante même si ce concept n'existe pas en tant que tel en Python.
+
+[[i]]
+| On notera tout de même que les variables sont sensibles à la casse, c'est-à-dire qu'elles distinguent majuscules et minuscules.
+| Ainsi `points_vie` et `POINTS_VIE` peuvent être définies comme deux variables distinctes et ne seront jamais mélangées.
+|
+| ```pycon
+| >>> points_vie = 10
+| >>> POINTS_VIE = 20
+| >>> points_vie
+| 10
+| >>> POINTS_VIE
+| 20
+| ```
+
 Aussi, il est déconseillé de nommer une variable d'un même nom qu'une fonction de Python, comme `abs`, `min` ou `max`.
 
 On évitera enfin les noms `l`, `O` ou `I` qui portent à confusion car ne sont pas bien distinguables de 1 ou 0 avec certaines polices de caractères.

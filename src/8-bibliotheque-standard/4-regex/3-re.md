@@ -115,7 +115,7 @@ Il commence par un état `Start of line`, c'est-à-dire le début de la ligne.
 `re.fullmatch` s'occupe déjà de rechercher un motif au début du texte donné, donc nous n'avons pas à en tenir compte ici.
 
 L'état suivant est optionnel puisqu'il existe un chemin qui le contourne, il teste si le caractère est un `+` ou un `-`.  
-Cela correspond donc au motif `[+-]?` (à l'intérieur d'une classe de caractères, le `+` perd son statut de caractère spécial).
+Cela correspond donc au motif `[+-]?` (à l'intérieur d'une classe de caractères, le `+` perd son statut de caractère spécial, de même pour `-` qui n'a pas de statut spécial s'il n'est pas suivi d'un autre caractère dans la classe).
 
 On voit que l'état suivant forme une boucle : il y a en effet un chemin qui part de la droite de l'état pour revenir à sa gauche, qui permet de le répéter indéfniment.  
 Cette boucle correspond au symbole `+` que nous avons vu plus haut, qui signifie « au moins une fois ».
