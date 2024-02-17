@@ -33,7 +33,7 @@ for i in range(1, 11):
 
 On pourrait alors écrire une fonction pour réaliser ces opérations, paramétrée selon la valeur de `n`.
 
-C'est donc en ça que consiste le travail de factorisation : œuvrer pour que des codes similaires mais différents puisse utiliser une fonction commune.
+C'est donc en ça que consiste le travail de factorisation : œuvrer pour que des codes similaires mais différents puissent utiliser une fonction commune.
 
 #### Identifier les portions logiques dans un code plus complet
 

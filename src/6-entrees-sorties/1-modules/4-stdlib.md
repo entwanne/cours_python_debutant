@@ -32,7 +32,7 @@ inf
 
 Cette dernière représente l'infini, un nombre flottant supérieur à tout autre.
 
-Question fonctions il ne sera pas possible de tout énumérer mais en voici quelques exemples.
+Question fonctions, il ne sera pas possible de tout énumérer, mais en voici quelques exemples.
 
 ```pycon
 >>> math.sqrt(2) # Racine carrée

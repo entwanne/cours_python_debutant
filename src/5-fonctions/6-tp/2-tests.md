@@ -6,7 +6,7 @@ Malheureusement, beaucoup de nos fonctions attendent des saisies de l'utilisateu
 Nos tests vont donc se résumer aux fonctions qui n'intéragissent pas avec l'utilisateur : dans ma solution il s'agit des fonctions `apply_attack` et `get_winner`.
 Pour les autres fonctions, il faudra pour l'instant se contenter de tests manuels en exécutant le code du TP.
 
-Pour la fonction `apply_attack`, nous voulons nous assurer que les dégâts correspondant à l'attaque sont bien soustraits aux points de vie du joueur adverse.
+Pour la fonction `apply_attack`, nous voulons nous assurer que les dégâts correspondants à l'attaque sont bien soustraits aux points de vie du joueur adverse.
 Nous souhaitons aussi vérifier que les points de vie ne descendent jamais en dessous de zéro.
 
 Pour ce qui est de `get_winner`, on cherche à contrôler que c'est le joueur avec le plus de points de vie qui est identifié comme gagnant.

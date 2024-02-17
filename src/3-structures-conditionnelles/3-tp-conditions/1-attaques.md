@@ -3,7 +3,7 @@
 L'idée maintenant va donc être d'avoir un nombre de dégâts pour chaque attaque, et de proposer à l'utilisateur l'une ou l'autre des attaques.
 
 Ce qu'on voudrait c'est afficher une sorte de menu proposant les différentes attaques.
-Par exemple on pourrait utiliser le message suivant lors de l'`input` :
+Par exemple, on pourrait utiliser le message suivant lors de l'`input` :
 
 ```
 Quelle attaque voulez-vous utiliser ?

@@ -81,7 +81,7 @@ On peut utiliser des parenthèses comme en mathématiques pour gérer les priori
 Dans notre cas initial, on cherche à pouvoir identifier des suites de chiffres.
 Pour cela il va nous falloir utiliser des classes de caractères : ce sont des motifs qui peuvent correspondre à plusieurs caractères bien précis (ici des chiffres).
 
-On définit une classe de caractère à l'aide d'une paire de crochets à l'intérieur de laquelle on fait figurer tous les caractères possibles.
+On définit une classe de caractères à l'aide d'une paire de crochets à l'intérieur de laquelle on fait figurer tous les caractères possibles.
 Par exemple `[0123456789]` correspond à n'importe quel chiffre.  
 Pour simplifier, il est possible d'utiliser un `-` pour définir un intervalle de caractères à l'intérieur de la classe : la syntaxe précédente devient alors équivalente à `[0-9]`.
 
@@ -115,7 +115,7 @@ Il commence par un état `Start of line`, c'est-à-dire le début de la ligne.
 `re.fullmatch` s'occupe déjà de rechercher un motif au début du texte donné, donc nous n'avons pas à en tenir compte ici.
 
 L'état suivant est optionnel puisqu'il existe un chemin qui le contourne, il teste si le caractère est un `+` ou un `-`.  
-Cela correspond donc au motif `[+-]?` (à l'intérieur d'une classe de caractère, le `+` perd son statut de caractère spécial).
+Cela correspond donc au motif `[+-]?` (à l'intérieur d'une classe de caractères, le `+` perd son statut de caractère spécial, de même pour `-` qui n'a pas de statut spécial s'il n'est pas suivi d'un autre caractère dans la classe).
 
 On voit que l'état suivant forme une boucle : il y a en effet un chemin qui part de la droite de l'état pour revenir à sa gauche, qui permet de le répéter indéfniment.  
 Cette boucle correspond au symbole `+` que nous avons vu plus haut, qui signifie « au moins une fois ».
@@ -287,7 +287,7 @@ C'est alors cette fonction qui sera appelée pour chaque occurrence du motif, av
 On notera enfin la présence de la fonction `re.compile` qui permet de créer un objet _regex_.
 Cette fonction reçoit l'expression rationnelle sous forme d'une chaîne et renvoie un objet avec des méthodes `fullmatch`, `search`, `finditer`, `split`, etc.
 
-Cea peut être plus pratique si l'on est amené à réutiliser plusieurs fois une même expression.
+Cela peut être plus pratique si l'on est amené à réutiliser plusieurs fois une même expression.
 
 ```python
 >>> pattern = re.compile('[0-9]+')

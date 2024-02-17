@@ -104,7 +104,7 @@ Sans plus attendre, la solution :
 #### Mon beau sapin, roi des forêts
 
 Encore un cran de difficulté supplémentaire, mais le code du précédent triangle va nous être bien utile.
-On voudrait maintenant faire dessiner un sapin à notre programme.
+On voudrait ensuite faire dessiner un sapin à notre programme.
 
 Un sapin serait composé de triangle et trapèzes empilés, ainsi qu'un rectangle pour le tronc.
 Il serait là encore défini par une hauteur, désignant le nombre de sections du sapin ainsi que la taille de son tronc.

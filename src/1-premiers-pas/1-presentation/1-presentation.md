@@ -29,7 +29,7 @@ Code: Un programme tout simple pour dire bonjour en Python
 
 [[i]]
 | Comme vous pouvez le remarquer dans cet exemple, plusieurs lignes commencent par des espaces.  
-| C'est ce qui permet en Python de séparer les différentes portions de code tout en l'aérant, on appelle celà l'**indentation**, mais on y reviendra. :)
+| C'est ce qui permet en Python de séparer les différentes portions de code tout en l'aérant, on appelle cela l'**indentation**, mais on y reviendra. :)
 
 ![Illustration piles incluses](img/batteries_included.jpg)
 Figure: « Piles incluses » -- _Crédits: [Frank Stajano](https://commons.wikimedia.org/wiki/File:Python_batteries_included.jpg)_

@@ -7,7 +7,7 @@ L'objectif final du projet est de réaliser un système de combat au tour par to
 Les deux monstres seront alors dotés d'une barre de vie (PV) et d'attaques.
 Les attaques se caractérisent par le nombre de points de vie qu'elles infligent en dégâts.
 
-À chaque tour de jeu, une attaque est sélectionnée pour chaque monstre et les dégâts correspondant sont infligés à l'adversaire.
+À chaque tour de jeu, une attaque est sélectionnée pour chaque monstre et les dégâts correspondants sont infligés à l'adversaire.
 Un monstre est KO quand sa barre de vie est vide. Le survivant remporte le combat.
 
 Dans ces TP tu seras accompagné par Pythachu, Pythard et Ponytha.

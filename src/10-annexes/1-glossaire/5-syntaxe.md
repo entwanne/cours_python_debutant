@@ -30,4 +30,4 @@ Certains éléments font partie de la syntaxe Python sans être inclus dans les 
 | `# comment`             | Commentaires                              |
 +-------------------------+-------------------------------------------+
 
-[^string]: Inclut aussi des double-guillemets, _triple-quotes_ et les différents préfixes.
+[^string]: Inclut aussi des double guillemets, _triple-quotes_ et les différents préfixes.

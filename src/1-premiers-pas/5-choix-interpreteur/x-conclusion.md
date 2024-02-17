@@ -1,6 +1,6 @@
 ### Conclusion
 
-Les deux modes ont leurs avantages et leurs inconvénients, il convient donc de tirer partie des deux.  
+Les deux modes ont leurs avantages et leurs inconvénients, il convient donc de tirer parti des deux.  
 De plus ils ne sont pas exclusifs, il est ainsi possible de lancer l'interpréteur avec l'option `-i` sur un fichier, pour obtenir un interpréteur interactif à la suite de l'exécution d'un fichier.
 Ce qui est bien pratique pour vérifier un résultat dans un programme en cours de développement.
 

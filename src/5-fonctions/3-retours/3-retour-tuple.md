@@ -28,7 +28,9 @@ def divmod(a, b):
 #### Unpacking
 
 Mais une construction très intéressante en Python à ce propos est l'_unpacking_, qui permet de déstructurer un tuple.
-Il s'agit en fait d'utiliser un tuple de variables comme membre de gauche lors d'une assignation, pour assigner les éléments du tuple de droite aux variables de gauche.
+Il s'agit en fait d'utiliser un « tuple de variables »[^variable_tuple] comme membre de gauche lors d'une assignation, pour assigner les éléments du tuple de droite aux variables de gauche.
+
+[^variable_tuple]: Il ne s'agit pas à proprement parler d'un tuple (un tuple est une expression) mais d'une notation prenant la même forme.
 
 ```pycon
 >>> (a, b) = (3, 4)

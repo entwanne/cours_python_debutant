@@ -4,7 +4,7 @@ Une condition en Python correspond à un bloc `if`, traduction anglaise du mot �
 Un bloc est un élément de syntaxe que nous n'avons pas encore vu jusqu'ici : il s'agit de plusieurs lignes de code réunies au sein d'une même entité logique.
 
 Un bloc conditionnel est introduit à l'aide du mot-clé `if` suivi d'une expression et d'un signe `:`.  
-Le contenu du bloc est constituté des lignes qui suivent, qui doivent être indentées par rapport à l'ouverture du bloc, c'est-à-dire décalées vers la droite avec des espaces pour les démarquer.
+Le contenu du bloc est constitué des lignes qui suivent, qui doivent être indentées par rapport à l'ouverture du bloc, c'est-à-dire décalées vers la droite avec des espaces pour les démarquer.
 On utilise conventionnellement 4 espaces.  
 Le contenu du bloc ne sera exécuté que si l'expression du `if` est évaluée à « vrai » (`True`).
 
@@ -53,7 +53,7 @@ Cette ligne est en dehors du bloc
 Code: Exécution du programme
 
 Mais les exemples qui précèdent ont peu d'intérêt car les conditions sont fixées et ont donc toujours la même valeur.
-Il pourrait être intéressant par exemple d'intéragir avec l'utilisateur à l'aide d'un `input`.
+Il pourrait être intéressant par exemple d'interagir avec l'utilisateur à l'aide d'un `input`.
 
 ```python
 nbr = int(input('Devinez le nombre secret : '))
@@ -117,7 +117,7 @@ if 2 == 2:
 print('Fin')
 ```
 
-De la même manière, il est impossible d'avoir une ligne vide au milieu d'un bloc conditionnel dans l'interpréteur interactif, alors que cette syntaxe est valide en Python.
+De la même manière, il est impossible d'avoir une ligne vide au milieu d'un bloc conditionnel dans l'interpréteur interactif, même si cette syntaxe est valide en Python.
 
 ```python
 if 2 == 2:

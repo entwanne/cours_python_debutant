@@ -14,7 +14,7 @@ Souvenez-vous : cela correspond à la division posée que l'on apprenait à l'�
 3
 ```
 
-On peut vérifier notre résutlat en multipliant le quotient par le diviseur et en lui ajoutant le reste.
+On peut vérifier notre résultat en multipliant le quotient par le diviseur et en lui ajoutant le reste.
 
 ```pycon
 >>> 2 * 5 + 3
@@ -45,8 +45,6 @@ Et pour les connaisseurs il est aussi possible d'utiliser des puissances flottan
 Comme nous l'avons vu, les opérateurs ont chacun leur priorité, et celle-ci peut être changée à l'aide de parenthèses.  
 Ainsi, l'exponentiation est prioritaire sur la multiplication et la division, elles-mêmes prioritaires sur l'addition et la soustraction.
 
-+--------------------------------+
-| -> Priorité des opérateurs <-  |
 +----------+---------------------+
 | Priorité |      Opérateur      |
 +==========+=====================+
@@ -58,13 +56,14 @@ Ainsi, l'exponentiation est prioritaire sur la multiplication et la division, el
 +----------+---------------------+
 |        4 | `+`, `-`            |
 +----------+---------------------+
+Table: Priorité des opérateurs
 
 Et chaque opérateur a aussi ses propres règles d'associativité.
 Ce sont des règles qui indiquent si, pour des opérations de même priorité, elles doivent s'exécuter de gauche à droite ou de droite à gauche.
 
 Si elles importent peu pour l'addition et la multiplication (`(1+2)+3` et `1+(2+3)` ont la même valeur, de même pour `(2*3)*4` et `2*(3*4)`), elles le sont pour les autres opérations.
 
-Les opérations de priorités 3 et 4 (addition, soustraction, mutliplication, divisions) sont toutes associatives à gauche, c'est-à-dire que les opérations de gauche sont exécutées en priorité, de façon à ce que `1 - 2 + 3` soit égal à `(1-2) + 3`.
+Les opérations de priorités 3 et 4 (addition, soustraction, multiplication, divisions) sont toutes associatives à gauche, c'est-à-dire que les opérations de gauche sont exécutées en priorité, de façon à ce que `1 - 2 + 3` soit égal à `(1-2) + 3`.
 
 ```pycon
 >>> 1 - 2 + 3
@@ -89,7 +88,7 @@ Les opérations de priorités 3 et 4 (addition, soustraction, mutliplication, di
 0.16666666666666666
 ```
 
-À l'inverse, l'opération d'exponentiation (`**`) est associative à droite, donc les opérations sont exécutées de drotie à gauche.
+À l'inverse, l'opération d'exponentiation (`**`) est associative à droite, donc les opérations sont exécutées de droite à gauche.
 
 ```pycon
 >>> 2 ** 3 ** 4

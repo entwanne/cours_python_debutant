@@ -1,7 +1,7 @@
 ### Fonctions
 
 Mais notre calculatrice ne s'arrête pas à ces simples opérateurs, elle est aussi capable d'appliquer des fonctions sur nos nombres.
-Une fonction est une opération opération particulière à laquelle on va donner une valeur en entrée et qui va en renvoyer une nouvelle, comme en mathématiques.
+Une fonction est une opération particulière à laquelle on va donner une valeur en entrée et qui va en renvoyer une nouvelle, comme en mathématiques.
 
 Par exemple, `abs` est la fonction qui calcule la valeur absolue d'un nombre (il s'agit grossièrement de la valeur de ce nombre sans le signe `+` ou `-`).  
 Pour appliquer une fonction sur une valeur, on écrit le nom de la fonction suivi d'une paire de parenthèses, entre lesquelles on place notre valeur.
@@ -44,7 +44,7 @@ Le résultat d'une fonction est donc une valeur comme une autre, ici un nombre, 
 ```
 
 C'est ce que l'on appelle une « **expression** », cela désigne une ligne de Python qui produit une valeur.  
-Cela peut-être une simple valeur (`42`), une opération (`3 * 5`) ou un appel de fonction (`abs(-2)`) : tous ces exemples sont des expressions, qui peuvent donc se composer les unes avec les autres dans de plus grandes expressions.
+Cela peut être une simple valeur (`42`), une opération (`3 * 5`) ou un appel de fonction (`abs(-2)`) : tous ces exemples sont des expressions, qui peuvent ainsi se composer les unes avec les autres dans de plus grandes expressions.
 
 ```pycon
 >>> 42 - 3 * 5 + abs(-2)
@@ -67,7 +67,7 @@ Mais certaines fonctions vont pouvoir recevoir plusieurs arguments, qui devront 
 Il convient de mettre une espace derrière la virgule pour bien aérer le code.
 
 C'est le cas de la fonction `round`, qui prend un deuxième argument optionnel permettant de préciser combien de chiffres après la virgule on souhaite conserver.
-Par défaut on n'en conserve aucun.
+Par défaut, on n'en conserve aucun.
 
 ```pycon
 >>> round(2.3456)

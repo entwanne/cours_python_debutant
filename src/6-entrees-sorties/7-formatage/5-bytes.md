@@ -136,7 +136,7 @@ b'fee'
 [b'a', b'b', b'c']
 ```
 
-Mais les deux types ne sont pas compatibles entre-eux.
+Mais les deux types ne sont pas compatibles entre eux.
 
 ```pycon
 >>> b'abc' + 'def'

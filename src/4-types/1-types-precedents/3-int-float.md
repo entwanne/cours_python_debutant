@@ -29,8 +29,8 @@ ValueError: invalid literal for int() with base 10: '4.5'
 
 #### Opérations
 
-Beaucoup d'opérations sont applicables sur les nombres, et les deux types sont compatibles entre-eux.
-On retrouve d'abord les opérations arithmétiques : addition (`+`), soustraction (`-`), multiplication (`*`), division (`/`), divisition euclidienne (`//`), modulo (`%`) et puissance (`**`).
+Beaucoup d'opérations sont applicables sur les nombres, et les deux types sont compatibles entre eux.
+On retrouve d'abord les opérations arithmétiques : addition (`+`), soustraction (`-`), multiplication (`*`), division (`/`), division euclidienne (`//`), modulo (`%`) et puissance (`**`).
 
 ```pycon
 >>> 1 + 5
@@ -104,7 +104,7 @@ Ces représentations sont d'ailleurs parfaitement valides pour être entrées en
 42
 ```
 
-Puis qu'on en est à parler des bases, tout nombre peut ainsi être considéré comme une succession de bits (tel que la représentation renvoyée par `bin`).
+Puisqu'on en est à parler des bases, tout nombre peut ainsi être considéré comme une succession de bits (tel que la représentation renvoyée par `bin`).
 Un bit étant soit 0 soit 1, on peut même parler de tableau de booléens.
 
 Différents opérateurs -- à rapprocher des opérateurs booléens -- tirent parti de cette particularité pour offrir des opérations bit-à-bit sur les nombres.
@@ -163,7 +163,7 @@ $$
 $$
 
 [[i]]
-| Notez que le premiez zéro n'apparaît pas dans le résultat renvoyé par Python pour le XOR, mais `0b10010` et `0b010010` sont bien deux représentations du même nombre (18).
+| Notez que le premier zéro n'apparaît pas dans le résultat renvoyé par Python pour le XOR, mais `0b10010` et `0b010010` sont bien deux représentations du même nombre (18).
 
 D'autres opérations bit-à-bit sont encore possibles (`~`, `<<`, `>>`), vous pourrez en apprendre plus sur [cette page dédiée aux opérateurs](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/10-annexes/1-glossaire/#3-3-operateurs).
 
@@ -187,7 +187,7 @@ On peut le voir aussi sur d'autres opérations qui produisent normalement des no
 1.1666666666666667
 ```
 
-Par ailleurs, les nombres y sont stockés en base 2, et certains nombres qui nous paraissent finis (`0.1`) ne le sont pas en binaire (il faut une infinité de chiffre derrière la virgule pour représenter `0.1` en base 2).
+Par ailleurs, les nombres y sont stockés en base 2, et certains nombres qui nous paraissent finis (`0.1`) ne le sont pas en binaire (il faut une infinité de chiffres derrière la virgule pour représenter `0.1` en base 2).
 C'est pourquoi des arrondis sont effectués sur ces nombres.
 Ils ne sont pas toujours visibles, mais ils peuvent apparaître à certains moments et être source de bugs.
 
@@ -209,7 +209,7 @@ False
 `123.456` est la notation habituelle des nombres flottants, mais une autre est possible : la notation scientifique.
 Il s'agit de représenter un nombre avec un exposant d'une puissance de 10. Cela aide à écrire les nombres très grands ou très petits.
 
-Par exemple, `3.2e5` est égal à `3.5 * 10**5` soit `320000.0`, et `4e-3` à `4.0 * 10**-3` donc `0.004`
+Par exemple, `3.2e5` est égal à `3.2 * 10**5` soit `320000.0`, et `4e-3` à `4.0 * 10**-3` donc `0.004`
 
 ```pycon
 >>> 3.2e5
@@ -284,7 +284,7 @@ Par ailleurs, on trouve sur ces nombres des attributs `real` et `imag` pour acc�
 (1-2j)
 ```
 
-Bien sûr, les nombres complexes ne sont par ordonnables entre-eux.
+Bien sûr, les nombres complexes ne sont par ordonnables entre eux.
 
 ```pycon
 >>> 1+2j < 2+1j

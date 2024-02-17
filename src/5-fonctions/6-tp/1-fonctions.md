@@ -77,11 +77,15 @@ Elle repose sur plusieurs fonctions, notamment `get_choice_input(choices, error_
 |     if player['pv'] <= 0:
 |         return
 | 
+|     monster_attacks = {}
+| 
 |     print('Joueur', player['id'], 'quelle attaque utilisez-vous ?')
 |     for name in player['monster']['attacks']:
+|         # On récupère les attaques disponibles pour ce monstre
+|         monster_attacks[name] = attacks[name]
 |         print('-', name.capitalize(), -attacks[name]['damages'], 'PV')
 | 
-|     attack = get_choice_input(attacks, 'Attaque invalide')
+|     attack = get_choice_input(monster_attacks, 'Attaque invalide')
 |     apply_attack(attack, opponent)
 | 
 |     print(

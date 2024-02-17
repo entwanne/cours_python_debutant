@@ -38,7 +38,7 @@ Qui s'utilisent de la même manière lors de l'indexation.
 --------------------
 
 En revanche, tout type de données n'est pas accepté comme clé de dictionnaire.
-Vous avez vu vous en rendre compte si vous avez essayé d'y placer une liste ou un dictionnaire.
+Vous avez dû vous en rendre compte si vous avez essayé d'y placer une liste ou un dictionnaire.
 
 ```pycon
 >>> {[]: 0}

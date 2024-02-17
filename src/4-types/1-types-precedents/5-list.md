@@ -270,7 +270,7 @@ Ce même comportement est aussi possible en appelant `list` sur une liste exista
 ```
 
 [[a]]
-| Attention cependant avec les listes multi-dimensionnelles : `copy` ne réalise une copie que du premier niveau de la liste.
+| Attention cependant avec les listes multidimensionnelles : `copy` ne réalise une copie que du premier niveau de la liste.
 
 Ainsi, avec le code qui suit, nous aurons encore des références communes entre les deux listes.
 

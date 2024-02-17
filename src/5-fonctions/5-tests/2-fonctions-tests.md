@@ -29,7 +29,7 @@ AssertionError
 #### Tests unitaires
 
 Le but maintenant va être de réaliser des assertions sur des appels à notre fonction.
-On veut que pour une entrée donnée on obtienne le retour attendu.  
+On veut que pour une entrée donnée, on obtienne le retour attendu.  
 Par exemple `assert my_sum([1, 2, 3]) == 6`.
 
 Afin d'avoir quelque chose de facilement reproductible, on va placer notre assertion dans une fonction `test_my_sum` qu'il nous suffira de réexécuter pour lancer la suite de tests.
@@ -78,7 +78,7 @@ Traceback (most recent call last):
 AssertionError
 ```
 
-Toujours une erreur sur la même assertion, quel est le soucis cette fois ?
+Toujours une erreur sur la même assertion, quel est le souci cette fois ?
 Nous verrons plus loin quelques outils d'aide au débugage, on va pour le moment regarder « manuellement ».
 
 ```pycon
@@ -95,7 +95,7 @@ Nous verrons plus loin quelques outils d'aide au débugage, on va pour le moment
 Il semble bien que c'est le dernier élément de la liste qui est ignoré.  
 On peut ajouter un `print(i)` dans la boucle de notre fonction pour nous en assurer.
 
-Quel est le soucis ? On a oublié que `range(a, b)` itérait sur les entiers `i` tels que `a <= i < b` et non `a <= i <= b`.
+Quel est le souci ? On a oublié que `range(a, b)` itérait sur les entiers `i` tels que `a <= i < b` et non `a <= i <= b`.
 On a donc calculé `size = len(numbers) - 1` comme index du dernier élément alors qu'il aurait fallu l'index après le dernier, simplement `size = len(numbers)`.
 Ce genre d'erreur est très courant et porte un nom, c'est une _off-by-one error_, une erreur de décalage de 1.
 
@@ -126,7 +126,7 @@ On n'a pas non plus testé le cas d'une liste vide.
 Pour ne pas trop surcharger notre fonction `test_my_sum` de cas en tous genres, on va la découper en plusieurs petites fonctions pour séparer les cas bien précis.
 Il sera ainsi plus facile d'identifier quel genre de problème fait buguer notre fonction.
 
-Par commodité on gardera pour le moment une fonction `test_my_sum` générale pour appeler toutes nos autres fonctions et avoir ainsi un unique point d'entrée.
+Par commodité, on gardera pour le moment une fonction `test_my_sum` générale pour appeler toutes nos autres fonctions et avoir ainsi un unique point d'entrée.
 On verra par la suite qu'il est possible d'avoir beaucoup mieux avec les bons outils de tests.
 
 ```python
@@ -174,7 +174,7 @@ Ah, la deuxième assertion (_line 3_) des tests sur les flottants ne fonctionne 
 Et oui, souvenez-vous, l'arithmétique sur les flottants n'est pas la même chose que l'arithmétique sur les nombres décimaux.
 Ici c'est notre test qui est faux, il s'attend à obtenir `0.6` alors que `0.1 + 0.2 + 0.3 == 0.6000000000000001`.
 
-Il existe des fonctions pour tester l'égalité entre flottants avec un seuil de tolérace, nous découvrirons ça dans un prochain chapitre.
+Il existe des fonctions pour tester l'égalité entre flottants avec un seuil de tolérance, nous découvrirons ça dans un prochain chapitre.
 Pour le moment, on va simplement comparer notre résultat avec celui d'une addition entre flottants.
 
 ```python

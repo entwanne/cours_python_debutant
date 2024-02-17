@@ -89,7 +89,7 @@ Le premier élément de `sys.argv` sera toujours présent, notre programme n'aur
 
 #### Sortie standard et sortie d'erreur
 
-Il y a un seul soucis avec notre message d'erreur : celui-ci est imprimé sur la sortie standard.
+Il y a un seul souci avec notre message d'erreur : celui-ci est imprimé sur la sortie standard.
 
 [[q]]
 | Qu'est-ce que la sortie standard ?

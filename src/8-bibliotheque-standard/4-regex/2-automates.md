@@ -1,7 +1,7 @@
 ### Une histoire d'automates
 
 Ce processus que nous venons de réaliser avance pas à pas dans notre chaîne de caractères, identifiant à chaque étape s'il peut continuer ou s'il doit s'arrêter.
-On peut le représenter comme un ensemble d'états (les caracèteres ou motifs attendus dans la chaîne) reliés par des transitions/liens selon quand il est possible de passer d'un état à l'autre.
+On peut le représenter comme un ensemble d'états (les caractères ou motifs attendus dans la chaîne) reliés par des transitions/liens selon quand il est possible de passer d'un état à l'autre.
 
 Voici ainsi une représentation schématique de notre fonction `is_number`, on l'appelle un automate fini.
 
@@ -11,7 +11,7 @@ Figure: Automate `is_number` -- image générée par [regexper](https://regexper
 Cette représentation nous montre que pour qu'une chaîne soit reconnue comme valide, il faut pouvoir trouver un chemin reliant l'état `Start of line` à l'état `End of line` en parcourant les caractères de la chaîne.
 Chaque état traversé consomme un caractère et un état peut être traversé plusieurs fois si les transitions le permettent, formant ainsi une boucle.
 
-Un automate fini est un modèle de calcul qui parcourt des données séquentiellement (notre chaîne caractère par caractère) afin d'identifier des motifs, le tout sans utiliser de mémoire.
+Un automate fini est un modèle de calcul qui parcourt des données séquentiellement (notre chaîne caractère par caractère) afin d'identifier des motifs, le tout sans utiliser de mémoire pour se souvenir des caractères précédents.
 
 L'ensemble des motifs (ou mots) qui peuvent être identifiés par un automate forme ce qu'on appelle un langage.
 Dans notre exemple le langage est formé des représentations de nombres de la forme `123` et `4.56` pouvant être préfixés d'un `+` ou d'un `-`.  

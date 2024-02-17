@@ -18,7 +18,7 @@ Voici le tableau de l'ensemble des mots-clés de Python :
 | `async`    | `elif`     | `if`       | `or`       | `yield`    |
 +------------+------------+------------+------------+------------+
 
-À cela on pourrait aussi ajouter les mots-clés `match` et `case`, qui sont bien des mots-clés mais pas des noms réservés (vous pouvez nommer une variable `match` ou `case` sans soucis).
+À cela on pourrait aussi ajouter les mots-clés `match` et `case`, qui sont bien des mots-clés mais pas des noms réservés (vous pouvez nommer une variable `match` ou `case` sans souci).
 
 * `False` : Valeur `False` du type booléen.
 * `None` : Valeur `None`, qui représente l'absence de valeur.

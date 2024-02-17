@@ -5,7 +5,7 @@ Nous en découvrirons encore bien d'autres dans la suite de ce cours.
 
 #### `strip`
 
-La méthode `strip` vue précédemment retire les espaces aux extrêmités de la chaîne, mais n'affecte pas ceux qui se trouvent au milieu.
+La méthode `strip` vue précédemment retire les espaces aux extrémités de la chaîne, mais n'affecte pas ceux qui se trouvent au milieu.
 
 ```pycon
 >>> ' hello   world '.strip()

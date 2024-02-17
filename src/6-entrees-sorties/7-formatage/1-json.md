@@ -27,7 +27,7 @@ Un document JSON ne peut comporter des valeurs que de 7 types :
 * `boolean`, un booléen donc, `true` ou `false`.
 * `int`, un nombre entier (`42`).
 * `float,` un nombre flottant (`1.5`, `1e10`).
-* `str`, une chaîne de caractère, toujours entre double-guillemets (`"hello world"`).
+* `str`, une chaîne de caractère, toujours entre double guillemets (`"hello world"`).
 * `array`, un tableau de valeurs, équivalent à une liste Python (`[8, "foo"]`).
 * `object`, l'équivalent plus restreint d'un dictionnaire Python : seules les chaînes de caractères peuvent être utilisées en clés, les types des valeurs sont libres (`{"key": [3, 5]}`).
 

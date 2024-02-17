@@ -51,7 +51,7 @@ Mais les listes n'ont pas de limite et l'on pourrait alors voir d'autres subdivi
 | Je vous parlais de l'opérateur de multiplication des listes pour les concaténer, mais que se passe-t-il si on l'utilise sur des listes à plusieurs dimensions ?
 
 Eh bien ça ne fonctionne pas comme prévu !  
-En effet cet opérateur ne crée pas de copies mais duplique les références à une même valeur.
+En effet, cet opérateur ne crée pas de copies mais duplique les références à une même valeur.
 La même sous-liste est alors répétée plusieurs fois dans la liste, provoquant des comportements inattendus en cas de modifications.
 
 ```pycon
@@ -77,7 +77,7 @@ Le code précédent étant en fait équivalent à :
 
 ![Étiquettes dupliquées entre les lignes.](img/list_multiple_dim_ref.png)
 
-Ce comportement de duplication des références n'est pas propre aux listes multi-dimensionnelles.  
+Ce comportement de duplication des références n'est pas propre aux listes multidimensionnelles.  
 Un code tel que `[0] * 10` duplique aussi 10 fois la référence à la valeur `0`, mais cela ne pose pas de problème particulier car les nombres ne sont pas des valeurs modifiables.
 Le comportement apparaît donc problématique dans le cas des sous-listes en raison de leur mutabilité.
 

@@ -52,7 +52,7 @@ On peut voir l'itération comme un curseur qui se déplace le long de notre list
 
 Comme toute variable, il nous est aussi possible de la redéfinir, mais attention : il ne s'agit que d'une variable assignée à un élément de la liste, elle n'est en aucune manière liée à la liste.  
 Donc redéfinir la variable n'aura aucun effet sur la liste qui restera inchangée.
-Et le redéfinition n'est que temporaire, puisque la variable sera assignée à une nouvelle valeur de la liste à la prochaine itération.
+Et la redéfinition n'est que temporaire, puisque la variable sera assignée à une nouvelle valeur de la liste à la prochaine itération.
 
 ```pycon
 >>> for elem in numbers:

@@ -43,7 +43,7 @@ IndexError: list index out of range
 
 En effet, nos appels récursifs finissent par appeler `my_sum([])` qui échoue car n'a pas de premier élément (`numbers[0]`).
 
-Le soucis c'est que c'est à nous de gérer explicitement la condition de fin et que nous ne l'avons pas fait.
+Le souci est que c'est à nous de gérer explicitement la condition de fin et que nous ne l'avons pas fait.
 Ici la condition de fin est facilement identifiable, la somme des nombres d'une liste vide est toujours nulle.
 On devrait donc, dans le cas où l'on rencontre une liste vide, renvoyer directement zéro.
 

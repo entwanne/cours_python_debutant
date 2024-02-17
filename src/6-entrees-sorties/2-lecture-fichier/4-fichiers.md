@@ -159,7 +159,7 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: 'Hello World!\n'
 ```
 
-L'erreurs survient toujours, mais cette fois-ci la ressource a correctement été libérée, le mécanisme est géré par Python.
+L'erreur survient toujours, mais cette fois-ci la ressource a correctement été libérée, le mécanisme est géré par Python.
 
 [[i]]
 | Quand vous manipulez des fichiers, utilisez donc toujours un bloc `with` pour éviter les soucis.

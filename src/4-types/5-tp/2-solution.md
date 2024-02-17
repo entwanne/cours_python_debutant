@@ -90,7 +90,7 @@ On retrouve maintenant la solution à ce TP, qui se rapproche de plus en plus d'
 | print('Le joueur', winner['id'], 'remporte le combat avec', winner['monster']['name'])
 | ```
 
-À l'exécution on a bien quelque chose d'assez clair sur le déroulement du jeu.
+À l'exécution, on a bien quelque chose d'assez clair sur le déroulement du jeu.
 
 ```text
 Monstres disponibles :

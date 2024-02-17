@@ -7,7 +7,7 @@ Cela permet de plus de profiter des dernières nouveautés du langage, car Pytho
 
 Ainsi, faite votre choix selon les versions proposées par votre système d'exploitation, mais sachez que je  ne garantis pas le bon fonctionnement des exemples du tutoriel pour les versions antérieures à la 3.6.
 
-Python suit depuis 2019 un cycle annuel de sortie, chaque nouvelle version paraîssant au mois d'octobre.
+Python suit depuis 2019 un cycle annuel de sortie, chaque nouvelle version paraissant au mois d'octobre.
 Le calendrier de support des versions de Python est disponible sur [la page de téléchargements du site officiel](https://www.python.org/downloads/).
 
 Même si la question du choix de version est aujourd'hui simple, elle s'est longtemps posée en raison de la coexistence entre Python 2 et Python 3.

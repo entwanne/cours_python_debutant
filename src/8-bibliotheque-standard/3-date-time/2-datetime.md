@@ -115,7 +115,7 @@ On notera que ces options de formatage sont aussi disponibles au sein des _fstri
 '01/10/2021 14:19+0000'
 ```
 
-L'opération inverse est elle aussi possible (mais plus compliquée) avec la méthode `strptime` : on spécifie le chaîne représentant la date et le format attendu en arguments, la méthode nous renvoie alors l'objet `datetime` correspondant.
+L'opération inverse est elle aussi possible (mais plus compliquée) avec la méthode `strptime` : on spécifie la chaîne représentant la date et le format attendu en arguments, la méthode nous renvoie alors l'objet `datetime` correspondant.
 
 ```pycon
 >>> datetime.datetime.strptime('01/10/2021 14:19+0000', '%d/%m/%Y %H:%M%z')

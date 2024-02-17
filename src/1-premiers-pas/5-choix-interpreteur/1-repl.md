@@ -8,6 +8,6 @@ De plus tout code tapé dans l'interpréteur interactif est à usage unique : i
 
 [[i]]
 | Au long de ce cours j'utiliserai parfois le terme de *REPL* pour désigner l'interpréteur interactif.
-| il signifie *Read-Evaluate-Print Loop*, soit un programme chargé de lire, évaluer et afficher en boucle ce qu'on lui demande.
+| Il signifie *Read-Evaluate-Print Loop*, soit un programme chargé de lire, évaluer et afficher en boucle ce qu'on lui demande.
 |
 | C'est un terme plus générique que l'on rencontre aussi dans d'autres langages.

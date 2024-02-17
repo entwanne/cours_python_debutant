@@ -45,7 +45,7 @@ On a déjà vu de nombreux motifs dans le début du chapitre, mais laissez-moi i
 
 ##### Échappement (`\`)
 
-L'antislash utilisé devant un caractère spécial du motif permet de lui faire faire son aspect spécial et de l'utiliser comme un caractère normal. `\+` identifie le caractère `+`.
+L'antislash utilisé devant un caractère spécial du motif permet de lui faire perdre son aspect spécial et de l'utiliser comme un caractère normal. `\+` identifie le caractère `+`.
 
 ```pycon
 >>> re.match(r'\.\+\$', '.+$')
@@ -108,7 +108,7 @@ Il est possible d'omettre l'une ou l'autre des bornes de l'intervalle. `{,n}` se
 ##### Groupes (`(...)`)
 
 Les parenthèses permettent de prioriser une sous-expression mais aussi de former un groupe de capture.
-Lors d'un appel valide à `re.fullmatch` par exemple, l'objet `re.Match` renvoyé permet d'accéder aux différentes valeurs des groupes capturés.  
+Lors d'un appel valide à `re.fullmatch` par exemple, l'objet `re.Match` renvoyé donne accès aux différentes valeurs des groupes capturés.  
 Chaque groupe est identifié par un nombre correspondant à sa position dans l'expression, et le groupe 0 correspond à la chaîne entière.
 
 ```pycon
@@ -266,7 +266,7 @@ Là encore, `\W` (notez la majuscule) identifie le motif inverse, soit les carac
 <re.Match object; span=(0, 2), match='.?'>
 ```
 
-La séquence `\s` identifie un caractère d'espacement, et `\S` un autre caractère.
+La séquence `\s` identifie un caractère d'espacement, et `\S` un caractère qui n'est pas un espacement.
 
 ```pycon
 >>> re.fullmatch(r'\s', ' ')
