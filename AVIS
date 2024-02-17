@@ -1,23 +1,22 @@
-ToxicScorpius : https://discord.com/channels/547038592892010516/618782711410327562/788132886117089310 -- 20h58 à 22h
+- [x] ToxicScorpius : https://discord.com/channels/547038592892010516/618782711410327562/788132886117089310 -- 20h58 à 22h
 
 -----
 
 Antonin:
 
-Lexique : Haskell, SETL, éditeur de texte (bloc notes)
-Plus expliquer pourquoi il faut choisir les versions récentes et ce que signifie une version non maintenue
-Supprimer terme REPL (ou placer entre parenthèses après "interpréteur interactif)
+- [ ] Lexique : Haskell, SETL, éditeur de texte (bloc notes)
+- [ ] Plus expliquer pourquoi il faut choisir les versions récentes et ce que signifie une version non maintenue
+- [ ] Supprimer terme REPL (ou placer entre parenthèses après "interpréteur interactif)
 
-Erreurs classiques: appeler une fonction sans parenthèses (`abs -6`)
+- [ ] Erreurs classiques: appeler une fonction sans parenthèses (`abs -6`)
 
 --
 
-- Expliciter Haskell, SETL
-- Expliciter ce qu'est un langage de programmation, comment communiquer avec la machine
-- Qu'est-ce que ça apporte d'écrire du Python / de créer un programme ?
-- Comment créer un fichier avec geany
-- Geany: le terminal ne doit pas avoir le focus pour Ctrl+O
-- Insister sur la différence entre interpréteur système et interpréteur python (pas la même invite de commande)
-- Expliciter dans les exemples pycon ce qu'est l'entrée utilisateur et ce qu'est la sortie de Python
-- `>>` → `>>>`
-- Bases sur l'utilisation d'un terminal
+- [ ] Expliciter Haskell, SETL
+- [ ] Expliciter ce qu'est un langage de programmation, comment communiquer avec la machine
+- [ ] Qu'est-ce que ça apporte d'écrire du Python / de créer un programme ?
+- [ ] Comment créer un fichier avec geany
+- [ ] Geany: le terminal ne doit pas avoir le focus pour Ctrl+O
+- [ ] Insister sur la différence entre interpréteur système et interpréteur python (pas la même invite de commande)
+- [ ] Expliciter dans les exemples pycon ce qu'est l'entrée utilisateur et ce qu'est la sortie de Python
+- [ ] Bases sur l'utilisation d'un terminal

@@ -1,12 +1,13 @@
-- Chapitre annexe (ou dernier chapitre) : Développer en Python (git, tests, packaging, penser Python)
-- Ajouter chapitre annexe "concentré de Python" : 1 chapitre et quelques exemples pour survoler toute la syntaxe python (inspiré de https://fasterthanli.me/blog/2020/a-half-hour-to-learn-rust/)
-- Expliciter le == or: `if a == 'x' or 'y'` n'est pas une bonne comparaison
-- Ajouter cheat sheet
-- Chapitre "dessine-moi une tortue" (turtle) après les algos
-- "Quel intérêt me demanderez-vous de stocker les valeurs dans une liste plutôt que dans différentes variables ?"
-* Noms de variables/fonctions sensibles à la casse
-* Renvoyer un booléen : `return a == b` plutôt que `if a == b: return True`
-* Présentation d'IDLE : open file, open module, run module, module browser, etc. (run module incompatible avec les packages)
-* tutoiement/vouvoiement: adopter le tutoiement uniquement pour l'intro ? -> semble ok, basculer peu à peu sur le nous/vous à la fin de l'intro
-* Chapitre annexe "différences Python 2/3"
-* Chapitre annexe sur les flags de formatage (différentes options, !a, !r)
+- [ ] Chapitre annexe (ou dernier chapitre) : Développer en Python (git, tests, packaging, penser Python)
+- [ ] Ajouter chapitre annexe "concentré de Python" : 1 chapitre et quelques exemples pour survoler toute la syntaxe python (inspiré de https://fasterthanli.me/blog/2020/a-half-hour-to-learn-rust/)
+- [ ] Expliciter le == or: `if a == 'x' or 'y'` n'est pas une bonne comparaison
+- [ ] Ajouter cheat sheet
+- [ ] Chapitre "dessine-moi une tortue" (turtle) après les algos
+- [ ] "Quel intérêt me demanderez-vous de stocker les valeurs dans une liste plutôt que dans différentes variables ?"
+* [x] Noms de variables/fonctions sensibles à la casse
+* [ ] Renvoyer un booléen : `return a == b` plutôt que `if a == b: return True`
+* [ ] Présentation d'IDLE : open file, open module, run module, module browser, etc. (run module incompatible avec les packages)
+* [x] tutoiement/vouvoiement: adopter le tutoiement uniquement pour l'intro ? -> semble ok, basculer peu à peu sur le nous/vous à la fin de l'intro
+* [ ] Chapitre annexe "différences Python 2/3"
+* [ ] Chapitre annexe sur les flags de formatage (différentes options, !a, !r)
+* [ ] Revenir sur le commit TOREVERT! qui précisait des chapitres annexes pas encore écrits
